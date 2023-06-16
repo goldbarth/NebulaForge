@@ -38,11 +38,11 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 0
+    m_Mode: 1
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   PlanetMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
-  PlanetRadius: 1.7
+  PlanetRadius: 10
   NoiseLayers:
   - Enabled: 1
     UseFirstLayerAsMask: 0
