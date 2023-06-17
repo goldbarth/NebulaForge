@@ -6,10 +6,14 @@ public class SurfaceElevationGradient
 
     private PlanetSettings _settings;
     private Texture2D _texture;
+    
+    private PlanetColorType _planetColorType;
 
-    public void UpdateSettings(PlanetSettings settings)
+    public void UpdateSettings(PlanetColorType planetColorType, PlanetSettings settings)
     {
+        _planetColorType = planetColorType;
         _settings = settings;
+        
         if (_texture == null)
             _texture = new Texture2D(TextureResolution, 1, TextureFormat.RGBA32, false);
     }
@@ -23,10 +27,34 @@ public class SurfaceElevationGradient
     {
         var colors = new Color[TextureResolution];
         for (int textureResolutionIndex = 0; textureResolutionIndex < TextureResolution; textureResolutionIndex++)
-            colors[textureResolutionIndex] = _settings.Gradient.Evaluate(textureResolutionIndex / (TextureResolution - 1f));
+            colors[textureResolutionIndex] = GradientColor().Evaluate(textureResolutionIndex / (TextureResolution - 1f));
         
         _texture.SetPixels(colors);
         _texture.Apply();
         _settings.PlanetMaterial.SetTexture("_Planet_Texture", _texture);
+    }
+
+    private Gradient GradientColor()
+    {
+        switch (_planetColorType)
+        {
+            case PlanetColorType.Habitat:
+                return _settings.HabitatColors;
+            case PlanetColorType.Candy:
+                return _settings.CandyColors;
+            case PlanetColorType.Custom:
+                return _settings.CustomColors;
+            case PlanetColorType.Default:
+                return new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                        new GradientColorKey(Color.white, 0f),
+                        new GradientColorKey(Color.white, 1f)
+                    }
+                };
+            default:
+                return new Gradient();
+        }
     }
 }

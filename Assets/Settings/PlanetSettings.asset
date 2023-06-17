@@ -12,27 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: PlanetSettings
   m_EditorClassIdentifier: 
-  Gradient:
+  HabitatColors:
     serializedVersion: 2
-    key0: {r: 0.62535375, g: 0.3339622, b: 1, a: 1}
-    key1: {r: 0.40155882, g: 0.30588236, b: 0.7254902, a: 1}
-    key2: {r: 0.14524738, g: 0.754717, b: 0.49743715, a: 1}
-    key3: {r: 0.33436382, g: 0.1668209, b: 0.6226415, a: 0}
-    key4: {r: 0.19784619, g: 0.3205869, b: 0.4245283, a: 0}
-    key5: {r: 0, g: 0.8301887, b: 0.68531483, a: 0}
-    key6: {r: 1, g: 1, b: 1, a: 0}
+    key0: {r: 0.3230687, g: 0.40850842, b: 0.7075472, a: 1}
+    key1: {r: 0.9056604, g: 0.825483, b: 0.41352794, a: 1}
+    key2: {r: 0.27493772, g: 0.735849, b: 0.23186183, a: 0}
+    key3: {r: 0.6037736, g: 0.35672715, b: 0.17885366, a: 0}
+    key4: {r: 0.2830189, g: 0.12534387, b: 0.012014948, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 4412
-    ctime1: 8441
-    ctime2: 16883
-    ctime3: 26091
+    ctime0: 192
+    ctime1: 4988
+    ctime2: 14772
+    ctime3: 25324
     ctime4: 51607
     ctime5: 65535
-    ctime6: 65535
+    ctime6: 0
     ctime7: 0
     atime0: 0
     atime1: 65535
-    atime2: 65535
+    atime2: 0
     atime3: 0
     atime4: 0
     atime5: 0
@@ -41,8 +41,68 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
+  CandyColors:
+    serializedVersion: 2
+    key0: {r: 0.64638865, g: 0.37254906, b: 1, a: 1}
+    key1: {r: 0.40155882, g: 0.30588236, b: 0.7254902, a: 1}
+    key2: {r: 0.14524738, g: 0.754717, b: 0.49743715, a: 0}
+    key3: {r: 0.33436382, g: 0.1668209, b: 0.6226415, a: 0}
+    key4: {r: 0.8128841, g: 0.46521893, b: 0.8301887, a: 0}
+    key5: {r: 0, g: 0.8301887, b: 0.40784314, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 3470
+    ctime2: 10216
+    ctime3: 26091
+    ctime4: 51607
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  CustomColors:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0.6361711, b: 0, a: 1}
+    key2: {r: 1, g: 0.31807843, b: 0, a: 0}
+    key3: {r: 1, g: 0.02934311, b: 0, a: 0}
+    key4: {r: 1, g: 0.92001176, b: 0, a: 0}
+    key5: {r: 1, g: 0.6129213, b: 0, a: 0}
+    key6: {r: 0.8679245, g: 0.23155391, b: 0, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
+    ctime0: 2686
+    ctime1: 15348
+    ctime2: 18225
+    ctime3: 19377
+    ctime4: 21487
+    ctime5: 35875
+    ctime6: 51223
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
   PlanetMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
   OceanMaterial: {fileID: 2100000, guid: e45a76fa25a67ed4b810bfcc5165ee08, type: 2}
+  Cloud: {fileID: 2100000, guid: 4e14364d70bcaf04783eac4ac6e27db7, type: 2}
+  SolidMaterial: {fileID: 0}
   NoiseLayers:
   - Enabled: 1
     UseFirstLayerAsMask: 0

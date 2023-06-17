@@ -12,10 +12,20 @@ public enum FaceRenderMask
     Back
 }
 
-public enum PlanetShapeType
+public enum ObjectType
 {
-    WithOutElevation,
-    WithElevation
+    OceanSphere,
+    SolidSphere,
+    TerrestrialBody,
+    Clouds
+}
+
+public enum PlanetColorType
+{
+    Habitat,
+    Candy,
+    Custom,
+    Default
 }
 
 [ExecuteInEditMode]
@@ -28,8 +38,10 @@ public class PlanetGenerator : MonoBehaviour
     [SerializeField, Range(2, 255)] private int _resolution = 2;
     [SerializeField, Range(0, 50)] private float _planetRadius = 10f;
     
-    [SerializeField, Space] private PlanetShapeType _planetShapeType;
-    [SerializeField] private FaceRenderMask _faceRenderMask;
+    [Header("Planet Surface Settings")]
+    [SerializeField, Space(3)] private ObjectType _objectType;
+    [SerializeField, Space(5)] private PlanetColorType _planetColorType;
+    [SerializeField, Space(3)] private FaceRenderMask _faceRenderMask;
     
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
     [HideInInspector] public bool ShapeSettingsFoldout;
@@ -97,7 +109,7 @@ public class PlanetGenerator : MonoBehaviour
                 var mesh = new Mesh { name = $"TerrainMesh_{cubeFaceIndex}" };
                 meshFilter.sharedMesh = mesh;
 
-                _terrainFaces[cubeFaceIndex] = new TerrainFace(_planetShapeType, _surfaceShape, mesh, directions[cubeFaceIndex]);
+                _terrainFaces[cubeFaceIndex] = new TerrainFace(_objectType, _surfaceShape, mesh, directions[cubeFaceIndex]);
             }
             
             AddShapeMaterial(_meshRenderer, cubeFaceIndex);
@@ -109,19 +121,25 @@ public class PlanetGenerator : MonoBehaviour
     
     private void UpdateSurfaceSettings()
     {
-        _surfaceShape.UpdateSettings(_settings, this);
-        _surfaceElevationGradient.UpdateSettings(_settings);
+        _surfaceElevationGradient.UpdateSettings(_planetColorType, _settings);
+        _surfaceShape.UpdateSettings(this, _settings);
     }
     
     private void AddShapeMaterial(MeshRenderer[] meshRenderer, int cubeFaces)
     {
-        switch (_planetShapeType)
+        switch (_objectType)
         {
-            case PlanetShapeType.WithOutElevation:
+            case ObjectType.OceanSphere:
                 meshRenderer[cubeFaces].sharedMaterial = _settings.OceanMaterial;
                 break;
-            case PlanetShapeType.WithElevation:
+            case ObjectType.TerrestrialBody:
                 meshRenderer[cubeFaces].sharedMaterial = _settings.PlanetMaterial;
+                break;
+            case ObjectType.SolidSphere:
+                meshRenderer[cubeFaces].sharedMaterial = _settings.SolidMaterial;
+                break;
+            case ObjectType.Clouds:
+                meshRenderer[cubeFaces].sharedMaterial = _settings.CloudsMaterial;
                 break;
         }
     }
@@ -133,7 +151,7 @@ public class PlanetGenerator : MonoBehaviour
             
     public void OnColorSettingsUpdated()
     {
-        UpdateGradient();
+        UpdateGradientColors();
     }
     
     private void GenerateMesh()
@@ -149,7 +167,7 @@ public class PlanetGenerator : MonoBehaviour
         _surfaceElevationGradient.UpdateElevation(_surfaceShape.ElevationMinMax);
     }
 
-    private void UpdateGradient()
+    private void UpdateGradientColors()
     {
         _surfaceElevationGradient.UpdateGradient();
     }

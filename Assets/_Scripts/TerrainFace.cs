@@ -7,14 +7,14 @@ public class TerrainFace
     private readonly SurfaceShape _surfaceShape;
     private readonly Mesh _mesh;
     
-    private readonly PlanetShapeType _planetShapeType;
+    private readonly ObjectType _objectType;
     private readonly Vector3 _upDirection;
     private readonly Vector3 _axisA;
     private readonly Vector3 _axisB;
 
-    public TerrainFace(PlanetShapeType planetShapeType, SurfaceShape surfaceShape, Mesh mesh, Vector3 upDirection)
+    public TerrainFace(ObjectType objectType, SurfaceShape surfaceShape, Mesh mesh, Vector3 upDirection)
     {
-        _planetShapeType = planetShapeType;
+        _objectType = objectType;
         _surfaceShape = surfaceShape;
         _upDirection = upDirection;
         _mesh = mesh;
@@ -41,7 +41,7 @@ public class TerrainFace
             // calculating the position of each vertex on the unit sphere, instead of normalizing the cube position
             var spherePosition = _surfaceShape.CalculateSeamlessEdges(cubePosition);
             // calculating the position of each vertex on the planet surface
-            var planetPosition = spherePosition + _surfaceShape.EvaluateShapeType(spherePosition, _planetShapeType);
+            var planetPosition = spherePosition + _surfaceShape.EvaluateShapeType(spherePosition, _objectType);
             
             vertices[index] = planetPosition; // assign vertex position
             uv[index] = new Vector2(percent.x, percent.y); // assign UV coordinates

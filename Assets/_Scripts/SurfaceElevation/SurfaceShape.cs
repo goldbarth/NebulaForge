@@ -9,7 +9,7 @@ public class SurfaceShape
     private PlanetGenerator _planetGenerator;
     private PlanetSettings _settings;
 
-    public void UpdateSettings(PlanetSettings settings, PlanetGenerator planetGenerator)
+    public void UpdateSettings(PlanetGenerator planetGenerator, PlanetSettings settings)
     {
         _noiseFilters = new INoiseFilter[settings.NoiseLayers.Length];
         ElevationMinMax = new MinMax();
@@ -35,20 +35,29 @@ public class SurfaceShape
         return new Vector3(xPrime, yPrime, zPrime);
     }
     
-    public Vector3 EvaluateShapeType(Vector3 spherePosition, PlanetShapeType shapeType)
+    public Vector3 EvaluateShapeType(Vector3 spherePosition, ObjectType type)
     {
-        switch (shapeType)
+        switch (type)
         {
-            case PlanetShapeType.WithOutElevation:
-                return spherePosition.normalized * PlanetRadius();
-            case PlanetShapeType.WithElevation:
-                return CalculateElevation(spherePosition);
+            case ObjectType.OceanSphere:
+                return NormalizedSphere(spherePosition);
+            case ObjectType.SolidSphere:
+                return NormalizedSphere(spherePosition);
+            case ObjectType.Clouds:
+                return NormalizedSphere(spherePosition);
+            case ObjectType.TerrestrialBody:
+                return TerrainElevation(spherePosition);
             default:
                 return Vector3.zero;
         }
     }
 
-    private Vector3 CalculateElevation(Vector3 spherePosition)
+    private Vector3 NormalizedSphere(Vector3 spherePosition)
+    {
+        return spherePosition.normalized * PlanetRadius();
+    }
+
+    private Vector3 TerrainElevation(Vector3 spherePosition)
     {
         var firstLayerValue = 0f; // first layer is used for mask
         var elevation = 0f;
