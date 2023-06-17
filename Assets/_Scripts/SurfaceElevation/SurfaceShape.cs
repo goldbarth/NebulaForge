@@ -4,21 +4,24 @@ public class SurfaceShape
 {
     public MinMax ElevationMinMax;
     
-    private PlanetGenerator _planet;
-    private PlanetSettings _settings;
     private INoiseFilter[] _noiseFilters;
+    
+    private PlanetGenerator _planetGenerator;
+    private PlanetSettings _settings;
 
-    public void UpdateSettings(PlanetSettings settings)
+    public void UpdateSettings(PlanetSettings settings, PlanetGenerator planetGenerator)
     {
         _noiseFilters = new INoiseFilter[settings.NoiseLayers.Length];
-        _settings = settings;
-        for (int noiseFilterIndex = 0; noiseFilterIndex < _noiseFilters.Length; noiseFilterIndex++)
-            _noiseFilters[noiseFilterIndex] = NoiseFilterFactory.CreateNoiseFilter(settings.NoiseLayers[noiseFilterIndex].NoiseSettings);
-        
         ElevationMinMax = new MinMax();
+        
+        _planetGenerator = planetGenerator;
+        _settings = settings;
+        
+        for (int layerIndex = 0; layerIndex < NoiseFilterCount(); layerIndex++)
+            _noiseFilters[layerIndex] = NoiseFilterFactory.CreateNoiseFilter(settings.NoiseLayers[layerIndex].NoiseSettings);
     }
     
-    // makes the faces of the cube seamless when translated to a sphere
+    // makes the mesh face edges seamless when translated to a sphere
     public Vector3 CalculateSeamlessEdges(Vector3 cubePosition)
     {
         var x2 = cubePosition.x * cubePosition.x;
@@ -32,12 +35,25 @@ public class SurfaceShape
         return new Vector3(xPrime, yPrime, zPrime);
     }
     
-    public Vector3 CalculateSphereSurface(Vector3 spherePosition)
+    public Vector3 EvaluateShapeType(Vector3 spherePosition, PlanetShapeType shapeType)
     {
-        var firstLayerValue = 0f; // used for mask
+        switch (shapeType)
+        {
+            case PlanetShapeType.WithOutElevation:
+                return spherePosition.normalized * PlanetRadius();
+            case PlanetShapeType.WithElevation:
+                return CalculateElevation(spherePosition);
+            default:
+                return Vector3.zero;
+        }
+    }
+
+    private Vector3 CalculateElevation(Vector3 spherePosition)
+    {
+        var firstLayerValue = 0f; // first layer is used for mask
         var elevation = 0f;
 
-        if (_noiseFilters.Length > 0)
+        if (NoiseFilterCount() > 0)
         {
             firstLayerValue = _noiseFilters[0].EvaluateNoiseValue(spherePosition);
             if (_settings.NoiseLayers[0].Enabled)
@@ -45,18 +61,28 @@ public class SurfaceShape
         }
         
         // exclude the first layer from the loop, because we already calculated it
-        for (int noiseFilterIndex = 1; noiseFilterIndex < _noiseFilters.Length; noiseFilterIndex++)
+        for (int layerIndex = 1; layerIndex < NoiseFilterCount(); layerIndex++)
         {
-            if (_settings.NoiseLayers[noiseFilterIndex].Enabled)
+            if (_settings.NoiseLayers[layerIndex].Enabled)
             {
-                // if we are using the first layer as a mask, we will use the first layer value, otherwise we will use 1, which will not affect the elevation
-                var mask = _settings.NoiseLayers[noiseFilterIndex].UseFirstLayerAsMask ? firstLayerValue : 1;
-                elevation += _noiseFilters[noiseFilterIndex].EvaluateNoiseValue(spherePosition) * mask; // multiply with the mask will effect that the noise will only be applied to the areas where the first layer is
+                // we use the first layer as a mask for the other layers
+                var mask = _settings.NoiseLayers[layerIndex].UseFirstLayerAsMask ? firstLayerValue : 1;
+                elevation += _noiseFilters[layerIndex].EvaluateNoiseValue(spherePosition) * mask;
             }
         }
 
-        elevation = _settings.PlanetRadius * (1 + elevation);
-        ElevationMinMax.AddValue(elevation); // add the elevation to the min max class to keep track of the min and max elevation
+        elevation = PlanetRadius() * (1 + elevation);
+        ElevationMinMax.AddValue(elevation);
         return spherePosition * elevation;
+    }
+
+    private int NoiseFilterCount()
+    {
+        return _noiseFilters.Length;
+    }
+    
+    private float PlanetRadius()
+    {
+        return _planetGenerator.PlanetRadius;
     }
 }

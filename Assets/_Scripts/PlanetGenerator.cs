@@ -12,17 +12,29 @@ public enum FaceRenderMask
     Back
 }
 
+public enum PlanetShapeType
+{
+    WithOutElevation,
+    WithElevation
+}
+
+[ExecuteInEditMode]
 public class PlanetGenerator : MonoBehaviour
 {
     [Header("Assets")]
     [SerializeField] private PlanetSettings _settings;
+    
     [Header("Visual Settings")]
     [SerializeField, Range(2, 255)] private int _resolution = 2;
+    [SerializeField, Range(0, 50)] private float _planetRadius = 10f;
+    
+    [SerializeField, Space] private PlanetShapeType _planetShapeType;
     [SerializeField] private FaceRenderMask _faceRenderMask;
+    
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
-
     [HideInInspector] public bool ShapeSettingsFoldout;
     public PlanetSettings Settings => _settings;
+    public float PlanetRadius => _planetRadius;
 
     private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
     private readonly SurfaceShape _surfaceShape = new();
@@ -33,8 +45,8 @@ public class PlanetGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _surfaceElevationGradient.UpdateSettings(_settings);
-        _surfaceShape.UpdateSettings(_settings);
+        UpdateSurfaceSettings();
+        
         _terrainFaces = new TerrainFace[_cubeFaces];
         _meshRenderer = new MeshRenderer[_cubeFaces];
     }
@@ -53,7 +65,6 @@ public class PlanetGenerator : MonoBehaviour
     {
         // we using linq cast to avoid allocate memory. we also want to use reverse to destroy child objects in reverse order
         // to prevent to destroy only even numbered child objects(as in my testing). preventing a double foreach with a list.
-        // and a reverse for loop doesn't work in edit mode.
         var children = transform.Cast<Transform>().Reverse();
         foreach (var child in children)
             DestroyImmediate(child.gameObject);
@@ -61,8 +72,7 @@ public class PlanetGenerator : MonoBehaviour
 
     private void Initialize()
     {
-        _surfaceShape.UpdateSettings(_settings);
-        _surfaceElevationGradient.UpdateSettings(_settings);
+        UpdateSurfaceSettings();
 
         if (_meshRenderer == null || _meshRenderer.Length == 0)
             _meshRenderer = new MeshRenderer[_cubeFaces];
@@ -87,13 +97,32 @@ public class PlanetGenerator : MonoBehaviour
                 var mesh = new Mesh { name = $"TerrainMesh_{cubeFaceIndex}" };
                 meshFilter.sharedMesh = mesh;
 
-                _terrainFaces[cubeFaceIndex] = new TerrainFace(_surfaceShape, mesh, directions[cubeFaceIndex]);
+                _terrainFaces[cubeFaceIndex] = new TerrainFace(_planetShapeType, _surfaceShape, mesh, directions[cubeFaceIndex]);
             }
             
+            AddShapeMaterial(_meshRenderer, cubeFaceIndex);
             
-            _meshRenderer[cubeFaceIndex].sharedMaterial = _settings.PlanetMaterial;
             var renderFace = _faceRenderMask == FaceRenderMask.All || (int) _faceRenderMask - 1 == cubeFaceIndex;
             _meshRenderer[cubeFaceIndex].enabled = renderFace;
+        }
+    }
+    
+    private void UpdateSurfaceSettings()
+    {
+        _surfaceShape.UpdateSettings(_settings, this);
+        _surfaceElevationGradient.UpdateSettings(_settings);
+    }
+    
+    private void AddShapeMaterial(MeshRenderer[] meshRenderer, int cubeFaces)
+    {
+        switch (_planetShapeType)
+        {
+            case PlanetShapeType.WithOutElevation:
+                meshRenderer[cubeFaces].sharedMaterial = _settings.OceanMaterial;
+                break;
+            case PlanetShapeType.WithElevation:
+                meshRenderer[cubeFaces].sharedMaterial = _settings.PlanetMaterial;
+                break;
         }
     }
 
@@ -104,7 +133,7 @@ public class PlanetGenerator : MonoBehaviour
             
     public void OnColorSettingsUpdated()
     {
-        GenerateColor();
+        UpdateGradient();
     }
     
     private void GenerateMesh()
@@ -120,7 +149,7 @@ public class PlanetGenerator : MonoBehaviour
         _surfaceElevationGradient.UpdateElevation(_surfaceShape.ElevationMinMax);
     }
 
-    private void GenerateColor()
+    private void UpdateGradient()
     {
         _surfaceElevationGradient.UpdateGradient();
     }
