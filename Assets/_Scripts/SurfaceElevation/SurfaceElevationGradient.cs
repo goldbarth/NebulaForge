@@ -4,13 +4,15 @@ public class SurfaceElevationGradient
 {
     private const int TextureResolution = 50;
 
+    private SurfaceSettingsManifold _surfaceSettings;
     private PlanetSettings _settings;
     private Texture2D _texture;
     
     private PlanetColorType _planetColorType;
 
-    public void UpdateSettings(PlanetColorType planetColorType, PlanetSettings settings)
+    public void UpdateSettings(PlanetColorType planetColorType, PlanetSettings settings, SurfaceSettingsManifold surfaceSettings)
     {
+        _surfaceSettings = surfaceSettings;
         _planetColorType = planetColorType;
         _settings = settings;
         
@@ -20,18 +22,18 @@ public class SurfaceElevationGradient
 
     public void UpdateElevation(MinMax elevationMinMax)
     {
-        _settings.PlanetMaterial.SetVector("_Elevation_Min_Max", new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
+        _settings.SurfaceSettings.PlanetMaterial.SetVector("_Elevation_Min_Max", new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
     }
 
     public void UpdateGradient()
     {
         var colors = new Color[TextureResolution];
         for (int textureResolutionIndex = 0; textureResolutionIndex < TextureResolution; textureResolutionIndex++)
-            colors[textureResolutionIndex] = GradientColor().Evaluate(textureResolutionIndex / (TextureResolution - 1f));
+            colors[textureResolutionIndex] = _surfaceSettings.GradientColor().Evaluate(textureResolutionIndex / (TextureResolution - 1f));
         
         _texture.SetPixels(colors);
         _texture.Apply();
-        _settings.PlanetMaterial.SetTexture("_Planet_Texture", _texture);
+        _settings.SurfaceSettings.PlanetMaterial.SetTexture("_Planet_Texture", _texture);
     }
 
     private Gradient GradientColor()
@@ -39,11 +41,11 @@ public class SurfaceElevationGradient
         switch (_planetColorType)
         {
             case PlanetColorType.Habitat:
-                return _settings.HabitatColors;
+                return _settings.SurfaceSettings.HabitatColors;
             case PlanetColorType.Candy:
-                return _settings.CandyColors;
+                return _settings.SurfaceSettings.CandyColors;
             case PlanetColorType.Custom:
-                return _settings.CustomColors;
+                return _settings.SurfaceSettings.CustomColors;
             case PlanetColorType.Default:
                 return new Gradient
                 {

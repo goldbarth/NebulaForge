@@ -13,7 +13,7 @@ public class SurfaceShape
     {
         _noiseFilters = new INoiseFilter[settings.NoiseLayers.Length];
         ElevationMinMax = new MinMax();
-        
+
         _planetGenerator = planetGenerator;
         _settings = settings;
         
@@ -35,29 +35,12 @@ public class SurfaceShape
         return new Vector3(xPrime, yPrime, zPrime);
     }
     
-    public Vector3 EvaluateShapeType(Vector3 spherePosition, ObjectType type)
-    {
-        switch (type)
-        {
-            case ObjectType.OceanSphere:
-                return NormalizedSphere(spherePosition);
-            case ObjectType.SolidSphere:
-                return NormalizedSphere(spherePosition);
-            case ObjectType.Clouds:
-                return NormalizedSphere(spherePosition);
-            case ObjectType.TerrestrialBody:
-                return TerrainElevation(spherePosition);
-            default:
-                return Vector3.zero;
-        }
-    }
-
-    private Vector3 NormalizedSphere(Vector3 spherePosition)
+    public Vector3 NormalizedSphere(Vector3 spherePosition)
     {
         return spherePosition.normalized * PlanetRadius();
     }
 
-    private Vector3 TerrainElevation(Vector3 spherePosition)
+    public Vector3 TerrainElevation(Vector3 spherePosition)
     {
         var firstLayerValue = 0f; // first layer is used for mask
         var elevation = 0f;
