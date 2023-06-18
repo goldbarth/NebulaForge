@@ -10,6 +10,7 @@ public class SurfaceSettings
     
     [Header("Surface Materials")]
     [Space(3)] public Material PlanetMaterial;
+    [Space(3)] public Material Planet2Material;
     [Space(3)] public Material OceanMaterial;
     [Space(3)] public Material CloudsMaterial;
     [Space(3)] public Material SolidMaterial;

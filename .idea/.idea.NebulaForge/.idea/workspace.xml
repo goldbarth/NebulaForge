@@ -8,14 +8,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader Graphs/PlanetSurface2.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader Graphs/PlanetSurface2.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/OrbitController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/OrbitController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/Rotate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/Rotate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/RotateAroundPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/RotateAroundPoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/OceanMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/OceanMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PlanetMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PlanetMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/SolidMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SolidMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomCalculations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomCalculations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,10 +109,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="32336">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="32336" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -113,6 +132,8 @@
       <workItem from="1686937703207" duration="687000" />
       <workItem from="1686938600764" duration="15359000" />
       <workItem from="1687020421053" duration="9923000" />
+      <workItem from="1687104924384" duration="15830000" />
+      <workItem from="1687123289764" duration="480000" />
     </task>
     <servers />
   </component>
@@ -123,24 +144,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs</url>
-          <line>113</line>
-          <properties documentPath="E:\GitFork\NebulaForge\Assets\_Scripts\PlanetGenerator.cs" initialLine="113" containingFunctionPresentation="Method 'Initialize'">
-            <startOffsets>
-              <option value="4276" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4277" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

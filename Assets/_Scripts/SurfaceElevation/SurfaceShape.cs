@@ -62,7 +62,7 @@ public class SurfaceShape
                 elevation += _noiseFilters[layerIndex].EvaluateNoiseValue(spherePosition) * mask;
             }
         }
-
+        
         elevation = PlanetRadius() * (1 + elevation);
         ElevationMinMax.AddValue(elevation);
         return spherePosition * elevation;
