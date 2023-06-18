@@ -5,9 +5,9 @@
         switch (settings.Filter)
         {
             case NoiseSettings.FilterType.Simple:
-                return new SimpleNoiseFilter(settings.simpleNoiseSettings);
+                return new SimpleNoiseFilter(settings.SimpleNoiseSettings);
             case NoiseSettings.FilterType.Rigid:
-                return new RidgidNoiseFilter(settings.ridgidNoiseSettings);
+                return new RidgidNoiseFilter(settings.RidgidNoiseSettings);
             default:
                 return null;
         }

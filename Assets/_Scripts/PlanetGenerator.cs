@@ -16,7 +16,8 @@ public enum ObjectType
 {
     OceanSphere,
     SolidSphere,
-    TerrestrialBody,
+    TerrestrialBody1,
+    TerrestrialBody2,
     Clouds
 }
 
@@ -122,9 +123,10 @@ public class PlanetGenerator : MonoBehaviour
     
     private void UpdateSurfaceSettings()
     {
-        _surfaceElevationGradient.UpdateSettings(_planetColorType, _settings, _surfaceSettings);
+        _surfaceElevationGradient.UpdateSettings(_surfaceSettings);
         _surfaceShape.UpdateSettings(this, _settings);
         UpdateObjectSettings();
+        UpdateGradientColors();
     }
 
     public void OnPlanetSettingsUpdated()

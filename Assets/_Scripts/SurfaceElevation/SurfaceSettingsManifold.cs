@@ -22,8 +22,11 @@ public class SurfaceSettingsManifold
             case ObjectType.OceanSphere:
                 meshRenderer[cubeFaces].sharedMaterial = _settings.SurfaceSettings.OceanMaterial;
                 break;
-            case ObjectType.TerrestrialBody:
+            case ObjectType.TerrestrialBody1:
                 meshRenderer[cubeFaces].sharedMaterial = _settings.SurfaceSettings.PlanetMaterial;
+                break;
+            case ObjectType.TerrestrialBody2:
+                meshRenderer[cubeFaces].sharedMaterial = _settings.SurfaceSettings.Planet2Material;
                 break;
             case ObjectType.SolidSphere:
                 meshRenderer[cubeFaces].sharedMaterial = _settings.SurfaceSettings.SolidMaterial;
@@ -44,7 +47,9 @@ public class SurfaceSettingsManifold
                 return _surfaceShape.NormalizedSphere(spherePosition);
             case ObjectType.Clouds:
                 return _surfaceShape.NormalizedSphere(spherePosition);
-            case ObjectType.TerrestrialBody:
+            case ObjectType.TerrestrialBody1:
+                return _surfaceShape.TerrainElevation(spherePosition);
+            case ObjectType.TerrestrialBody2:
                 return _surfaceShape.TerrainElevation(spherePosition);
             default:
                 return Vector3.zero;
@@ -65,6 +70,19 @@ public class SurfaceSettingsManifold
                 return new Gradient();
             default:
                 return new Gradient();
+        }
+    }
+    
+    public Material SetMaterial()
+    {
+        switch (_objectType)
+        {
+            case ObjectType.TerrestrialBody1:
+                return _settings.SurfaceSettings.PlanetMaterial;
+            case ObjectType.TerrestrialBody2:
+                return _settings.SurfaceSettings.Planet2Material;
+            default:
+                return new Material(Shader.Find("Standard"));
         }
     }
 }
