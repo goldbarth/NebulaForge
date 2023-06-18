@@ -20,7 +20,8 @@ public class PlanetEditor : Editor
         base.OnInspectorGUI();
         if (check.changed) 
             _planet.GeneratePlanet();
-        GUILayout.Space(20);
+        GUILayout.Space(2);
+        EditorGUILayout.LabelField("1", GUI.skin.horizontalSlider);
         if (GUILayout.Button("Generate Planet"))
         {
             _planet.GeneratePlanet();
@@ -30,7 +31,8 @@ public class PlanetEditor : Editor
         GUILayout.Space(5);
         if (GUILayout.Button("Remove Planet"))
             _planet.RemovePlanet();
-        
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        GUILayout.Space(2);
         
         DrawSettingsEditor(_planet.Settings, _planet.OnPlanetSettingsUpdated, _planet.OnColorSettingsUpdated, ref _planet.ShapeSettingsFoldout, ref _shapeEditor);
     }

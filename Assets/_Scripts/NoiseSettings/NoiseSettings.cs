@@ -6,7 +6,8 @@ public class NoiseSettings
     public FilterType Filter;
     
     [ConditionalHide("Filter", 0)]
-    public SimpleNoiseSettings simpleNoiseSettings;
+    public SimpleNoiseSettings SimpleNoiseSettings;
+    
     [ConditionalHide("Filter", 1)]
-    public RidgidNoiseSettings ridgidNoiseSettings;
+    public RidgidNoiseSettings RidgidNoiseSettings;
 }

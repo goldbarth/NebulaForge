@@ -12,19 +12,56 @@ public enum FaceRenderMask
     Back
 }
 
+public enum ObjectType
+{
+    OceanSphere,
+    SolidSphere,
+    TerrestrialBody1,
+    TerrestrialBody2,
+    TerrestrialBody3,
+    TerrestrialBody4,
+    TerrestrialBody5,
+    TerrestrialBody6,
+    Shader1Material,
+    Shader2Material,
+    Shader3Material,
+    Shader4Material,
+    Shader5Material,
+    Shader6Material,
+    StylizedClouds,
+    Clouds
+}
+
+public enum PlanetColorType
+{
+    Habitat,
+    Candy,
+    Custom,
+    Default
+}
+
+[ExecuteInEditMode]
 public class PlanetGenerator : MonoBehaviour
 {
     [Header("Assets")]
     [SerializeField] private PlanetSettings _settings;
+    
     [Header("Visual Settings")]
     [SerializeField, Range(2, 255)] private int _resolution = 2;
-    [SerializeField] private FaceRenderMask _faceRenderMask;
+    [SerializeField, Range(0, 50)] private float _planetRadius = 10f;
+    
+    [Header("Planet Surface Settings")]
+    [SerializeField, Space(3)] private ObjectType _objectType;
+    [SerializeField, Space(5)] private PlanetColorType _planetColorType;
+    [SerializeField, Space(3)] private FaceRenderMask _faceRenderMask;
+    
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
-
     [HideInInspector] public bool ShapeSettingsFoldout;
     public PlanetSettings Settings => _settings;
+    public float PlanetRadius => _planetRadius;
 
     private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
+    private readonly SurfaceSettingsManifold _surfaceSettings = new();
     private readonly SurfaceShape _surfaceShape = new();
     
     private readonly int _cubeFaces = 6;
@@ -33,8 +70,8 @@ public class PlanetGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _surfaceElevationGradient.UpdateSettings(_settings);
-        _surfaceShape.UpdateSettings(_settings);
+        UpdateSurfaceSettings();
+        
         _terrainFaces = new TerrainFace[_cubeFaces];
         _meshRenderer = new MeshRenderer[_cubeFaces];
     }
@@ -53,7 +90,6 @@ public class PlanetGenerator : MonoBehaviour
     {
         // we using linq cast to avoid allocate memory. we also want to use reverse to destroy child objects in reverse order
         // to prevent to destroy only even numbered child objects(as in my testing). preventing a double foreach with a list.
-        // and a reverse for loop doesn't work in edit mode.
         var children = transform.Cast<Transform>().Reverse();
         foreach (var child in children)
             DestroyImmediate(child.gameObject);
@@ -61,8 +97,7 @@ public class PlanetGenerator : MonoBehaviour
 
     private void Initialize()
     {
-        _surfaceShape.UpdateSettings(_settings);
-        _surfaceElevationGradient.UpdateSettings(_settings);
+        UpdateSurfaceSettings();
 
         if (_meshRenderer == null || _meshRenderer.Length == 0)
             _meshRenderer = new MeshRenderer[_cubeFaces];
@@ -87,14 +122,22 @@ public class PlanetGenerator : MonoBehaviour
                 var mesh = new Mesh { name = $"TerrainMesh_{cubeFaceIndex}" };
                 meshFilter.sharedMesh = mesh;
 
-                _terrainFaces[cubeFaceIndex] = new TerrainFace(_surfaceShape, mesh, directions[cubeFaceIndex]);
+                _terrainFaces[cubeFaceIndex] = new TerrainFace(_objectType, _surfaceShape, mesh, directions[cubeFaceIndex], _surfaceSettings);
             }
             
+            _surfaceSettings.AddShapeMaterial(_meshRenderer, cubeFaceIndex);
             
-            _meshRenderer[cubeFaceIndex].sharedMaterial = _settings.PlanetMaterial;
             var renderFace = _faceRenderMask == FaceRenderMask.All || (int) _faceRenderMask - 1 == cubeFaceIndex;
             _meshRenderer[cubeFaceIndex].enabled = renderFace;
         }
+    }
+    
+    private void UpdateSurfaceSettings()
+    {
+        _surfaceElevationGradient.UpdateSettings(_surfaceSettings);
+        _surfaceShape.UpdateSettings(this, _settings);
+        UpdateObjectSettings();
+        UpdateGradientColors();
     }
 
     public void OnPlanetSettingsUpdated()
@@ -104,7 +147,7 @@ public class PlanetGenerator : MonoBehaviour
             
     public void OnColorSettingsUpdated()
     {
-        GenerateColor();
+        UpdateGradientColors();
     }
     
     private void GenerateMesh()
@@ -117,11 +160,17 @@ public class PlanetGenerator : MonoBehaviour
                 _terrainFaces[pageIndex].GenerateSphereMesh(_resolution);
         }
         
+        UpdateObjectSettings();
         _surfaceElevationGradient.UpdateElevation(_surfaceShape.ElevationMinMax);
     }
 
-    private void GenerateColor()
+    private void UpdateGradientColors()
     {
         _surfaceElevationGradient.UpdateGradient();
+    }
+    
+    private void UpdateObjectSettings()
+    {
+        _surfaceSettings.UpdateObjectSettings(_objectType, _planetColorType, _surfaceShape, _settings);
     }
 }
