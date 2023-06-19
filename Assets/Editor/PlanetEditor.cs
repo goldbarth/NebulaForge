@@ -34,7 +34,7 @@ public class PlanetEditor : Editor
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Space(2);
         
-        DrawSettingsEditor(_planet.Settings, _planet.OnPlanetSettingsUpdated, _planet.OnColorSettingsUpdated, ref _planet.ShapeSettingsFoldout, ref _shapeEditor);
+        DrawSettingsEditor(_planet.ObjectSettings, _planet.OnPlanetSettingsUpdated, _planet.OnColorSettingsUpdated, ref _planet.ShapeSettingsFoldout, ref _shapeEditor);
     }
 
     private static void DrawSettingsEditor(Object planetSettings, Action callbackShapeSettings, Action callbackColorSettings, ref bool foldout, ref Editor editor)
