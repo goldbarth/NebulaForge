@@ -100,10 +100,15 @@ MonoBehaviour:
       m_Mode: 1
       m_NumColorKeys: 8
       m_NumAlphaKeys: 2
-    PlanetMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
+    Planet1Material: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
     Planet2Material: {fileID: 2100000, guid: cdfd26c21024ab24da7ea01abf33b5e2, type: 2}
+    Planet3Material: {fileID: 0}
+    Planet4Material: {fileID: 0}
+    Planet5Material: {fileID: 0}
+    Planet6Material: {fileID: 0}
     OceanMaterial: {fileID: 2100000, guid: e45a76fa25a67ed4b810bfcc5165ee08, type: 2}
     CloudsMaterial: {fileID: 2100000, guid: 4e14364d70bcaf04783eac4ac6e27db7, type: 2}
+    StylizedCloudsMaterial: {fileID: 2100000, guid: d7d97b94236093a4193664e036e0312f, type: 2}
     SolidMaterial: {fileID: 2100000, guid: 6a0dc4d9ceb2115488a31862374d6cd3, type: 2}
   NoiseLayers:
   - Enabled: 1

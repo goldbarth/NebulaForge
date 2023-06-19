@@ -18,6 +18,17 @@ public enum ObjectType
     SolidSphere,
     TerrestrialBody1,
     TerrestrialBody2,
+    TerrestrialBody3,
+    TerrestrialBody4,
+    TerrestrialBody5,
+    TerrestrialBody6,
+    Shader1Material,
+    Shader2Material,
+    Shader3Material,
+    Shader4Material,
+    Shader5Material,
+    Shader6Material,
+    StylizedClouds,
     Clouds
 }
 
