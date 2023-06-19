@@ -9,13 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PlanetMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PlanetMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +28,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/21e1bc5e537b4ecf84d795be004ca2c75e00/f5/729cc4aa/PlanetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/93/a2f51a8e/PropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/db/5567fe2c/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ddc6e88db85042aeb6955c12ada6a5ce46e000/d8/a58b8a16/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/OneDrive/Desktop/SurfaceShape.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/OneDrive/Desktop/TerrainFace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -116,6 +120,7 @@
       <workItem from="1687104924384" duration="15830000" />
       <workItem from="1687123289764" duration="480000" />
       <workItem from="1687170428703" duration="2178000" />
+      <workItem from="1687200036583" duration="2319000" />
     </task>
     <servers />
   </component>
