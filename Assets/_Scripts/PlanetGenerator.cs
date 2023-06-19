@@ -28,7 +28,7 @@ public class PlanetGenerator : MonoBehaviour
     
     [Header("Visuals")]
     [SerializeField, Range(2, 255)] private int _resolution = 2;
-    [SerializeField, Range(0, 50)] private float _planetRadius = 10f;
+    [SerializeField, Range(0, 10000)] private float _planetRadius = 10f;
     [SerializeField, Space] private Gradient _gradient;
     
     

@@ -9,18 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/URP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/URP.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsManifold.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +111,7 @@
       <workItem from="1687123289764" duration="480000" />
       <workItem from="1687170428703" duration="2178000" />
       <workItem from="1687200036583" duration="2319000" />
+      <workItem from="1687210670550" duration="1676000" />
     </task>
     <servers />
   </component>
