@@ -8,23 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/ObjectSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlanetEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet1Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Planet2Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/SylizedWaterMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SylizedWaterMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewPlanetSettings 2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewPlanetSettings 2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewPlanetSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewPlanetSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PlanetWithHighMountains.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PlanetWithHighMountains.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PlanetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/OrbitController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetMovement/OrbitController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/PlanetSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/ObjectSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +128,7 @@
       <workItem from="1687170428703" duration="2178000" />
       <workItem from="1687200036583" duration="2319000" />
       <workItem from="1687210670550" duration="2118000" />
+      <workItem from="1687277968464" duration="4786000" />
     </task>
     <servers />
   </component>

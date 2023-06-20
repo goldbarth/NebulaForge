@@ -8,6 +8,7 @@ public class RidgidNoiseFilter : INoiseFilter
     public RidgidNoiseFilter(RidgidNoiseSettings settings)
     {
         _settings = settings;
+        _noise = new SimplexNoise(_settings.Seed);
     }
 
     public float EvaluateNoiseValue(Vector3 spherePosition)

@@ -6,12 +6,16 @@ using System;
 [CustomEditor(typeof(ObjectGenerator))]
 public class PlanetEditor : Editor
 {
+    private ObjectSettings _oldSettings;
     private ObjectGenerator _object;
     private Editor _shapeEditor;
+    
+    private string _assetName = "";
 
     private void OnEnable()
     {
         _object = (ObjectGenerator)target;
+        _oldSettings = _object.ObjectSettings;
     }
 
     public override void OnInspectorGUI()
@@ -43,21 +47,50 @@ public class PlanetEditor : Editor
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         
         GUILayout.Space(2);
-        if(GUILayout.Button("Create New Settings Asset"))
+        GUILayout.Label("Create New Setting Asset", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        _assetName = EditorGUILayout.TextField("Asset Name", _assetName);
+        GUILayout.Space(3);
+        if(GUILayout.Button("Create Asset"))
             CreateNewSettings(_object);
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Space(2);
     }
 
-    private void CreateNewSettings(ObjectGenerator @object)
+    private void CreateNewSettings(ObjectGenerator objectGenerator)
     {
-        var newPlanetSettings = CreateInstance<ObjectSettings>();
-        var assetPath = AssetDatabase.GenerateUniqueAssetPath("Assets/ObjectInstances/NewObjectSettings.asset");
-        AssetDatabase.CreateAsset(newPlanetSettings, assetPath);
-        AssetDatabase.SaveAssets();
-        
-        @object.ObjectSettings = newPlanetSettings;
-        EditorUtility.SetDirty(@object);
+        if (!string.IsNullOrEmpty(_assetName))
+        {
+            if (AssetDatabase.IsValidFolder("Assets/" + _assetName))
+            {
+                Debug.LogError("An asset with the same name already exists!");
+                return;
+            }
+            
+            var newPlanetSettings = CreateInstance<ObjectSettings>();
+            
+            if (_oldSettings != null)
+            {
+                newPlanetSettings.ObjectMaterial = _oldSettings.ObjectMaterial;
+                newPlanetSettings.VisualSettings = _oldSettings.VisualSettings;
+                newPlanetSettings.FaceRenderMask = _oldSettings.FaceRenderMask;
+                newPlanetSettings.NoiseLayers = _oldSettings.NoiseLayers;
+            }
+            
+            const string assetPath = "Assets/ObjectInstances/";
+            AssetDatabase.CreateAsset(newPlanetSettings, assetPath + _assetName + ".asset");
+            AssetDatabase.SaveAssets();
+            objectGenerator.ObjectSettings = newPlanetSettings;
+            EditorUtility.SetDirty(objectGenerator);
+            
+            Debug.Log("Created new asset at: " + assetPath);
+            _assetName = "";
+            _oldSettings = null;
+        }
+        else
+        {
+            Debug.Log("Asset name can´t be empty");
+        }
     }
 
     private static void DrawSettingsEditor(Object planetSettings, Action callbackShapeSettings, Action callbackColorSettings, ref bool foldout, ref Editor editor)

@@ -3,9 +3,12 @@
 [System.Serializable]
 public class SimpleNoiseSettings
 {
+    [Tooltip("To reproduce generated content."), Range(0, 500)] 
+    public int Seed = 0;
+    
     [Range(0, 10)] public float NoiseStrength;
     
-    [Tooltip("Number of layers for the amplitude"), Range(1, 8)] 
+    [Tooltip("Number of layers for the amplitude."), Range(1, 8)] 
     public int NumberOfLayers = 1;
     
     [Range(0, 5)] public float BaseRoughness = 1f;

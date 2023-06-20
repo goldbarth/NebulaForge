@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
   VisualSettings:
     Resolution: 96
-    PlanetRadius: 1000
+    PlanetRadius: 29
     Gradient:
       serializedVersion: 2
       key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}
@@ -24,16 +24,16 @@ MonoBehaviour:
       key3: {r: 0.6037736, g: 0.35672715, b: 0.17885366, a: 0}
       key4: {r: 0.2830189, g: 0.12534387, b: 0.012014948, a: 0}
       key5: {r: 1, g: 1, b: 1, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0.8679245, g: 0.23155391, b: 0, a: 0}
+      key7: {r: 1, g: 0.32140487, b: 0, a: 0}
       ctime0: 16307
       ctime1: 21487
       ctime2: 28393
       ctime3: 35684
       ctime4: 46811
       ctime5: 65535
-      ctime6: 0
-      ctime7: 0
+      ctime6: 51223
+      ctime7: 65535
       atime0: 0
       atime1: 65535
       atime2: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0.18
         NumberOfLayers: 2
         BaseRoughness: 1.17
@@ -61,6 +62,7 @@ MonoBehaviour:
         Center: {x: 0, y: 0, z: 0}
         MinValue: 0.67
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 0
         NumberOfLayers: 0
         BaseRoughness: 0
@@ -74,6 +76,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0.97
         NumberOfLayers: 4
         BaseRoughness: 1.45
@@ -82,6 +85,7 @@ MonoBehaviour:
         Center: {x: 0, y: 0, z: 0}
         MinValue: 1.79
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 0
         NumberOfLayers: 0
         BaseRoughness: 0
@@ -95,6 +99,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 1
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0.36
         NumberOfLayers: 2
         BaseRoughness: 1.14
@@ -103,6 +108,7 @@ MonoBehaviour:
         Center: {x: 0, y: 0, z: 0}
         MinValue: 0
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 1.52
         NumberOfLayers: 2
         BaseRoughness: 1.03
