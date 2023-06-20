@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
-  m_Name: PlanetSettings
+  m_Name: StylizedWater
   m_EditorClassIdentifier: 
   ObjectMaterial: {fileID: 2100000, guid: 42b188228cc98f641b0dec4bafc6e582, type: 2}
   VisualSettings:
-    Resolution: 103
-    PlanetRadius: 5450
+    Resolution: 108
+    PlanetRadius: 1100
     Gradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}

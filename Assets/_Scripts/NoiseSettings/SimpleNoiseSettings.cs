@@ -3,7 +3,6 @@
 [System.Serializable]
 public class SimpleNoiseSettings
 {
-    [Range(0, 10)] public float Threshold;
     [Range(0, 10)] public float NoiseStrength;
     
     [Tooltip("Number of layers for the amplitude"), Range(1, 8)] 

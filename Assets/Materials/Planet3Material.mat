@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Planet1Material
-  m_Shader: {fileID: -6465566751694194690, guid: 29d15e6fe85b18c42af676f63fad042d, type: 3}
+  m_Name: Planet3Material
+  m_Shader: {fileID: -6465566751694194690, guid: 8e2d6b302a151d64c95cc744a46c0bc0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -130,7 +130,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.3019608, g: 0.8784314, b: 0.41752678, a: 1}
-    - _Elevation_Min_Max: {r: 1001, g: 1373.5144, b: 0, a: 0}
+    - _Elevation_Min_Max: {r: 1001, g: 1376.3093, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Test_Elevation: {r: 0, g: 0, b: 0, a: 0}

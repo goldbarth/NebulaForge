@@ -19,32 +19,29 @@ public enum ObjectType
 }
 
 [ExecuteInEditMode]
-public class PlanetGenerator : MonoBehaviour
+public class ObjectGenerator : MonoBehaviour
 {
-    [SerializeField,Space] private PlanetSettings _objectSettings;
-    
-    [Header("Material")]
-    [SerializeField] private Material _objectMaterial;
-    
-    [Header("Visuals")]
-    [SerializeField, Range(2, 255)] private int _resolution = 2;
-    [SerializeField, Range(0, 10000)] private float _planetRadius = 10f;
-    [SerializeField, Space] private Gradient _gradient;
-    
-    
-    [Header("Planet Surface")]
-    [SerializeField, Space(5)] private ObjectType _objectType;
-    [SerializeField, Space(3)] private FaceRenderMask _faceRenderMask;
-    
+    [SerializeField,Space] private ObjectSettings _objectSettings;
+
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
     [HideInInspector] public bool ShapeSettingsFoldout;
-    public PlanetSettings ObjectSettings => _objectSettings;
-    public Material ObjectMaterial => _objectMaterial;
-    public Gradient Gradient => _gradient;
-    public float PlanetRadius => _planetRadius;
+    
+    public ObjectSettings ObjectSettings
+    {
+        get => _objectSettings;
+        set => _objectSettings = value;
+    }
+    
+    public SurfaceSettingsDispatcher SurfaceSettingsDispatcher => _surfaceSettingsDispatcher;
+    public SurfaceShape SurfaceShape => _surfaceShape;
+    public NoiseLayer[] NoiseLayers => _objectSettings.NoiseLayers;
+    public ObjectType ObjectType => _objectSettings.VisualSettings.ObjectType;
+    public Gradient Gradient => _objectSettings.VisualSettings.Gradient;
+    public Material ObjectMaterial => _objectSettings.ObjectMaterial;
+    public float PlanetRadius => _objectSettings.VisualSettings.PlanetRadius;
 
+    private readonly SurfaceSettingsDispatcher _surfaceSettingsDispatcher = new();
     private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
-    private readonly SurfaceSettingsDispatcher _surfaceSettings = new();
     private readonly SurfaceShape _surfaceShape = new();
     
     private readonly int _cubeFaces = 6;
@@ -88,6 +85,7 @@ public class PlanetGenerator : MonoBehaviour
         _terrainFaces = new TerrainFace[_cubeFaces];
         
         var directions = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
+        
         // create a new mesh renderer and mesh filter for each cube face
         for (var cubeFaceIndex = 0; cubeFaceIndex < _cubeFaces; cubeFaceIndex++)
         {
@@ -105,12 +103,12 @@ public class PlanetGenerator : MonoBehaviour
                 var mesh = new Mesh { name = $"TerrainMesh_{cubeFaceIndex}" };
                 meshFilter.sharedMesh = mesh;
 
-                _terrainFaces[cubeFaceIndex] = new TerrainFace(_objectType, _surfaceShape, mesh, directions[cubeFaceIndex], _surfaceSettings);
+                _terrainFaces[cubeFaceIndex] = new TerrainFace(this, mesh, directions[cubeFaceIndex]);
             }
             
-            _meshRenderer[cubeFaceIndex].sharedMaterial = _objectMaterial;
+            _meshRenderer[cubeFaceIndex].sharedMaterial = ObjectMaterial;
             
-            var renderFace = _faceRenderMask == FaceRenderMask.All || (int) _faceRenderMask - 1 == cubeFaceIndex;
+            var renderFace = _objectSettings.FaceRenderMask == FaceRenderMask.All || (int) _objectSettings.FaceRenderMask - 1 == cubeFaceIndex;
             _meshRenderer[cubeFaceIndex].enabled = renderFace;
         }
     }
@@ -118,7 +116,7 @@ public class PlanetGenerator : MonoBehaviour
     private void UpdateSurfaceSettings()
     {
         _surfaceElevationGradient.UpdateSettings(this);
-        _surfaceShape.UpdateSettings(this, _objectSettings);
+        _surfaceShape.UpdateSettings(this);
         UpdateObjectSettings();
         UpdateGradientColors();
     }
@@ -140,7 +138,7 @@ public class PlanetGenerator : MonoBehaviour
         for (int pageIndex = 0; pageIndex < _cubeFaces; pageIndex++)
         {
             if (_meshRenderer[pageIndex].enabled)
-                _terrainFaces[pageIndex].GenerateSphereMesh(_resolution);
+                _terrainFaces[pageIndex].GenerateSphereMesh(_objectSettings.VisualSettings.Resolution);
         }
         
         UpdateObjectSettings();
@@ -148,12 +146,12 @@ public class PlanetGenerator : MonoBehaviour
     }
 
     private void UpdateGradientColors()
-    {
+    { 
         _surfaceElevationGradient.UpdateGradient();
     }
     
     private void UpdateObjectSettings()
     {
-        _surfaceSettings.UpdateObjectSettings(_objectType, _surfaceShape);
+        _surfaceSettingsDispatcher.UpdateObjectSettings(this);
     }
 }

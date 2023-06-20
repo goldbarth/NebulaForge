@@ -10,15 +10,17 @@ public enum ChildOrbitAngle
 public class OrbitController : Rotate
 {
     [SerializeField, Space(3)] private ChildOrbitAngle _childOrbitAngle = ChildOrbitAngle.Y;
-    
+
+    [SerializeField] private float[] _rotationSpeeds;
     [Header("Orbit Settings")]
     [SerializeField, Range(0f, 100f)] private float _orbitSpeed = 50f;
-    [SerializeField, Range(0f, 50f)] private float _orbitRadius = 20f;
+    [SerializeField, Range(0f, 500f)] private float _orbitRadius = 20f;
     
     [Header("Object References")]
     [SerializeField] private Transform _center;
-    [SerializeField] private Transform _parent;
-    [SerializeField] private Transform _child;
+    [SerializeField] private Transform[] _parents;
+    [SerializeField] private Transform[] _children;
+    
 
     private readonly Vector3 _childAxis = Vector3.forward;
     
@@ -26,7 +28,8 @@ public class OrbitController : Rotate
 
     private void Start()
     {
-        _initialPosition = _child.localPosition;
+        foreach (var child in _children)
+            _initialPosition = child.localPosition;
     }
 
     private void Update()
@@ -37,13 +40,19 @@ public class OrbitController : Rotate
 
     private void RotateAroundCenter()
     {
-        _parent.RotateAround(_center.position, SetRotationAngle(_orbitAngle), _rotationSpeed * Time.deltaTime);
+        for (int parentIndex = 0; parentIndex < _parents.Length; parentIndex++)
+        {
+            var parent = _parents[parentIndex];
+            var rotationSpeed = _rotationSpeeds[parentIndex];
+            parent.RotateAround(_center.position, SetRotationAngle(_orbitAngle), rotationSpeed * Time.deltaTime);
+        }
     }
 
     private void OrbitAroundParent()
     {
         var orbitPosition = Quaternion.Euler(SetChildRotationAngle()) * (_childAxis * _orbitRadius);
-        _child.localPosition = _initialPosition + orbitPosition;
+        foreach (var child in _children)
+            child.localPosition = _initialPosition + orbitPosition;
     }
     
     private Vector3 SetChildRotationAngle()
@@ -61,11 +70,4 @@ public class OrbitController : Rotate
                 return Vector3.zero;
         }
     }
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_center.position, _orbitRadius);
-    }
-#endif
 }

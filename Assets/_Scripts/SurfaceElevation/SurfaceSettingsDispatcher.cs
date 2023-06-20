@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class SurfaceSettingsDispatcher
 {
-    private SurfaceShape _surfaceShape;
-    private ObjectType _objectType;
+    private ObjectGenerator _object;
 
-    public void UpdateObjectSettings(ObjectType objectType, SurfaceShape surfaceShape)
+    public void UpdateObjectSettings(ObjectGenerator objectGenerator)
     {
-        _surfaceShape = surfaceShape;
-        _objectType = objectType;
+        _object = objectGenerator;
     }
 
     public Vector3 EvaluateShapeType(Vector3 spherePosition)
     {
-        var terrainElevation = _surfaceShape.TerrainElevation(spherePosition);
-        var normalizedSphere = _surfaceShape.NormalizedSphere(spherePosition);
-        switch (_objectType)
+        var terrainElevation = _object.SurfaceShape.TerrainElevation(spherePosition);
+        var normalizedSphere = _object.SurfaceShape.NormalizedSphere(spherePosition);
+        switch (_object.ObjectType)
         {
             case ObjectType.TerrestrialBody:
                 return terrainElevation;

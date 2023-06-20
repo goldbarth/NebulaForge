@@ -6,19 +6,16 @@ public class SurfaceShape
     
     private INoiseFilter[] _noiseFilters;
     
-    private PlanetGenerator _planetGenerator;
-    private PlanetSettings _settings;
+    private ObjectGenerator _object;
 
-    public void UpdateSettings(PlanetGenerator planetGenerator, PlanetSettings settings)
+    public void UpdateSettings(ObjectGenerator objectGenerator)
     {
-        _noiseFilters = new INoiseFilter[settings.NoiseLayers.Length];
+        _noiseFilters = new INoiseFilter[objectGenerator.NoiseLayers.Length];
         ElevationMinMax = new MinMax();
+        _object = objectGenerator;
 
-        _planetGenerator = planetGenerator;
-        _settings = settings;
-        
         for (int layerIndex = 0; layerIndex < NoiseFilterCount(); layerIndex++)
-            _noiseFilters[layerIndex] = NoiseFilterFactory.CreateNoiseFilter(settings.NoiseLayers[layerIndex].NoiseSettings);
+            _noiseFilters[layerIndex] = NoiseFilterFactory.CreateNoiseFilter(objectGenerator.NoiseLayers[layerIndex].NoiseSettings);
     }
     
     // makes the mesh face edges seamless when translated to a sphere
@@ -48,17 +45,17 @@ public class SurfaceShape
         if (NoiseFilterCount() > 0)
         {
             firstLayerValue = _noiseFilters[0].EvaluateNoiseValue(spherePosition);
-            if (_settings.NoiseLayers[0].Enabled)
+            if (_object.NoiseLayers[0].Enabled)
                 elevation = firstLayerValue;
         }
         
         // exclude the first layer from the loop, because we already calculated it
         for (int layerIndex = 1; layerIndex < NoiseFilterCount(); layerIndex++)
         {
-            if (_settings.NoiseLayers[layerIndex].Enabled)
+            if (_object.NoiseLayers[layerIndex].Enabled)
             {
                 // we use the first layer as a mask for the other layers
-                var mask = _settings.NoiseLayers[layerIndex].UseFirstLayerAsMask ? firstLayerValue : 1;
+                var mask = _object.NoiseLayers[layerIndex].UseFirstLayerAsMask ? firstLayerValue : 1;
                 elevation += _noiseFilters[layerIndex].EvaluateNoiseValue(spherePosition) * mask;
             }
         }
@@ -75,6 +72,6 @@ public class SurfaceShape
     
     private float PlanetRadius()
     {
-        return _planetGenerator.PlanetRadius;
+        return _object.PlanetRadius;
     }
 }

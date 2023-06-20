@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-[CustomEditor(typeof(PlanetGenerator))]
+[CustomEditor(typeof(ObjectGenerator))]
 public class PlanetEditor : Editor
 {
-    private PlanetGenerator _planet;
+    private ObjectGenerator _object;
     private Editor _shapeEditor;
 
     private void OnEnable()
     {
-        _planet = (PlanetGenerator)target;
+        _object = (ObjectGenerator)target;
     }
 
     public override void OnInspectorGUI()
@@ -19,22 +19,45 @@ public class PlanetEditor : Editor
         using var check = new EditorGUI.ChangeCheckScope();
         base.OnInspectorGUI();
         if (check.changed) 
-            _planet.GeneratePlanet();
+            _object.GeneratePlanet();
+        
+        ButtonLayout();
+
+        DrawSettingsEditor(_object.ObjectSettings, _object.OnPlanetSettingsUpdated, _object.OnColorSettingsUpdated, ref _object.ShapeSettingsFoldout, ref _shapeEditor);
+    }
+
+    private void ButtonLayout()
+    {
         GUILayout.Space(2);
-        EditorGUILayout.LabelField("1", GUI.skin.horizontalSlider);
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         if (GUILayout.Button("Generate Planet"))
         {
-            _planet.GeneratePlanet();
-            _planet.OnPlanetSettingsUpdated();
-            _planet.OnColorSettingsUpdated();
+            _object.GeneratePlanet();
+            _object.OnPlanetSettingsUpdated();
+            _object.OnColorSettingsUpdated();
         }
-        GUILayout.Space(5);
+        
+        GUILayout.Space(2);
         if (GUILayout.Button("Remove Planet"))
-            _planet.RemovePlanet();
+            _object.RemovePlanet();
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        
+        GUILayout.Space(2);
+        if(GUILayout.Button("Create New Settings Asset"))
+            CreateNewSettings(_object);
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Space(2);
+    }
+
+    private void CreateNewSettings(ObjectGenerator @object)
+    {
+        var newPlanetSettings = CreateInstance<ObjectSettings>();
+        var assetPath = AssetDatabase.GenerateUniqueAssetPath("Assets/ObjectInstances/NewObjectSettings.asset");
+        AssetDatabase.CreateAsset(newPlanetSettings, assetPath);
+        AssetDatabase.SaveAssets();
         
-        DrawSettingsEditor(_planet.ObjectSettings, _planet.OnPlanetSettingsUpdated, _planet.OnColorSettingsUpdated, ref _planet.ShapeSettingsFoldout, ref _shapeEditor);
+        @object.ObjectSettings = newPlanetSettings;
+        EditorUtility.SetDirty(@object);
     }
 
     private static void DrawSettingsEditor(Object planetSettings, Action callbackShapeSettings, Action callbackColorSettings, ref bool foldout, ref Editor editor)

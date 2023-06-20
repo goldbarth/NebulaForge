@@ -4,21 +4,17 @@ public class TerrainFace
 {
     private const int PlaneSize = 2;
     
-    private SurfaceSettingsDispatcher _surfaceSettings;
-    private readonly SurfaceShape _surfaceShape;
+    private readonly ObjectGenerator _object;
     private readonly Mesh _mesh;
     
-    private readonly ObjectType _objectType;
     private readonly Vector3 _upDirection;
     private readonly Vector3 _axisA;
     private readonly Vector3 _axisB;
 
-    public TerrainFace(ObjectType objectType, SurfaceShape surfaceShape, Mesh mesh, Vector3 upDirection, SurfaceSettingsDispatcher surfaceSettings)
+    public TerrainFace(ObjectGenerator objectGenerator, Mesh mesh, Vector3 upDirection)
     {
-        _surfaceSettings = surfaceSettings;
-        _surfaceShape = surfaceShape;
         _upDirection = upDirection;
-        _objectType = objectType;
+        _object = objectGenerator;
         _mesh = mesh;
         
         _axisA = new Vector3(upDirection.y, upDirection.z, upDirection.x);
@@ -41,9 +37,9 @@ public class TerrainFace
             // calculating the position of each vertex on the unit cube
             var cubePosition = startPosition + (_axisA * percent.x + _axisB * percent.y) * PlaneSize;
             // calculating the position of each vertex on the unit sphere, instead of normalizing the cube position
-            var spherePosition = _surfaceShape.CalculateSeamlessEdges(cubePosition);
+            var spherePosition = _object.SurfaceShape.CalculateSeamlessEdges(cubePosition);
             // calculating the position of each vertex on the planet surface
-            var planetPosition = spherePosition + _surfaceSettings.EvaluateShapeType(spherePosition);
+            var planetPosition = spherePosition + _object.SurfaceSettingsDispatcher.EvaluateShapeType(spherePosition);
             
             vertices[index] = planetPosition; // assign vertex position
             uv[index] = new Vector2(percent.x, percent.y); // assign UV coordinates
