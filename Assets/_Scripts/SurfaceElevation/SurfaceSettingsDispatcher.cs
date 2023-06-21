@@ -13,6 +13,7 @@ public class SurfaceSettingsDispatcher
     {
         var terrainElevation = _object.SurfaceShape.TerrainElevation(spherePosition);
         var normalizedSphere = _object.SurfaceShape.NormalizedSphere(spherePosition);
+        
         switch (_object.ObjectType)
         {
             case ObjectType.TerrestrialBody:
