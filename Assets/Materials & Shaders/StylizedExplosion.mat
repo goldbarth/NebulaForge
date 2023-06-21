@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Smoke_Texture:
-        m_Texture: {fileID: 2800000, guid: 6d7dfdcd23852d94099626ddea7a78d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 18ecae0b11c1a84499d8449df53f8580, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -87,6 +87,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _Alpha_Multiply: 3
+    - _Alpha_Threshold: 0.8
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0

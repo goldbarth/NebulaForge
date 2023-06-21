@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
   VisualSettings:
-    Resolution: 60
-    PlanetRadius: 30
+    Resolution: 120
+    PlanetRadius: 3
     Gradient:
       serializedVersion: 2
       key0: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
@@ -25,7 +25,7 @@ MonoBehaviour:
       key4: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
       key5: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
       key6: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
-      key7: {r: 1, g: 1, b: 1, a: 0}
+      key7: {r: 1, g: 0.32140487, b: 0, a: 0}
       ctime0: 9209
       ctime1: 18417
       ctime2: 22638

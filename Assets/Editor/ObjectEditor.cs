@@ -10,7 +10,7 @@ public class ObjectEditor : Editor
     private ObjectGenerator _object;
     private Editor _shapeEditor;
     
-    private string _assetName = "";
+    private string _assetName = string.Empty;
 
     private void OnEnable()
     {
@@ -33,7 +33,7 @@ public class ObjectEditor : Editor
     private void ButtonLayout()
     {
         GUILayout.Space(2);
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         if (GUILayout.Button("Generate Planet"))
         {
             _object.GeneratePlanet();
@@ -44,7 +44,7 @@ public class ObjectEditor : Editor
         GUILayout.Space(2);
         if (GUILayout.Button("Remove Planet"))
             _object.RemovePlanet();
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         
         GUILayout.Space(2);
         GUILayout.Label("Create New Setting Asset", EditorStyles.boldLabel);
@@ -53,7 +53,7 @@ public class ObjectEditor : Editor
         GUILayout.Space(3);
         if(GUILayout.Button("Create Asset"))
             CreateNewSettings(_object);
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         GUILayout.Space(2);
     }
 
@@ -84,7 +84,7 @@ public class ObjectEditor : Editor
             EditorUtility.SetDirty(objectGenerator);
             
             Debug.Log("Created new asset at: " + assetPath);
-            _assetName = "";
+            _assetName = string.Empty;
             _oldSettings = null;
         }
         else
