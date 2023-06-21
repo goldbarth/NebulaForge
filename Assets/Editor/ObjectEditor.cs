@@ -37,7 +37,6 @@ public class ObjectEditor : Editor
         if (GUILayout.Button("Generate Planet"))
         {
             _object.GeneratePlanet();
-            _object.OnPlanetSettingsUpdated();
             _object.OnColorSettingsUpdated();
         }
         
@@ -47,7 +46,7 @@ public class ObjectEditor : Editor
         EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         
         GUILayout.Space(2);
-        GUILayout.Label("Create New Setting Asset", EditorStyles.boldLabel);
+        GUILayout.Label("Create New Object Setting", EditorStyles.boldLabel);
         GUILayout.Space(5);
         _assetName = EditorGUILayout.TextField("Asset Name", _assetName);
         GUILayout.Space(3);

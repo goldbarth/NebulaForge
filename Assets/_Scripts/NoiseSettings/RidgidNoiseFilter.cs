@@ -3,7 +3,7 @@
 public class RidgidNoiseFilter : INoiseFilter
 {
     private readonly RidgidNoiseSettings _settings;
-    private readonly SimplexNoise _noise = new();
+    private readonly SimplexNoise _noise;
         
     public RidgidNoiseFilter(RidgidNoiseSettings settings)
     {

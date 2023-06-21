@@ -5,7 +5,6 @@ public class SurfaceShape
     public MinMax ElevationMinMax;
     
     private INoiseFilter[] _noiseFilters;
-    
     private ObjectGenerator _object;
 
     public void UpdateSettings(ObjectGenerator objectGenerator)

@@ -3,11 +3,12 @@
 public class SimpleNoiseFilter : INoiseFilter
 {
     private readonly SimpleNoiseSettings _settings;
-    private readonly SimplexNoise _noise = new();
+    private readonly SimplexNoise _noise;
         
         public SimpleNoiseFilter(SimpleNoiseSettings settings)
         {
             _settings = settings;
+            _noise = new SimplexNoise(_settings.Seed);
         }
 
         public float EvaluateNoiseValue(Vector3 spherePosition)

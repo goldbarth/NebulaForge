@@ -39,7 +39,7 @@ public class TerrainFace
             // calculating the position of each vertex on the unit sphere, instead of normalizing the cube position
             var spherePosition = _object.SurfaceShape.CalculateSeamlessEdges(cubePosition);
             // calculating the position of each vertex on the planet surface
-            var planetPosition = spherePosition + _object.SurfaceSettingsDispatcher.EvaluateShapeType(spherePosition);
+            var planetPosition = spherePosition + _object.SurfaceShapeDispatcher.GetSurfaceShape(spherePosition);
             
             vertices[index] = planetPosition; // assign vertex position
             uv[index] = new Vector2(percent.x, percent.y); // assign UV coordinates

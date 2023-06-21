@@ -21,40 +21,36 @@ public enum ObjectType
 [ExecuteInEditMode]
 public class ObjectGenerator : MonoBehaviour
 {
-    [SerializeField,Space] private ObjectSettings _objectSettings;
+    [field: SerializeField] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
     [HideInInspector] public bool ShapeSettingsFoldout;
     
-    public ObjectSettings ObjectSettings
-    {
-        get => _objectSettings;
-        set => _objectSettings = value;
-    }
-    
-    public SurfaceSettingsDispatcher SurfaceSettingsDispatcher => _surfaceSettingsDispatcher;
-    public SurfaceShape SurfaceShape => _surfaceShape;
-    public NoiseLayer[] NoiseLayers => _objectSettings.NoiseLayers;
-    public ObjectType ObjectType => _objectSettings.VisualSettings.ObjectType;
-    public Gradient Gradient => _objectSettings.VisualSettings.Gradient;
-    public Material ObjectMaterial => _objectSettings.ObjectMaterial;
-    public float PlanetRadius => _objectSettings.VisualSettings.PlanetRadius;
+    public SurfaceShapeDispatcher SurfaceShapeDispatcher { get; } = new();
+    public SurfaceShape SurfaceShape { get; } = new();
+    public NoiseLayer[] NoiseLayers => ObjectSettings.NoiseLayers;
+    public ObjectType ObjectType => ObjectSettings.VisualSettings.ObjectType;
+    public Gradient Gradient => ObjectSettings.VisualSettings.Gradient;
+    public Material ObjectMaterial => ObjectSettings.ObjectMaterial;
+    public float PlanetRadius => ObjectSettings.VisualSettings.PlanetRadius;
 
-    private readonly SurfaceSettingsDispatcher _surfaceSettingsDispatcher = new();
     private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
-    private readonly SurfaceShape _surfaceShape = new();
-    
     private readonly int _cubeFaces = 6;
 
     private TerrainFace[] _terrainFaces;
 
     private void Awake()
     {
-        UpdateSurfaceSettings();
-        
+        //UpdateSurfaceSettings();
+        GeneratePlanet();
         _terrainFaces = new TerrainFace[_cubeFaces];
         _meshRenderer = new MeshRenderer[_cubeFaces];
     }
+
+    // private void Start()
+    // {
+    //     GeneratePlanet();
+    // }
 
     public void GeneratePlanet()
     {
@@ -84,6 +80,7 @@ public class ObjectGenerator : MonoBehaviour
 
         _terrainFaces = new TerrainFace[_cubeFaces];
         
+        // cube face directions
         var directions = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
         
         // create a new mesh renderer and mesh filter for each cube face
@@ -108,17 +105,17 @@ public class ObjectGenerator : MonoBehaviour
             
             _meshRenderer[cubeFaceIndex].sharedMaterial = ObjectMaterial;
             
-            var renderFace = _objectSettings.FaceRenderMask == FaceRenderMask.All || (int) _objectSettings.FaceRenderMask - 1 == cubeFaceIndex;
+            var renderFace = ObjectSettings.FaceRenderMask == FaceRenderMask.All || (int) ObjectSettings.FaceRenderMask - 1 == cubeFaceIndex;
             _meshRenderer[cubeFaceIndex].enabled = renderFace;
         }
     }
     
     private void UpdateSurfaceSettings()
     {
-        _surfaceElevationGradient.UpdateSettings(this);
-        _surfaceShape.UpdateSettings(this);
-        UpdateObjectSettings();
-        UpdateGradientColors();
+        UpdateSurfaceElevationGradientSettings();
+        UpdateSurfaceShapeDispatcherSettings();
+        UpdateSurfaceShapeSetting();
+        UpdateElevationGradient();
     }
 
     public void OnPlanetSettingsUpdated()
@@ -128,7 +125,7 @@ public class ObjectGenerator : MonoBehaviour
             
     public void OnColorSettingsUpdated()
     {
-        UpdateGradientColors();
+        UpdateElevationGradient();
     }
     
     private void GenerateMesh()
@@ -138,20 +135,35 @@ public class ObjectGenerator : MonoBehaviour
         for (int pageIndex = 0; pageIndex < _cubeFaces; pageIndex++)
         {
             if (_meshRenderer[pageIndex].enabled)
-                _terrainFaces[pageIndex].GenerateSphereMesh(_objectSettings.VisualSettings.Resolution);
+                _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.VisualSettings.Resolution);
         }
         
-        UpdateObjectSettings();
-        _surfaceElevationGradient.UpdateElevation(_surfaceShape.ElevationMinMax);
+        UpdateSurfaceShapeDispatcherSettings();
+        UpdateElevation();
     }
 
-    private void UpdateGradientColors()
+    private void UpdateSurfaceShapeSetting()
+    {
+        SurfaceShape.UpdateSettings(this);
+    }
+
+    private void UpdateSurfaceElevationGradientSettings()
+    {
+        _surfaceElevationGradient.UpdateSettings(this);
+    }
+
+    private void UpdateElevation()
+    {
+        _surfaceElevationGradient.UpdateElevation(SurfaceShape.ElevationMinMax);
+    }
+
+    private void UpdateElevationGradient()
     { 
         _surfaceElevationGradient.UpdateGradient();
     }
     
-    private void UpdateObjectSettings()
+    private void UpdateSurfaceShapeDispatcherSettings()
     {
-        _surfaceSettingsDispatcher.UpdateObjectSettings(this);
+        SurfaceShapeDispatcher.UpdateSettings(this);
     }
 }

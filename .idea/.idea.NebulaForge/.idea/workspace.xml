@@ -14,17 +14,25 @@
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedExplosion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SylizedWaterMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SylizedWaterMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/OceanSurface.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/OceanSurface.shadergraph.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/DepthFade.shadersubgraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/DepthFade.shadersubgraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/Movement.shadersubgraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/Movement.shadersubgraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VFX Graph/StylizedMiniExplosionVFX.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VFX Graph/StylizedMiniExplosionVFX.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShapeDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceSettingsDispatcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShapeDispatcher.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,19 +70,20 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\GitFork\NebulaForge -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -82,7 +91,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\GitFork\NebulaForge -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -129,6 +138,8 @@
       <workItem from="1687210670550" duration="2118000" />
       <workItem from="1687277968464" duration="9128000" />
       <workItem from="1687344787027" duration="882000" />
+      <workItem from="1687350586651" duration="5772000" />
+      <workItem from="1687363286933" duration="1556000" />
     </task>
     <servers />
   </component>
@@ -139,5 +150,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -16,7 +16,9 @@ public class SimpleNoiseSettings
     
     [Tooltip("Amplitude will decrease by half each layer.The amplitude will decrease each layer.") ,Range(0, 5)]
     public float Persistence = .5f;
+    
     public Vector3 Center;
+    
     [Tooltip("The minimum value allows us to push the noise back into the sphere of the planet."),Range(0, 5)]
     public float MinValue;
 }
