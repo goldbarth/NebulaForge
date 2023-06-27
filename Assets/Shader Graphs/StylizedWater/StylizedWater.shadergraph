@@ -618,8 +618,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 1203.9998779296875,
-            "y": -183.20001220703126
+            "x": 1116.7999267578125,
+            "y": -152.8000030517578
         },
         "m_Blocks": [
             {
@@ -635,8 +635,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 1203.9998779296875,
-            "y": 16.799976348876954
+            "x": 1116.7999267578125,
+            "y": 47.19999313354492
         },
         "m_Blocks": [
             {
@@ -1598,10 +1598,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 1179.199951171875,
+            "y": -103.19999694824219,
+            "width": 200.0001220703125,
+            "height": 40.80000305175781
         }
     },
     "m_Slots": [
@@ -2085,10 +2085,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 949.5999755859375,
-            "y": -44.79999923706055,
-            "width": 130.4000244140625,
-            "height": 141.59999084472657
+            "x": 862.4000244140625,
+            "y": -14.399978637695313,
+            "width": 130.39996337890626,
+            "height": 141.59996032714845
         }
     },
     "m_Slots": [
@@ -2146,7 +2146,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
     "m_ObjectId": "68c9b5bb0a9b46b79f096e35d0240568",
-    "m_Title": "Water Color",
+    "m_Title": "Water Depht Colors",
     "m_Content": "",
     "m_TextSize": 0,
     "m_Theme": 1,
@@ -2492,10 +2492,10 @@
         "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 807.9998779296875,
-            "y": 106.39997100830078,
-            "width": 118.400146484375,
-            "height": 76.79998016357422
+            "x": 720.7999877929688,
+            "y": 136.80001831054688,
+            "width": 118.4000244140625,
+            "height": 76.80000305175781
         }
     },
     "m_Slots": [
@@ -2857,9 +2857,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -139.99996948242188,
-            "y": -250.40000915527345,
-            "width": 165.5999755859375,
+            "x": -124.80001068115235,
+            "y": -284.0,
+            "width": 165.6000213623047,
             "height": 151.1999969482422
         }
     },
@@ -3240,10 +3240,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 570.4000244140625,
-            "y": 33.59999084472656,
-            "width": 208.0,
-            "height": 325.5999755859375
+            "x": 547.2000122070313,
+            "y": 92.80001068115235,
+            "width": 130.4000244140625,
+            "height": 141.60000610351563
         }
     },
     "m_Slots": [
@@ -3266,7 +3266,7 @@
         "linear interpolate"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []

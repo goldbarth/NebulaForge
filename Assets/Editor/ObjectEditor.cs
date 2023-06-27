@@ -60,7 +60,7 @@ public class ObjectEditor : Editor
     {
         if (!string.IsNullOrEmpty(_assetName))
         {
-            if (AssetDatabase.IsValidFolder("Assets/" + _assetName))
+            if (AssetDatabase.IsValidFolder($"Assets/{_assetName}"))
             {
                 Debug.LogError("An asset with the same name already exists!");
                 return;
@@ -76,13 +76,14 @@ public class ObjectEditor : Editor
                 newPlanetSettings.NoiseLayers = _oldSettings.NoiseLayers;
             }
             
-            const string assetPath = "Assets/ObjectInstances/";
-            AssetDatabase.CreateAsset(newPlanetSettings, assetPath + _assetName + ".asset");
+            const string assetFolderPath = "Assets/ObjectInstances/";
+            AssetDatabase.CreateAsset(newPlanetSettings, $"{assetFolderPath}{_assetName}.asset");
             AssetDatabase.SaveAssets();
+            
             objectGenerator.ObjectSettings = newPlanetSettings;
             EditorUtility.SetDirty(objectGenerator);
             
-            Debug.Log("Created new asset at: " + assetPath);
+            Debug.Log($"Created new asset at: {assetFolderPath}");
             _assetName = string.Empty;
             _oldSettings = null;
         }

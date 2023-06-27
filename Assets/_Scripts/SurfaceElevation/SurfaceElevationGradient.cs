@@ -28,6 +28,8 @@ public class SurfaceElevationGradient
         
         _texture.SetPixels(colors);
         _texture.Apply();
-        _object.ObjectMaterial.SetTexture("_Planet_Texture", _texture);
+        
+        _texture.SaveTextureToFile(_object);
+        _object.ObjectMaterial.AddTexture(_object);
     }
 }

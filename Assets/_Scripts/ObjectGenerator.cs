@@ -21,7 +21,7 @@ public enum ObjectType
 [ExecuteInEditMode]
 public class ObjectGenerator : MonoBehaviour
 {
-    [field: SerializeField] public ObjectSettings ObjectSettings { get; set; }
+    [field: SerializeField, Header("Object Settings Asset")] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
     [HideInInspector] public bool ShapeSettingsFoldout;
@@ -34,28 +34,28 @@ public class ObjectGenerator : MonoBehaviour
     public Material ObjectMaterial => ObjectSettings.ObjectMaterial;
     public float PlanetRadius => ObjectSettings.VisualSettings.PlanetRadius;
 
+    private const int CubeFaces = 6;
+    
     private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
-    private readonly int _cubeFaces = 6;
 
     private TerrainFace[] _terrainFaces;
 
     private void Awake()
     {
-        //UpdateSurfaceSettings();
-        GeneratePlanet();
-        _terrainFaces = new TerrainFace[_cubeFaces];
-        _meshRenderer = new MeshRenderer[_cubeFaces];
+        _terrainFaces = new TerrainFace[CubeFaces];
+        _meshRenderer = new MeshRenderer[CubeFaces];
     }
 
-    // private void Start()
-    // {
-    //     GeneratePlanet();
-    // }
+    private void Start()
+    {
+        GeneratePlanet();
+    }
 
     public void GeneratePlanet()
     {
         Initialize();
         GenerateMesh();
+        UpdateElevationGradient();
     }
 
     // First search attempts: https://stackoverflow.com/questions/38120084/how-can-we-destroy-child-objects-in-edit-modeunity3d
@@ -76,15 +76,15 @@ public class ObjectGenerator : MonoBehaviour
         UpdateSurfaceSettings();
 
         if (_meshRenderer == null || _meshRenderer.Length == 0)
-            _meshRenderer = new MeshRenderer[_cubeFaces];
+            _meshRenderer = new MeshRenderer[CubeFaces];
 
-        _terrainFaces = new TerrainFace[_cubeFaces];
+        _terrainFaces = new TerrainFace[CubeFaces];
         
         // cube face directions
         var directions = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
         
         // create a new mesh renderer and mesh filter for each cube face
-        for (var cubeFaceIndex = 0; cubeFaceIndex < _cubeFaces; cubeFaceIndex++)
+        for (var cubeFaceIndex = 0; cubeFaceIndex < CubeFaces; cubeFaceIndex++)
         {
             if (_terrainFaces[cubeFaceIndex] == null)
             {
@@ -132,7 +132,7 @@ public class ObjectGenerator : MonoBehaviour
     {
         if(_terrainFaces == null) return;
 
-        for (int pageIndex = 0; pageIndex < _cubeFaces; pageIndex++)
+        for (int pageIndex = 0; pageIndex < CubeFaces; pageIndex++)
         {
             if (_meshRenderer[pageIndex].enabled)
                 _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.VisualSettings.Resolution);
