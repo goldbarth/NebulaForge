@@ -14,11 +14,11 @@ public class SimpleNoiseSettings
     [Range(0, 5)] public float BaseRoughness = 1f;
     [Range(-2.5f, 10f)] public float Roughness = 2f;
     
-    [Tooltip("Amplitude will decrease by half each layer.The amplitude will decrease each layer.") ,Range(0, 5)]
+    [Tooltip("Amplitude will decrease by half each layer.") ,Range(0, 5)]
     public float Persistence = .5f;
     
     public Vector3 Center;
     
-    [Tooltip("The minimum value allows us to push the noise back into the sphere of the planet."),Range(0, 5)]
-    public float MinValue;
+    [Tooltip("By increasing the value"),Range(0, 5)]
+    public float GroundLevel;
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: cdfd26c21024ab24da7ea01abf33b5e2, type: 2}
   VisualSettings:
     Resolution: 120
-    PlanetRadius: 20
+    PlanetRadius: 17
     Gradient:
       serializedVersion: 2
       key0: {r: 0.23137254, g: 1, b: 0.48818675, a: 1}
@@ -53,14 +53,14 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 0
+        Seed: 333
         NoiseStrength: 0.15
         NumberOfLayers: 2
-        BaseRoughness: 1.02
-        Roughness: 1.75
-        Persistence: 0.63
+        BaseRoughness: 1.15
+        Roughness: 1.15
+        Persistence: 0.72
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.61
+        GroundLevel: 0.18
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -69,21 +69,21 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 0
+        Seed: 333
         NoiseStrength: 0.3
         NumberOfLayers: 4
-        BaseRoughness: 0.86
-        Roughness: 0.83
-        Persistence: 0.61
+        BaseRoughness: 1.8
+        Roughness: 1.16
+        Persistence: 0.86
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.51
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -106,14 +106,14 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0.65
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 0
+        Seed: 333
         NoiseStrength: 0.7
         NumberOfLayers: 2
         BaseRoughness: 1.59
         Roughness: 0
         Persistence: 0.91
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
-        WeightMultiplier: 0.78
+        GroundLevel: 0
+        WeightMultiplier: 1.64

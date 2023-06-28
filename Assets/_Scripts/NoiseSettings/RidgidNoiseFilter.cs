@@ -30,7 +30,7 @@ public class RidgidNoiseFilter : INoiseFilter
             amplitude = amplitude.MultiplyAmplitudeByPersistence(_settings.Persistence); // when persistence is less than 1, the amplitude will decrease each layer
         }
             
-        noiseValue = noiseValue.ClampValueToZeroIfBelowThreshold(_settings.MinValue); // if the noise value is less than the min value, set it to 0
+        noiseValue = noiseValue.ClampValueToZeroIfBelowThreshold(_settings.GroundLevel); // if the noise value is less than the min value, set it to 0
         return noiseValue * _settings.NoiseStrength;
     }
 }

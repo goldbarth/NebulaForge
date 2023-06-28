@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: e754ed0821ac8e54f9954d609da31852, type: 2}
   VisualSettings:
     Resolution: 107
-    PlanetRadius: 200
+    PlanetRadius: 5
     Gradient:
       serializedVersion: 2
       key0: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
@@ -53,61 +53,67 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0.12
         NumberOfLayers: 2
         BaseRoughness: 0.6
         Roughness: 0.74
         Persistence: 0.43
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.27
+        GroundLevel: 0
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 0
         NumberOfLayers: 0
         BaseRoughness: 0
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0.3
         NumberOfLayers: 4
         BaseRoughness: 2.63
         Roughness: 8.34
         Persistence: 0.23
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.67
+        GroundLevel: 0
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 0
         NumberOfLayers: 0
         BaseRoughness: 0
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 1
       SimpleNoiseSettings:
+        Seed: 0
         NoiseStrength: 0
         NumberOfLayers: 0
         BaseRoughness: 0
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
       RidgidNoiseSettings:
+        Seed: 0
         NoiseStrength: 1.01
         NumberOfLayers: 2
         BaseRoughness: 1.24
         Roughness: 5.6
         Persistence: 0.21
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0.8

@@ -53,7 +53,7 @@ public class SurfaceShape
         {
             if (_object.NoiseLayers[layerIndex].Enabled)
             {
-                // we use the first layer as a mask for the other layers
+                // we use the first layer as a mask for the other layers if the option is enabled
                 var mask = _object.NoiseLayers[layerIndex].UseFirstLayerAsMask ? firstLayerValue : 1;
                 elevation += _noiseFilters[layerIndex].EvaluateNoiseValue(spherePosition) * mask;
             }

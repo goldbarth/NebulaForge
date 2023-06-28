@@ -9,22 +9,27 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet1Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ConditionalHidePropertyDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ConditionalHidePropertyDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/MoonMaterial 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/MoonMaterial 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/OceanMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/OceanMaterial.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedExplosion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SylizedWaterMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SylizedWaterMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedWaterMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedWaterMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/Movement.shadersubgraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/Movement.shadersubgraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +142,8 @@
       <workItem from="1687520280248" duration="8908000" />
       <workItem from="1687868465391" duration="3584000" />
       <workItem from="1687872097434" duration="3007000" />
+      <workItem from="1687876629693" duration="375000" />
+      <workItem from="1687878542583" duration="3299000" />
     </task>
     <servers />
   </component>
