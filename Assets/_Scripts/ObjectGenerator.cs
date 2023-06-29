@@ -18,12 +18,13 @@ public enum ObjectType
     TerrestrialBody,
 }
 
-[ExecuteAlways]
+[ExecuteAlways, ImageEffectAllowedInSceneView]
 public class ObjectGenerator : MonoBehaviour
 {
     [field: SerializeField, Header("Object Settings Asset")] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
+
     [HideInInspector] public bool ShapeSettingsFoldout;
     
     public SurfaceShapeDispatcher SurfaceShapeDispatcher { get; } = new();
@@ -79,7 +80,7 @@ public class ObjectGenerator : MonoBehaviour
             _meshRenderer = new MeshRenderer[CubeFaces];
 
         _terrainFaces = new TerrainFace[CubeFaces];
-        
+
         // cube face directions
         var directions = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
         
@@ -93,7 +94,7 @@ public class ObjectGenerator : MonoBehaviour
                 var newFace = cubeFaceIndex < transform.childCount ? transform.GetChild(cubeFaceIndex).gameObject : new GameObject($"TerrainFace_{cubeFaceIndex}");
                 newFace.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
                 newFace.transform.SetParent(transform);
-                
+
                 // add mesh renderer, mesh filter components to the child object.
                 _meshRenderer[cubeFaceIndex] = newFace.GetOrAddComponent2<MeshRenderer>();
                 var meshFilter = newFace.GetOrAddComponent2<MeshFilter>();
@@ -110,6 +111,20 @@ public class ObjectGenerator : MonoBehaviour
         }
     }
     
+    private void GenerateMesh()
+    {
+        if(_terrainFaces == null) return;
+
+        for (int pageIndex = 0; pageIndex < CubeFaces; pageIndex++)
+        {
+            if (_meshRenderer[pageIndex].enabled)
+                _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.VisualSettings.Resolution);
+        }
+        
+        UpdateSurfaceShapeDispatcherSettings();
+        UpdateElevation();
+    }
+
     private void UpdateSurfaceSettings()
     {
         UpdateSurfaceElevationGradientSettings();
@@ -126,20 +141,6 @@ public class ObjectGenerator : MonoBehaviour
     public void OnColorSettingsUpdated()
     {
         UpdateElevationGradient();
-    }
-    
-    private void GenerateMesh()
-    {
-        if(_terrainFaces == null) return;
-
-        for (int pageIndex = 0; pageIndex < CubeFaces; pageIndex++)
-        {
-            if (_meshRenderer[pageIndex].enabled)
-                _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.VisualSettings.Resolution);
-        }
-        
-        UpdateSurfaceShapeDispatcherSettings();
-        UpdateElevation();
     }
 
     private void UpdateSurfaceShapeSetting()

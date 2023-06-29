@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: 1a2ade26f32b8a64cac92e96b551b2a8, type: 2}
   VisualSettings:
     Resolution: 120
-    PlanetRadius: 60
+    PlanetRadius: 40
     Gradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.6361711, b: 0, a: 1}
@@ -53,14 +53,14 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 88
+        Seed: 0
         NoiseStrength: 0.14
         NumberOfLayers: 2
         BaseRoughness: 0
         Roughness: 0
         Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.41
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -69,21 +69,21 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 155
-        NoiseStrength: 2.89
+        Seed: 0
+        NoiseStrength: 0.8
         NumberOfLayers: 5
-        BaseRoughness: 2.18
-        Roughness: 0.27
+        BaseRoughness: 1
+        Roughness: 0.15
         Persistence: 1
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 2.42
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -106,14 +106,14 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 33
+        Seed: 0
         NoiseStrength: 1.88
         NumberOfLayers: 3
         BaseRoughness: 0.97
-        Roughness: 1.96
+        Roughness: 2.02
         Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0.63

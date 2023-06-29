@@ -37,7 +37,7 @@ public class TerrainFace
             // calculating the position of each vertex on the unit cube
             var cubePosition = startPosition + (_axisA * percent.x + _axisB * percent.y) * PlaneSize;
             // calculating the position of each vertex on the unit sphere, instead of normalizing the cube position
-            var spherePosition = _object.SurfaceShape.CalculateSeamlessEdges(cubePosition);
+            var spherePosition = _object.SurfaceShape.SeamlessEdges(cubePosition);
             // calculating the position of each vertex on the planet surface
             var planetPosition = spherePosition + _object.SurfaceShapeDispatcher.GetSurfaceShape(spherePosition);
             

@@ -9,27 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/ConditionalHidePropertyDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/ConditionalHidePropertyDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/ObjectEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/MoonMaterial 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/MoonMaterial 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/OceanMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/OceanMaterial.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedWaterMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedWaterMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedWater/StylizedWater.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveCreatedTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveCreatedTexture.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +30,10 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/21e1bc5e537b4ecf84d795be004ca2c75e00/f5/729cc4aa/PlanetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/27/5fe7af6d/Gradient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/93/a2f51a8e/PropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/aa/0f1ac992/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/db/5567fe2c/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ddc6e88db85042aeb6955c12ada6a5ce46e000/d8/a58b8a16/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveNewTexture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -106,10 +96,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12168">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12168" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -144,6 +134,7 @@
       <workItem from="1687872097434" duration="3007000" />
       <workItem from="1687876629693" duration="375000" />
       <workItem from="1687878542583" duration="3299000" />
+      <workItem from="1688037893731" duration="24660000" />
     </task>
     <servers />
   </component>

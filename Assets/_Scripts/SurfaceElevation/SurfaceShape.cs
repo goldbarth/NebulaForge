@@ -18,7 +18,7 @@ public class SurfaceShape
     }
     
     // makes the mesh face edges seamless when translated to a sphere
-    public Vector3 CalculateSeamlessEdges(Vector3 cubePosition)
+    public Vector3 SeamlessEdges(Vector3 cubePosition)
     {
         var x2 = cubePosition.x * cubePosition.x;
         var y2 = cubePosition.y * cubePosition.y;
