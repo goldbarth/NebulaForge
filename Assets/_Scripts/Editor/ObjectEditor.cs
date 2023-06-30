@@ -14,7 +14,7 @@ public class ObjectEditor : Editor
 
     private void OnEnable()
     {
-       _object = (ObjectGenerator)target;
+        _object = (ObjectGenerator)target;
         _oldSettings = _object.ObjectSettings;
     }
 

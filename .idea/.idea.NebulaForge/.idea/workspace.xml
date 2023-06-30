@@ -9,17 +9,40 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Moon2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Moon2Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet1Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet2Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planet3Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/TestMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/TestMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/NewPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/NewPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveCreatedTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveCreatedTexture.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Generated/CandySurface.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Generated/CandySurface.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CelestialObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimplexNoise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimplexNoise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/_README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/README.md.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/OrbitController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/OrbitController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/Rotate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/Rotate.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/RotateAroundPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectMovement/RotateAroundPoint.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/OrbitSimulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/OrbitSimulation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceElevationGradient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShape.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShapeDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShapeDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceElevation/SurfaceShapeDispatcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShapeDispatcher.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,28 +70,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.53435117",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache",
+      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache",
+      "C:\\Users\\felix\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
@@ -96,10 +120,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12168">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24064">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12168" />
+      <option name="pid" value="24064" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -134,7 +158,8 @@
       <workItem from="1687872097434" duration="3007000" />
       <workItem from="1687876629693" duration="375000" />
       <workItem from="1687878542583" duration="3299000" />
-      <workItem from="1688037893731" duration="24660000" />
+      <workItem from="1688037893731" duration="25377000" />
+      <workItem from="1688125733039" duration="12110000" />
     </task>
     <servers />
   </component>

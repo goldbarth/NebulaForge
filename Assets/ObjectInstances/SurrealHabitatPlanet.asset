@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
   VisualSettings:
     Resolution: 96
-    PlanetRadius: 29
+    PlanetRadius: 17
     Gradient:
       serializedVersion: 2
       key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}
@@ -60,7 +60,7 @@ MonoBehaviour:
         Roughness: 1.58
         Persistence: 0.67
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.67
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
         Roughness: 1.74
         Persistence: 0.81
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 1.79
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
         Roughness: 3.56
         Persistence: 2.14
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 1.52
@@ -115,5 +115,5 @@ MonoBehaviour:
         Roughness: 0.45
         Persistence: 1.1
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0.3

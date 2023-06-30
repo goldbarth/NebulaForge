@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-// Source: TODO
+// Source: From Léon-Lucas Kaniewski @ SAE "Generische Welten" Online Lecture, it isn´t his, but he shared it without a source.
 public class SimplexNoise
 {
     public SimplexNoise()
