@@ -8,8 +8,7 @@ public class CelestialObject : MonoBehaviour
     [field: SerializeField] public Vector3 Velocity { get; private set; }
     [field: SerializeField] public float Mass { get; private set; }
     [field: SerializeField] public float SurfaceGravity { get; set; }
-
-    //private Rigidbody Rigidbody => _rigidbody ? _rigidbody : _rigidbody = GetComponent<Rigidbody>();
+    
     public Vector3 Position => _rigidbody.position;
 
     private Rigidbody _rigidbody;

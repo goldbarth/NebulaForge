@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: PlanetSettings
   m_EditorClassIdentifier: 
-  ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
+  ObjectMaterial: {fileID: 2100000, guid: 96df32e9be7afcc45913c2f4217c12b5, type: 2}
   VisualSettings:
     Resolution: 60
     PlanetRadius: 30
@@ -45,75 +45,6 @@ MonoBehaviour:
       m_Mode: 1
       m_NumColorKeys: 7
       m_NumAlphaKeys: 2
-    ObjectType: 1
+    ObjectType: 0
   FaceRenderMask: 0
-  NoiseLayers:
-  - Enabled: 1
-    UseFirstLayerAsMask: 0
-    NoiseSettings:
-      Filter: 0
-      SimpleNoiseSettings:
-        Seed: 88
-        NoiseStrength: 0.14
-        NumberOfLayers: 2
-        BaseRoughness: 0
-        Roughness: 0
-        Persistence: 0.62
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.41
-      RidgidNoiseSettings:
-        Seed: 0
-        NoiseStrength: 0
-        NumberOfLayers: 0
-        BaseRoughness: 0
-        Roughness: 0
-        Persistence: 0
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
-        WeightMultiplier: 0
-  - Enabled: 1
-    UseFirstLayerAsMask: 1
-    NoiseSettings:
-      Filter: 0
-      SimpleNoiseSettings:
-        Seed: 155
-        NoiseStrength: 2.89
-        NumberOfLayers: 5
-        BaseRoughness: 2.18
-        Roughness: 0.27
-        Persistence: 1
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 2.42
-      RidgidNoiseSettings:
-        Seed: 0
-        NoiseStrength: 0
-        NumberOfLayers: 0
-        BaseRoughness: 0
-        Roughness: 0
-        Persistence: 0
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
-        WeightMultiplier: 0
-  - Enabled: 1
-    UseFirstLayerAsMask: 1
-    NoiseSettings:
-      Filter: 1
-      SimpleNoiseSettings:
-        Seed: 0
-        NoiseStrength: 0
-        NumberOfLayers: 0
-        BaseRoughness: 0
-        Roughness: 0
-        Persistence: 0
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
-      RidgidNoiseSettings:
-        Seed: 33
-        NoiseStrength: 1.88
-        NumberOfLayers: 3
-        BaseRoughness: 0.97
-        Roughness: 1.96
-        Persistence: 0.62
-        Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
-        WeightMultiplier: 0.63
+  NoiseLayers: []
