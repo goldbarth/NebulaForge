@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectMaterial: {fileID: 2100000, guid: 42b188228cc98f641b0dec4bafc6e582, type: 2}
   VisualSettings:
     Resolution: 108
-    PlanetRadius: 16
+    PlanetRadius: 25
     Gradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
