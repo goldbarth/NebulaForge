@@ -589,15 +589,15 @@
     "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
     "m_ObjectId": "0f8e4faf203f4dbdbdd383aa9c01f50f",
     "m_Title": "Rotating Noise Distortion",
-    "m_Content": "Source: \r\nGabriel Aguiar Prod.\r\nhttps://www.youtube.com/watch?v=FlE8e1JwVzs\n",
+    "m_Content": "Source Origin: \r\nGabriel Aguiar Prod.\r\nhttps://www.youtube.com/watch?v=FlE8e1JwVzs\n",
     "m_TextSize": 1,
     "m_Theme": 1,
     "m_Position": {
         "serializedVersion": "2",
-        "x": -1488.0,
-        "y": -607.2000122070313,
-        "width": 1121.441650390625,
-        "height": 719.8633422851563
+        "x": -1486.4000244140625,
+        "y": -632.0,
+        "width": 1121.5999755859375,
+        "height": 720.0
     },
     "m_Group": {
         "m_Id": ""

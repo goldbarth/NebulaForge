@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: SurrealHabitatPlanet
   m_EditorClassIdentifier: 
-  ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
+  ObjectMaterial: {fileID: 2100000, guid: bde0c0ae79dd68941b0c8c5b4d9d2071, type: 2}
   VisualSettings:
     Resolution: 96
     PlanetRadius: 150
     Gradient:
       serializedVersion: 2
-      key0: {r: 0.6052248, g: 0.23018867, b: 1, a: 1}
-      key1: {r: 0.64705884, g: 0.37254903, b: 1, a: 1}
-      key2: {r: 0.14524738, g: 0.754717, b: 0.49743715, a: 1}
-      key3: {r: 0.33436382, g: 0.1668209, b: 0.6226415, a: 0}
-      key4: {r: 0.8128841, g: 0.46521893, b: 0.8301887, a: 0}
-      key5: {r: 0, g: 0.9433962, b: 0.46279812, a: 0}
+      key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}
+      key1: {r: 0.9056604, g: 0.825483, b: 0.41352794, a: 1}
+      key2: {r: 0.27493772, g: 0.735849, b: 0.23186183, a: 1}
+      key3: {r: 0.4716981, g: 0.31724662, b: 0.20692416, a: 0}
+      key4: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+      key5: {r: 1, g: 1, b: 1, a: 0}
       key6: {r: 1, g: 0.32140487, b: 0, a: 0}
       key7: {r: 1, g: 0.32140487, b: 0, a: 0}
-      ctime0: 28969
-      ctime1: 32422
-      ctime2: 36067
-      ctime3: 42206
-      ctime4: 51607
+      ctime0: 16307
+      ctime1: 21487
+      ctime2: 28393
+      ctime3: 35684
+      ctime4: 46811
       ctime5: 65535
       ctime6: 65535
       ctime7: 65535

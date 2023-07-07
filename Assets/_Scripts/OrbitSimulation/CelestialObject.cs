@@ -1,14 +1,17 @@
+﻿using NaughtyAttributes;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CelestialObject : MonoBehaviour
 {
+    [BoxGroup("Conditions")]
+    [Space, SerializeField] private float _surfaceGravity;
+    [BoxGroup("Conditions")]
+    [ReadOnly] public float Mass;
+    [Foldout("Velocity Status")]
     [SerializeField] private Vector3 _initialVelocity = new(0f, 0.5f, 0f);
-    
-    [field: SerializeField] public Vector3 Velocity { get; private set; }
-    [field: SerializeField] public float Mass { get; private set; }
-    [field: SerializeField] public float SurfaceGravity { get; set; }
-    
+    [Foldout("Velocity Status")]
+    [ReadOnly] public Vector3 CurrentVelocity;
     public Vector3 Position => _rigidbody.position;
 
     private Rigidbody _rigidbody;
@@ -18,7 +21,7 @@ public class CelestialObject : MonoBehaviour
     {
         _radius = GetComponentInChildren<ObjectGenerator>().PlanetRadius;
         _rigidbody = GetComponent<Rigidbody>();
-        Velocity = _initialVelocity;
+        CurrentVelocity = _initialVelocity;
         
         MassCalculation();
     }
@@ -31,17 +34,17 @@ public class CelestialObject : MonoBehaviour
 
     private void MassCalculation()
     {
-        Mass = SurfaceGravity * _radius * _radius / Universe.GravitationalConstant;
+        Mass = _surfaceGravity * _radius * _radius / Universe.GravitationalConstant;
         _rigidbody.mass = Mass;
     }
 
     public void UpdateVelocity(Vector3 acceleration, float timeStep)
     {
-        Velocity += acceleration * timeStep;
+        CurrentVelocity += acceleration * timeStep;
     }
 
     public void UpdatePosition(float timeStep)
     {
-        _rigidbody.MovePosition(_rigidbody.position + Velocity * timeStep);
+        _rigidbody.MovePosition(_rigidbody.position + CurrentVelocity * timeStep);
     }
 }

@@ -90,7 +90,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FresnelEdgePower: 6
+    - _FresnelEdgePower: 8.11
     - _FresnelNoisePower: 5.93
     - _FresnelPhotonPower: 0.94
     - _FresnelPower: 18

@@ -1,6 +1,7 @@
 ﻿# Planet Generation
 The original code was from the Sebastian Lague´s tutorial "Procedural Planets".
 Modified from Léon-Lucas Kaniewski @ SAE "Generische Welten" Online Lecture.
+Modified and finalized by me, for my own project.
 
 ## Noise Settings (Folder)
 - In the Noise Settings (also Simple and Ridgid), I extracted the nested classes and made them their own files. 
@@ -16,4 +17,4 @@ with making the Simple and Ridgid inherit from a abstract class, but the classes
 - TODO: TBA
 
 ## ObjectGenerator.cs
-- TODO: TBA
+- TODO: TBA~~~~
