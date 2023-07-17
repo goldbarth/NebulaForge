@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------------
@@ -14,6 +15,7 @@ using UnityEngine;
 public class OrbitSimulation : MonoBehaviour
 {
     [SerializeField] private bool _manualTimeScale = false;
+    [EnableIf("_manualTimeScale")]
     [SerializeField] private float _timeScale = 1f;
     
     [SerializeField] private CelestialObject[] _objects;

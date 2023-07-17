@@ -18,7 +18,7 @@ public enum ObjectType
     TerrestrialBody,
 }
 
-[ExecuteAlways, ImageEffectAllowedInSceneView]
+[ExecuteAlways]
 public class ObjectGenerator : MonoBehaviour
 {
     [field: SerializeField, Header("Object Settings Asset")] public ObjectSettings ObjectSettings { get; set; }
