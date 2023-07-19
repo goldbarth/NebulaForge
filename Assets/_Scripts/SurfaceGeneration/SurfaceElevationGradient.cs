@@ -17,7 +17,7 @@ public class SurfaceElevationGradient
 
     public void UpdateElevation(MinMax elevationMinMax)
     {
-        _object.ObjectMaterial.SetVector("_Elevation_Min_Max", new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
+        _object.Material.SetVector("_Elevation_Min_Max", new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
     }
 
     public void UpdateGradient()
@@ -29,7 +29,7 @@ public class SurfaceElevationGradient
         _texture.SetPixels(colors);
         _texture.Apply();
         
-        _texture.SaveTextureToFile(_object);
-        _object.ObjectMaterial.AddTexture(_object);
+        _texture.SaveTextureToFile(_object.ObjectSettings);
+        _object.Material.AddTexture(_object.ObjectSettings);
     }
 }

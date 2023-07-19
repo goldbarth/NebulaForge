@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: DefaultSphereSettings
   m_EditorClassIdentifier: 
-  ObjectMaterial: {fileID: 2100000, guid: 54c279630a5d36b49a2bdfcf3ed248a3, type: 2}
+  ObjectType: 0
+  Material: {fileID: 2100000, guid: 54c279630a5d36b49a2bdfcf3ed248a3, type: 2}
   VisualSettings:
     Resolution: 120
     PlanetRadius: 50
@@ -45,6 +46,4 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    ObjectType: 0
-  FaceRenderMask: 0
   NoiseLayers: []

@@ -9,17 +9,66 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/BlackHole/BlackHoleMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/BlackHole/BlackHoleMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet2Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet2Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultTerrainMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultTerrainMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet1Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet1Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet2Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet2Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet3Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet3Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet4Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Planets/Planet4Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SolidMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/SolidMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/TestMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/TestMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyHabitatPlanet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/FirstUnicornPlanet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/FirstUnicornPlanet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/NewPlanet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/NewPlanet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PlanetWithHighMountains.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PlanetWithHighMountains.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SecondPlanetWithHabitat.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SecondPlanetWithHabitat.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWater.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/StylizedWaterSmall.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealHabitatPlanet2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealMoon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SurrealMoon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/TextureHeightTest.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/TextureHeightTest.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/ThirdPlanetWithHabitat.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Sections.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Sections.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/PlanetSurface.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/PlanetSurface.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Generated/Habitat.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Generated/Habitat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/DefaultSphereSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/DefaultSphereSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/DefaultTerrainSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/DefaultTerrainSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/TextureExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/VisualSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/VisualSettings.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/OrbitSimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/OrbitSimulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +77,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/21e1bc5e537b4ecf84d795be004ca2c75e00/f5/729cc4aa/PlanetSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/88e4733ac7bc4ae1b496735e6b83bbd346ac00/6f/24b78052/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/27/5fe7af6d/Gradient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/93/a2f51a8e/PropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/aa/0f1ac992/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
@@ -97,10 +147,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31528">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="31528" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -139,6 +189,7 @@
       <workItem from="1688125733039" duration="12110000" />
       <workItem from="1688146739438" duration="317000" />
       <workItem from="1688692068654" duration="2611000" />
+      <workItem from="1689708427867" duration="30785000" />
     </task>
     <servers />
   </component>
@@ -149,6 +200,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs</url>
+          <line>50</line>
+          <properties documentPath="E:\GitFork\NebulaForge\Assets\_Scripts\Editor\ObjectEditor.cs" initialLine="50" containingFunctionPresentation="Method 'ButtonLayout'">
+            <startOffsets>
+              <option value="1828" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1872" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

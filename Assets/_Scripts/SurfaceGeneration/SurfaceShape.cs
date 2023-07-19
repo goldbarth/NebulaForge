@@ -71,6 +71,6 @@ public class SurfaceShape
     
     private float PlanetRadius()
     {
-        return _object.PlanetRadius;
+        return _object.Radius;
     }
 }

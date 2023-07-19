@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
+  m_Name: CandyPlanet
+  m_EditorClassIdentifier: 
+  ObjectType: 1
+  Material: {fileID: 2100000, guid: e4df1b252db6b6444964b884e938da55, type: 2}
+  Resolution: 128
+  Radius: 12
+  Gradient:
+    serializedVersion: 2
+    key0: {r: 0.64638865, g: 0.37254906, b: 1, a: 1}
+    key1: {r: 0.40155882, g: 0.30588236, b: 0.7254902, a: 1}
+    key2: {r: 0.14524738, g: 0.754717, b: 0.49743715, a: 0}
+    key3: {r: 0.33436382, g: 0.1668209, b: 0.6226415, a: 0}
+    key4: {r: 0.8128841, g: 0.46521893, b: 0.8301887, a: 0}
+    key5: {r: 0, g: 0.8301887, b: 0.40784314, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 3470
+    ctime2: 10216
+    ctime3: 26091
+    ctime4: 51607
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  NoiseLayers:
+  - Enabled: 1
+    UseFirstLayerAsMask: 0
+    NoiseSettings:
+      Filter: 0
+      SimpleNoiseSettings:
+        Seed: 333
+        NoiseStrength: 0.15
+        NumberOfLayers: 2
+        BaseRoughness: 1.15
+        Roughness: 1.15
+        Persistence: 0.72
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0.9
+      RidgidNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 0
+  - Enabled: 1
+    UseFirstLayerAsMask: 1
+    NoiseSettings:
+      Filter: 0
+      SimpleNoiseSettings:
+        Seed: 333
+        NoiseStrength: 0.3
+        NumberOfLayers: 4
+        BaseRoughness: 1.8
+        Roughness: 1.16
+        Persistence: 0.86
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+      RidgidNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 0
+  - Enabled: 1
+    UseFirstLayerAsMask: 1
+    NoiseSettings:
+      Filter: 1
+      SimpleNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0.56
+        NumberOfLayers: 2
+        BaseRoughness: 0.93
+        Roughness: 0
+        Persistence: 0.65
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+      RidgidNoiseSettings:
+        Seed: 333
+        NoiseStrength: 0.7
+        NumberOfLayers: 2
+        BaseRoughness: 1.59
+        Roughness: 0
+        Persistence: 0.91
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 1.64
