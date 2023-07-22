@@ -9,7 +9,7 @@ public class ObjectEditor : Editor
     private ObjectSettings _oldSettings;
     private ObjectGenerator _object;
     private Editor _shapeEditor;
-    
+
     private string[] _assetNames;
     private string _assetName = string.Empty;
     private int _selectedAssetIndex;
@@ -31,20 +31,22 @@ public class ObjectEditor : Editor
         if (check.changed)
         {
             _object.GeneratePlanet();
-            _selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);    
+            _selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
         }
-        
+
         ButtonLayout();
-        DrawSettingsEditor(_object.ObjectSettings, _object.OnPlanetSettingsUpdated, _object.OnColorSettingsUpdated, ref _object.ShapeSettingsFoldout, ref _shapeEditor);
+        DrawSettingsEditor(_object.ObjectSettings, _object.OnPlanetSettingsUpdated, _object.OnColorSettingsUpdated,
+            ref _object.ShapeSettingsFoldout, ref _shapeEditor);
     }
 
     private void ButtonLayout()
     {
         GUILayout.Label("Object Settings", EditorStyles.boldLabel);
         GUILayout.Space(5);
-        var tooltipApply = "Select the asset you want to use. After selecting the asset. The settings, material and texture will automatically applied to the object.";
+        var tooltipApply =
+            "Select the asset you want to use. After selecting the asset. The settings, material and texture will automatically applied to the object.";
         var newSelectedAssetIndex = DropdownWithTooltip("Select Asset", tooltipApply, _selectedAssetIndex, _assetNames);
-        
+
         // Check if the selected index has changed. If so, apply the new settings.
         if (newSelectedAssetIndex != _selectedAssetIndex)
         {
@@ -59,19 +61,19 @@ public class ObjectEditor : Editor
             _object.GeneratePlanet();
             _object.OnColorSettingsUpdated();
         }
-        
+
         GUILayout.Space(2);
         if (GUILayout.Button("Remove Planet"))
             _object.RemovePlanet();
-        
+
         EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         GUILayout.Space(2);
         GUILayout.Label("Create New Object Settings Asset", EditorStyles.boldLabel);
         GUILayout.Space(5);
         _assetName = EditorGUILayout.TextField("Asset Name", _assetName);
         GUILayout.Space(3);
-        
-        if(GUILayout.Button("Create Asset"))
+
+        if (GUILayout.Button("Create Asset"))
             CreateNewAsset(_object);
         EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         GUILayout.Space(2);
@@ -80,21 +82,14 @@ public class ObjectEditor : Editor
         var tooltipDelete = "Select the asset you want to delete. After selecting the asset, click the Delete Asset button.";
         _oldSelectedAssetIndex = DropdownWithTooltip("Select Asset", tooltipDelete, _oldSelectedAssetIndex, _assetNames);
         GUILayout.Space(3);
-        
-        if(GUILayout.Button("Delete Asset"))
+
+        if (GUILayout.Button("Delete Asset"))
             DeleteSelectedAsset(_assetNames);
     }
-    
+
     private int DropdownWithTooltip(string label, string tooltipText, int selectedIndex, string[] assetNames)
     {
         return EditorGUILayout.Popup(new GUIContent(label, tooltipText), selectedIndex, assetNames);
-    }
-
-    private (string text, string tooltipText, GUIStyle tooltipStyle) Tooltip(string tooltipText, string text = "")
-    {
-        var tooltipStyle = new GUIStyle(GUI.skin.box) {alignment = TextAnchor.MiddleCenter};
-        EditorGUILayout.LabelField(new GUIContent(text, tooltipText), tooltipStyle);
-        return (text, tooltipText, tooltipStyle);
     }
 
     private void ApplySelectedAsset()
@@ -108,6 +103,7 @@ public class ObjectEditor : Editor
             Debug.LogWarning("Invalid asset path to load from");
             return;
         }
+
         _object.ObjectSettings = selectedAsset;
         _object.GeneratePlanet();
     }
@@ -117,7 +113,7 @@ public class ObjectEditor : Editor
         var asset = GetAllAssets(assetNames);
         AssetDatabase.DeleteAsset($"{asset.folderPath}");
         Debug.Log($"Deleted assets and folder at: {asset.folderPath}");
-        
+
         AssetDatabase.Refresh();
     }
 
@@ -127,7 +123,7 @@ public class ObjectEditor : Editor
     {
         if (_selectedAssetIndex < 0 || _selectedAssetIndex >= assetNames.Length)
             Debug.LogWarning("Invalid asset index");
-        
+
         var selectedAssetName = assetNames[_selectedAssetIndex];
         var folderPath = FolderPath.NewAssetFolder(selectedAssetName);
         var path = $"{folderPath}/{selectedAssetName}";
@@ -144,9 +140,9 @@ public class ObjectEditor : Editor
     private string[] GetAssetNamesInFolder()
     {
         // Fetch all the asset paths in the folder we want to choose assets from.
-        var folderPath = FolderPath.Root;
-        var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] {folderPath});
-        
+        const string folderPath = FolderPath.RootInstances;
+        var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] { folderPath });
+
         // Convert asset paths to asset names.
         var assetNames = new string[assetPaths.Length];
         for (var assetIndex = 0; assetIndex < assetPaths.Length; assetIndex++)
@@ -154,7 +150,7 @@ public class ObjectEditor : Editor
             var assetPath = AssetDatabase.GUIDToAssetPath(assetPaths[assetIndex]);
             assetNames[assetIndex] = System.IO.Path.GetFileNameWithoutExtension(assetPath);
         }
-        
+
         return assetNames;
     }
 
@@ -169,7 +165,7 @@ public class ObjectEditor : Editor
                 return;
             }
 
-            if (!System.IO.Directory.Exists(newAssetFolder)) 
+            if (!System.IO.Directory.Exists(newAssetFolder))
                 System.IO.Directory.CreateDirectory(newAssetFolder);
 
             var newObjectSettings = CreateNewInstance();
@@ -204,7 +200,7 @@ public class ObjectEditor : Editor
     {
         var newObjectSettings = CreateInstance<ObjectSettings>();
         if (_oldSettings == null) return newObjectSettings;
-        
+
         newObjectSettings = Instantiate(_oldSettings);
         var newMaterial = Instantiate(_oldSettings.Material);
         newObjectSettings.Material = newMaterial;
@@ -212,7 +208,8 @@ public class ObjectEditor : Editor
         return newObjectSettings;
     }
 
-    private static void DrawSettingsEditor(Object planetSettings, Action callbackShapeSettings, Action callbackColorSettings, ref bool foldout, ref Editor editor)
+    private static void DrawSettingsEditor(Object planetSettings, Action callbackShapeSettings,
+        Action callbackColorSettings, ref bool foldout, ref Editor editor)
     {
         if (planetSettings != null)
         {

@@ -1,6 +1,10 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 
+/// <summary>
+/// The ObjectSettings is a ScriptableObject that holds all the settings for the ObjectGenerator.
+/// It represents the Model in the MVC pattern.
+/// </summary>
 [CreateAssetMenu(fileName = "Object Settings", menuName = "ScriptableObjects/Object Settings")]
 public class ObjectSettings : ScriptableObject
 {
@@ -16,8 +20,7 @@ public class ObjectSettings : ScriptableObject
     
     [ShowIf("HasFoldoutAccess"), Label("Elevation Layers")] 
     [Space(2)] public NoiseLayer[] NoiseLayers;
-
-    //[Space(3)] public FaceRenderMask FaceRenderMask;
+    
     public bool HasFoldoutAccess()
     {
         return ObjectType != ObjectType.SolidSphere;
