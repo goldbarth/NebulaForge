@@ -43,9 +43,11 @@ public class ObjectEditor : Editor
     {
         GUILayout.Label("Object Settings", EditorStyles.boldLabel);
         GUILayout.Space(5);
-        var tooltipApply =
-            "Select the asset you want to use. After selecting the asset. The settings, material and texture will automatically applied to the object.";
-        var newSelectedAssetIndex = DropdownWithTooltip("Select Asset", tooltipApply, _selectedAssetIndex, _assetNames);
+        var applySelectionTooltip =
+            "Select the asset you want to use. After selecting the asset. " +
+            "The settings, material and texture will automatically applied to the object.";
+        var newSelectedAssetIndex = 
+            DropdownWithTooltip("Select Asset", applySelectionTooltip, _selectedAssetIndex, _assetNames);
 
         // Check if the selected index has changed. If so, apply the new settings.
         if (newSelectedAssetIndex != _selectedAssetIndex)
@@ -79,8 +81,8 @@ public class ObjectEditor : Editor
         GUILayout.Space(2);
         GUILayout.Label("Delete Object Settings Asset", EditorStyles.boldLabel);
         GUILayout.Space(5);
-        var tooltipDelete = "Select the asset you want to delete. After selecting the asset, click the Delete Asset button.";
-        _oldSelectedAssetIndex = DropdownWithTooltip("Select Asset", tooltipDelete, _oldSelectedAssetIndex, _assetNames);
+        var deleteSelectionTooltipText = "Select the asset you want to delete. After selecting the asset, click the Delete Asset button.";
+        _oldSelectedAssetIndex = DropdownWithTooltip("Select Asset", deleteSelectionTooltipText, _oldSelectedAssetIndex, _assetNames);
         GUILayout.Space(3);
 
         if (GUILayout.Button("Delete Asset"))
@@ -94,13 +96,13 @@ public class ObjectEditor : Editor
 
     private void ApplySelectedAsset()
     {
-        var asset = GetAllAssets(_assetNames);
+        var asset = CurrentAssetPath(_assetNames);
         var fullPath = $"{asset.path}.asset";
 
         var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(fullPath);
         if (selectedAsset == null)
         {
-            Debug.LogWarning("Invalid asset path to load from");
+            Debug.LogWarning("Invalid asset path to load from.");
             return;
         }
 
@@ -110,19 +112,19 @@ public class ObjectEditor : Editor
 
     private void DeleteSelectedAsset(string[] assetNames)
     {
-        var asset = GetAllAssets(assetNames);
+        var asset = CurrentAssetPath(assetNames);
         AssetDatabase.DeleteAsset($"{asset.folderPath}");
-        Debug.Log($"Deleted assets and folder at: {asset.folderPath}");
+        Debug.Log($"Deleted assets and folder at: {asset.folderPath}.");
 
         AssetDatabase.Refresh();
     }
 
     // Using tuples to return multiple values, checking edge cases and to return only individual values if needed. And for fun ofc.
     // https://learn.microsoft.com/de-de/dotnet/csharp/language-reference/builtin-types/value-tuples
-    private (string folderPath, string path) GetAllAssets(string[] assetNames)
+    private (string folderPath, string path) CurrentAssetPath(string[] assetNames)
     {
         if (_selectedAssetIndex < 0 || _selectedAssetIndex >= assetNames.Length)
-            Debug.LogWarning("Invalid asset index");
+            Debug.LogWarning("Invalid asset index.");
 
         var selectedAssetName = assetNames[_selectedAssetIndex];
         var folderPath = FolderPath.NewAssetFolder(selectedAssetName);
@@ -130,7 +132,7 @@ public class ObjectEditor : Editor
 
         if (!AssetDatabase.IsValidFolder(folderPath))
         {
-            Debug.LogWarning("Invalid asset folder path");
+            Debug.LogWarning("Invalid asset folder path.");
             folderPath = string.Empty;
         }
 
@@ -161,7 +163,7 @@ public class ObjectEditor : Editor
         {
             if (AssetDatabase.IsValidFolder(newAssetFolder))
             {
-                Debug.LogError("An asset with the same name already exists!");
+                Debug.LogError("An asset with the same name already exists.");
                 return;
             }
 
@@ -188,10 +190,10 @@ public class ObjectEditor : Editor
     {
         AssetDatabase.CreateAsset(newObjectSettings, $"{newAssetFolder}/{_assetName}.asset");
         AssetDatabase.CreateAsset(newObjectSettings.Material, $"{newAssetFolder}/{_assetName}Material.asset");
-        AssetDatabase.SaveAssets();
 
         objectGenerator.ObjectSettings = newObjectSettings;
         EditorUtility.SetDirty(objectGenerator);
+        AssetDatabase.SaveAssets();
 
         Debug.Log($"Created new asset at: {newAssetFolder}");
     }
@@ -201,6 +203,7 @@ public class ObjectEditor : Editor
         var newObjectSettings = CreateInstance<ObjectSettings>();
         if (_oldSettings == null) return newObjectSettings;
 
+        // Make a copy of the current settings and material and assign it to the object.
         newObjectSettings = Instantiate(_oldSettings);
         var newMaterial = Instantiate(_oldSettings.Material);
         newObjectSettings.Material = newMaterial;

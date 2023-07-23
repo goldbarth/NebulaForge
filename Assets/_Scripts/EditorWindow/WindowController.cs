@@ -15,11 +15,6 @@ public class WindowController
         _view = view;
     }
     
-    public void DrawProperties()
-    {
-        _view.DrawProperties();
-    }
-    
     public void DrawNoiseLayer()
     {
         _view.DrawNoiseLayer();
@@ -27,7 +22,7 @@ public class WindowController
     
     public void DrawButtons()
     {
-        _view.DrawButtons();
+        _view.DrawNoiseLayerOptionButtons();
     }
     
     public void AddNoiseLayer()

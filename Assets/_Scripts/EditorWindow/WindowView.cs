@@ -18,12 +18,14 @@ public class WindowView : EditorWindow
     private SerializedProperty _radiusProperty;
     private SerializedProperty _gradientProperty;
     
-    private SerializedProperty _noiseLayersProperty;
+    private SerializedProperty _noiseLayerProperty;
     private SerializedProperty _enabledProperty;
     private SerializedProperty _useFirstLayerAsMaskProperty;
     private SerializedProperty _noiseSettingsProperty;
     
+    private readonly string[] _tabHeaders = { "Settings", "Surface Settings" };
     private Vector2 _scrollPosition;
+    private int _tabIndex;
 
     private void OnEnable()
     {
@@ -36,7 +38,7 @@ public class WindowView : EditorWindow
         _resolutionProperty = _serializedObject.FindProperty("Resolution");
         _radiusProperty = _serializedObject.FindProperty("Radius");
         _gradientProperty = _serializedObject.FindProperty("Gradient");
-        _noiseLayersProperty  = _serializedObject.FindProperty("NoiseLayers");
+        _noiseLayerProperty  = _serializedObject.FindProperty("NoiseLayers");
         
         _controller = new WindowController(this);
     }
@@ -50,19 +52,150 @@ public class WindowView : EditorWindow
 
     private void OnGUI()
     {
-        _scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
         _serializedObject.Update();
-
-        _controller.DrawProperties();
         
+        var centeredBoldLabel = new GUIStyle(EditorStyles.boldLabel) { alignment = TextAnchor.MiddleCenter };
+        
+        GUILayout.BeginHorizontal();
+
+        // Left side of the split editor window (asset selection)
+        GUILayout.BeginVertical();
+        
+        GUILayout.Label("Objects", centeredBoldLabel);
+        DrawSideBarButtons();
+
+        GUILayout.EndVertical();
+
+        // Right side of the split editor window (tabs and settings)
+        GUILayout.BeginVertical();
+        
+        EditorGUILayout.Space(3);
+        GUILayout.Label($"{_objectSettings.name}", centeredBoldLabel);
+        EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
+
+        DrawTabsAndCurrentTab();
+
+        GUILayout.EndVertical();
+        GUILayout.EndHorizontal();
+        
+        
+        _controller.OnGUIChanged();
+    }
+
+    private void DrawTabsAndCurrentTab()
+    {
+        _tabHeaders[0] = "General";
+        _tabHeaders[1] = "Elevation Surface";
+        _tabIndex = GUILayout.Toolbar(_tabIndex, _tabHeaders);
+        
+        EditorGUILayout.Space(10);
+
+        switch (_tabIndex)
+        {
+            case 0:
+                DrawGeneralSettingsTab();
+                break;
+            case 1:
+                DrawElevationSurfaceSettingsTab();
+                break;
+        }
+    }
+
+    private void DrawSideBarButtons()
+    {
+        var assetsInFolder = GetAllAssetNamesAndPaths();
+        
+        // Calculate the maximum button and frame width based on the asset names.
+        var frameWidth = 0f;
+        var maxButtonWidth = 0f;
+        var frameBorderWidth = 15f;
+        foreach (var asset in assetsInFolder)
+        {
+            var assetWidth = GUI.skin.button.CalcSize(new GUIContent(asset.name)).x;
+            maxButtonWidth = Mathf.Max(maxButtonWidth, assetWidth);
+            frameWidth = maxButtonWidth + frameBorderWidth;
+        }
+        
+        var buttonStyle = new GUIStyle(GUI.skin.button);
+        buttonStyle.normal.textColor = Color.white;
+        buttonStyle.fixedWidth = maxButtonWidth + 10f;
+        buttonStyle.normal.background =
+            CreateTexture(2, 2, new Color(0.2f, 0.5f, 0.8f));
+
+        _scrollPosition = GUILayout.BeginScrollView(_scrollPosition, GUILayout.Width(frameWidth));
+        
+        // Draw a frame around all buttons
+        var buttonSpacing = 7f;
+        GUI.Box(new Rect(0, 0, frameWidth, assetsInFolder.Length * (EditorGUIUtility.singleLineHeight + buttonSpacing)), string.Empty);
+        
+        foreach (var asset in assetsInFolder)
+        {
+            if (GUILayout.Button(asset.name, buttonStyle))
+            {
+                var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
+                if (selectedAsset == null)
+                {
+                    Debug.LogWarning($"Something went wrong loading the asset from the path {asset.path}.");
+                    return;
+                }
+
+                _objectSettings = selectedAsset;
+                _object.GeneratePlanet();
+            }
+
+            EditorGUILayout.Space(1);
+            
+        }
+            
+        GUILayout.EndScrollView();
+    }
+
+    // Method to create a colored texture for the button background.
+    private Texture2D CreateTexture(int width, int height, Color color)
+    {
+        var colors = new Color[width * height];
+        for (int colorsIndex = 0; colorsIndex < colors.Length; colorsIndex++)
+            
+            colors[colorsIndex] = color;
+        
+        var result = new Texture2D(width, height);
+        result.SetPixels(colors);
+        result.Apply();
+        return result;
+    }
+    
+    private void DrawGeneralSettingsTab()
+    {
+        _objectSettings = (ObjectSettings)EditorGUILayout.ObjectField("Planet Asset", _objectSettings, typeof(ObjectSettings), false);
+        EditorGUILayout.PropertyField(_materialProperty);
+        EditorGUILayout.PropertyField(_resolutionProperty);
+        EditorGUILayout.PropertyField(_radiusProperty);
+        if (_objectSettings.ObjectType == ObjectType.TerrestrialBody)
+            EditorGUILayout.PropertyField(_gradientProperty);
+    }
+
+    private void DrawElevationSurfaceSettingsTab()
+    {
+        var centeredBoldLabel = new GUIStyle(EditorStyles.boldLabel) { alignment = TextAnchor.MiddleCenter };
+        var centeredMiniBoldLabel = new GUIStyle(EditorStyles.miniBoldLabel) { alignment = TextAnchor.MiddleCenter };
+        
+        GUILayout.Label("Elevation Surface", centeredBoldLabel);
+        EditorGUILayout.Space(1);
+        EditorGUILayout.PropertyField(_objectTypeProperty, new GUIContent("Object Type"));
+        EditorGUILayout.Space(5);
+
+        // TODO: Scrollbar for the NoiseLayers
         if (_objectSettings.ObjectType == ObjectType.TerrestrialBody)
         {
-            _controller.DrawButtons();
-            _controller.DrawNoiseLayer();
+            DrawNoiseLayerOptionButtons();
+            EditorGUILayout.Space(3);
+            GUILayout.Label("Elevation Layer Settings", centeredMiniBoldLabel);
+            DrawNoiseLayer();
         }
-
-        EditorGUILayout.EndScrollView();
-            _controller.OnGUIChanged();
+        else
+        {
+            EditorGUILayout.HelpBox("NoiseLayers are not available for Solid Spheres.", MessageType.Info);
+        }
     }
 
     public void OnGUIChanged()
@@ -73,35 +206,26 @@ public class WindowView : EditorWindow
         }
     }
 
-    public void DrawButtons()
+    public void DrawNoiseLayerOptionButtons()
     {
         GUILayout.BeginHorizontal();
         
-        if (GUILayout.Button("Add Noise Layer"))
+        if (GUILayout.Button("Add Layer"))
             _controller.AddNoiseLayer();
         
-        if (GUILayout.Button("Remove Last Noise Layer"))
+        if (GUILayout.Button("Remove Layer"))
             _controller.RemoveLastNoiseLayer();
-
-        if (GUILayout.Button("Save Asset"))
-        {
-            // TODO: save the asset only if the user clicks on the save button
-            AssetDatabase.SaveAssets();
-            EditorUtility.SetDirty(_objectSettings);
-        }
 
         GUILayout.EndHorizontal();
     }
-
-    public void DrawProperties()
+    
+    public void DrawSaveButton()
     {
-        _objectSettings = (ObjectSettings)EditorGUILayout.ObjectField("Object Settings", _objectSettings, typeof(ObjectSettings), false);
-        EditorGUILayout.PropertyField(_objectTypeProperty, true);
-        EditorGUILayout.PropertyField(_materialProperty, true);
-        EditorGUILayout.PropertyField(_resolutionProperty, true);
-        EditorGUILayout.PropertyField(_radiusProperty, true);
-        if (_objectSettings.ObjectType == ObjectType.TerrestrialBody)
-            EditorGUILayout.PropertyField(_gradientProperty, true);
+        if (GUILayout.Button("Update"))
+        {
+            EditorUtility.SetDirty(_objectSettings);
+            AssetDatabase.SaveAssets();
+        }
     }
 
     public void AddNoiseLayer()
@@ -152,27 +276,27 @@ public class WindowView : EditorWindow
                 return;
 
             // Get the NoiseLayer property
-            _noiseLayersProperty = _serializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
+            _noiseLayerProperty = _serializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
             var customName = $"Elevation Layer {layerIndex + 1}";
 
             // Draw the foldout
-            _noiseLayersProperty.isExpanded =
-                EditorGUILayout.Foldout(_noiseLayersProperty.isExpanded, new GUIContent(customName));
+            _noiseLayerProperty.isExpanded =
+                EditorGUILayout.Foldout(_noiseLayerProperty.isExpanded, new GUIContent(customName));
 
             // Draw the NoiseLayer fields if the foldout is open
-            if (!_noiseLayersProperty.isExpanded) continue;
+            if (!_noiseLayerProperty.isExpanded) continue;
             
             EditorGUI.indentLevel++;
             
             // Draw individual properties of NoiseLayer
-            _enabledProperty = _noiseLayersProperty.FindPropertyRelative("Enabled");
-            _useFirstLayerAsMaskProperty = _noiseLayersProperty.FindPropertyRelative("UseFirstLayerAsMask");
-            _noiseSettingsProperty = _noiseLayersProperty.FindPropertyRelative("NoiseSettings");
+            _enabledProperty = _noiseLayerProperty.FindPropertyRelative("Enabled");
+            _useFirstLayerAsMaskProperty = _noiseLayerProperty.FindPropertyRelative("UseFirstLayerAsMask");
+            _noiseSettingsProperty = _noiseLayerProperty.FindPropertyRelative("NoiseSettings");
             
             // Calculate the height of the NoiseLayer with all its properties
             var noiseLayerHeight = EditorGUIUtility.singleLineHeight;
-            noiseLayerHeight += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            noiseLayerHeight += EditorGUI.GetPropertyHeight(_noiseLayersProperty, true);
+            //noiseLayerHeight += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+            noiseLayerHeight += EditorGUI.GetPropertyHeight(_noiseLayerProperty, true);
 
             // Draw the Enabled property
             var noiseLayerRect = EditorGUILayout.GetControlRect(false, noiseLayerHeight);
@@ -189,5 +313,27 @@ public class WindowView : EditorWindow
 
             EditorGUI.indentLevel--;
         }
+    }
+    
+    /// <summary>
+    /// Tuple of asset name and asset path. <3
+    /// </summary>
+    /// <returns>Returns a tuple array with all asset. Each tuple contains a asset name and path</returns>
+    private (string name, string path)[] GetAllAssetNamesAndPaths()
+    {
+        // Fetch all the asset paths in the folder we want to choose assets from.
+        const string folderPath = FolderPath.RootInstances;
+        var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] { folderPath });
+
+        // Convert asset paths to asset names.
+        var assetNames = new (string name, string path)[assetPaths.Length];
+        for (var assetIndex = 0; assetIndex < assetPaths.Length; assetIndex++)
+        {
+            var assetPath = AssetDatabase.GUIDToAssetPath(assetPaths[assetIndex]);
+            var assetName = System.IO.Path.GetFileNameWithoutExtension(assetPath);
+            assetNames[assetIndex] = (assetName, assetPath);
+        }
+
+        return assetNames;
     }
 }

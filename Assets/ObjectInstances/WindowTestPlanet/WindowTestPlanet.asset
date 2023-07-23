@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WindowTestPlanet
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: 3855e7f3e0e03dd4fba9507707535348, type: 2}
+  Material: {fileID: 2100000, guid: be517c4255ea9bc4588f739d6e705062, type: 2}
   Resolution: 128
-  Radius: 30
+  Radius: 40
   Gradient:
     serializedVersion: 2
     key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}
@@ -51,8 +51,8 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 220
-        NoiseStrength: 1.45
+        Seed: 175
+        NoiseStrength: 0.45
         NumberOfLayers: 2
         BaseRoughness: 1
         Roughness: 2
@@ -70,12 +70,12 @@ MonoBehaviour:
         GroundLevel: 0
         WeightMultiplier: 0.8
   - Enabled: 1
-    UseFirstLayerAsMask: 0
+    UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 227
-        NoiseStrength: 0.31
+        Seed: 193
+        NoiseStrength: 0.1
         NumberOfLayers: 4
         BaseRoughness: 1.41
         Roughness: 2
@@ -93,25 +93,25 @@ MonoBehaviour:
         GroundLevel: 0
         WeightMultiplier: 0.8
   - Enabled: 1
-    UseFirstLayerAsMask: 0
+    UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 1
       SimpleNoiseSettings:
-        Seed: 0
-        NoiseStrength: 0
-        NumberOfLayers: 1
-        BaseRoughness: 1
-        Roughness: 2
+        Seed: 164
+        NoiseStrength: 0.3
+        NumberOfLayers: 4
+        BaseRoughness: 1.25
+        Roughness: 2.46
         Persistence: 0.5
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 11
-        NoiseStrength: 0.21
+        Seed: 122
+        NoiseStrength: 0.09
         NumberOfLayers: 4
-        BaseRoughness: 1.27
+        BaseRoughness: 1.2
         Roughness: 2
         Persistence: 0.5
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 0.8
+        WeightMultiplier: 0.98
