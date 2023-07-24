@@ -1,6 +1,6 @@
-using System;
 using UnityEditor;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// The WindowView is responsible for the layout and GUI of the EditorWindow.
@@ -31,16 +31,15 @@ public class WindowView : EditorWindow
     private const string GeneralSettingsHeader = "General";
     private const string SurfaceSettingsHeader = "Surface";
     private const string ElevationLayerSettingsHeader = "Elevation Layer Settings";
-    
-    private readonly string[] _tabHeaders = { "General", "Surface" };
-    
-    private readonly string _currentAssetLabel = "Asset";
-    private readonly string _objectTypeLabel = "Surface Shape";
-    
-    private readonly string _addLayerButton = "Add Layer";
-    private readonly string _removeLayerButton = "Remove Layer";
-    private readonly string _updateButton = "Update";
-    
+
+    private const string CurrentAssetLabel = "Asset";
+    private const string ObjectTypeLabel = "Surface Shape";
+
+    private const string AddLayerButton = "Add Layer";
+    private const string RemoveLayerButton = "Remove Layer";
+    private const string UpdateButton = "Update";
+
+    private string[] _tabHeaders = new string[2];
     private string _settingsHeader;
     
     private Vector2 _rightScrollPosition;
@@ -74,6 +73,8 @@ public class WindowView : EditorWindow
         _controller.UpdateSerializedObject += UpdateSerializedObject;
         _controller.DrawSideBarSection += DrawSideBarSection;
         _controller.DrawSettingsSection += DrawSettingsSection;
+
+        _tabHeaders = new[] { GeneralSettingsHeader, SurfaceSettingsHeader };
     }
 
     private void OnDisable()
@@ -113,13 +114,12 @@ public class WindowView : EditorWindow
 
     private void OnGUI()
     {
-        _controller.OnUpdate();
-        
         GUILayout.BeginHorizontal();
         _controller.OnDrawSideBarSection();
         _controller.OnDrawSettingsSection();
         GUILayout.EndHorizontal();
         
+        _controller.OnUpdate();
         _controller.OnGUIChanged();
     }
 
@@ -328,7 +328,7 @@ public class WindowView : EditorWindow
     private void DrawObjectSettingsField()
     {
         _objectSettings =
-            (ObjectSettings)EditorGUILayout.ObjectField(_currentAssetLabel, _objectSettings, typeof(ObjectSettings), false);
+            (ObjectSettings)EditorGUILayout.ObjectField(CurrentAssetLabel, _objectSettings, typeof(ObjectSettings), false);
     }
 
     private static void DrawGeneralSettingsHeader()
@@ -373,7 +373,7 @@ public class WindowView : EditorWindow
     private void DrawShapeTypeField()
     {
         EditorGUIUtility.labelWidth = SetSettingsSectionWidth() * 0.4f;
-        EditorGUILayout.PropertyField(_objectTypeProperty, new GUIContent(_objectTypeLabel));
+        EditorGUILayout.PropertyField(_objectTypeProperty, new GUIContent(ObjectTypeLabel));
         EditorGUIUtility.labelWidth = 0f;
         EditorGUILayout.Space(5);
     }
@@ -389,12 +389,12 @@ public class WindowView : EditorWindow
         var buttonWidth = SetSettingsSectionWidth() * 0.5f - 10;
         GUILayout.BeginHorizontal();
 
-        if (GUILayout.Button(_addLayerButton, GUILayout.Width(buttonWidth)))
+        if (GUILayout.Button(AddLayerButton, GUILayout.Width(buttonWidth)))
             AddNoiseLayer();
         
         GUILayout.FlexibleSpace();
         
-        if (GUILayout.Button(_removeLayerButton, GUILayout.Width(buttonWidth)))
+        if (GUILayout.Button(RemoveLayerButton, GUILayout.Width(buttonWidth)))
             RemoveLastNoiseLayer();
 
         GUILayout.EndHorizontal();
@@ -402,7 +402,7 @@ public class WindowView : EditorWindow
     
     public void DrawSaveButton()
     {
-        if (GUILayout.Button(_updateButton))
+        if (GUILayout.Button(UpdateButton))
         {
             EditorUtility.SetDirty(_objectSettings);
             AssetDatabase.SaveAssets();
