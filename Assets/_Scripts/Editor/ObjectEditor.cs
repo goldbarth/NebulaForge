@@ -25,18 +25,23 @@ public class ObjectEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        using var check = new EditorGUI.ChangeCheckScope();
         base.OnInspectorGUI();
+        using var check = new EditorGUI.ChangeCheckScope();
 
+        ButtonLayout();
+        DrawSettingsEditor(_object.ObjectSettings, _object.OnPlanetSettingsUpdated, _object.OnColorSettingsUpdated,
+            ref _object.ShapeSettingsFoldout, ref _shapeEditor);
+        
+        OnChanged(check);
+    }
+
+    private void OnChanged(EditorGUI.ChangeCheckScope check)
+    {
         if (check.changed)
         {
             _object.GeneratePlanet();
             _selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
         }
-
-        ButtonLayout();
-        DrawSettingsEditor(_object.ObjectSettings, _object.OnPlanetSettingsUpdated, _object.OnColorSettingsUpdated,
-            ref _object.ShapeSettingsFoldout, ref _shapeEditor);
     }
 
     private void ButtonLayout()
@@ -96,7 +101,7 @@ public class ObjectEditor : Editor
 
     private void ApplySelectedAsset()
     {
-        var asset = CurrentAssetPath(_assetNames);
+        var asset = SetSelected(_assetNames);
         var fullPath = $"{asset.path}.asset";
 
         var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(fullPath);
@@ -112,7 +117,7 @@ public class ObjectEditor : Editor
 
     private void DeleteSelectedAsset(string[] assetNames)
     {
-        var asset = CurrentAssetPath(assetNames);
+        var asset = SetSelected(assetNames);
         AssetDatabase.DeleteAsset($"{asset.folderPath}");
         Debug.Log($"Deleted assets and folder at: {asset.folderPath}.");
 
@@ -121,7 +126,7 @@ public class ObjectEditor : Editor
 
     // Using tuples to return multiple values, checking edge cases and to return only individual values if needed. And for fun ofc.
     // https://learn.microsoft.com/de-de/dotnet/csharp/language-reference/builtin-types/value-tuples
-    private (string folderPath, string path) CurrentAssetPath(string[] assetNames)
+    private (string folderPath, string path) SetSelected(string[] assetNames)
     {
         if (_selectedAssetIndex < 0 || _selectedAssetIndex >= assetNames.Length)
             Debug.LogWarning("Invalid asset index.");
@@ -179,7 +184,7 @@ public class ObjectEditor : Editor
             Debug.LogWarning("Asset name can´t be empty! You need to enter a name for the asset.");
         }
     }
-
+    
     private void ResetAssetData()
     {
         _assetName = string.Empty;
