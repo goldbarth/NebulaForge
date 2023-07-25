@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectType: 1
   Material: {fileID: 2100000, guid: 3855e7f3e0e03dd4fba9507707535348, type: 2}
-  Resolution: 128
+  Resolution: 109
   Radius: 30
   Gradient:
     serializedVersion: 2
@@ -51,7 +51,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 47
+        Seed: 103
         NoiseStrength: 0.19
         NumberOfLayers: 2
         BaseRoughness: 1.25
@@ -95,7 +95,7 @@ MonoBehaviour:
   - Enabled: 1
     UseFirstLayerAsMask: 0
     NoiseSettings:
-      Filter: 1
+      Filter: 0
       SimpleNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -106,12 +106,12 @@ MonoBehaviour:
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 45
-        NoiseStrength: 0.98
-        NumberOfLayers: 2
-        BaseRoughness: 1.58
-        Roughness: 3.26
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 1
+        BaseRoughness: 1
+        Roughness: 2
         Persistence: 0.5
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 1.33
+        WeightMultiplier: 0.8

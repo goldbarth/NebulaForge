@@ -9,6 +9,7 @@ using UnityEditor;
 /// </summary>
 public class WindowController
 {
+    public ObjectSettings ObjectSettings { get; set; }
     public WindowController()
     { }
 
