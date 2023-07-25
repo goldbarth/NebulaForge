@@ -46,7 +46,7 @@ public class NoiseLayerDrawer : PropertyDrawer
 
         if (property.isExpanded)
         {
-            height += 3 * EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+            height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
             height += EditorGUI.GetPropertyHeight(property.FindPropertyRelative("NoiseSettings"), true);
         }
 

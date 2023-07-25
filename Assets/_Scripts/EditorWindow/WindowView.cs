@@ -8,8 +8,8 @@ using System;
 /// </summary>
 public class WindowView : EditorWindow
 {
-    private SerializedObject _serializedObject;
     private ObjectSettings _objectSettings;
+    private SerializedObject _serializedObject;
     private WindowController _controller;
     private ObjectGenerator _object;
 
@@ -39,6 +39,7 @@ public class WindowView : EditorWindow
     private const string RemoveLayerButton = "Remove Layer";
     private const string UpdateButton = "Update";
 
+    private (string name, string path)[] _assetsInFolder;
     private string[] _tabHeaders = new string[2];
     private string _settingsHeader;
     
@@ -47,18 +48,13 @@ public class WindowView : EditorWindow
     
     private float _sidebarFrameWidth;
     private int _tabIndex;
-    
-    public WindowView(WindowController controller)
-    {
-        _controller = controller;
-    }
 
     private void OnEnable()
     {
-        _object = FindObjectOfType<ObjectGenerator>();
-        _objectSettings = _object.ObjectSettings;
+        _objectSettings = FindObjectOfType<ObjectGenerator>().ObjectSettings;
         
         UpdateSettingsSectionHeader();
+        _tabHeaders = new[] { GeneralSettingsHeader, SurfaceSettingsHeader };
 
         _serializedObject = new SerializedObject(_objectSettings);
         _objectTypeProperty = _serializedObject.FindProperty("ObjectType");
@@ -68,27 +64,27 @@ public class WindowView : EditorWindow
         _gradientProperty = _serializedObject.FindProperty("Gradient");
         _noiseLayerProperty  = _serializedObject.FindProperty("NoiseLayers");
         
-        _controller = new WindowController(this);
+        _controller = new WindowController();
         _controller.GUIChanged += GUIChanged;
         _controller.UpdateSerializedObject += UpdateSerializedObject;
         _controller.DrawSideBarSection += DrawSideBarSection;
         _controller.DrawSettingsSection += DrawSettingsSection;
 
-        _tabHeaders = new[] { GeneralSettingsHeader, SurfaceSettingsHeader };
+        _controller.AssetNamesAndPathsReady += GetAllAssetNamesAndPaths;
+        _controller.OnGetAllAssetNamesAndPaths();
     }
 
     private void OnDisable()
     {
-        _controller.GUIChanged -= GUIChanged;
-        _controller.UpdateSerializedObject -= UpdateSerializedObject;
-        _controller.DrawSideBarSection -= DrawSideBarSection;
-        _controller.DrawSettingsSection -= DrawSettingsSection;
+        _controller = null;
     }
-    
-    // Event handlers
+
+    #region Event Handlers
+
     private void GUIChanged(object sender, EventArgs e)
     {
         OnGUIChanged();
+        Repaint();
     }
 
     private void UpdateSerializedObject(object sender, EventArgs e)
@@ -106,6 +102,14 @@ public class WindowView : EditorWindow
         DrawSettingsSection();
     }
     
+    private void GetAllAssetNamesAndPaths((string name, string path)[] assetNamesAndPaths, EventArgs e)
+    {
+        _assetsInFolder = assetNamesAndPaths;
+        Repaint();
+    }
+
+    #endregion
+    
     [MenuItem("Tools/Planet Generator")]
     public static void ShowWindow()
     {
@@ -114,13 +118,17 @@ public class WindowView : EditorWindow
 
     private void OnGUI()
     {
+        _controller.OnUpdate();
+        DrawUI();
+        _controller.OnGUIChanged();
+    }
+
+    private void DrawUI()
+    {
         GUILayout.BeginHorizontal();
-        _controller.OnDrawSideBarSection();
+        _controller.OnDrawSideBarSection(_assetsInFolder);
         _controller.OnDrawSettingsSection();
         GUILayout.EndHorizontal();
-        
-        _controller.OnUpdate();
-        _controller.OnGUIChanged();
     }
 
     #region EditorWindow Events
@@ -141,7 +149,6 @@ public class WindowView : EditorWindow
     
     private void DrawSideBarSection()
     {
-        var assetsInFolder = GetAllAssetNamesAndPaths();
         var areaRect = new Rect(0, 0, _sidebarFrameWidth, position.height);
 
         GUILayout.BeginVertical();
@@ -151,7 +158,7 @@ public class WindowView : EditorWindow
         
         BeginDrawLeftScrollView();
         DrawSidebarHeader();
-        DrawAssetButtonsInOrder(assetsInFolder);
+        DrawAssetButtonsInOrder(_assetsInFolder);
 
         GUILayout.EndArea();
         GUILayout.EndScrollView();
@@ -318,7 +325,7 @@ public class WindowView : EditorWindow
     {
         DrawGeneralSettingsHeader();
         DrawObjectSettingsField();
-        EditorGUILayout.PropertyField(_materialProperty);
+        EditorGUILayout.PropertyField(_materialProperty, true);
         EditorGUILayout.PropertyField(_resolutionProperty);
         EditorGUILayout.PropertyField(_radiusProperty);
         if (_objectSettings.ObjectType == ObjectType.TerrestrialBody)
@@ -466,8 +473,6 @@ public class WindowView : EditorWindow
         {
             if (layerIndex < 0 || layerIndex >= _objectSettings.NoiseLayers.Length) return;
             
-            var noiseLayerRect = CalculateNoiseLayerLayout();
-            
             GetNoiseLayerProperty(layerIndex);
             DrawNoiseLayerFoldout(layerIndex);
 
@@ -475,6 +480,7 @@ public class WindowView : EditorWindow
             {
                 EditorGUI.indentLevel++;
             
+                var noiseLayerRect = CalculateNoiseLayerLayout();
                 GetNoiseLayerProperties();
                 DrawNoiseLayerProperties(noiseLayerRect);
 
@@ -530,29 +536,30 @@ public class WindowView : EditorWindow
         _noiseSettingsProperty = _noiseLayerProperty.FindPropertyRelative("NoiseSettings");
     }
 
+    // Try to call this method from the controller!!!!!!!!!!!!
     /// <summary>
     /// Tuple with asset name and asset path. Less than three.
     /// </summary>
     /// <returns>Returns a tuple array with all asset. Each tuple contains an asset name and path</returns>
-    private static (string name, string path)[] GetAllAssetNamesAndPaths()
-    {
-        // Get all asset paths from the folder.
-        const string folderPath = FolderPath.RootInstances;
-        var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] { folderPath });
-
-        // Create a tuple array with the asset name and path.
-        var assetNames = new (string name, string path)[assetPaths.Length];
-        
-        // Fill the tuple array with the asset name and path.
-        for (var assetIndex = 0; assetIndex < assetPaths.Length; assetIndex++)
-        {
-            var assetPath = AssetDatabase.GUIDToAssetPath(assetPaths[assetIndex]);
-            var assetName = System.IO.Path.GetFileNameWithoutExtension(assetPath);
-            assetNames[assetIndex] = (assetName, assetPath);
-        }
-
-        return assetNames;
-    }
+    // public (string name, string path)[] GetAllAssetNamesAndPaths()
+    // {
+    //     // Get all asset paths from the folder.
+    //     const string folderPath = FolderPath.RootInstances;
+    //     var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] { folderPath });
+    //
+    //     // Create a tuple array with the asset name and path.
+    //     var assetNames = new (string name, string path)[assetPaths.Length];
+    //     
+    //     // Fill the tuple array with the asset name and path.
+    //     for (var assetIndex = 0; assetIndex < assetPaths.Length; assetIndex++)
+    //     {
+    //         var assetPath = AssetDatabase.GUIDToAssetPath(assetPaths[assetIndex]);
+    //         var assetName = System.IO.Path.GetFileNameWithoutExtension(assetPath);
+    //         assetNames[assetIndex] = (assetName, assetPath);
+    //     }
+    //
+    //     return assetNames;
+    // }
     
     #endregion
     

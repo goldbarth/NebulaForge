@@ -22,7 +22,7 @@ public enum ObjectType
 [ExecuteAlways, ImageEffectAllowedInSceneView]
 public class ObjectGenerator : MonoBehaviour
 {
-    [field: SerializeField, Header("Asset Control Debug")] public ObjectSettings ObjectSettings { get; set; }
+    [field: SerializeField, Header("Asset Debug Field")] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
 

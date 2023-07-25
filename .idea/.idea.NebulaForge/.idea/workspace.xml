@@ -10,7 +10,17 @@
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultTerrainMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultTerrainMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/DefaultTerrain/DefaultTerrainMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/DefaultTerrain/DefaultTerrainMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/WindowTestPlanet/WindowTestPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/WindowTestPlanet/WindowTestPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowModel.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +31,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/21e1bc5e537b4ecf84d795be004ca2c75e00/f5/729cc4aa/PlanetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/17/016af56a/EditorGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/72/11942583/HostView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/ff/55e90faf/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/88e4733ac7bc4ae1b496735e6b83bbd346ac00/6f/24b78052/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/27/5fe7af6d/Gradient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/93/a2f51a8e/PropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
@@ -40,6 +51,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ff6b5db041e141f9a771d6b39c07060229400/ab/9b129e98/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/AbstractObjectSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" root0="FORCE_HIGHLIGHTING" />
