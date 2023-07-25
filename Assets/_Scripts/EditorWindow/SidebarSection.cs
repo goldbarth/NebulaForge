@@ -16,7 +16,8 @@ public class SidebarSection
 
     public void DrawSideBarSection()
     {
-        var areaRect = new Rect(0, 0, _view.SidebarFrameWidth, _view.position.height);
+        const float separationLine = 2.5f;
+        var areaRect = new Rect(separationLine, 0, _view.SidebarFrameWidth, _view.position.height);
 
         GUILayout.BeginVertical();
         GUILayout.BeginArea(areaRect);
@@ -49,8 +50,11 @@ public class SidebarSection
         
         foreach (var asset in assetsInFolder)
         {
-            var selectedAsset = SetSelectedAsset(asset);
+            var selectedAsset = _view.SetSelectedAsset(asset);
             if (selectedAsset.ObjectType == objectTypes) continue;
+
+            defaultStyle.normal.background = CreateColoredTexture(2, 2, 
+                selectedAsset == _view.ObjectSettings ? new Color(0.5f, 0.5f, 0.5f, 0.5f) : Color.gray);
 
             DrawAssetButton(selectedAsset, asset, defaultStyle);
         }
@@ -58,6 +62,9 @@ public class SidebarSection
 
     private void DrawAssetButton(ObjectSettings selectedAsset, (string name, string path) asset, GUIStyle buttonStyle)
     {
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(6f);
+        
         if (GUILayout.Button(asset.name, buttonStyle))
         {
             if (selectedAsset == null)
@@ -66,27 +73,27 @@ public class SidebarSection
                 return;
             }
 
-            _view.ObjectSettings = selectedAsset;
+            _view.AttachDataToAsset(selectedAsset);
         }
-
+        
+        GUILayout.EndHorizontal();
         EditorGUILayout.Space(1);
     }
-    
+
     private GUIStyle SetButtonDefaultStyle(float maxButtonWidth, float buttonBorderWith)
     {
         var defaultStyle = new GUIStyle(GUI.skin.button);
         defaultStyle.normal.textColor = Color.white;
         defaultStyle.fixedWidth = maxButtonWidth + buttonBorderWith;
-
-        // TODO: Find out why the background color is not applied.
+        
         defaultStyle.normal.background = CreateColoredTexture(2, 2, Color.gray);
-        defaultStyle.active.background = CreateColoredTexture(2, 2, Color.gray);
+        defaultStyle.active.background = CreateColoredTexture(2, 2, new Color(0.5f, 0.5f, 0.5f, 0.5f));
         return defaultStyle;
     }
 
     private float MaxButtonWidth((string name, string path)[] assetsInFolder)
     {
-        const float frameBorderWidth = 15f;
+        const float frameBorderWidth = 20f;
         var maxButtonWidth = 0f;
         
         foreach (var asset in assetsInFolder)
@@ -121,11 +128,6 @@ public class SidebarSection
     private void BeginDrawLeftScrollView()
     {
         _leftScrollPosition = GUILayout.BeginScrollView(_leftScrollPosition, GUILayout.Width(_view.SidebarFrameWidth + 2));
-    }
-    
-    private static ObjectSettings SetSelectedAsset((string name, string path) asset)
-    {
-        return AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
     }
 
     private static void DrawSidebarSubHeader2()

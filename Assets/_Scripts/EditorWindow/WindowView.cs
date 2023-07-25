@@ -9,11 +9,11 @@ using UnityEngine;
 public class WindowView : EditorWindow
 {
     public ObjectSettings ObjectSettings { get; set; }
+    public ObjectGenerator Object{ get; set; }
     
     private SettingsSection _settingsSection;
     private SidebarSection _sidebarSection;
     private WindowController _controller;
-    private ObjectGenerator _object;
     
     public SerializedObject SerializedObject;
     
@@ -39,7 +39,8 @@ public class WindowView : EditorWindow
 
     private void OnEnable()
     {
-        ObjectSettings = FindObjectOfType<ObjectGenerator>().ObjectSettings;
+        Object = FindObjectOfType<ObjectGenerator>();
+        ObjectSettings = Object.ObjectSettings;
 
         SerializedObject = new SerializedObject(ObjectSettings);
         ObjectTypeProperty = SerializedObject.FindProperty("ObjectType");
@@ -97,6 +98,7 @@ public class WindowView : EditorWindow
     private void OnGUIChanged()
     {
         _controller.OnGUIChanged();
+        _controller.OnGetAllAssetNamesAndPaths();
     }
 
     #region EditorWindow Events
@@ -112,6 +114,7 @@ public class WindowView : EditorWindow
         {
             SerializedObject.ApplyModifiedProperties();
             UpdateSettingsSectionHeader();
+            Object.ObjectSettings = ObjectSettings;
         }
     }
 
@@ -147,6 +150,11 @@ public class WindowView : EditorWindow
     }
 
     #endregion
+
+    public ObjectSettings SetSelectedAsset((string name, string path) asset)
+    {
+        return AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
+    }
     
     private void UpdateSettingsSectionHeader()
     {
@@ -158,12 +166,20 @@ public class WindowView : EditorWindow
         return position.width - SidebarFrameWidth - 10;
     }
     
-    public void DrawSaveButton()
+    public void AttachDataToAsset(ObjectSettings selectedAsset)
     {
-        if (GUILayout.Button(TextHolder.UpdateButtonText))
-        {
-            EditorUtility.SetDirty(ObjectSettings);
-            AssetDatabase.SaveAssets();
-        }
+        Object.ObjectSettings = selectedAsset;
+        Object.ObjectSettings.ObjectType = selectedAsset.ObjectType;
+        Object.ObjectSettings.Material = selectedAsset.Material;
+        Object.ObjectSettings.Radius = selectedAsset.Radius;
+        Object.ObjectSettings.Resolution = selectedAsset.Resolution;
+        Object.ObjectSettings.Gradient = selectedAsset.Gradient;
+        Object.ObjectSettings.NoiseLayers = selectedAsset.NoiseLayers;
+        
+        ObjectSettings = Object.ObjectSettings;
+        ObjectSettings.Material = Object.ObjectSettings.Material;
+        
+        EditorUtility.SetDirty(ObjectSettings);
+        Object.GeneratePlanet();
     }
 }

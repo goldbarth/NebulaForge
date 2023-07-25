@@ -31,6 +31,14 @@ public class SettingsSection
         DrawSettingsHeader();
         DrawTabsAndCurrentTab();
         
+        GUILayout.FlexibleSpace();
+        
+        GUILayout.BeginHorizontal();
+        DrawSaveButton();
+        GUILayout.FlexibleSpace();
+        DrawDeleteButton();
+        GUILayout.EndHorizontal();
+        
         GUILayout.EndArea();
         GUILayout.EndVertical();
     }
@@ -55,6 +63,47 @@ public class SettingsSection
             case 1:
                 _surfaceTab.DrawElevationSettingsTab();
                 break;
+        }
+    }
+    
+    private void UpdateAssetSettings()
+    {
+        EditorUtility.SetDirty(_view.ObjectSettings);
+        _view.Object.GeneratePlanet();
+        AssetDatabase.SaveAssets();
+    }
+    
+    private void DrawSaveButton()
+    {
+        if (GUILayout.Button(TextHolder.UpdateAssetButtonText))
+            UpdateAssetSettings();
+    }
+
+    private void DrawDeleteButton()
+    {
+        if (GUILayout.Button(TextHolder.DeleteAssetButtonText))
+            DeleteSelectedAsset();
+    }
+
+    private void DeleteSelectedAsset()
+    {
+        var currentAsset = _view.ObjectSettings;
+        var assetPath = currentAsset != null ? AssetDatabase.GetAssetPath(currentAsset) : string.Empty;
+        var folderPath = assetPath.Substring(0, assetPath.LastIndexOf('/'));
+        
+        if (EditorUtility.DisplayDialog("Delete Asset", $"Are you sure you want to delete {currentAsset}?", "Yes", "No"))
+        {
+            // delete asset folder
+            AssetDatabase.DeleteAsset(folderPath);
+            Debug.Log($"Deleted asset with folder at: {folderPath}");
+            AssetDatabase.Refresh();
+            
+            // load first asset in folder
+            var firstAsset = AssetDatabase.FindAssets("t:ObjectSettings", new[] { FolderPath.RootInstances });
+            var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(AssetDatabase.GUIDToAssetPath(firstAsset[0]));
+            Debug.Log($"Asset loaded at folder: {selectedAsset}");
+            _view.AttachDataToAsset(selectedAsset);
+            _view.Object.GeneratePlanet();
         }
     }
 }

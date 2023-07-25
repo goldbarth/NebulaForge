@@ -3,7 +3,8 @@ public struct TextHolder
     public const string WindowTitle = "Planet Generator";
     public const string ObjectTypeLabel = "Surface Shape";
     public const string CurrentAssetLabel = "Asset";
-    public const string UpdateButtonText = "Update";
+    public const string UpdateAssetButtonText = "Update Asset";
+    public const string DeleteAssetButtonText = "Delete Asset";
     public const string AddLayerButtonText = "Add Layer";
     public const string RemoveLayerButtonText = "Remove Layer";
     public const string SidebarHeader = "Objects";
