@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 0}
+  Material: {fileID: 2100000, guid: bb4a776d3ffc0de4ab16d6d4259fe1d8, type: 2}
   Resolution: 109
   Radius: 30
   Gradient:

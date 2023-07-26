@@ -9,7 +9,7 @@ using UnityEngine;
 public class WindowView : EditorWindow
 {
     public ObjectSettings ObjectSettings { get; set; }
-    public ObjectGenerator Object{ get; set; }
+    public ObjectGenerator ObjectGenerator{ get; private set; }
     
     private SettingsSection _settingsSection;
     private SidebarSection _sidebarSection;
@@ -31,16 +31,9 @@ public class WindowView : EditorWindow
     public string SettingsHeader;
     public float SidebarFrameWidth;
 
-    public WindowView()
-    {
-        _sidebarSection = new SidebarSection(this);
-        _settingsSection = new SettingsSection(this);
-    }
-
     private void OnEnable()
     {
-        Object = FindObjectOfType<ObjectGenerator>();
-        ObjectSettings = Object.ObjectSettings;
+        FindAndSetObjectSettings();
 
         SerializedObject = new SerializedObject(ObjectSettings);
         ObjectTypeProperty = SerializedObject.FindProperty("ObjectType");
@@ -50,8 +43,8 @@ public class WindowView : EditorWindow
         GradientProperty = SerializedObject.FindProperty("Gradient");
         NoiseLayerProperty  = SerializedObject.FindProperty("NoiseLayers");
         
-        _sidebarSection = new SidebarSection(this);
         _settingsSection = new SettingsSection(this);
+        _sidebarSection = new SidebarSection(this);
         
         _controller = new WindowController();
         _controller.GUIChanged += GUIChanged;
@@ -77,9 +70,17 @@ public class WindowView : EditorWindow
 
     private void OnGUI()
     {
-        OnUpdate();
+        DrawInfoBoxNothingIsSelected();
+        //if (!ObjectSettings) return;
+        OnUpdateSerializedObject();
         DrawUI();
         OnGUIChanged();
+    }
+    
+    private void OnSelectionChange()
+    {
+        FindAndSetObjectSettings();
+        SetPropertyFields();
     }
 
     private void DrawUI()
@@ -89,10 +90,10 @@ public class WindowView : EditorWindow
         _controller.OnDrawSettingsSection();
         GUILayout.EndHorizontal();
     }
-    
-    private void OnUpdate()
+
+    private void OnUpdateSerializedObject()
     {
-        _controller.OnUpdate();
+        _controller.OnUpdateSerializedObject();
     }
     
     private void OnGUIChanged()
@@ -114,7 +115,7 @@ public class WindowView : EditorWindow
         {
             SerializedObject.ApplyModifiedProperties();
             UpdateSettingsSectionHeader();
-            Object.ObjectSettings = ObjectSettings;
+            ObjectGenerator.ObjectSettings = ObjectSettings;
         }
     }
 
@@ -166,20 +167,62 @@ public class WindowView : EditorWindow
         return position.width - SidebarFrameWidth - 10;
     }
     
+    private ObjectGenerator FindSelectedObjectGetComponent()
+    {
+        var selectedGameObject = Selection.activeGameObject;
+
+        if (selectedGameObject != null)
+        {
+            var script = selectedGameObject.GetComponent<ObjectGenerator>();
+            if (script != null) return script;
+
+            var scriptsInChildren = selectedGameObject.GetComponentsInChildren<ObjectGenerator>();
+            if (scriptsInChildren.Length > 0) return scriptsInChildren[0];
+        }
+        else
+        {
+            Debug.LogWarningFormat("No GameObject selected in the Hierarchy. Please select a GameObject first. Not found at: {0:f}", DateTime.Now);
+        }
+        
+        return null;
+    }
+    
+    private void FindAndSetObjectSettings()
+    {
+        ObjectGenerator = FindSelectedObjectGetComponent();
+        if(ObjectGenerator == null) return;
+        ObjectSettings = ObjectGenerator.ObjectSettings;
+    }
+
+    private void DrawInfoBoxNothingIsSelected()
+    {
+        if (ObjectSettings == null)
+            EditorGUILayout.HelpBox($"No GameObject selected in the Hierarchy. Please select a GameObject{DateTime.Now}.", MessageType.Info);
+    }
+
+    private void SetPropertyFields()
+    {
+        if(SerializedObject == null) return;
+        
+        SerializedObject = new SerializedObject(ObjectSettings);
+        ObjectTypeProperty = SerializedObject.FindProperty("ObjectType");
+        MaterialProperty = SerializedObject.FindProperty("Material");
+        ResolutionProperty = SerializedObject.FindProperty("Resolution");
+        RadiusProperty = SerializedObject.FindProperty("Radius");
+        GradientProperty = SerializedObject.FindProperty("Gradient");
+        NoiseLayerProperty  = SerializedObject.FindProperty("NoiseLayers");
+        
+        Repaint();
+    }
+    
     public void AttachDataToAsset(ObjectSettings selectedAsset)
     {
-        Object.ObjectSettings = selectedAsset;
-        Object.ObjectSettings.ObjectType = selectedAsset.ObjectType;
-        Object.ObjectSettings.Material = selectedAsset.Material;
-        Object.ObjectSettings.Radius = selectedAsset.Radius;
-        Object.ObjectSettings.Resolution = selectedAsset.Resolution;
-        Object.ObjectSettings.Gradient = selectedAsset.Gradient;
-        Object.ObjectSettings.NoiseLayers = selectedAsset.NoiseLayers;
+        ObjectGenerator.ObjectSettings = selectedAsset;
+        ObjectSettings = ObjectGenerator.ObjectSettings;
         
-        ObjectSettings = Object.ObjectSettings;
-        ObjectSettings.Material = Object.ObjectSettings.Material;
-        
+        SetPropertyFields();
+
         EditorUtility.SetDirty(ObjectSettings);
-        Object.GeneratePlanet();
+        ObjectGenerator.GeneratePlanet();
     }
 }

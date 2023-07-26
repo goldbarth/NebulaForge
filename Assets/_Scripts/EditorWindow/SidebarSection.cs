@@ -27,10 +27,22 @@ public class SidebarSection
         BeginDrawLeftScrollView();
         DrawSidebarHeader();
         DrawAssetButtonsInOrder(_view.AssetsInFolder);
+        
+        GUILayout.FlexibleSpace();
+        
+        GUILayout.BeginHorizontal();
+        DrawCreateNewAssetPopOut();
+        GUILayout.EndHorizontal();
 
         GUILayout.EndArea();
         GUILayout.EndScrollView();
         GUILayout.EndVertical();
+    }
+
+    private void DrawCreateNewAssetPopOut()
+    {
+        if (GUILayout.Button("Create New Asset"))
+            CreateNewAssetWindow.ShowWindow(); ;
     }
 
     private void DrawAssetButtonsInOrder((string name, string path)[] assetsInFolder)

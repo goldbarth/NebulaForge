@@ -69,8 +69,8 @@ public class SettingsSection
     private void UpdateAssetSettings()
     {
         EditorUtility.SetDirty(_view.ObjectSettings);
-        _view.Object.GeneratePlanet();
         AssetDatabase.SaveAssets();
+        _view.ObjectGenerator.GeneratePlanet();
     }
     
     private void DrawSaveButton()
@@ -103,7 +103,7 @@ public class SettingsSection
             var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(AssetDatabase.GUIDToAssetPath(firstAsset[0]));
             Debug.Log($"Asset loaded at folder: {selectedAsset}");
             _view.AttachDataToAsset(selectedAsset);
-            _view.Object.GeneratePlanet();
+            _view.ObjectGenerator.GeneratePlanet();
         }
     }
 }

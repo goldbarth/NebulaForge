@@ -27,7 +27,7 @@ public class WindowController
     public AssetNamesAndPathsReadyEventHandler AssetNamesAndPathsReady;
 
 
-    public void OnUpdate()
+    public void OnUpdateSerializedObject()
     {
         UpdateSerializedObject?.Invoke(this, EventArgs.Empty);
     }
