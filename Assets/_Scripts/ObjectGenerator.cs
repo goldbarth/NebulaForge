@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using NaughtyAttributes;
 using UnityEngine;
 
 public enum FaceRenderMask
@@ -21,7 +22,7 @@ public enum ObjectType
 [ExecuteAlways]
 public class ObjectGenerator : MonoBehaviour
 {
-    [field: SerializeField, Header("Object Settings Asset")] public ObjectSettings ObjectSettings { get; set; }
+    [field: SerializeField, Header("Asset Debug Field")] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
 
@@ -30,10 +31,10 @@ public class ObjectGenerator : MonoBehaviour
     public SurfaceShapeDispatcher SurfaceShapeDispatcher { get; } = new();
     public SurfaceShape SurfaceShape { get; } = new();
     public NoiseLayer[] NoiseLayers => ObjectSettings.NoiseLayers;
-    public ObjectType ObjectType => ObjectSettings.VisualSettings.ObjectType;
-    public Gradient Gradient => ObjectSettings.VisualSettings.Gradient;
-    public Material ObjectMaterial => ObjectSettings.ObjectMaterial;
-    public float PlanetRadius => ObjectSettings.VisualSettings.PlanetRadius;
+    public ObjectType ObjectType => ObjectSettings.ObjectType;
+    public Gradient Gradient => ObjectSettings.Gradient;
+    public Material Material => ObjectSettings.Material;
+    public float Radius => ObjectSettings.Radius;
 
     private const int CubeFaces = 6;
     
@@ -104,10 +105,10 @@ public class ObjectGenerator : MonoBehaviour
                 _terrainFaces[cubeFaceIndex] = new TerrainFace(this, mesh, directions[cubeFaceIndex]);
             }
             
-            _meshRenderer[cubeFaceIndex].sharedMaterial = ObjectMaterial;
+            _meshRenderer[cubeFaceIndex].sharedMaterial = Material;
             
-            var renderFace = ObjectSettings.FaceRenderMask == FaceRenderMask.All || (int) ObjectSettings.FaceRenderMask - 1 == cubeFaceIndex;
-            _meshRenderer[cubeFaceIndex].enabled = renderFace;
+            //var renderFace = ObjectSettings.FaceRenderMask == FaceRenderMask.All || (int) ObjectSettings.FaceRenderMask - 1 == cubeFaceIndex;
+            //_meshRenderer[cubeFaceIndex].enabled = renderFace;
         }
     }
     
@@ -118,7 +119,7 @@ public class ObjectGenerator : MonoBehaviour
         for (int pageIndex = 0; pageIndex < CubeFaces; pageIndex++)
         {
             if (_meshRenderer[pageIndex].enabled)
-                _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.VisualSettings.Resolution);
+                _terrainFaces[pageIndex].GenerateSphereMesh(ObjectSettings.Resolution);
         }
         
         UpdateSurfaceShapeDispatcherSettings();

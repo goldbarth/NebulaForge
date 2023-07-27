@@ -12,55 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: PopcornMoon
   m_EditorClassIdentifier: 
-  ObjectMaterial: {fileID: 2100000, guid: 42aa6eb92e9615e43999847ccb97c15c, type: 2}
-  VisualSettings:
-    Resolution: 120
-    PlanetRadius: 3
-    Gradient:
-      serializedVersion: 2
-      key0: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
-      key1: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
-      key2: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
-      key3: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 0}
-      key4: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
-      key5: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
-      key6: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
-      key7: {r: 1, g: 0.32140487, b: 0, a: 0}
-      ctime0: 9209
-      ctime1: 18417
-      ctime2: 22638
-      ctime3: 26091
-      ctime4: 34916
-      ctime5: 39137
-      ctime6: 65535
-      ctime7: 65535
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 1
-      m_NumColorKeys: 7
-      m_NumAlphaKeys: 2
-    ObjectType: 1
-  FaceRenderMask: 0
+  ObjectType: 1
+  Material: {fileID: 2100000, guid: be517c4255ea9bc4588f739d6e705062, type: 2}
+  Resolution: 128
+  Radius: 8
+  Gradient:
+    serializedVersion: 2
+    key0: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
+    key1: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    key2: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+    key3: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 0}
+    key4: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
+    key5: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
+    key6: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 34532
+    ctime1: 51031
+    ctime2: 65535
+    ctime3: 26667
+    ctime4: 35300
+    ctime5: 39712
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   NoiseLayers:
   - Enabled: 1
     UseFirstLayerAsMask: 0
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 88
+        Seed: 444
         NoiseStrength: 0.14
         NumberOfLayers: 2
         BaseRoughness: 0
         Roughness: 0
         Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0.41
+        GroundLevel: 0.54
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -69,7 +67,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -83,7 +81,7 @@ MonoBehaviour:
         Roughness: 0.27
         Persistence: 1
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 2.42
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -92,7 +90,7 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
@@ -106,14 +104,14 @@ MonoBehaviour:
         Roughness: 0
         Persistence: 0
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 33
+        Seed: 333
         NoiseStrength: 1.88
         NumberOfLayers: 3
         BaseRoughness: 0.97
         Roughness: 1.96
         Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
-        MinValue: 0
+        GroundLevel: 0
         WeightMultiplier: 0.63

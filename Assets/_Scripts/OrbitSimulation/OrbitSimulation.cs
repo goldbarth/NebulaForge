@@ -28,9 +28,12 @@ public class OrbitSimulation : MonoBehaviour
     private void FixedUpdate()
     {
         Time.timeScale = _manualTimeScale ? _timeScale : 1f;
-        
+
         foreach (var obj in _objects)
+        {
+            var acceleration = GravitationalAcceleration(obj.Position, obj);
             obj.UpdateVelocity(GravitationalAcceleration(obj.Position, obj), Universe.PhysicsTimeStep);
+        }
 
         foreach (var obj in _objects)
             obj.UpdatePosition(Universe.PhysicsTimeStep);
@@ -39,7 +42,7 @@ public class OrbitSimulation : MonoBehaviour
     private Vector3 GravitationalAcceleration(Vector3 otherPosition, CelestialObject @object)
     {
         // F = G * (m1 * m2) / r^2 | Newton's law of universal gravitation
-        // a = G * m1 / r^2 | Gravitational acceleration
+        // a = G * m / r^2 | Gravitational acceleration
         
         var acceleration = Vector3.zero;
         

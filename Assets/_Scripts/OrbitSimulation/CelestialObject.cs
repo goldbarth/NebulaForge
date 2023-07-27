@@ -12,6 +12,7 @@ public class CelestialObject : MonoBehaviour
     [SerializeField] private Vector3 _initialVelocity = new(0f, 0.5f, 0f);
     [Foldout("Velocity Status")]
     [ReadOnly] public Vector3 CurrentVelocity;
+    
     public Vector3 Position => _rigidbody.position;
 
     private Rigidbody _rigidbody;
@@ -19,7 +20,7 @@ public class CelestialObject : MonoBehaviour
 
     private void Awake()
     {
-        _radius = GetComponentInChildren<ObjectGenerator>().PlanetRadius;
+        _radius = GetComponentInChildren<ObjectGenerator>().Radius;
         _rigidbody = GetComponent<Rigidbody>();
         CurrentVelocity = _initialVelocity;
         
