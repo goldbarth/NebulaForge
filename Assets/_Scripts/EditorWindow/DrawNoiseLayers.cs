@@ -24,7 +24,7 @@ public class DrawNoiseLayers
         {
             if (layerIndex < 0 || layerIndex >= _view.ObjectSettings.NoiseLayers.Length) return;
             
-            GetNoiseLayerProperty(layerIndex);
+            _view.SetNoiseLayerProperty(layerIndex);
             DrawNoiseLayerFoldout(layerIndex);
 
             if (_view.NoiseLayerProperty.isExpanded)
@@ -40,11 +40,6 @@ public class DrawNoiseLayers
         }
         
         EditorGUIUtility.labelWidth = 0f;
-    }
-
-    private void GetNoiseLayerProperty(int layerIndex)
-    {
-        _view.NoiseLayerProperty = _view.SerializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
     }
 
     private void DrawNoiseLayerFoldout(int layerIndex)

@@ -1,21 +1,23 @@
-using System;
 using UnityEditor;
 using UnityEngine;
+using System;
 
+#if UNITY_EDITOR
 /// <summary>
 /// The WindowView is responsible for the layout and GUI of the EditorWindow.
 /// It represents the View in the MVC pattern.
 /// </summary>
 public class WindowView : EditorWindow
 {
-    public ObjectSettings ObjectSettings { get; set; }
     public ObjectGenerator ObjectGenerator{ get; private set; }
-    
+    public ObjectSettings ObjectSettings { get; set; }
+    public string SettingsHeader { get; set; }
+
+    private WindowController _controller;
     private SettingsSection _settingsSection;
     private SidebarSection _sidebarSection;
-    private WindowController _controller;
-    
-    public SerializedObject SerializedObject;
+
+    private SerializedObject _serializedObject;
     
     public SerializedProperty MaterialProperty;
     public SerializedProperty ResolutionProperty;
@@ -26,39 +28,41 @@ public class WindowView : EditorWindow
     public SerializedProperty EnabledProperty;
     public SerializedProperty UseFirstLayerAsMaskProperty;
     public SerializedProperty NoiseSettingsProperty;
-
+    
     public (string name, string path)[] AssetsInFolder;
-    public string SettingsHeader;
     public float SidebarFrameWidth;
 
     private void OnEnable()
     {
         FindAndSetObjectSettings();
-
-        SerializedObject = new SerializedObject(ObjectSettings);
-        ObjectTypeProperty = SerializedObject.FindProperty("ObjectType");
-        MaterialProperty = SerializedObject.FindProperty("Material");
-        ResolutionProperty = SerializedObject.FindProperty("Resolution");
-        RadiusProperty = SerializedObject.FindProperty("Radius");
-        GradientProperty = SerializedObject.FindProperty("Gradient");
-        NoiseLayerProperty  = SerializedObject.FindProperty("NoiseLayers");
         
         _settingsSection = new SettingsSection(this);
         _sidebarSection = new SidebarSection(this);
-        
         _controller = new WindowController();
-        _controller.GUIChanged += GUIChanged;
-        _controller.DrawSideBarSection += DrawSideBarSection;
-        _controller.DrawSettingsSection += DrawSettingsSection;
-        _controller.UpdateSerializedObject += UpdateSerializedObject;
-        _controller.AssetNamesAndPathsReady += GetAllAssetNamesAndPaths;
-        _controller.OnGetAllAssetNamesAndPaths();
         
-        UpdateSettingsSectionHeader();
+        _controller.OnDrawUI += DrawLayout;
+        _controller.OnGUIChanged += UpdateSettings;
+        _controller.OnApplyModified += ApplyModifiedProperties;
+        _controller.OnAssetNamesAndPathsReady += SetAssetNamesAndPaths;
+        
+        ObjectSelectionEventManager.OnObjectSelected += InitializeProperties;
+        ObjectSelectionEventManager.OnNoObjectSelected += SetObjectSettingNull;
+
+        if (ObjectSettings == null) return;
+        InitializeProperties();
     }
 
     private void OnDisable()
     {
+        if (_controller == null) return;
+        _controller.OnDrawUI -= DrawLayout;
+        _controller.OnGUIChanged -= UpdateSettings;
+        _controller.OnApplyModified -= ApplyModifiedProperties;
+        _controller.OnAssetNamesAndPathsReady -= SetAssetNamesAndPaths;
+        
+        ObjectSelectionEventManager.OnObjectSelected -= InitializeProperties;
+        ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
+        
         _controller = null;
     }
 
@@ -70,101 +74,172 @@ public class WindowView : EditorWindow
 
     private void OnGUI()
     {
-        DrawInfoBoxNothingIsSelected();
-        //if (!ObjectSettings) return;
-        OnUpdateSerializedObject();
+        if (ObjectSettings == null)
+        {
+            NoObjectSelectedMessage();
+            return;
+        }
+        GUIChanged();
         DrawUI();
-        OnGUIChanged();
+        ApplyAndModify();
     }
-    
+
     private void OnSelectionChange()
     {
         FindAndSetObjectSettings();
-        SetPropertyFields();
+        SetSerializedProperties();
     }
-
+    
     private void DrawUI()
     {
-        GUILayout.BeginHorizontal();
-        _controller.OnDrawSideBarSection(AssetsInFolder);
-        _controller.OnDrawSettingsSection();
-        GUILayout.EndHorizontal();
-    }
-
-    private void OnUpdateSerializedObject()
-    {
-        _controller.OnUpdateSerializedObject();
+        _controller.DrawUI();
     }
     
-    private void OnGUIChanged()
-    {
-        _controller.OnGUIChanged();
-        _controller.OnGetAllAssetNamesAndPaths();
-    }
-
-    #region EditorWindow Events
-    
-    private void UpdateSerializedObject()
-    {
-        SerializedObject.Update();
-    }
-
     private void GUIChanged()
     {
         if (GUI.changed)
         {
-            SerializedObject.ApplyModifiedProperties();
-            UpdateSettingsSectionHeader();
-            ObjectGenerator.ObjectSettings = ObjectSettings;
+            _controller.GUIChanged();
         }
     }
 
-    #endregion
-    
-    #region Event Handlers
-
-    private void GUIChanged(object sender, EventArgs e)
+    private void ApplyAndModify()
     {
-        GUIChanged();
-        Repaint();
+        _controller.ApplyAndModify();
     }
-
-    private void UpdateSerializedObject(object sender, EventArgs e)
+    
+    private void SetAllAssetsInFolder()
+    {
+        _controller.SetAllAssetsInFolder();
+    }
+    
+    #region Wrapper Methods
+    
+    private void DrawLayout()
+    {
+        GUILayout.BeginHorizontal();
+        DrawSideBarSection();
+        DrawSettingsSection();
+        GUILayout.EndHorizontal();
+    }
+    
+    private void UpdateSettings()
     {
         UpdateSerializedObject();
+        UpdateObjectGeneratorSettings();
+        Repaint();
     }
     
-    private void DrawSideBarSection(object sender, EventArgs e)
+    private void InitializeProperties()
+    {
+        SetSettingsSectionWidth();
+        SetSettingsSectionHeader();
+        SetSerializedProperties();
+        SetAllAssetsInFolder();
+    }
+
+    private void ApplyModifiedProperties()
+    {
+        _serializedObject.ApplyModifiedProperties();
+    }
+    
+    private void SetAssetNamesAndPaths()
+    {
+        AssetsInFolder = GetAssetNamesAndPaths();
+    }
+
+    private void DrawSideBarSection()
     {
         _sidebarSection.DrawSideBarSection();
     }
     
-    private void DrawSettingsSection(object sender, EventArgs e)
+    private void DrawSettingsSection()
     {
         _settingsSection.DrawSettingsSection();
     }
-    
-    private void GetAllAssetNamesAndPaths((string name, string path)[] assetNamesAndPaths, EventArgs e)
-    {
-        AssetsInFolder = assetNamesAndPaths;
-        Repaint();
-    }
 
     #endregion
+    
+    private void SetObjectSettingNull()
+    {
+        ObjectSettings = null;
+    }
 
+    private void SetObjectSettings()
+    {
+        if (ObjectGenerator == null) return;
+        ObjectSettings = ObjectGenerator.ObjectSettings;
+    }
+    
     public ObjectSettings SetSelectedAsset((string name, string path) asset)
     {
         return AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
     }
     
-    private void UpdateSettingsSectionHeader()
-    {
-        SettingsHeader = $"Settings [{ObjectSettings.name}]";
-    }
-
     public float SetSettingsSectionWidth()
     {
         return position.width - SidebarFrameWidth - 10;
+    }
+    
+    public void SetNoiseLayerProperty(int layerIndex)
+    {
+        NoiseLayerProperty = _serializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
+    }
+
+    private void FindAndSetObjectSettings()
+    {
+        ObjectGenerator = FindSelectedObjectGetComponent();
+        if(ObjectGenerator == null) return;
+        SetObjectSettings();
+    }
+
+    private void UpdateSerializedObject()
+    {
+        _serializedObject.Update();
+    }
+    
+    private void UpdateObjectGeneratorSettings()
+    {
+        ObjectGenerator.ObjectSettings = ObjectSettings;
+    }
+
+    private void SetSettingsSectionHeader()
+    {
+        SettingsHeader = $"Settings [{ObjectSettings.name}]";
+    }
+    
+    private static void NoObjectSelectedMessage()
+    {
+        EditorGUILayout.HelpBox("No GameObject was selected in the Hierarchy. Please select a GameObject to access the settings.",
+            MessageType.Info);
+    }
+
+    public void UpdateNoiseLayerArray(NoiseLayer[] newLayers)
+    {
+        ObjectSettings.NoiseLayers = newLayers;
+        _serializedObject = new SerializedObject(ObjectSettings);
+    }
+    
+    private void SetSerializedProperties()
+    {
+        _serializedObject = new SerializedObject(ObjectSettings);
+        ObjectTypeProperty = _serializedObject.FindProperty("ObjectType");
+        MaterialProperty = _serializedObject.FindProperty("Material");
+        ResolutionProperty = _serializedObject.FindProperty("Resolution");
+        RadiusProperty = _serializedObject.FindProperty("Radius");
+        GradientProperty = _serializedObject.FindProperty("Gradient");
+        NoiseLayerProperty = _serializedObject.FindProperty("NoiseLayers");
+    }
+
+    public void AttachDataToAsset(ObjectSettings selectedAsset)
+    {
+        ObjectGenerator.ObjectSettings = selectedAsset;
+        SetObjectSettings();
+        SetSettingsSectionHeader();
+        SetSerializedProperties();
+
+        EditorUtility.SetDirty(ObjectSettings);
+        ObjectGenerator.GeneratePlanet();
     }
     
     private ObjectGenerator FindSelectedObjectGetComponent()
@@ -181,48 +256,35 @@ public class WindowView : EditorWindow
         }
         else
         {
-            Debug.LogWarningFormat("No GameObject selected in the Hierarchy. Please select a GameObject first. Not found at: {0:f}", DateTime.Now);
+            ObjectGenerator = null;
+            Debug.LogWarningFormat("No GameObject selected in the Hierarchy. Please select a GameObject first. This happened at: {0:f}. Isn´t it cool?", DateTime.Now);
         }
         
         return null;
     }
     
-    private void FindAndSetObjectSettings()
+    /// <summary>
+    /// Tuple with asset name and asset path. Less than three.
+    /// </summary>
+    /// <returns>Returns a tuple array with all asset. Each tuple contains an asset name and path.</returns>
+    private (string name, string path)[] GetAssetNamesAndPaths()
     {
-        ObjectGenerator = FindSelectedObjectGetComponent();
-        if(ObjectGenerator == null) return;
-        ObjectSettings = ObjectGenerator.ObjectSettings;
-    }
-
-    private void DrawInfoBoxNothingIsSelected()
-    {
-        if (ObjectSettings == null)
-            EditorGUILayout.HelpBox($"No GameObject selected in the Hierarchy. Please select a GameObject{DateTime.Now}.", MessageType.Info);
-    }
-
-    private void SetPropertyFields()
-    {
-        if(SerializedObject == null) return;
-        
-        SerializedObject = new SerializedObject(ObjectSettings);
-        ObjectTypeProperty = SerializedObject.FindProperty("ObjectType");
-        MaterialProperty = SerializedObject.FindProperty("Material");
-        ResolutionProperty = SerializedObject.FindProperty("Resolution");
-        RadiusProperty = SerializedObject.FindProperty("Radius");
-        GradientProperty = SerializedObject.FindProperty("Gradient");
-        NoiseLayerProperty  = SerializedObject.FindProperty("NoiseLayers");
-        
-        Repaint();
-    }
+        // Get all asset paths from the folder.
+        const string folderPath = FolderPath.RootInstances;
+        var assetPaths = AssetDatabase.FindAssets("t:ObjectSettings", new[] { folderPath });
     
-    public void AttachDataToAsset(ObjectSettings selectedAsset)
-    {
-        ObjectGenerator.ObjectSettings = selectedAsset;
-        ObjectSettings = ObjectGenerator.ObjectSettings;
+        // Create a tuple array with the asset name and path.
+        var assetNamesAndPaths = new (string name, string path)[assetPaths.Length];
         
-        SetPropertyFields();
-
-        EditorUtility.SetDirty(ObjectSettings);
-        ObjectGenerator.GeneratePlanet();
+        // Fill the tuple array with the asset name and path.
+        for (var assetIndex = 0; assetIndex < assetPaths.Length; assetIndex++)
+        {
+            var assetPath = AssetDatabase.GUIDToAssetPath(assetPaths[assetIndex]);
+            var assetName = System.IO.Path.GetFileNameWithoutExtension(assetPath);
+            assetNamesAndPaths[assetIndex] = (assetName, assetPath);
+        }
+        
+        return assetNamesAndPaths;
     }
 }
+#endif

@@ -51,7 +51,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 333
+        Seed: 269
         NoiseStrength: 0.15
         NumberOfLayers: 2
         BaseRoughness: 1.15

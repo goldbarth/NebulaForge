@@ -42,7 +42,7 @@ public class DrawNoiseLayerOptions
         currentLayers.CopyTo(newLayers, 0);
         newLayers[currentLayers.Length] = new NoiseLayer();
 
-        UpdateNoiseLayerArray(newLayers);
+        _view.UpdateNoiseLayerArray(newLayers);
     }
 
     private void RemoveLastNoiseLayer()
@@ -63,15 +63,6 @@ public class DrawNoiseLayerOptions
         for (int layerIndex = 0; layerIndex < newLayers.Length; layerIndex++)
             newLayers[layerIndex] = currentLayers[layerIndex];
 
-        UpdateNoiseLayerArray(newLayers);
-    }
-
-    private void UpdateNoiseLayerArray(NoiseLayer[] newLayers)
-    {
-        // Set the new array to current array.
-        _view.ObjectSettings.NoiseLayers = newLayers;
-
-        // Update the serialized object after modifying the array(prevents OOB exception).
-        _view.SerializedObject = new SerializedObject(_view.ObjectSettings);
+        _view.UpdateNoiseLayerArray(newLayers);
     }
 }

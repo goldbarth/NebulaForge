@@ -14,7 +14,12 @@ public class GeneralTab
     {
         DrawGeneralSettingsHeader();
         DrawObjectSettingsField();
-        EditorGUILayout.PropertyField(_view.MaterialProperty, true);
+        DrawPropertyFields();
+    }
+
+    private void DrawPropertyFields()
+    {
+        EditorGUILayout.PropertyField(_view.MaterialProperty);
         EditorGUILayout.PropertyField(_view.ResolutionProperty);
         EditorGUILayout.PropertyField(_view.RadiusProperty);
         if (_view.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)

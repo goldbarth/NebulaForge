@@ -42,7 +42,7 @@ public class SidebarSection
     private void DrawCreateNewAssetPopOut()
     {
         if (GUILayout.Button("Create New Asset"))
-            CreateNewAssetWindow.ShowWindow(); ;
+            CreateNewAssetWindow.ShowWindow();
     }
 
     private void DrawAssetButtonsInOrder((string name, string path)[] assetsInFolder)
