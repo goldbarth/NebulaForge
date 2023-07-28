@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -143,7 +144,7 @@ public class ObjectGenerator : MonoBehaviour
     {
         UpdateElevationGradient();
     }
-
+    
     private void UpdateSurfaceShapeSetting()
     {
         SurfaceShape.UpdateSettings(this);

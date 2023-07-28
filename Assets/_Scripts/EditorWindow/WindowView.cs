@@ -39,7 +39,7 @@ public class WindowView : EditorWindow
         _settingsSection = new SettingsSection(this);
         _sidebarSection = new SidebarSection(this);
         _controller = new WindowController();
-        
+
         _controller.OnDrawUI += DrawLayout;
         _controller.OnGUIChanged += UpdateSettings;
         _controller.OnApplyModified += ApplyModifiedProperties;
@@ -89,7 +89,9 @@ public class WindowView : EditorWindow
         FindAndSetObjectSettings();
         SetSerializedProperties();
     }
-    
+
+    #region Controller Dependencies
+
     private void DrawUI()
     {
         _controller.DrawUI();
@@ -107,11 +109,13 @@ public class WindowView : EditorWindow
     {
         _controller.ApplyAndModify();
     }
-    
-    private void SetAllAssetsInFolder()
+
+    public void SetAllAssetsInFolder()
     {
         _controller.SetAllAssetsInFolder();
     }
+
+    #endregion
     
     #region Wrapper Methods
     
@@ -126,7 +130,7 @@ public class WindowView : EditorWindow
     private void UpdateSettings()
     {
         UpdateSerializedObject();
-        UpdateObjectGeneratorSettings();
+        SetObjectGeneratorSettings();
         Repaint();
     }
     
@@ -134,8 +138,19 @@ public class WindowView : EditorWindow
     {
         SetSettingsSectionWidth();
         SetSettingsSectionHeader();
-        SetSerializedProperties();
         SetAllAssetsInFolder();
+        if (_serializedObject == null) return;
+        SetSerializedProperties();
+    }
+    
+    private void SetObjectSettings()
+    {
+        ObjectSettings = ObjectGenerator.ObjectSettings;
+    }
+    
+    private void SetObjectGeneratorSettings()
+    {
+        ObjectGenerator.ObjectSettings = ObjectSettings;
     }
 
     private void ApplyModifiedProperties()
@@ -150,6 +165,7 @@ public class WindowView : EditorWindow
 
     private void DrawSideBarSection()
     {
+        SetAllAssetsInFolder();
         _sidebarSection.DrawSideBarSection();
     }
     
@@ -165,12 +181,6 @@ public class WindowView : EditorWindow
         ObjectSettings = null;
     }
 
-    private void SetObjectSettings()
-    {
-        if (ObjectGenerator == null) return;
-        ObjectSettings = ObjectGenerator.ObjectSettings;
-    }
-    
     public ObjectSettings SetSelectedAsset((string name, string path) asset)
     {
         return AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
@@ -197,14 +207,10 @@ public class WindowView : EditorWindow
     {
         _serializedObject.Update();
     }
-    
-    private void UpdateObjectGeneratorSettings()
-    {
-        ObjectGenerator.ObjectSettings = ObjectSettings;
-    }
 
     private void SetSettingsSectionHeader()
     {
+        if (ObjectSettings == null) return;
         SettingsHeader = $"Settings [{ObjectSettings.name}]";
     }
     
@@ -237,6 +243,7 @@ public class WindowView : EditorWindow
         SetObjectSettings();
         SetSettingsSectionHeader();
         SetSerializedProperties();
+        SetAllAssetsInFolder();
 
         EditorUtility.SetDirty(ObjectSettings);
         ObjectGenerator.GeneratePlanet();
