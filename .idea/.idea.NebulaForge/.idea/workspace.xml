@@ -8,49 +8,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanetMaterial.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanetMaterial.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanetTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/AnotherPlanet/AnotherPlanetTexture.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/TestForWindow.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/WindowTestPlanet/WindowTestPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/WindowTestPlanet/WindowTestPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet/CandyPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet/CandyPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet/CandyPlanetMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet/CandyPlanetMaterial.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/GemSelectionEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectSelectionHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/GemSelectionEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectSelectionHandler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/CreateNewAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/CreateNewAssetWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/CreateNewAssetWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/DrawNoiseLayerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/DrawNoiseLayerOptions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/DrawNoiseLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/DrawNoiseLayers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/GeneralTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/GeneralTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/LabelStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/LabelStyle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SettingsSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SettingsSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SidebarSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SidebarSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SurfaceTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/SurfaceTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/TextHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/TextHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/AssetNamesAndPathsEventArgs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/AssetNamesAndPathsEventArgs.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/CreateNewAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/CreateNewAsset.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/CreateNewAssetWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/CreateNewAssetWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/DrawNoiseLayerOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/DrawNoiseLayerOptions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/DrawNoiseLayers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/DrawNoiseLayers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/GeneralTab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/GeneralTab.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/LabelStyle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/LabelStyle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/NoiseLayerDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/NoiseLayerDrawer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SettingsSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SettingsSection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SidebarSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SidebarSection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SurfaceTab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/SurfaceTab.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/TextHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowViewDependencies/TextHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/FolderPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/FolderPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +54,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/21e1bc5e537b4ecf84d795be004ca2c75e00/f5/729cc4aa/PlanetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/17/016af56a/EditorGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/2d/85561e24/PropertyHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/72/11942583/HostView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/d5/0f9f7b50/ScriptAttributeUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/57a8ad0d1492436d8cfee9ba8e6618f881e800/ff/55e90faf/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/88e4733ac7bc4ae1b496735e6b83bbd346ac00/6f/24b78052/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/88e4733ac7bc4ae1b496735e6b83bbd346ac00/be/e1882343/MonoCustomAttrs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/27/5fe7af6d/Gradient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/51/86014e29/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/93/a2f51a8e/PropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/aa/0f1ac992/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/db/5567fe2c/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -81,9 +89,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ff6b5db041e141f9a771d6b39c07060229400/ab/9b129e98/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/AbstractObjectSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/NoiseLayerDrawer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -101,28 +107,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32977098&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache",
-      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache",
-      "C:\\Users\\felix\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
+      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
+      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
@@ -201,6 +208,10 @@
       <workItem from="1690273301952" duration="12276000" />
       <workItem from="1690317811665" duration="15622000" />
       <workItem from="1690365605198" duration="6292000" />
+      <workItem from="1690569656111" duration="343000" />
+      <workItem from="1690583802100" duration="15419000" />
+      <workItem from="1690600540010" duration="1059000" />
+      <workItem from="1690624693038" duration="6749000" />
     </task>
     <servers />
   </component>
@@ -211,6 +222,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs</url>
+          <line>16</line>
+          <properties documentPath="E:\GitFork\NebulaForge\Assets\_Scripts\SurfaceGeneration\SurfaceShape.cs" initialLine="16" containingFunctionPresentation="Method 'UpdateSettings'">
+            <startOffsets>
+              <option value="484" />
+            </startOffsets>
+            <endOffsets>
+              <option value="604" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

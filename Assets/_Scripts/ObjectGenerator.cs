@@ -1,25 +1,15 @@
-﻿using System;
-using System.Linq;
-using NaughtyAttributes;
+﻿using System.Linq;
 using UnityEngine;
-
-public enum FaceRenderMask
-{
-    All,
-    Top,
-    Bottom,
-    Left,
-    Right,
-    Front,
-    Back
-}
 
 public enum ObjectType
 {
     SolidSphere,
     TerrestrialBody,
 }
-
+/// <summary>
+/// The ObjectGenerator is a class to generate planets and other objects.
+/// It is the main class of the project and communicates tightly with the ObjectSettings.
+/// </summary>
 [ExecuteAlways, ImageEffectAllowedInSceneView]
 public class ObjectGenerator : MonoBehaviour
 {

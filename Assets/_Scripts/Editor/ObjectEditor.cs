@@ -20,7 +20,7 @@ public class ObjectEditor : Editor
         _object = (ObjectGenerator)target;
         _oldSettings = _object.ObjectSettings;
         _assetNames = GetAssetNamesInFolder();
-        _selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
+        //_selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
     }
 
     public override void OnInspectorGUI()
@@ -40,7 +40,7 @@ public class ObjectEditor : Editor
         if (check.changed)
         {
             _object.GeneratePlanet();
-            _selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
+            //_selectedAssetIndex = Array.IndexOf(_assetNames, _object.ObjectSettings.name);
         }
     }
 

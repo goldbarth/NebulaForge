@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectType: 1
   Material: {fileID: 2100000, guid: e4df1b252db6b6444964b884e938da55, type: 2}
   Resolution: 128
-  Radius: 20
+  Radius: 8
   Gradient:
     serializedVersion: 2
     key0: {r: 0.2924172, g: 0.6981132, b: 0.42695922, a: 1}
@@ -51,14 +51,14 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 269
+        Seed: 365
         NoiseStrength: 0.15
         NumberOfLayers: 2
         BaseRoughness: 1.15
         Roughness: 1.15
         Persistence: 0.72
         Center: {x: 0, y: 0, z: 0}
-        GroundLevel: 0.9
+        GroundLevel: 0.78
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 333
+        Seed: 245
         NoiseStrength: 0.3
         NumberOfLayers: 4
         BaseRoughness: 1.8
@@ -106,12 +106,12 @@ MonoBehaviour:
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
       RidgidNoiseSettings:
-        Seed: 333
-        NoiseStrength: 0.7
-        NumberOfLayers: 2
-        BaseRoughness: 1.59
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 1
+        BaseRoughness: 0
         Roughness: 0
-        Persistence: 0.91
+        Persistence: 0
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 1.64
+        WeightMultiplier: 0

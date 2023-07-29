@@ -1,19 +1,20 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 using System;
 
-#if UNITY_EDITOR
 /// <summary>
 /// The WindowView is responsible for the layout and GUI of the EditorWindow.
-/// It represents the View in the MVC pattern.
+/// It represents the View in the MVP pattern.
 /// </summary>
 public class WindowView : EditorWindow
 {
     public ObjectGenerator ObjectGenerator{ get; private set; }
     public ObjectSettings ObjectSettings { get; set; }
-    public string SettingsHeader { get; set; }
+    public string SettingsHeader { get; private set; }
 
-    private WindowController _controller;
+    private WindowPresenter _presenter;
     private SettingsSection _settingsSection;
     private SidebarSection _sidebarSection;
 
@@ -31,6 +32,10 @@ public class WindowView : EditorWindow
     
     public (string name, string path)[] AssetsInFolder;
     public float SidebarFrameWidth;
+    
+    public event Action<ObjectSettings> OnSettingsUpdated;
+    public event Action<ObjectSettings> OnSettingsInstacneChanged;
+    public event Action<ObjectGenerator> OnObjectGeneratorSettingsUpdated;
 
     private void OnEnable()
     {
@@ -38,32 +43,33 @@ public class WindowView : EditorWindow
         
         _settingsSection = new SettingsSection(this);
         _sidebarSection = new SidebarSection(this);
-        _controller = new WindowController();
-
-        _controller.OnDrawUI += DrawLayout;
-        _controller.OnGUIChanged += UpdateSettings;
-        _controller.OnApplyModified += ApplyModifiedProperties;
-        _controller.OnAssetNamesAndPathsReady += SetAssetNamesAndPaths;
+        _presenter = new WindowPresenter(this, ObjectGenerator);
+        
+        _presenter.SubscribeEvents();
+        _presenter.OnDrawUI += DrawLayout;
+        _presenter.OnGUIChanged += UpdateSettings;
+        _presenter.OnApplyModified += ApplyModifiedProperties;
+        _presenter.OnAssetNamesAndPathsReady += SetAssetNamesAndPaths;
         
         ObjectSelectionEventManager.OnObjectSelected += InitializeProperties;
         ObjectSelectionEventManager.OnNoObjectSelected += SetObjectSettingNull;
-
-        if (ObjectSettings == null) return;
+        
+        SetObjectSettings();
         InitializeProperties();
     }
 
     private void OnDisable()
     {
-        if (_controller == null) return;
-        _controller.OnDrawUI -= DrawLayout;
-        _controller.OnGUIChanged -= UpdateSettings;
-        _controller.OnApplyModified -= ApplyModifiedProperties;
-        _controller.OnAssetNamesAndPathsReady -= SetAssetNamesAndPaths;
+        _presenter.UnsubscribeEvents();
+        _presenter.OnDrawUI -= DrawLayout;
+        _presenter.OnGUIChanged -= UpdateSettings;
+        _presenter.OnApplyModified -= ApplyModifiedProperties;
+        _presenter.OnAssetNamesAndPathsReady -= SetAssetNamesAndPaths;
         
         ObjectSelectionEventManager.OnObjectSelected -= InitializeProperties;
         ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
         
-        _controller = null;
+        _presenter = null;
     }
 
     [MenuItem("Tools/Planet Generator")]
@@ -94,25 +100,25 @@ public class WindowView : EditorWindow
 
     private void DrawUI()
     {
-        _controller.DrawUI();
+        _presenter.DrawUI();
     }
     
     private void GUIChanged()
     {
         if (GUI.changed)
         {
-            _controller.GUIChanged();
+            _presenter.GUIChanged();
         }
     }
 
     private void ApplyAndModify()
     {
-        _controller.ApplyAndModify();
+        _presenter.ApplyAndModify();
     }
 
     public void SetAllAssetsInFolder()
     {
-        _controller.SetAllAssetsInFolder();
+        _presenter.SetAllAssetsInFolder();
     }
 
     #endregion
@@ -136,21 +142,22 @@ public class WindowView : EditorWindow
     
     private void InitializeProperties()
     {
+        if (ObjectSettings == null) return;
         SetSettingsSectionWidth();
         SetSettingsSectionHeader();
         SetAllAssetsInFolder();
-        if (_serializedObject == null) return;
         SetSerializedProperties();
     }
     
     private void SetObjectSettings()
     {
-        ObjectSettings = ObjectGenerator.ObjectSettings;
+        OnSettingsInstacneChanged?.Invoke(ObjectSettings);
+        OnSettingsUpdated?.Invoke(ObjectSettings);
     }
     
     private void SetObjectGeneratorSettings()
     {
-        ObjectGenerator.ObjectSettings = ObjectSettings;
+        OnObjectGeneratorSettingsUpdated?.Invoke(ObjectGenerator);
     }
 
     private void ApplyModifiedProperties()
@@ -199,8 +206,7 @@ public class WindowView : EditorWindow
     private void FindAndSetObjectSettings()
     {
         ObjectGenerator = FindSelectedObjectGetComponent();
-        if(ObjectGenerator == null) return;
-        SetObjectSettings();
+        ObjectSettings = ObjectGenerator.ObjectSettings;
     }
 
     private void UpdateSerializedObject()
@@ -240,6 +246,7 @@ public class WindowView : EditorWindow
     public void AttachDataToAsset(ObjectSettings selectedAsset)
     {
         ObjectGenerator.ObjectSettings = selectedAsset;
+        ObjectSettings = selectedAsset;
         SetObjectSettings();
         SetSettingsSectionHeader();
         SetSerializedProperties();

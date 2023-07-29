@@ -1,3 +1,6 @@
+/// <summary>
+/// A static class that holds all the paths where all the ObjectSettings are stored.
+/// </summary>
 public static class FolderPath
 {
     public const string RootInstances = "Assets/ObjectInstances/";
