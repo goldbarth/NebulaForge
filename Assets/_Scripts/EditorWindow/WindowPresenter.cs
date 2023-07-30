@@ -7,6 +7,7 @@ using System;
 public class WindowPresenter
 {
     private readonly WindowView _view;
+    
     private ObjectSettings _model;
 
     public event Action OnDrawUI;
@@ -24,7 +25,7 @@ public class WindowPresenter
     {
         _model.OnSettingsChangedReady += SettingsChanged;
         _view.OnSettingsUpdated += UpdateModelSettings;
-        _view.OnSettingsInstacneChanged += UpdateModelInstance;
+        _view.OnSettingsInstanceChanged += UpdateModelInstance;
         _view.OnObjectGeneratorSettingsUpdated += UpdateObjectGeneratorSettings;
     }
     
@@ -32,7 +33,7 @@ public class WindowPresenter
     {
         _model.OnSettingsChangedReady -= SettingsChanged;
         _view.OnSettingsUpdated -= UpdateModelSettings;
-        _view.OnSettingsInstacneChanged -= UpdateModelInstance;
+        _view.OnSettingsInstanceChanged -= UpdateModelInstance;
         _view.OnObjectGeneratorSettingsUpdated -= UpdateObjectGeneratorSettings;
     }
     

@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -58,3 +60,5 @@ public class SurfaceTab
         EditorGUILayout.Space(5);
     }
 }
+
+#endif

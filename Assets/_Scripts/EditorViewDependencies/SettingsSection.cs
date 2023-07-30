@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -6,6 +8,8 @@ public class SettingsSection
     private readonly GeneralTab _generalTab;
     private readonly SurfaceTab _surfaceTab;
     private readonly WindowView _view;
+    
+    private const float buttonBorderWidth = 15f;
     
     private readonly string[] _tabHeaders;
     private int _tabIndex;
@@ -34,10 +38,11 @@ public class SettingsSection
         GUILayout.FlexibleSpace();
         
         GUILayout.BeginHorizontal();
-        DrawSaveButton();
+        DrawUpdateButton();
         GUILayout.FlexibleSpace();
         DrawDeleteButton();
         GUILayout.EndHorizontal();
+        GUILayout.Space(5);
         
         GUILayout.EndArea();
         GUILayout.EndVertical();
@@ -65,24 +70,26 @@ public class SettingsSection
                 break;
         }
     }
+
+    private void DrawUpdateButton()
+    {
+        if (GUILayout.Button(TextHolder.UpdateAssetButtonText, 
+                LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), buttonBorderWidth)))
+            UpdateAssetSettings();
+    }
+
+    private void DrawDeleteButton()
+    {
+        if (GUILayout.Button(TextHolder.DeleteAssetButtonText,
+                LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), buttonBorderWidth)))
+            DeleteSelectedAsset();
+    }
     
     private void UpdateAssetSettings()
     {
         EditorUtility.SetDirty(_view.ObjectSettings);
         AssetDatabase.SaveAssets();
         _view.ObjectGenerator.GeneratePlanet();
-    }
-    
-    private void DrawSaveButton()
-    {
-        if (GUILayout.Button(TextHolder.UpdateAssetButtonText))
-            UpdateAssetSettings();
-    }
-
-    private void DrawDeleteButton()
-    {
-        if (GUILayout.Button(TextHolder.DeleteAssetButtonText))
-            DeleteSelectedAsset();
     }
 
     private void DeleteSelectedAsset()
@@ -107,3 +114,5 @@ public class SettingsSection
         }
     }
 }
+
+#endif

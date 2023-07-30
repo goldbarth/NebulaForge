@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEngine;
 using UnityEditor;
 
 //Original version of the ConditionalHideAttribute created by Brecht Lecluyse (www.brechtos.com)
@@ -42,14 +44,9 @@ public class ConditionalHidePropertyDrawer : PropertyDrawer
         {
             string propertyPath = property.propertyPath; //returns the property path of the property we want to apply the attribute to
             string conditionPath = propertyPath.Replace(property.name, condHAtt.ConditionalSourceField); //changes the path to the conditionalsource property path
-            sourcePropertyValue = property.serializedObject.FindProperty(conditionPath);
-
             //if the find failed->fall back to the old system
-            if (sourcePropertyValue == null)
-            {
-                //original implementation (doens't work with nested serializedObjects)
-                sourcePropertyValue = property.serializedObject.FindProperty(condHAtt.ConditionalSourceField);
-            }
+            //original implementation (doens't work with nested serializedObjects)
+            sourcePropertyValue = property.serializedObject.FindProperty(conditionPath) ?? property.serializedObject.FindProperty(condHAtt.ConditionalSourceField);
         }
         else
         {
@@ -81,3 +78,5 @@ public class ConditionalHidePropertyDrawer : PropertyDrawer
         }
     }
 }
+
+#endif

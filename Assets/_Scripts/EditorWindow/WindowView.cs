@@ -15,8 +15,8 @@ public class WindowView : EditorWindow
     public string SettingsHeader { get; private set; }
 
     private WindowPresenter _presenter;
-    private SettingsSection _settingsSection;
     private SidebarSection _sidebarSection;
+    private SettingsSection _settingsSection;
 
     private SerializedObject _serializedObject;
     
@@ -34,15 +34,15 @@ public class WindowView : EditorWindow
     public float SidebarFrameWidth;
     
     public event Action<ObjectSettings> OnSettingsUpdated;
-    public event Action<ObjectSettings> OnSettingsInstacneChanged;
+    public event Action<ObjectSettings> OnSettingsInstanceChanged;
     public event Action<ObjectGenerator> OnObjectGeneratorSettingsUpdated;
 
     private void OnEnable()
     {
         FindAndSetObjectSettings();
         
-        _settingsSection = new SettingsSection(this);
         _sidebarSection = new SidebarSection(this);
+        _settingsSection = new SettingsSection(this);
         _presenter = new WindowPresenter(this, ObjectGenerator);
         
         _presenter.SubscribeEvents();
@@ -151,7 +151,7 @@ public class WindowView : EditorWindow
     
     private void SetObjectSettings()
     {
-        OnSettingsInstacneChanged?.Invoke(ObjectSettings);
+        OnSettingsInstanceChanged?.Invoke(ObjectSettings);
         OnSettingsUpdated?.Invoke(ObjectSettings);
     }
     
@@ -188,9 +188,9 @@ public class WindowView : EditorWindow
         ObjectSettings = null;
     }
 
-    public ObjectSettings SetSelectedAsset((string name, string path) asset)
+    public ObjectSettings SetSelectedAsset(string path)
     {
-        return AssetDatabase.LoadAssetAtPath<ObjectSettings>(asset.path);
+        return AssetDatabase.LoadAssetAtPath<ObjectSettings>(path);
     }
     
     public float SetSettingsSectionWidth()
@@ -222,8 +222,8 @@ public class WindowView : EditorWindow
     
     private static void NoObjectSelectedMessage()
     {
-        EditorGUILayout.HelpBox("No GameObject was selected in the Hierarchy. Please select a GameObject to access the settings.",
-            MessageType.Info);
+        EditorGUILayout.HelpBox("No GameObject was selected in the Hierarchy. " +
+                                "Please select a GameObject to access the settings.", MessageType.Info);
     }
 
     public void UpdateNoiseLayerArray(NoiseLayer[] newLayers)
@@ -271,7 +271,8 @@ public class WindowView : EditorWindow
         else
         {
             ObjectGenerator = null;
-            Debug.LogWarningFormat("No GameObject selected in the Hierarchy. Please select a GameObject first. This happened at: {0:f}. Isn´t it cool?", DateTime.Now);
+            Debug.LogWarningFormat("No GameObject selected in the Hierarchy. " +
+                                   "Please select a GameObject first. This happened at: {0:f}. Isn´t it cool?", DateTime.Now);
         }
         
         return null;

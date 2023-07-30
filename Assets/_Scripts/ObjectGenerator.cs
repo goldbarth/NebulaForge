@@ -13,24 +13,22 @@ public enum ObjectType
 [ExecuteAlways, ImageEffectAllowedInSceneView]
 public class ObjectGenerator : MonoBehaviour
 {
-    [field: SerializeField, Header("Asset Debug Field")] public ObjectSettings ObjectSettings { get; set; }
+    [field: SerializeField, Space] public ObjectSettings ObjectSettings { get; set; }
 
     [SerializeField, HideInInspector] private MeshRenderer[] _meshRenderer;
-
-    [HideInInspector] public bool ShapeSettingsFoldout;
     
+    private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
     public SurfaceShapeDispatcher SurfaceShapeDispatcher { get; } = new();
     public SurfaceShape SurfaceShape { get; } = new();
+    
     public NoiseLayer[] NoiseLayers => ObjectSettings.NoiseLayers;
     public ObjectType ObjectType => ObjectSettings.ObjectType;
     public Gradient Gradient => ObjectSettings.Gradient;
     public Material Material => ObjectSettings.Material;
     public float Radius => ObjectSettings.Radius;
-
+    
     private const int CubeFaces = 6;
     
-    private readonly SurfaceElevationGradient _surfaceElevationGradient = new();
-
     private TerrainFace[] _terrainFaces;
 
     private void Awake()
@@ -50,9 +48,7 @@ public class ObjectGenerator : MonoBehaviour
         GenerateMesh();
         UpdateElevationGradient();
     }
-
-    // First search attempts: https://stackoverflow.com/questions/38120084/how-can-we-destroy-child-objects-in-edit-modeunity3d
-    // and https://stackoverflow.com/questions/1211608/possible-to-iterate-backwards-through-a-foreach
+    
     // Sources: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.cast?view=net-7.0
     // https:https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-7.0
     public void RemovePlanet()

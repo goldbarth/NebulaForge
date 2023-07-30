@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -7,6 +9,8 @@ public class SidebarSection
 
     private readonly ObjectType[] _objectTypes;
     private Vector2 _leftScrollPosition;
+
+    private const float ButtonBorderWidth = 10f;
 
     public SidebarSection(WindowView view)
     {
@@ -31,8 +35,11 @@ public class SidebarSection
         GUILayout.FlexibleSpace();
         
         GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
         DrawCreateNewAssetPopOut();
+        GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
+        GUILayout.Space(5);
 
         GUILayout.EndArea();
         GUILayout.EndScrollView();
@@ -41,7 +48,8 @@ public class SidebarSection
 
     private void DrawCreateNewAssetPopOut()
     {
-        if (GUILayout.Button("Create New Asset"))
+        var buttonName = "New Asset";
+        if (GUILayout.Button(buttonName, LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
             CreateNewAssetWindow.ShowWindow();
     }
 
@@ -51,21 +59,20 @@ public class SidebarSection
         DrawAssetButtonsByType(assetsInFolder, _objectTypes[1]);
         DrawSidebarSubHeader2();
         DrawAssetButtonsByType(assetsInFolder, _objectTypes[0]);
-
     }
 
     private void DrawAssetButtonsByType((string name, string path)[] assetsInFolder, ObjectType objectTypes)
     {
-        const float buttonBorderWith = 10f;
         var maxButtonWidth = MaxButtonWidth(assetsInFolder);
-        var defaultStyle = SetButtonDefaultStyle(maxButtonWidth, buttonBorderWith);
+        var defaultStyle = LabelStyle.SetButtonDefaultStyle(maxButtonWidth, ButtonBorderWidth);
         
         foreach (var asset in assetsInFolder)
         {
-            var selectedAsset = _view.SetSelectedAsset(asset);
+            var selectedAsset = _view.SetSelectedAsset(asset.path);
             if (selectedAsset.ObjectType == objectTypes) continue;
 
-            defaultStyle.normal.background = CreateColoredTexture(2, 2, 
+            // Set the background color of the selected asset button.
+            defaultStyle.normal.background = LabelStyle.CreateColoredTexture(2, 2, 
                 selectedAsset == _view.ObjectSettings ? new Color(0.5f, 0.5f, 0.5f, 0.5f) : Color.gray);
 
             DrawAssetButton(selectedAsset, asset, defaultStyle);
@@ -81,7 +88,7 @@ public class SidebarSection
         {
             if (selectedAsset == null)
             {
-                Debug.LogWarning($"Something went wrong loading the asset from the path {asset.path}.");
+                Debug.LogWarning($"Asset Button couldn´t be drawn. Something went wrong loading the asset from the path {asset.path}.");
                 return;
             }
 
@@ -90,17 +97,6 @@ public class SidebarSection
         
         GUILayout.EndHorizontal();
         EditorGUILayout.Space(1);
-    }
-
-    private GUIStyle SetButtonDefaultStyle(float maxButtonWidth, float buttonBorderWith)
-    {
-        var defaultStyle = new GUIStyle(GUI.skin.button);
-        defaultStyle.normal.textColor = Color.white;
-        defaultStyle.fixedWidth = maxButtonWidth + buttonBorderWith;
-        
-        defaultStyle.normal.background = CreateColoredTexture(2, 2, Color.gray);
-        defaultStyle.active.background = CreateColoredTexture(2, 2, new Color(0.5f, 0.5f, 0.5f, 0.5f));
-        return defaultStyle;
     }
 
     private float MaxButtonWidth((string name, string path)[] assetsInFolder)
@@ -118,18 +114,6 @@ public class SidebarSection
         return maxButtonWidth;
     }
 
-    private static Texture2D CreateColoredTexture(int width, int height, Color color)
-    {
-        var pixels = new Color[width * height];
-        for (int colorsIndex = 0; colorsIndex < pixels.Length; colorsIndex++)
-            pixels[colorsIndex] = color;
-        
-        var texture = new Texture2D(width, height);
-        texture.SetPixels(pixels);
-        texture.Apply();
-        return texture;
-    }
-
     private static void DrawSidebarHeader()
     {
         EditorGUILayout.Space(3);
@@ -139,7 +123,7 @@ public class SidebarSection
 
     private void BeginDrawLeftScrollView()
     {
-        _leftScrollPosition = GUILayout.BeginScrollView(_leftScrollPosition, GUILayout.Width(_view.SidebarFrameWidth + 2));
+        _leftScrollPosition = GUILayout.BeginScrollView(_leftScrollPosition, GUILayout.Width(_view.SidebarFrameWidth + 3));
     }
 
     private static void DrawSidebarSubHeader2()
@@ -152,3 +136,5 @@ public class SidebarSection
         GUILayout.Label(TextHolder.SidebarSubHeader1, LabelStyle.SetCenteredMiniLabel());
     }
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using Object = UnityEngine.Object;
 using UnityEditor;
 using UnityEngine;
@@ -108,3 +110,5 @@ public class CreateNewAsset
         return newObjectSettings;
     }
 }
+
+#endif

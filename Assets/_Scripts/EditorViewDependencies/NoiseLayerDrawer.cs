@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -53,3 +55,5 @@ public class NoiseLayerDrawer : PropertyDrawer
         return height;
     }
 }
+
+#endif

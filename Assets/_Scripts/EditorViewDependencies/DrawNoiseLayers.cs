@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -82,3 +84,5 @@ public class DrawNoiseLayers
         _view.NoiseSettingsProperty = _view.NoiseLayerProperty.FindPropertyRelative("NoiseSettings");
     }
 }
+
+#endif
