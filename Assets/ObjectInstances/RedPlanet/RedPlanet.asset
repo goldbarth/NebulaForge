@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
-  m_Name: CandyPlanet
+  m_Name: RedPlanet
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: e4df1b252db6b6444964b884e938da55, type: 2}
+  Material: {fileID: 2100000, guid: 89eb0efb859e6a146890b08f9ea1641a, type: 2}
   Resolution: 128
-  Radius: 100
+  Radius: 50
   Gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.14402194, b: 0.07924521, a: 1}

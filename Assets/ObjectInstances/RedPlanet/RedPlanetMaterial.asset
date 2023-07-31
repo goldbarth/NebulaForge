@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test1Material
+  m_Name: RedPlanetMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 29d15e6fe85b18c42af676f63fad042d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Planet_Texture:
-        m_Texture: {fileID: 2800000, guid: 8d333f636a3fc50488cba456968675df, type: 3}
+        m_Texture: {fileID: 2800000, guid: fffafbd38e019e447909ccd67c75d7b7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -43,5 +43,5 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.05
     m_Colors:
-    - _Elevation_Min_Max: {r: 101.362114, g: 169.39906, b: 0, a: 0}
+    - _Elevation_Min_Max: {r: 51.672237, g: 62.043186, b: 0, a: 0}
   m_BuildTextureStacks: []

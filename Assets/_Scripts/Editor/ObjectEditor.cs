@@ -1,5 +1,5 @@
-﻿#if UNITY_EDITOR
-
+﻿using CustomEditorWindow;
+using EditorWindowDependencies;
 using UnityEngine;
 using UnityEditor;
 
@@ -9,8 +9,7 @@ public class ObjectEditor : Editor
     private const float ButtonBorderWidth = 15f;
     
     private ObjectGenerator _object;
-    private Editor _shapeEditor;
-    
+
     private void OnEnable()
     {
         _object = (ObjectGenerator)target;
@@ -30,7 +29,7 @@ public class ObjectEditor : Editor
     {
         if (check.changed)
         {
-            _object.GeneratePlanet();
+            _object.GenerateObject();
         }
     }
 
@@ -94,12 +93,10 @@ public class ObjectEditor : Editor
         if (GUILayout.Button(buttonName,
                 LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
         {
-            _object.GeneratePlanet();
+            _object.GenerateObject();
             _object.OnColorSettingsUpdated();
         }
 
         GUILayout.FlexibleSpace();
     }
 }
-
-#endif

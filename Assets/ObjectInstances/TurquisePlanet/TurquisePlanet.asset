@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
-  m_Name: CandyPlanet
+  m_Name: TurquisePlanet
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: e4df1b252db6b6444964b884e938da55, type: 2}
+  Material: {fileID: 2100000, guid: ce4061d65e9531d45a44c6279122bf01, type: 2}
   Resolution: 128
-  Radius: 100
+  Radius: 35
   Gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.14402194, b: 0.07924521, a: 1}
-    key1: {r: 1, g: 0.23503333, b: 0.21960783, a: 1}
-    key2: {r: 1, g: 0.2752368, b: 0.21960783, a: 1}
-    key3: {r: 1, g: 0.30678725, b: 0.21960783, a: 0}
-    key4: {r: 1, g: 0.3688532, b: 0.21960783, a: 0}
-    key5: {r: 1, g: 0.43843058, b: 0.21960783, a: 0}
-    key6: {r: 1, g: 0.51923347, b: 0.22075468, a: 0}
+    key0: {r: 0, g: 0.735849, b: 0.342492, a: 1}
+    key1: {r: 0, g: 0.8490566, b: 0.39696148, a: 1}
+    key2: {r: 0, g: 0.9056604, b: 0.42160055, a: 1}
+    key3: {r: 0.088679194, g: 1, b: 0.5145728, a: 0}
+    key4: {r: 0.21960783, g: 1, b: 0.5828985, a: 0}
+    key5: {r: 0.21960783, g: 1, b: 0.65586233, a: 0}
+    key6: {r: 0.21960783, g: 1, b: 0.7354095, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 17650
@@ -54,8 +54,8 @@ MonoBehaviour:
         Seed: 365
         NoiseStrength: 0.08
         NumberOfLayers: 2
-        BaseRoughness: 1.44
-        Roughness: 1.15
+        BaseRoughness: 0.71
+        Roughness: 2.66
         Persistence: 0.87
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
@@ -74,14 +74,14 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 245
-        NoiseStrength: 0.06
-        NumberOfLayers: 5
-        BaseRoughness: 1.21
-        Roughness: 2.32
-        Persistence: 1.09
+        Seed: 311
+        NoiseStrength: 0.03
+        NumberOfLayers: 4
+        BaseRoughness: 1.23
+        Roughness: 2.78
+        Persistence: 1.05
         Center: {x: 0, y: 0, z: 0}
-        GroundLevel: 0
+        GroundLevel: 1.72
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
@@ -107,11 +107,11 @@ MonoBehaviour:
         GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 237
-        NoiseStrength: 0.4
+        NoiseStrength: 0.05
         NumberOfLayers: 2
-        BaseRoughness: 1.28
-        Roughness: 0
-        Persistence: 0
+        BaseRoughness: 1.36
+        Roughness: 1.97
+        Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 0.8
+        WeightMultiplier: 1

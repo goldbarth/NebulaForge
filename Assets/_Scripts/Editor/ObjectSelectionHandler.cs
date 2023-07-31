@@ -1,12 +1,9 @@
-#if UNITY_EDITOR
-
 using UnityEditor;
 using UnityEngine;
 
 [InitializeOnLoad]
 public class ObjectSelectionHandler : Editor
 {
-
     static ObjectSelectionHandler()
     {
         Selection.selectionChanged += OnSelectionChanged;
@@ -33,5 +30,3 @@ public class ObjectSelectionHandler : Editor
         }
     }
 }
-
-#endif

@@ -39,10 +39,10 @@ public class ObjectGenerator : MonoBehaviour
 
     private void Start()
     {
-        GeneratePlanet();
+        GenerateObject();
     }
 
-    public void GeneratePlanet()
+    public void GenerateObject()
     {
         Initialize();
         GenerateMesh();

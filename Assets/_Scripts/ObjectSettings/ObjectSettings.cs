@@ -13,7 +13,7 @@ public class ObjectSettings : ScriptableObject
     [Space(2)] public Material Material;
     
     [Space(2), SerializeField, Range(2, 255)] public int Resolution = 128;
-    [Space(2), SerializeField, Range(0, 5000)] public float Radius = 30f;
+    [Space(2), SerializeField, Range(0, 1000)] public float Radius = 30f;
     
     [ShowIf("HasFoldoutAccess")]
     [Space(2)] public Gradient Gradient;
