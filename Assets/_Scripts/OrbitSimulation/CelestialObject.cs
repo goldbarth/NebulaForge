@@ -1,6 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(Rigidbody))]
 public class CelestialObject : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CelestialObject : MonoBehaviour
     [BoxGroup("Conditions")]
     [ReadOnly] public float Mass;
     [Foldout("Velocity Status")]
-    [SerializeField] private Vector3 _initialVelocity = new(0f, 0.5f, 0f);
+    [SerializeField] public Vector3 InitialVelocity = new(0f, 0.5f, 0f);
     [Foldout("Velocity Status")]
     [ReadOnly] public Vector3 CurrentVelocity;
     
@@ -22,7 +23,7 @@ public class CelestialObject : MonoBehaviour
     {
         _radius = GetComponentInChildren<ObjectGenerator>().Radius;
         _rigidbody = GetComponent<Rigidbody>();
-        CurrentVelocity = _initialVelocity;
+        CurrentVelocity = InitialVelocity;
         
         MassCalculation();
     }

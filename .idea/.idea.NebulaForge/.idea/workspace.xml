@@ -10,42 +10,81 @@
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Moons/MoonMaterial 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/Moons/MoonMaterial 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Sections.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Sections.Map/9fc0d4010bbf28b4594072e72b8655ab.userdata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/WindowEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Editor/WindowEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/CreateNewAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/CreateNewAssetWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/CreateNewAssetWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/DrawNoiseLayerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/DrawNoiseLayerOptions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/DrawNoiseLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/DrawNoiseLayers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/GeneralTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/GeneralTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/LabelStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/LabelStyle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/NoiseLayerDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SettingsSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SettingsSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SidebarSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SidebarSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SurfaceTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/SurfaceTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/TextHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/TextHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/UniversalRenderPipelineGlobalSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/WindowPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/WindowPresenter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/WindowView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/WindowView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ConditionalHidePropertyDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ConditionalHidePropertyDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ConditionalHidePropertyDrawer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ObjectEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectSelectionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ObjectSelectionHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectSelectionHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ObjectSelectionHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/WindowEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/Editor/WindowEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/WindowEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/Editor/WindowEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/CreateNewAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/CreateNewAsset.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/CreateNewAssetWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/CreateNewAssetWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/CreateNewAssetWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/DrawNoiseLayerOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayerOptions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/DrawNoiseLayerOptions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/DrawNoiseLayers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/DrawNoiseLayers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/DrawNoiseLayers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/GeneralTab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/GeneralTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/GeneralTab.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/LabelStyle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/LabelStyle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/LabelStyle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/NoiseLayerDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/NoiseLayerDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/NoiseLayerDrawer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SettingsSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SettingsSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SettingsSection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SidebarSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SidebarSection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SidebarSection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SurfaceTab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/SurfaceTab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/SurfaceTab.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/TextHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EditorWindowDependencies/TextHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditor/Dependencies/TextHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/INoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/INoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/INoiseFilter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/INoiseFilter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseFilterFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseFilterFactory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseFilterFactory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseLayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseLayer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseSettings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseFilter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/RidgidNoiseFilter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/RidgidNoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/RidgidNoiseSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/RidgidNoiseSettings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimpleNoiseFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseFilter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimpleNoiseFilter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimpleNoiseSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimpleNoiseSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimpleNoiseSettings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimplexNoise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimplexNoise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/SimplexNoise.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/SimplexNoise.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/ObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ObjectGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/ObjectGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitSimulation/CelestialObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceElevationGradient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceElevationGradient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShape.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceShape.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShapeDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceShapeDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SurfaceGeneration/SurfaceShapeDispatcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/SurfaceGeneration/SurfaceShapeDispatcher.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TerrainFace.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object/TerrainFace.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +119,9 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ff6b5db041e141f9a771d6b39c07060229400/98/a792939c/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/ff6b5db041e141f9a771d6b39c07060229400/ab/9b129e98/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Editor/ObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorViewDependencies/LabelStyle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowPresenter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/EditorWindow/WindowView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/NoiseSettings/NoiseSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Graphics/UniversalRenderPipelineGlobalSettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Object/Editor/ObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/NoiseSettings/NoiseSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/ObjectSettings/ObjectSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Generation/Targets/BuiltIn/Editor/AssetPostProcessors/MaterialPostprocessor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -209,7 +246,8 @@
       <workItem from="1690712811124" duration="10102000" />
       <workItem from="1690734022697" duration="9094000" />
       <workItem from="1690749102703" duration="1188000" />
-      <workItem from="1690797644858" duration="9006000" />
+      <workItem from="1690797644858" duration="9699000" />
+      <workItem from="1690818410604" duration="5215000" />
     </task>
     <servers />
   </component>

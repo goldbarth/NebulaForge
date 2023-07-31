@@ -83,8 +83,8 @@ namespace EditorWindowDependencies
         
         private void DrawAutoUpdateToggle()
         {
-            var tooltip = "Auto-update is performance intensive and can cause lags when enabled. " +
-                          "It should only be used when necessary. For example, when adjusting noise settings to see immediate results.";
+            var tooltip = "Auto-Update is performance intensive and can cause lags when enabled. " +
+                          "It should only be used when necessary. For example, when adjusting settings to see immediate results.";
             _view.ShowInstantChanges = GUILayout.Toggle(_view.ShowInstantChanges, new GUIContent(TextHolder.AutoUpdateToggleText, tooltip));
         }
 

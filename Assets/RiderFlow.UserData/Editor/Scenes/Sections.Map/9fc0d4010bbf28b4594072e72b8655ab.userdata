@@ -9,16 +9,6 @@
     "SectionAltColorBlue": 0.0,
     "RemoveSectionDuringBuild": false
   },
-  "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1502379383-0": {
-    "GameObjectId": "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1502379383-0",
-    "SectionColorRed": 0.6963799,
-    "SectionColorGreen": 0.349019617,
-    "SectionColorBlue": 0.768627465,
-    "SectionAltColorRed": 0.6963799,
-    "SectionAltColorGreen": 0.349019617,
-    "SectionAltColorBlue": 0.768627465,
-    "RemoveSectionDuringBuild": false
-  },
   "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-49881513-0": {
     "GameObjectId": "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-49881513-0",
     "SectionColorRed": 0.0,
@@ -49,16 +39,6 @@
     "SectionAltColorBlue": 1.0,
     "RemoveSectionDuringBuild": false
   },
-  "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-223271788-0": {
-    "GameObjectId": "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-223271788-0",
-    "SectionColorRed": 0.8734069,
-    "SectionColorGreen": 0.399999976,
-    "SectionColorBlue": 1.0,
-    "SectionAltColorRed": 0.8734069,
-    "SectionAltColorGreen": 0.399999976,
-    "SectionAltColorBlue": 1.0,
-    "RemoveSectionDuringBuild": false
-  },
   "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1549871246-0": {
     "GameObjectId": "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1549871246-0",
     "SectionColorRed": 0.5,
@@ -67,6 +47,16 @@
     "SectionAltColorRed": 0.125,
     "SectionAltColorGreen": 0.125,
     "SectionAltColorBlue": 0.5,
+    "RemoveSectionDuringBuild": false
+  },
+  "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-223271788-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-223271788-0",
+    "SectionColorRed": 0.8734069,
+    "SectionColorGreen": 0.399999976,
+    "SectionColorBlue": 1.0,
+    "SectionAltColorRed": 0.8734069,
+    "SectionAltColorGreen": 0.399999976,
+    "SectionAltColorBlue": 1.0,
     "RemoveSectionDuringBuild": false
   },
   "GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1462089033-0": {
