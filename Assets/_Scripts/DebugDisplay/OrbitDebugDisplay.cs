@@ -1,7 +1,8 @@
+using SolarSystem;
 using UnityEngine;
 
-// Copy paste from Sebastian Lague's Solar System tutorial.
-// Only use to adjust the orbit simulation and save a lot of time.
+// Straight copy pasta from Sebastian Lague's Solar System series.
+// Only use: to adjust the orbit simulation and save a lot of time to set it up.
 [ExecuteInEditMode]
 public class OrbitDebugDisplay : MonoBehaviour {
 

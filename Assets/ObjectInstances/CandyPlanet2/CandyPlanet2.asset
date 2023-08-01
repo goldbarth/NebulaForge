@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectType: 1
   Material: {fileID: 2100000, guid: ff828cff8cb72694a93f919a7ef60ed0, type: 2}
   Resolution: 128
-  Radius: 100
+  Radius: 110
   Gradient:
     serializedVersion: 2
     key0: {r: 0.2924172, g: 0.6981132, b: 0.42695922, a: 1}
