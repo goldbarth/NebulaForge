@@ -1,12 +1,13 @@
-﻿using Extensions;
-using Object;
-using UnityEngine;
+﻿using UnityEngine;
+using Extensions;
 
 namespace Planet.SurfaceGeneration
 {
     public class SurfaceElevationGradient
     {
         private const int TextureResolution = 50;
+        
+        private static readonly int ElevationMinMax = Shader.PropertyToID("_Elevation_Min_Max");
     
         private ObjectGenerator _object;
         private Texture2D _texture;
@@ -21,7 +22,7 @@ namespace Planet.SurfaceGeneration
 
         public void UpdateElevation(MinMax elevationMinMax)
         {
-            _object.Material.SetVector("_Elevation_Min_Max", new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
+            _object.Material.SetVector(ElevationMinMax, new Vector4(elevationMinMax.Min + 1f, elevationMinMax.Max + 1f));
         }
 
         public void UpdateGradient()

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using PlanetSettings.NoiseSettings;
 using NaughtyAttributes;
-using PlanetSettings.NoiseSettings;
 using UnityEngine;
+using System;
 
 namespace PlanetSettings
 {

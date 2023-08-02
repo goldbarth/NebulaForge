@@ -1,9 +1,11 @@
+#if UNITY_EDITOR
+
 using CustomEditorWindow.Dependencies;
 using CustomEditorWindow;
+using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
 using Planet;
-using PlanetSettings;
 
 namespace SolarSystem
 {
@@ -48,9 +50,11 @@ namespace SolarSystem
             var buttonName = "Open";
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(buttonName,
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), buttonBorderWidth)))
-                WindowView.ShowWindow();
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), buttonBorderWidth)))
+                WindowLayout.ShowWindow();
             GUILayout.FlexibleSpace();
         }
     }
 }
+
+#endif

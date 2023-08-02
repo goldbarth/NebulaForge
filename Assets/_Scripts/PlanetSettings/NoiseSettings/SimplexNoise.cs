@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using System;
 
 // Source: From Léon-Lucas Kaniewski @ SAE "Generische Welten" Online Lecture, it isn´t his, but he shared it without a source.
 namespace PlanetSettings.NoiseSettings

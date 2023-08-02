@@ -1,4 +1,5 @@
-using EditorWindowDependencies;
+# if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -8,15 +9,15 @@ namespace CustomEditorWindow.Dependencies
     {
         private readonly DrawNoiseLayerOptions _drawNoiseLayerOptions;
         private readonly DrawNoiseLayers _drawNoiseLayers;
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
 
         private Vector2 _rightScrollPosition;
 
-        public SurfaceTab(WindowView view)
+        public SurfaceTab(WindowLayout layout)
         {
-            _view = view;
-            _drawNoiseLayers = new DrawNoiseLayers(_view);
-            _drawNoiseLayerOptions = new DrawNoiseLayerOptions(_view);
+            _layout = layout;
+            _drawNoiseLayers = new DrawNoiseLayers(_layout);
+            _drawNoiseLayerOptions = new DrawNoiseLayerOptions(_layout);
         }
 
         public void DrawElevationSettingsTab()
@@ -28,7 +29,7 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawElevationLayerSettings()
         {
-            if (_view.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)
+            if (_layout.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)
             {
                 DrawElevationLayerSettingsHeader();
                 _drawNoiseLayerOptions.DrawNoiseLayerOptionButtons();
@@ -44,7 +45,7 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawRightScrollView()
         {
-            _rightScrollPosition = GUILayout.BeginScrollView(_rightScrollPosition, GUILayout.Width(_view.SetSettingsSectionWidth()));
+            _rightScrollPosition = GUILayout.BeginScrollView(_rightScrollPosition, GUILayout.Width(_layout.SetSettingsSectionWidth()));
         }
 
         private static void DrawElevationLayerSettingsHeader()
@@ -55,11 +56,13 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawShapeTypeField()
         {
-            EditorGUIUtility.labelWidth = _view.SetSettingsSectionWidth() * 0.4f;
-            EditorGUILayout.PropertyField(_view.ObjectTypeProperty, new GUIContent(TextHolder.ObjectTypeLabel));
+            EditorGUIUtility.labelWidth = _layout.SetSettingsSectionWidth() * 0.4f;
+            EditorGUILayout.PropertyField(_layout.ObjectTypeProperty, new GUIContent(TextHolder.ObjectTypeLabel));
             EditorGUIUtility.labelWidth = 0f;
             EditorGUILayout.Space(5);
         }
     }
 }
+
+#endif
 

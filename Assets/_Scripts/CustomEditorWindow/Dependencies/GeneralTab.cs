@@ -1,4 +1,5 @@
-using EditorWindowDependencies;
+# if UNITY_EDITOR
+
 using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
@@ -7,11 +8,11 @@ namespace CustomEditorWindow.Dependencies
 {
     public class GeneralTab
     {
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
 
-        public GeneralTab(WindowView view)
+        public GeneralTab(WindowLayout layout)
         {
-            _view = view;
+            _layout = layout;
         }
 
         public void DrawGeneralSettingsTab()
@@ -29,19 +30,21 @@ namespace CustomEditorWindow.Dependencies
         private void DrawObjectSettingsField()
         {
             EditorGUI.BeginDisabledGroup(true);
-            _view.ObjectSettings =
-                (ObjectSettings)EditorGUILayout.ObjectField(TextHolder.CurrentAssetLabel, _view.ObjectSettings, typeof(ObjectSettings), false);
+            _layout.ObjectSettings =
+                (ObjectSettings)EditorGUILayout.ObjectField(TextHolder.CurrentAssetLabel, _layout.ObjectSettings, typeof(ObjectSettings), false);
             EditorGUI.EndDisabledGroup();
         }
 
         private void DrawPropertyFields()
         {
-            EditorGUILayout.PropertyField(_view.MaterialProperty);
-            EditorGUILayout.PropertyField(_view.ResolutionProperty);
-            EditorGUILayout.PropertyField(_view.RadiusProperty);
-            if (_view.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)
-                EditorGUILayout.PropertyField(_view.GradientProperty);
+            EditorGUILayout.PropertyField(_layout.MaterialProperty);
+            EditorGUILayout.PropertyField(_layout.ResolutionProperty);
+            EditorGUILayout.PropertyField(_layout.RadiusProperty);
+            if (_layout.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)
+                EditorGUILayout.PropertyField(_layout.GradientProperty);
         }
     }
 }
+
+#endif
 

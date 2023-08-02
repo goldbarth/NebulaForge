@@ -1,8 +1,10 @@
+# if UNITY_EDITOR
+
+using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
 using Extensions;
 using Planet;
-using PlanetSettings;
 
 namespace CustomEditorWindow.Dependencies
 {
@@ -10,12 +12,14 @@ namespace CustomEditorWindow.Dependencies
     {
         private ObjectSettings _currentSettings;
     
+        private static readonly int MainTex = Shader.PropertyToID("_MainTex");
+        
         public bool IsAssetNameEmpty;
         public bool IsAssetNameValid = true;
     
         private string _assetName = string.Empty;
 
-        public void CreateAsset(ObjectGenerator objectGenerator, WindowView view, string assetName = "")
+        public void CreateAsset(ObjectGenerator objectGenerator, WindowLayout layout, string assetName = "")
         {
             _currentSettings = objectGenerator.ObjectSettings;
             _assetName = assetName;
@@ -40,7 +44,7 @@ namespace CustomEditorWindow.Dependencies
                 SaveTexture(newObjectSettings, newAssetFolder);
             
                 // Update the asset list in the window.
-                view.SetAllAssetsInFolder();
+                layout.SetAllAssetsInFolder();
             
                 ResetAssetData();
             }
@@ -70,7 +74,7 @@ namespace CustomEditorWindow.Dependencies
 
         private void SaveTexture(ObjectSettings newObjectSettings, string newAssetFolder)
         {
-            var originTexture = newObjectSettings.Material.GetTexture("_Planet_Texture") as Texture2D;
+            var originTexture = newObjectSettings.Material.GetTexture(MainTex) as Texture2D;
             var savePath = $"{newAssetFolder}/{_assetName}Texture.png";
             var activeRenderTexture = RenderTexture.active;
 
@@ -113,4 +117,6 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
+
+#endif
 

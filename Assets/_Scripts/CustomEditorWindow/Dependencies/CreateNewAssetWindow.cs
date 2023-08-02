@@ -1,15 +1,17 @@
+# if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 using Planet;
 
 namespace CustomEditorWindow.Dependencies
 {
-    public class CreateNewAssetWindow : EditorWindow
+    public class CreateNewAssetWindow : View
     {
         private readonly CreateNewAsset _createNewAsset = new();
     
         private ObjectGenerator _objectGenerator;
-        private WindowView _view;
+        private WindowLayout _layout;
     
 
         private string _assetName = string.Empty;
@@ -18,8 +20,8 @@ namespace CustomEditorWindow.Dependencies
 
         private void OnEnable()
         {
-            _view = CreateInstance<WindowView>();
-            _objectGenerator = _view.ObjectGenerator;
+            _layout = CreateInstance<WindowLayout>();
+            _objectGenerator = _layout.ObjectGenerator;
         }
 
         public static void ShowWindow()
@@ -38,8 +40,8 @@ namespace CustomEditorWindow.Dependencies
             EditorGUILayout.Space(7);
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(CreateButtonName, LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(CreateButtonName), buttonBorderWidth)))
-                _createNewAsset.CreateAsset(_objectGenerator, _view, _assetName);
+            if (GUILayout.Button(CreateButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(CreateButtonName), buttonBorderWidth)))
+                _createNewAsset.CreateAsset(_objectGenerator, _layout, _assetName);
             GUILayout.EndHorizontal();
         
             if (_createNewAsset.IsAssetNameEmpty)
@@ -58,11 +60,13 @@ namespace CustomEditorWindow.Dependencies
         
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(CloseButtonName, LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(CloseButtonName), buttonBorderWidth)))
+            if (GUILayout.Button(CloseButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(CloseButtonName), buttonBorderWidth)))
                 Close();
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
         }
     }
 }
+
+#endif
 

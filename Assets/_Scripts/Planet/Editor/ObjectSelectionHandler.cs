@@ -18,21 +18,27 @@ namespace Planet
         {
             if (Selection.activeGameObject)
             {
-                // Check if the selected GameObject has the desired script attached.
                 var component = Selection.activeGameObject.GetComponent<ObjectGenerator>();
                 var componentInChildren = Selection.activeGameObject.GetComponentInChildren<ObjectGenerator>();
+                
                 if (component || componentInChildren)
-                {
-                    ObjectSelectionEventManager.RaiseObjectSelectedEvent();
-                    Debug.Log("Selected GameObject has the desired script attached.");
-                }
+                    RaiseSuccessEvent();
             }
 
             if (Selection.activeGameObject == null)
-            {
-                ObjectSelectionEventManager.RaiseNoObjectSelectedEvent();
-                Debug.Log("Selected GameObject has no desired script attached.");
-            }
+                RaiseNoSuccessEvent();
+        }
+
+        private static void RaiseSuccessEvent()
+        {
+            ObjectSelectionEventManager.RaiseObjectSelectedEvent();
+            Debug.Log("Selected GameObject in Hierarchy has the generator script attached.");
+        }
+
+        private static void RaiseNoSuccessEvent()
+        {
+            ObjectSelectionEventManager.RaiseNoObjectSelectedEvent();
+            Debug.Log("There is no GameObject in the Hierarchy selected or the GameObject has no generator script attached.");
         }
     }
 }

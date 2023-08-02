@@ -1,4 +1,5 @@
-using EditorWindowDependencies;
+# if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -6,11 +7,11 @@ namespace CustomEditorWindow.Dependencies
 {
     public class DrawNoiseLayers
     {
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
 
-        public DrawNoiseLayers(WindowView view)
+        public DrawNoiseLayers(WindowLayout layout)
         {
-            _view = view;
+            _layout = layout;
         }
 
         public void DrawSurfaceSettingsHeader()
@@ -21,16 +22,16 @@ namespace CustomEditorWindow.Dependencies
 
         public void DrawNoiseLayer()
         {
-            if (_view.ObjectSettings.NoiseLayers == null) return;
+            if (_layout.ObjectSettings.NoiseLayers == null) return;
         
-            for (int layerIndex = 0; layerIndex < _view.ObjectSettings.NoiseLayers.Length; layerIndex++)
+            for (int layerIndex = 0; layerIndex < _layout.ObjectSettings.NoiseLayers.Length; layerIndex++)
             {
-                if (layerIndex < 0 || layerIndex >= _view.ObjectSettings.NoiseLayers.Length) return;
+                if (layerIndex < 0 || layerIndex >= _layout.ObjectSettings.NoiseLayers.Length) return;
             
-                _view.SetNoiseLayerProperty(layerIndex);
+                _layout.SetNoiseLayerProperty(layerIndex);
                 DrawNoiseLayerFoldout(layerIndex);
 
-                if (_view.NoiseLayerProperty.isExpanded)
+                if (_layout.NoiseLayerProperty.isExpanded)
                 {
                     EditorGUI.indentLevel++;
             
@@ -49,41 +50,43 @@ namespace CustomEditorWindow.Dependencies
         {
             var layerName = $"Elevation Layer ({layerIndex + 1})";
             EditorGUILayout.Space(5);
-            _view.NoiseLayerProperty.isExpanded =
-                EditorGUILayout.Foldout(_view.NoiseLayerProperty.isExpanded, new GUIContent(layerName));
+            _layout.NoiseLayerProperty.isExpanded =
+                EditorGUILayout.Foldout(_layout.NoiseLayerProperty.isExpanded, new GUIContent(layerName));
         }
 
         private void DrawNoiseLayerProperties(Rect noiseLayerRect)
         {
             noiseLayerRect.height = EditorGUIUtility.singleLineHeight;
-            EditorGUI.PropertyField(noiseLayerRect, _view.EnabledProperty);
+            EditorGUI.PropertyField(noiseLayerRect, _layout.EnabledProperty);
 
             // Draw the UseFirstLayerAsMask property.
             noiseLayerRect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            EditorGUI.PropertyField(noiseLayerRect, _view.UseFirstLayerAsMaskProperty);
+            EditorGUI.PropertyField(noiseLayerRect, _layout.UseFirstLayerAsMaskProperty);
 
             // Draw the NoiseSettings property.
             noiseLayerRect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            EditorGUI.PropertyField(noiseLayerRect, _view.NoiseSettingsProperty, true);
+            EditorGUI.PropertyField(noiseLayerRect, _layout.NoiseSettingsProperty, true);
         }
 
         private Rect CalculateNoiseLayerLayout()
         {
             // Calculate the height of the NoiseLayer with all its properties.
             var noiseLayerHeight = EditorGUIUtility.singleLineHeight;
-            noiseLayerHeight += EditorGUI.GetPropertyHeight(_view.NoiseLayerProperty, true);
+            noiseLayerHeight += EditorGUI.GetPropertyHeight(_layout.NoiseLayerProperty, true);
 
             // Set the label width to 40% of the settings section width.
-            EditorGUIUtility.labelWidth = _view.SetSettingsSectionWidth() * 0.4f;
+            EditorGUIUtility.labelWidth = _layout.SetSettingsSectionWidth() * 0.4f;
             return EditorGUILayout.GetControlRect(false, noiseLayerHeight);
         }
 
         private void GetNoiseLayerProperties()
         {
-            _view.EnabledProperty = _view.NoiseLayerProperty.FindPropertyRelative("Enabled");
-            _view.UseFirstLayerAsMaskProperty = _view.NoiseLayerProperty.FindPropertyRelative("UseFirstLayerAsMask");
-            _view.NoiseSettingsProperty = _view.NoiseLayerProperty.FindPropertyRelative("NoiseSettings");
+            _layout.EnabledProperty = _layout.NoiseLayerProperty.FindPropertyRelative("Enabled");
+            _layout.UseFirstLayerAsMaskProperty = _layout.NoiseLayerProperty.FindPropertyRelative("UseFirstLayerAsMask");
+            _layout.NoiseSettingsProperty = _layout.NoiseLayerProperty.FindPropertyRelative("NoiseSettings");
         }
     }
 }
+
+#endif
 

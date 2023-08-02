@@ -1,4 +1,5 @@
-using EditorWindowDependencies;
+# if UNITY_EDITOR
+
 using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
@@ -10,25 +11,25 @@ namespace CustomEditorWindow.Dependencies
     {
         private readonly GeneralTab _generalTab;
         private readonly SurfaceTab _surfaceTab;
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
     
         private const float buttonBorderWidth = 15f;
     
         private readonly string[] _tabHeaders;
         private int _tabIndex;
 
-        public SettingsSection(WindowView view)
+        public SettingsSection(WindowLayout layout)
         {
-            _view = view;
-            _generalTab = new GeneralTab(_view);
-            _surfaceTab = new SurfaceTab(_view);
+            _layout = layout;
+            _generalTab = new GeneralTab(_layout);
+            _surfaceTab = new SurfaceTab(_layout);
             _tabHeaders = new[] { TextHolder.GeneralSettingsHeader, TextHolder.SurfaceSettingsHeader };
         }
 
         public void DrawSettingsSection()
         {
             const float separationLine = 5f;
-            var areaRect = new Rect(_view.SidebarFrameWidth + separationLine, 0, _view.SetSettingsSectionWidth(), _view.position.height);
+            var areaRect = new Rect(_layout.SidebarFrameWidth + separationLine, 0, _layout.SetSettingsSectionWidth(), _layout.position.height);
         
             GUI.Box(areaRect, string.Empty);
 
@@ -55,7 +56,7 @@ namespace CustomEditorWindow.Dependencies
         private void DrawSettingsHeader()
         {
             EditorGUILayout.Space(3);
-            GUILayout.Label(_view.SettingsHeader, LabelStyle.SetCenteredBoldLabel());
+            GUILayout.Label(_layout.SettingsHeader, LabelStyle.SetCenteredBoldLabel());
             EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         }
 
@@ -78,7 +79,7 @@ namespace CustomEditorWindow.Dependencies
         private void DrawUpdateButton()
         {
             if (GUILayout.Button(TextHolder.UpdateAssetButtonText, 
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), buttonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), buttonBorderWidth)))
                 UpdateAssetSettings();
         }
         
@@ -86,26 +87,26 @@ namespace CustomEditorWindow.Dependencies
         {
             var tooltip = "Auto-Update is performance intensive and can cause lags when enabled. " +
                           "It should only be used when necessary. For example, when adjusting settings to see immediate results.";
-            _view.IsAutoUpdate = GUILayout.Toggle(_view.IsAutoUpdate, new GUIContent(TextHolder.AutoUpdateToggleText, tooltip));
+            _layout.IsAutoUpdate = GUILayout.Toggle(_layout.IsAutoUpdate, new GUIContent(TextHolder.AutoUpdateToggleText, tooltip));
         }
 
         private void DrawDeleteButton()
         {
             if (GUILayout.Button(TextHolder.DeleteAssetButtonText,
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), buttonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), buttonBorderWidth)))
                 DeleteSelectedAsset();
         }
     
         private void UpdateAssetSettings()
         {
-            EditorUtility.SetDirty(_view.ObjectSettings);
+            EditorUtility.SetDirty(_layout.ObjectSettings);
             AssetDatabase.SaveAssets();
-            _view.ObjectGenerator.GenerateObject();
+            _layout.ObjectGenerator.GenerateObject();
         }
 
         private void DeleteSelectedAsset()
         {
-            var currentAsset = _view.ObjectSettings;
+            var currentAsset = _layout.ObjectSettings;
             var assetPath = currentAsset != null ? AssetDatabase.GetAssetPath(currentAsset) : string.Empty;
             var folderPath = assetPath.Substring(0, assetPath.LastIndexOf('/'));
         
@@ -119,11 +120,13 @@ namespace CustomEditorWindow.Dependencies
                 // load first asset in folder
                 var firstAsset = AssetDatabase.FindAssets("t:ObjectSettings", new[] { FolderPath.RootInstances });
                 var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(AssetDatabase.GUIDToAssetPath(firstAsset[0]));
-                _view.SetAllAssetsInFolder();
-                _view.AttachDataToAsset(selectedAsset);
-                _view.ObjectGenerator.GenerateObject();
+                _layout.SetAllAssetsInFolder();
+                _layout.AttachDataToAsset(selectedAsset);
+                _layout.ObjectGenerator.GenerateObject();
             }
         }
     }
 }
+
+# endif
 

@@ -1,8 +1,6 @@
-﻿#if UNITY_EDITOR
-
-using Extensions;
-using PlanetSettings.NoiseSettings;
+﻿using PlanetSettings.NoiseSettings;
 using UnityEngine;
+using Extensions;
 
 namespace Planet.SurfaceGeneration
 {
@@ -81,5 +79,3 @@ namespace Planet.SurfaceGeneration
         }
     }
 }
-
-#endif

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
+  m_Name: PopcornSunSmall
+  m_EditorClassIdentifier: 
+  ObjectType: 1
+  Material: {fileID: 2100000, guid: 0c09aca3882085244a67d34f9e1d0dd0, type: 2}
+  Resolution: 128
+  Radius: 200
+  Gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.21300006, b: 0.21300006, a: 1}
+    key1: {r: 1, g: 0.7787016, b: 0.14999998, a: 1}
+    key2: {r: 1, g: 0.54822963, b: 0.31372547, a: 1}
+    key3: {r: 1, g: 0.9452998, b: 0.5415094, a: 0}
+    key4: {r: 1, g: 0.3688532, b: 0.21960783, a: 0}
+    key5: {r: 1, g: 0.43843058, b: 0.21960783, a: 0}
+    key6: {r: 1, g: 0.51923347, b: 0.22075468, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 16384
+    ctime2: 43549
+    ctime3: 65535
+    ctime4: 42405
+    ctime5: 51223
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  NoiseLayers:
+  - Enabled: 1
+    UseFirstLayerAsMask: 0
+    NoiseSettings:
+      Filter: 0
+      SimpleNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0.14
+        NumberOfLayers: 2
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0.62
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+      RidgidNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 0
+  - Enabled: 1
+    UseFirstLayerAsMask: 1
+    NoiseSettings:
+      Filter: 0
+      SimpleNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0.8
+        NumberOfLayers: 5
+        BaseRoughness: 1
+        Roughness: 0.15
+        Persistence: 1
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+      RidgidNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 0
+  - Enabled: 1
+    UseFirstLayerAsMask: 1
+    NoiseSettings:
+      Filter: 1
+      SimpleNoiseSettings:
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+      RidgidNoiseSettings:
+        Seed: 0
+        NoiseStrength: 1.88
+        NumberOfLayers: 3
+        BaseRoughness: 0.97
+        Roughness: 2.02
+        Persistence: 0.62
+        Center: {x: 0, y: 0, z: 0}
+        GroundLevel: 0
+        WeightMultiplier: 0.63
