@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
@@ -6,6 +8,8 @@ namespace Extensions
 {
     public static class SaveAndAddTexture
     {
+        private static readonly int MainTexture = Shader.PropertyToID("_MainTex");
+
         public static void SaveTextureToFile(this Texture2D texture, ObjectSettings currentAsset)
         {
             var folderPath = FolderPath.NewAssetFolder(currentAsset.name);
@@ -29,7 +33,7 @@ namespace Extensions
         {
             // add the saved texture to the material
             var newTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(GetSavePath(asset.name));
-            material.SetTexture("_Planet_Texture", newTexture);
+            material.SetTexture(MainTexture, newTexture);
         }
 
         private static string GetSavePath(string assetName)
@@ -39,3 +43,5 @@ namespace Extensions
         }
     }
 }
+
+#endif

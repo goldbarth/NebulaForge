@@ -1,10 +1,9 @@
-﻿using Planet.SurfaceGeneration;
-using PlanetSettings.NoiseSettings;
+﻿using PlanetSettings.NoiseSettings;
+using Planet.SurfaceGeneration;
+using PlanetSettings;
 using UnityEngine;
 using System.Linq;
 using Extensions;
-using Object;
-using PlanetSettings;
 
 public enum ObjectType
 {
@@ -96,6 +95,12 @@ namespace Planet
                     var meshFilter = newFace.GetOrAddComponent2<MeshFilter>();
                     var mesh = new Mesh { name = $"TerrainMesh_{cubeFaceIndex}" };
                     meshFilter.sharedMesh = mesh;
+                    
+                    // TODO: add a collider to the child object. convex does not work with a mesh with more than 255 vertices.
+                    // add a collider to the child object.
+                    // var coll = newFace.GetOrAddComponent2<MeshCollider>();
+                    // coll.convex = true;
+                    // coll.sharedMesh = mesh;
 
                     _terrainFaces[cubeFaceIndex] = new TerrainFace(this, mesh, directions[cubeFaceIndex]);
                 }

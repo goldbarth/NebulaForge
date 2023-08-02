@@ -1,7 +1,6 @@
-﻿using Planet;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Object
+namespace Planet
 {
     public class TerrainFace
     {

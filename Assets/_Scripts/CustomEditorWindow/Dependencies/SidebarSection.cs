@@ -1,4 +1,5 @@
-using EditorWindowDependencies;
+# if UNITY_EDITOR
+
 using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
@@ -7,23 +8,23 @@ namespace CustomEditorWindow.Dependencies
 {
     public class SidebarSection
     {
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
 
         private readonly ObjectType[] _objectTypes;
         private Vector2 _leftScrollPosition;
 
         private const float ButtonBorderWidth = 10f;
 
-        public SidebarSection(WindowView view)
+        public SidebarSection(WindowLayout layout)
         {
-            _view = view;
+            _layout = layout;
             _objectTypes = new[] { ObjectType.TerrestrialBody, ObjectType.SolidSphere };
         }
 
         public void DrawSideBarSection()
         {
             const float separationLine = 2.5f;
-            var areaRect = new Rect(separationLine, 0, _view.SidebarFrameWidth, _view.position.height);
+            var areaRect = new Rect(separationLine, 0, _layout.SidebarFrameWidth, _layout.position.height);
 
             GUILayout.BeginVertical();
             GUILayout.BeginArea(areaRect);
@@ -32,7 +33,7 @@ namespace CustomEditorWindow.Dependencies
         
             BeginDrawLeftScrollView();
             DrawSidebarHeader();
-            DrawAssetButtonsInOrder(_view.AssetsInFolder);
+            DrawAssetButtonsInOrder(_layout.AssetsInFolder);
         
             GUILayout.FlexibleSpace();
         
@@ -51,7 +52,7 @@ namespace CustomEditorWindow.Dependencies
         private void DrawCreateNewAssetPopOut()
         {
             var buttonName = "New Asset";
-            if (GUILayout.Button(buttonName, LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+            if (GUILayout.Button(buttonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
                 CreateNewAssetWindow.ShowWindow();
         }
 
@@ -66,16 +67,16 @@ namespace CustomEditorWindow.Dependencies
         private void DrawAssetButtonsByType((string name, string path)[] assetsInFolder, ObjectType objectTypes)
         {
             var maxButtonWidth = MaxButtonWidth(assetsInFolder);
-            var defaultStyle = LabelStyle.SetButtonDefaultStyle(maxButtonWidth, ButtonBorderWidth);
+            var defaultStyle = LabelStyle.SetDefaultButtonStyle(maxButtonWidth, ButtonBorderWidth);
         
             foreach (var asset in assetsInFolder)
             {
-                var selectedAsset = _view.SetSelectedAsset(asset.path);
+                var selectedAsset = _layout.SetSelectedAsset(asset.path);
                 if (selectedAsset.ObjectType == objectTypes) continue;
 
                 // Set the background color of the selected asset button.
                 defaultStyle.normal.background = LabelStyle.CreateColoredTexture(2, 2, 
-                    selectedAsset == _view.ObjectSettings ? new Color(0.5f, 0.5f, 0.5f, 0.5f) : Color.gray);
+                    selectedAsset == _layout.ObjectSettings ? new Color(0.5f, 0.5f, 0.5f, 0.5f) : Color.gray);
 
                 DrawAssetButton(selectedAsset, asset, defaultStyle);
             }
@@ -94,7 +95,7 @@ namespace CustomEditorWindow.Dependencies
                     return;
                 }
 
-                _view.AttachDataToAsset(selectedAsset);
+                _layout.AttachDataToAsset(selectedAsset);
             }
         
             GUILayout.EndHorizontal();
@@ -110,7 +111,7 @@ namespace CustomEditorWindow.Dependencies
             {
                 var assetNameWidth = GUI.skin.button.CalcSize(new GUIContent(asset.name)).x;
                 maxButtonWidth = Mathf.Max(maxButtonWidth, assetNameWidth);
-                _view.SidebarFrameWidth = maxButtonWidth + frameBorderWidth;
+                _layout.SidebarFrameWidth = maxButtonWidth + frameBorderWidth;
             }
 
             return maxButtonWidth;
@@ -125,7 +126,7 @@ namespace CustomEditorWindow.Dependencies
 
         private void BeginDrawLeftScrollView()
         {
-            _leftScrollPosition = GUILayout.BeginScrollView(_leftScrollPosition, GUILayout.Width(_view.SidebarFrameWidth + 3));
+            _leftScrollPosition = GUILayout.BeginScrollView(_leftScrollPosition, GUILayout.Width(_layout.SidebarFrameWidth + 3));
         }
 
         private static void DrawSidebarSubHeader2()
@@ -139,4 +140,6 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
+
+#endif
 

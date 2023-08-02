@@ -3,7 +3,8 @@ using System;
 namespace Extensions
 {
     /// <summary>
-    /// The ObjectSelectionEventManager is communicating between the WindowView and the ObjectSelectionHandler(because it is an) and the ).
+    /// The ObjectSelectionEventManager is communicating between the WindowView
+    /// and the ObjectSelectionHandle, because classes in the editor folder can´t directly do it.
     /// </summary>
     public static class ObjectSelectionEventManager
     {

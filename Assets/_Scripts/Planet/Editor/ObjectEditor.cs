@@ -75,8 +75,8 @@ namespace Planet
             var buttonName = "Open";
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(buttonName,
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
-                WindowView.ShowWindow();
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+                WindowLayout.ShowWindow();
             GUILayout.FlexibleSpace();
         }
 
@@ -85,7 +85,7 @@ namespace Planet
             var buttonName = "Remove Object";
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(buttonName,
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
                 _object.RemovePlanet();
             GUILayout.FlexibleSpace();
         }
@@ -95,7 +95,7 @@ namespace Planet
             var buttonName = "Generate Object";
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(buttonName,
-                    LabelStyle.SetButtonDefaultStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
             {
                 _object.GenerateObject();
                 _object.OnColorSettingsUpdated();

@@ -1,5 +1,4 @@
-﻿using NaughtyAttributes;
-using UnityEngine;
+﻿using UnityEngine;
 using Planet;
 
 namespace SolarSystem
@@ -8,15 +7,37 @@ namespace SolarSystem
     [RequireComponent(typeof(Rigidbody))]
     public class CelestialObject : MonoBehaviour
     {
-        [BoxGroup("Conditions")]
         [Space, SerializeField] private float _surfaceGravity;
-        [BoxGroup("Conditions")]
-        [ReadOnly] public float Mass;
-        [Foldout("Velocity Status")]
-        [SerializeField] public Vector3 InitialVelocity = new(0f, 0.5f, 0f);
-        [Foldout("Velocity Status")]
-        [ReadOnly] public Vector3 CurrentVelocity;
-    
+        [Space(5), SerializeField] public float Mass;
+        [Space(5), SerializeField] public Vector3 InitialVelocity = new(0f, 0.5f, 0f);
+        [Space(5), SerializeField] public Vector3 CurrentVelocity;
+
+        public float SurfaceGravity
+        {
+            get => _surfaceGravity;
+            set
+            {
+                _surfaceGravity = value;
+                MassCalculation();
+            }
+        }
+
+        public Vector3 Velocity
+        {
+            get => CurrentVelocity;
+            set => CurrentVelocity = value;
+        }
+
+        public float ObjectMass
+        {
+            get => Mass;
+            set
+            {
+                Mass = value;
+                _rigidbody.mass = Mass;
+            }
+        }
+
         public Vector3 Position => _rigidbody.position;
 
         private Rigidbody _rigidbody;

@@ -5,12 +5,12 @@ using Planet;
 namespace CustomEditorWindow
 {
     /// <summary>
-    /// The WindowPresenter is responsible for the logic of the EditorWindow.
+    /// The WindowPresenter is handling the communication between the WindowView and the ObjectSettings.
     /// It represents the Presenter in the MVP pattern.
     /// </summary>
     public class WindowPresenter
     {
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
     
         private ObjectSettings _model;
 
@@ -19,30 +19,30 @@ namespace CustomEditorWindow
         public event Action OnApplyModified;
         public event Action OnAssetNamesAndPathsReady;
 
-        public WindowPresenter(WindowView view, ObjectGenerator objectGenerator)
+        public WindowPresenter(WindowLayout layout, ObjectGenerator objectGenerator)
         {
             // TODO: ObjectGenerator is null when entering game mode
             _model = objectGenerator.ObjectSettings; 
-            _view = view;
+            _layout = layout;
         }
 
         public void SubscribeEvents()
         {
             _model.OnSettingsChangedReady += SettingsChanged;
-            _view.OnSettingsUpdated += UpdateModelSettings;
-            _view.OnSettingsInstanceChanged += UpdateModelInstance;
-            _view.OnObjectGeneratorSettingsUpdated += UpdateObjectGeneratorSettings;
+            _layout.OnSettingsUpdated += UpdateModelSettings;
+            _layout.OnSettingsInstanceChanged += UpdateModelInstance;
+            _layout.OnObjectGeneratorSettingsUpdated += UpdateObjectGeneratorSettings;
         }
     
         public void UnsubscribeEvents()
         {
             _model.OnSettingsChangedReady -= SettingsChanged;
-            _view.OnSettingsUpdated -= UpdateModelSettings;
-            _view.OnSettingsInstanceChanged -= UpdateModelInstance;
-            _view.OnObjectGeneratorSettingsUpdated -= UpdateObjectGeneratorSettings;
+            _layout.OnSettingsUpdated -= UpdateModelSettings;
+            _layout.OnSettingsInstanceChanged -= UpdateModelInstance;
+            _layout.OnObjectGeneratorSettingsUpdated -= UpdateObjectGeneratorSettings;
         }
     
-        // Model dependency
+        // Model dependency:
 
         private void UpdateModelInstance(ObjectSettings objectSettings)
         {
@@ -61,10 +61,10 @@ namespace CustomEditorWindow
 
         private void SettingsChanged()
         {
-            _view.ObjectSettings = _model;
+            _layout.ObjectSettings = _model;
         }
     
-        // View dependency
+        // View dependency:
 
         public void DrawUI()
         {

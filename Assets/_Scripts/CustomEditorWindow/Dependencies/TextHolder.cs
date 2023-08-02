@@ -1,4 +1,4 @@
-namespace EditorWindowDependencies
+namespace CustomEditorWindow.Dependencies
 {
     public struct TextHolder
     {

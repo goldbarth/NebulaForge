@@ -1,3 +1,5 @@
+# if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -25,7 +27,7 @@ namespace CustomEditorWindow.Dependencies
             return new GUIStyle(EditorStyles.miniLabel) { alignment = TextAnchor.MiddleCenter };
         }
     
-        public static GUIStyle SetButtonDefaultStyle(float maxButtonWidth, float buttonBorderWith)
+        public static GUIStyle SetDefaultButtonStyle(float maxButtonWidth, float buttonBorderWith)
         {
             var defaultStyle = new GUIStyle(GUI.skin.button);
             defaultStyle.normal.textColor = Color.white;
@@ -55,3 +57,4 @@ namespace CustomEditorWindow.Dependencies
     }
 }
 
+#endif

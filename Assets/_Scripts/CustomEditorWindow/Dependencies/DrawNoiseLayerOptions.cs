@@ -1,21 +1,22 @@
+# if UNITY_EDITOR
+
 using PlanetSettings.NoiseSettings;
-using EditorWindowDependencies;
 using UnityEngine;
 
 namespace CustomEditorWindow.Dependencies
 {
     public class DrawNoiseLayerOptions
     {
-        private readonly WindowView _view;
+        private readonly WindowLayout _layout;
 
-        public DrawNoiseLayerOptions( WindowView view)
+        public DrawNoiseLayerOptions( WindowLayout layout)
         {
-            _view = view;
+            _layout = layout;
         }
 
         public void DrawNoiseLayerOptionButtons()
         {
-            var buttonWidth = _view.SetSettingsSectionWidth() * 0.5f - 10;
+            var buttonWidth = _layout.SetSettingsSectionWidth() * 0.5f - 10;
             GUILayout.BeginHorizontal();
 
             if (GUILayout.Button(TextHolder.AddLayerButtonText, GUILayout.Width(buttonWidth)))
@@ -31,32 +32,32 @@ namespace CustomEditorWindow.Dependencies
 
         private void AddNoiseLayer()
         {
-            if (_view.ObjectSettings.NoiseLayers.Length >= 3)
+            if (_layout.ObjectSettings.NoiseLayers.Length >= 3)
             {
                 Debug.LogWarning("Cannot add more than 3 NoiseLayers.");
                 return;
             }
 
             // Create a new array with the length of the current array + 1.
-            var currentLayers = _view.ObjectSettings.NoiseLayers;
+            var currentLayers = _layout.ObjectSettings.NoiseLayers;
             var newLayers = new NoiseLayer[currentLayers.Length + 1];
 
             // Copy the current array to the new array.
             currentLayers.CopyTo(newLayers, 0);
             newLayers[currentLayers.Length] = new NoiseLayer();
 
-            _view.UpdateNoiseLayerArray(newLayers);
+            _layout.UpdateNoiseLayerArray(newLayers);
         }
 
         private void RemoveLastNoiseLayer()
         {
-            if (_view.ObjectSettings.NoiseLayers.Length <= 0)
+            if (_layout.ObjectSettings.NoiseLayers.Length <= 0)
             {
                 Debug.LogWarning("Cannot remove NoiseLayer from empty array.");
                 return;
             }
 
-            var currentLayers = _view.ObjectSettings.NoiseLayers;
+            var currentLayers = _layout.ObjectSettings.NoiseLayers;
             if (currentLayers.Length <= 0) return;
         
             // Create a new array with the length of the current array - 1.
@@ -66,7 +67,9 @@ namespace CustomEditorWindow.Dependencies
             for (int layerIndex = 0; layerIndex < newLayers.Length; layerIndex++)
                 newLayers[layerIndex] = currentLayers[layerIndex];
 
-            _view.UpdateNoiseLayerArray(newLayers);
+            _layout.UpdateNoiseLayerArray(newLayers);
         }
     }
 }
+
+#endif

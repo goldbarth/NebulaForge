@@ -1,5 +1,5 @@
-﻿using Extensions;
-using UnityEngine;
+﻿using UnityEngine;
+using Extensions;
 
 namespace PlanetSettings.NoiseSettings
 {
