@@ -3,6 +3,7 @@ using UnityEngine;
 using Extensions;
 using Planet;
 using System;
+using HelpersAndExtensions;
 
 // Source: @ Infallible Code https://www.youtube.com/watch?v=_yf5vzZ2sYE&t=35s
 // Modified by me. TODO: Refactor GameObjectSelectionHandler()
@@ -40,6 +41,9 @@ namespace UserUI
                 var highlightMaterial = SetHighlightMaterial(_selection);
                 highlightMaterial.mainTexture = _objectTexture;
             }
+            
+            if(_selection != null && _isObjectSelected)
+                return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, _layerMask))
@@ -48,7 +52,7 @@ namespace UserUI
 
                 var highlightMaterial = SetHighlightMaterial(selection);
                 _objectTexture = highlightMaterial.mainTexture;
-                
+
                 if (highlightMaterial != null)
                 {
                     highlightMaterial.mainTexture = _selectedTexture;
@@ -78,7 +82,6 @@ namespace UserUI
             selectionMaterial.mainTexture = _objectTexture;
             _selection = null;
             OnObjectDeselectedReady?.Invoke();
-            
         }
         
         private void ActivateUserInterface()

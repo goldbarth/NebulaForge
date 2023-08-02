@@ -1,3 +1,4 @@
+using HelpersAndExtensions;
 using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------------
@@ -13,10 +14,10 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------------
 namespace SolarSystem
 {
-    public class OrbitSimulation : MonoBehaviour
+    public class OrbitSimulation : GenericSingleton<OrbitSimulation>
     {
-        [SerializeField] private bool _manualTimeScale = false;
-        [SerializeField] private float _timeScale = 1f;
+        [field: SerializeField] public bool ManualTimeScale { get; set; } = false;
+        [field: SerializeField] public float TimeScale { get; set; } = 1f;
     
         [SerializeField] private CelestialObject[] _objects;
 
@@ -27,7 +28,7 @@ namespace SolarSystem
 
         private void FixedUpdate()
         {
-            Time.timeScale = _manualTimeScale ? _timeScale : 1f;
+            Time.timeScale = ManualTimeScale ? TimeScale : 1f;
 
             foreach (var obj in _objects)
             {
