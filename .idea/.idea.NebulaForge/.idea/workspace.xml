@@ -9,79 +9,44 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/URP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/URP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/URP_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/URP_Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Grey.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Grey.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/White.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DebugLineRendererMaterials/White.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlueMoon/BlueMoon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlueMoon/BlueMoon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlueMoon/BlueMoonMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlueMoon/BlueMoonMaterial.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanet.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetMaterial.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetTexture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetTexture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Earth2/Earth2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Earth2/Earth2Material.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun/PopcornSun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun/PopcornSun.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun/PopcornSunTexture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornSun/PopcornSunTexture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test1/Test1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Test1/Test1.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Main Camera Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Main Camera Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Volume Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Volume Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene_Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene_Profiles/Main Camera Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene_Profiles/Main Camera Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/TerrainShader/TerrainGradient/TerrainGradient_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/TerrainShader/TerrainGradient/TerrainGradient_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAssetWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAssetWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/DrawNoiseLayerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/DrawNoiseLayerOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/DrawNoiseLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/DrawNoiseLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/GeneralTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/GeneralTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/LabelStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/LabelStyle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/NoiseLayerDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/NoiseLayerDrawer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SettingsSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SettingsSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SidebarSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SidebarSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SurfaceTab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/SurfaceTab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/TextHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/TextHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowLayout.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowLayout.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ObjectSelectionEventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ObjectSelectionEventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/WindowLayout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ConditionalHideAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/Extensions/ConditionalHideAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ConditionalHideAttribute.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/Extensions/ConditionalHideAttribute.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomCalculations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/CustomCalculations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomCalculations.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/CustomCalculations.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomComponentHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/CustomComponentHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/CustomComponentHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/CustomComponentHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/FolderPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/FolderPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/FolderPath.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/FolderPath.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/GenericSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/GenericSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/GenericSingleton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/GenericSingleton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/MinMax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/MinMax.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/MinMax.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/MinMax.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ObjectSelectionEventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/ObjectSelectionEventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/ObjectSelectionEventManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/ObjectSelectionEventManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/SaveAndAddTexture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/SaveAndAddTexture.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/HelpersAndExtensions/SaveAndAddTexture.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectSelectionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectSelectionHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/ObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/ObjectGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShapeDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShapeDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/TerrainFace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/RidgidNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/RidgidNoiseFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/SimpleNoiseFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/SimpleNoiseFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/SimplexNoise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/NoiseSettings/SimplexNoise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/ObjectSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/PlanetSettings/ObjectSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/Editor/WindowEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/Editor/WindowEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/OrbitSimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/OrbitSimulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UserUI/DrawStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UserUI/DrawProperties.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UserUI/DrawStats.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UserUI/DrawProperties.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UserUI/SelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UserUI/SelectionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UserUI/UserInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UserUI/UserInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,30 +116,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.35267174",
-    "git-widget-placeholder": "Goldbarth",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.35267174&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Goldbarth&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache",
-      "C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache",
-      "C:\\Users\\felix\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
+      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
+      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
@@ -202,10 +167,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27524">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="27524" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -265,6 +230,7 @@
       <workItem from="1690818410604" duration="18248000" />
       <workItem from="1690878069209" duration="556000" />
       <workItem from="1690879822092" duration="34001000" />
+      <workItem from="1690967960807" duration="6919000" />
     </task>
     <servers />
   </component>
