@@ -2,12 +2,11 @@
 
 using CustomEditorWindow.Dependencies;
 using PlanetSettings.NoiseSettings;
+using HelpersAndExtensions;
 using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
-using Extensions;
 using System;
-using HelpersAndExtensions;
 using Planet;
 
 namespace CustomEditorWindow

@@ -30,6 +30,9 @@ namespace UserUI
 
         private void DrawTimeScaleValue()
         {
+            if (!_orbitSimulation.ManualTimeScale)
+                _timeScaleText.text = "1";
+            
             _timeScaleText.text = $"{_orbitSimulation.TimeScale}";
         }
 

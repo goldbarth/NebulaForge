@@ -7,7 +7,7 @@ namespace PlanetSettings
 {
     /// <summary>
     /// The ObjectSettings is a ScriptableObject that holds all the settings for the ObjectGenerator.
-    /// It represents the Model in the MVC pattern.
+    /// It represents the Model in the MVP pattern.
     /// </summary>
     [CreateAssetMenu(fileName = "Object Settings", menuName = "ScriptableObjects/Object Settings")]
     public class ObjectSettings : ScriptableObject

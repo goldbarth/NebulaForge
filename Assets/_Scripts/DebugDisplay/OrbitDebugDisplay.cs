@@ -6,29 +6,29 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class OrbitDebugDisplay : MonoBehaviour {
 
-    public int numSteps = 1000;
-    public float timeStep = 0.1f;
-    public bool usePhysicsTimeStep;
+    public int _numSteps = 1000;
+    public float _timeStep = 0.1f;
+    public bool _usePhysicsTimeStep;
 
-    public bool relativeToBody;
-    public CelestialObject centralBody;
-    public float width = 100;
-    public bool useThickLines;
+    public bool _relativeToBody;
+    public CelestialObject _centralBody;
+    public float _width = 100;
+    public bool _useThickLines;
 
-    void Start () {
+    private void Start () {
         if (Application.isPlaying) {
             HideOrbits ();
         }
     }
 
-    void Update () {
+    private void Update () {
 
         if (!Application.isPlaying) {
             DrawOrbits ();
         }
     }
 
-    void DrawOrbits () {
+    private void DrawOrbits () {
         CelestialObject[] bodies = FindObjectsOfType<CelestialObject> ();
         var virtualBodies = new VirtualBody[bodies.Length];
         var drawPoints = new Vector3[bodies.Length][];
@@ -38,30 +38,30 @@ public class OrbitDebugDisplay : MonoBehaviour {
         // Initialize virtual bodies (don't want to move the actual bodies)
         for (int i = 0; i < virtualBodies.Length; i++) {
             virtualBodies[i] = new VirtualBody (bodies[i]);
-            drawPoints[i] = new Vector3[numSteps];
+            drawPoints[i] = new Vector3[_numSteps];
 
-            if (bodies[i] == centralBody && relativeToBody) {
+            if (bodies[i] == _centralBody && _relativeToBody) {
                 referenceFrameIndex = i;
                 referenceBodyInitialPosition = virtualBodies[i].position;
             }
         }
 
         // Simulate
-        for (int step = 0; step < numSteps; step++) {
-            Vector3 referenceBodyPosition = (relativeToBody) ? virtualBodies[referenceFrameIndex].position : Vector3.zero;
+        for (int step = 0; step < _numSteps; step++) {
+            Vector3 referenceBodyPosition = (_relativeToBody) ? virtualBodies[referenceFrameIndex].position : Vector3.zero;
             // Update velocities
             for (int i = 0; i < virtualBodies.Length; i++) {
-                virtualBodies[i].velocity += CalculateAcceleration (i, virtualBodies) * timeStep;
+                virtualBodies[i].velocity += CalculateAcceleration (i, virtualBodies) * _timeStep;
             }
             // Update positions
             for (int i = 0; i < virtualBodies.Length; i++) {
-                Vector3 newPos = virtualBodies[i].position + virtualBodies[i].velocity * timeStep;
+                Vector3 newPos = virtualBodies[i].position + virtualBodies[i].velocity * _timeStep;
                 virtualBodies[i].position = newPos;
-                if (relativeToBody) {
+                if (_relativeToBody) {
                     var referenceFrameOffset = referenceBodyPosition - referenceBodyInitialPosition;
                     newPos -= referenceFrameOffset;
                 }
-                if (relativeToBody && i == referenceFrameIndex) {
+                if (_relativeToBody && i == referenceFrameIndex) {
                     newPos = referenceBodyInitialPosition;
                 }
 
@@ -73,14 +73,14 @@ public class OrbitDebugDisplay : MonoBehaviour {
         for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++) {
             var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer> ().sharedMaterial.color; //
 
-            if (useThickLines) {
+            if (_useThickLines) {
                 var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer> ();
                 lineRenderer.enabled = true;
                 lineRenderer.positionCount = drawPoints[bodyIndex].Length;
                 lineRenderer.SetPositions (drawPoints[bodyIndex]);
                 lineRenderer.startColor = pathColour;
                 lineRenderer.endColor = pathColour;
-                lineRenderer.widthMultiplier = width;
+                lineRenderer.widthMultiplier = _width;
             } else {
                 for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++) {
                     Debug.DrawLine (drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
@@ -96,7 +96,7 @@ public class OrbitDebugDisplay : MonoBehaviour {
         }
     }
 
-    Vector3 CalculateAcceleration (int i, VirtualBody[] virtualBodies) {
+    private static Vector3 CalculateAcceleration (int i, VirtualBody[] virtualBodies) {
         Vector3 acceleration = Vector3.zero;
         for (int j = 0; j < virtualBodies.Length; j++) {
             if (i == j) {
@@ -109,7 +109,7 @@ public class OrbitDebugDisplay : MonoBehaviour {
         return acceleration;
     }
 
-    void HideOrbits () {
+    private static void HideOrbits () {
         CelestialObject[] bodies = FindObjectsOfType<CelestialObject> ();
 
         // Draw paths
@@ -119,13 +119,13 @@ public class OrbitDebugDisplay : MonoBehaviour {
         }
     }
 
-    void OnValidate () {
-        if (usePhysicsTimeStep) {
-            timeStep = Universe.PhysicsTimeStep;
+    private void OnValidate () {
+        if (_usePhysicsTimeStep) {
+            _timeStep = Universe.PhysicsTimeStep;
         }
     }
 
-    class VirtualBody {
+    private class VirtualBody {
         public Vector3 position;
         public Vector3 velocity;
         public float mass;
