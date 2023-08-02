@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectType: 1
   Material: {fileID: 2100000, guid: 05c3cebaab78874408c8e6ff72b4d5d0, type: 2}
-  Resolution: 109
-  Radius: 14
+  Resolution: 128
+  Radius: 100
   Gradient:
     serializedVersion: 2
     key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}

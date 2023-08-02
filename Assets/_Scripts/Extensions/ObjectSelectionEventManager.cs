@@ -1,17 +1,23 @@
 using System;
 
-public static class ObjectSelectionEventManager
+namespace Extensions
 {
-    public static event Action OnObjectSelected;
-    public static event Action OnNoObjectSelected;
-
-    public static void RaiseObjectSelectedEvent()
+    /// <summary>
+    /// The ObjectSelectionEventManager is communicating between the WindowView and the ObjectSelectionHandler(because it is an) and the ).
+    /// </summary>
+    public static class ObjectSelectionEventManager
     {
-        OnObjectSelected?.Invoke();
-    }
+        public static event Action OnObjectSelected;
+        public static event Action OnNoObjectSelected;
 
-    public static void RaiseNoObjectSelectedEvent()
-    {
-        OnNoObjectSelected?.Invoke();
+        public static void RaiseObjectSelectedEvent()
+        {
+            OnObjectSelected?.Invoke();
+        }
+
+        public static void RaiseNoObjectSelectedEvent()
+        {
+            OnNoObjectSelected?.Invoke();
+        }
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MoonSurface
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: e754ed0821ac8e54f9954d609da31852, type: 2}
+  Material: {fileID: 2100000, guid: be517c4255ea9bc4588f739d6e705062, type: 2}
   Resolution: 128
-  Radius: 30
+  Radius: 15
   Gradient:
     serializedVersion: 2
     key0: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
