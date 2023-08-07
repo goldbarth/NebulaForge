@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using PlanetSettings;
 using System;
 using Planet;
@@ -10,7 +12,7 @@ namespace CustomEditorWindow
     /// </summary>
     public class WindowPresenter
     {
-        private readonly WindowLayout _layout;
+        private readonly WindowLayout _view;
     
         private ObjectSettings _model;
 
@@ -19,27 +21,27 @@ namespace CustomEditorWindow
         public event Action OnApplyModified;
         public event Action OnAssetNamesAndPathsReady;
 
-        public WindowPresenter(WindowLayout layout, ObjectGenerator objectGenerator)
+        public WindowPresenter(WindowLayout view, ObjectGenerator objectGenerator)
         {
-            // TODO: ObjectGenerator is null when entering game mode
-            _model = objectGenerator.ObjectSettings; 
-            _layout = layout;
+            if(!view.IsEditorEnabled) return;
+            _model = objectGenerator.ObjectSettings;
+            _view = view;
         }
 
         public void SubscribeEvents()
         {
             _model.OnSettingsChangedReady += SettingsChanged;
-            _layout.OnSettingsUpdated += UpdateModelSettings;
-            _layout.OnSettingsInstanceChanged += UpdateModelInstance;
-            _layout.OnObjectGeneratorSettingsUpdated += UpdateObjectGeneratorSettings;
+            _view.OnSettingsUpdated += UpdateModelSettings;
+            _view.OnSettingsInstanceChanged += UpdateModelInstance;
+            _view.OnObjectGeneratorSettingsUpdated += UpdateObjectGeneratorSettings;
         }
     
         public void UnsubscribeEvents()
         {
             _model.OnSettingsChangedReady -= SettingsChanged;
-            _layout.OnSettingsUpdated -= UpdateModelSettings;
-            _layout.OnSettingsInstanceChanged -= UpdateModelInstance;
-            _layout.OnObjectGeneratorSettingsUpdated -= UpdateObjectGeneratorSettings;
+            _view.OnSettingsUpdated -= UpdateModelSettings;
+            _view.OnSettingsInstanceChanged -= UpdateModelInstance;
+            _view.OnObjectGeneratorSettingsUpdated -= UpdateObjectGeneratorSettings;
         }
     
         // Model dependency:
@@ -61,7 +63,7 @@ namespace CustomEditorWindow
 
         private void SettingsChanged()
         {
-            _layout.ObjectSettings = _model;
+            _view.ObjectSettings = _model;
         }
     
         // View dependency:
@@ -87,3 +89,5 @@ namespace CustomEditorWindow
         }
     }
 }
+
+#endif

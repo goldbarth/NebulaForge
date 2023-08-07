@@ -17,4 +17,4 @@ with making the Simple and Ridgid inherit from a abstract class, but the classes
 - TODO: TBA
 
 ## ObjectGenerator.cs
-- TODO: TBA~~~~
+- TODO: TBA

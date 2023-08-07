@@ -16,7 +16,7 @@ namespace SolarSystem
 {
     public class OrbitSimulation : GenericSingleton<OrbitSimulation>
     {
-        [field: SerializeField] public bool ManualTimeScale { get; set; } = false;
+        [field: SerializeField] public bool ManualTimeScale { get; set; }
         [field: SerializeField] public float TimeScale { get; set; } = 1f;
     
         [SerializeField] private CelestialObject[] _objects;
@@ -29,15 +29,28 @@ namespace SolarSystem
         private void FixedUpdate()
         {
             Time.timeScale = ManualTimeScale ? TimeScale : 1f;
+            UpdateAllObjects();
+        }
 
+        private void UpdateAllObjects()
+        {
+            UpdateAllVelocities();
+            UpdateAllPositions();
+        }
+
+        private void UpdateAllPositions()
+        {
+            foreach (var obj in _objects)
+                obj.UpdatePosition(Universe.PhysicsTimeStep);
+        }
+
+        private void UpdateAllVelocities()
+        {
             foreach (var obj in _objects)
             {
                 var acceleration = GravitationalAcceleration(obj.Position, obj);
                 obj.UpdateVelocity(acceleration, Universe.PhysicsTimeStep);
             }
-
-            foreach (var obj in _objects)
-                obj.UpdatePosition(Universe.PhysicsTimeStep);
         }
 
         private Vector3 GravitationalAcceleration(Vector3 otherPosition, CelestialObject @object)
@@ -67,7 +80,7 @@ namespace SolarSystem
             return acceleration;
         }
     
-        // First attempt at simulating gravity.
+        // First attempt at simulating gravity:
     
         // // Newton's law of universal gravitation.
         // private Vector3 CalculateGravitationalForce()

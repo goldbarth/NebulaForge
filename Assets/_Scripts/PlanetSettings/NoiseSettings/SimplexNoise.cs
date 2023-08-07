@@ -235,7 +235,7 @@ namespace PlanetSettings.NoiseSettings
 
         /// <summary>
         ///     Unpack the given integer (int32) to an array of 4 bytes  in little endian format.
-        ///     If the length of the buffer is too smal, it wil be resized.
+        ///     If the length of the buffer is too small, it wil be resized.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="buffer">The output buffer.</param>

@@ -98,7 +98,7 @@ namespace Planet
                     LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
             {
                 _object.GenerateObject();
-                _object.OnColorSettingsUpdated();
+                _object.UpdateGradientSettings();
             }
 
             GUILayout.FlexibleSpace();

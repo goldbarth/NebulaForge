@@ -1,4 +1,4 @@
-# if UNITY_EDITOR
+#if UNITY_EDITOR
 
 using CustomEditorWindow.Dependencies;
 using PlanetSettings.NoiseSettings;
@@ -66,8 +66,11 @@ namespace CustomEditorWindow
         
             ObjectSelectionEventManager.OnObjectSelected += InitializeProperties;
             ObjectSelectionEventManager.OnNoObjectSelected += SetObjectSettingNull;
+            
+            StateChangeEventManager.OnPlayModeStateChanged += OnPlayModeStateChanged;
+            //StateChangeEventManager.OnEditorState += OnEditorStateChanged;
         
-            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            //EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
         
             SetObjectSettings();
             InitializeProperties();
@@ -87,7 +90,7 @@ namespace CustomEditorWindow
             ObjectSelectionEventManager.OnObjectSelected -= InitializeProperties;
             ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
         
-            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            //EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
             
             EditorApplication.update -= OnEditorUpdate;
         }
@@ -100,12 +103,17 @@ namespace CustomEditorWindow
 
         private void OnGUI()
         {
-            if(!IsEditorEnabled) return;
-            if (ObjectSettings == null)
+            if (!IsEditorEnabled)
             {
-                NoObjectSelectedMessage();
+                PlaymodeMessageBox();
                 return;
             }
+            if (ObjectSettings == null)
+            {
+                SelectObjectMessageBox();
+                return;
+            }
+            
             GUIChanged();
             DrawUI();
             ApplyAndModify();
@@ -120,16 +128,21 @@ namespace CustomEditorWindow
         private void OnEditorUpdate()
         {
             // Check if the specified update interval has passed
-            if (Time.realtimeSinceStartup - _lastUpdateTime >= _updateInterval)
+            if (IsTimeToUpdate())
             {
                 if (IsAutoUpdate) 
-                    ObjectGenerator.GenerateObject();
+                    ObjectGenerator.UpdateObjectSettings();
 
                 // Mark the GUI as changed to trigger a repaint only if needed
                 GUI.changed = true;
                 
                 _lastUpdateTime = Time.realtimeSinceStartup;
             }
+        }
+
+        private bool IsTimeToUpdate()
+        {
+            return Time.realtimeSinceStartup - _lastUpdateTime >= _updateInterval;
         }
 
         #region Presenter Dependencies
@@ -252,7 +265,8 @@ namespace CustomEditorWindow
     
         public void SetNoiseLayerProperty(int layerIndex)
         {
-            NoiseLayerProperty = _serializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
+            NoiseLayerProperty = 
+                _serializedObject.FindProperty("NoiseLayers").GetArrayElementAtIndex(layerIndex);
         }
 
         private void SetSettingsSectionHeader()
@@ -285,11 +299,17 @@ namespace CustomEditorWindow
             ObjectGenerator.GenerateObject();
         }
     
-        private void NoObjectSelectedMessage()
+        private void SelectObjectMessageBox()
         {
-            EditorGUILayout.HelpBox("No GameObject was selected in the Hierarchy. " +
-                                    "Please select a GameObject to access the settings." +
-                                    " ( ´◔ ω◔`) ノシ", MessageType.Info);
+            EditorGUILayout.HelpBox("─=≡Σ((( つ◕ل͜◕)つ No GameObject was selected in the Hierarchy. " +
+                                    "Please select a GameObject to access the settings.", MessageType.Info);
+        }
+        
+        private void PlaymodeMessageBox()
+        {
+            EditorGUILayout.HelpBox("The game is in play mode. " +
+                                    "In play mode the editor is disabled. You can only change the settings in editor mode." +
+                                    " ─=≡Σ((( つ◕ل͜◕)つ", MessageType.Info);
         }
         
         #endregion
@@ -340,19 +360,23 @@ namespace CustomEditorWindow
             return assetNamesAndPaths;
         }
     
-        private void OnPlayModeStateChanged(PlayModeStateChange stateChange)
+        private void OnPlayModeStateChanged()
         {
-            switch (stateChange)
-            {
-                case PlayModeStateChange.EnteredPlayMode:
-                    // Disable the editor window script when entering play mode
-                    IsEditorEnabled = false;
-                    break;
-                case PlayModeStateChange.ExitingPlayMode:
-                    // Enable the editor window script when exiting play mode
-                    IsEditorEnabled = true;
-                    break;
-            }
+            IsEditorEnabled = !EditorApplication.isPlaying;
+            // Debug.Log($"Play mode state changed: {stateChange}");
+            // switch (stateChange)
+            // {
+            //     case PlayModeStateChange.EnteredPlayMode:
+            //         // Disable the editor window script when entering play mode
+            //         IsEditorEnabled = false;
+            //         Debug.Log("Entered Play Mode");
+            //         break;
+            //     case PlayModeStateChange.ExitingPlayMode:
+            //         // Enable the editor window script when exiting play mode
+            //         IsEditorEnabled = true;
+            //         Debug.Log("Exiting Play Mode");
+            //         break;
+            // }
         }
     }
 }

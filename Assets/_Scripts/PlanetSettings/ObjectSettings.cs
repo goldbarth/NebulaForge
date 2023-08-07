@@ -12,24 +12,23 @@ namespace PlanetSettings
     [CreateAssetMenu(fileName = "Object Settings", menuName = "ScriptableObjects/Object Settings")]
     public class ObjectSettings : ScriptableObject
     {
+        [Tooltip("Choose the type of object. SolidSphere is good for eg. shaders and plain surfaces, TerrestrialBody is good for eg. a planets (with habitat) and elevation.")]
         [Space(3)] public ObjectType ObjectType;
         [Space(2)] public Material Material;
     
+        [Tooltip("The resolution of the object. The higher the resolution, the more vertices the object will have.")]
         [Space(2), SerializeField, Range(2, 255)] public int Resolution = 128;
+        [Tooltip("The radius of the object. The higher the radius, the bigger the object will be.")]
         [Space(2), SerializeField, Range(0, 1000)] public float Radius = 30f;
-    
-        [ShowIf("HasFoldoutAccess")]
+        
+        [Tooltip("The gradient of the object. The gradient is used to color the object from center to the highest point.")]
         [Space(2)] public Gradient Gradient;
     
-        [ShowIf("HasFoldoutAccess"), Label("Elevation Layers")] 
+        [Label("Elevation Layers")] 
         [Space(2)] public NoiseLayer[] NoiseLayers;
     
-        public bool HasFoldoutAccess()
-        {
-            return ObjectType != ObjectType.SolidSphere;
-        }
-    
-        // Model Methods and Events
+        
+        // Model Methods and Events:
     
         public event Action OnSettingsChangedReady;
 

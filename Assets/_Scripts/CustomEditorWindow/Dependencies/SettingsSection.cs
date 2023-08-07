@@ -2,9 +2,8 @@
 
 using PlanetSettings;
 using UnityEditor;
-using UnityEngine;
-using Extensions;
 using HelpersAndExtensions;
+using UnityEngine;
 
 namespace CustomEditorWindow.Dependencies
 {
@@ -14,7 +13,7 @@ namespace CustomEditorWindow.Dependencies
         private readonly SurfaceTab _surfaceTab;
         private readonly WindowLayout _layout;
     
-        private const float buttonBorderWidth = 15f;
+        private const float ButtonBorderWidth = 15f;
     
         private readonly string[] _tabHeaders;
         private int _tabIndex;
@@ -80,7 +79,7 @@ namespace CustomEditorWindow.Dependencies
         private void DrawUpdateButton()
         {
             if (GUILayout.Button(TextHolder.UpdateAssetButtonText, 
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), buttonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), ButtonBorderWidth)))
                 UpdateAssetSettings();
         }
         
@@ -94,7 +93,7 @@ namespace CustomEditorWindow.Dependencies
         private void DrawDeleteButton()
         {
             if (GUILayout.Button(TextHolder.DeleteAssetButtonText,
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), buttonBorderWidth)))
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), ButtonBorderWidth)))
                 DeleteSelectedAsset();
         }
     

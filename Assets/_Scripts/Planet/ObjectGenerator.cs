@@ -1,10 +1,9 @@
 ﻿using PlanetSettings.NoiseSettings;
 using Planet.SurfaceGeneration;
+using HelpersAndExtensions;
 using PlanetSettings;
 using UnityEngine;
 using System.Linq;
-using Extensions;
-using HelpersAndExtensions;
 
 public enum ObjectType
 {
@@ -132,12 +131,13 @@ namespace Planet
             UpdateElevationGradient();
         }
 
-        public void OnPlanetSettingsUpdated()
+        public void UpdateObjectSettings()
         {
+            UpdateSurfaceSettings();
             GenerateMesh();
         }
             
-        public void OnColorSettingsUpdated()
+        public void UpdateGradientSettings()
         {
             UpdateElevationGradient();
         }

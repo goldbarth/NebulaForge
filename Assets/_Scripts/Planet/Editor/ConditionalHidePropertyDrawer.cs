@@ -1,14 +1,14 @@
 ﻿#if UNITY_EDITOR
 
-using Extensions;
 using UnityEditor;
 using UnityEngine;
+using Extensions;
 
-//Original version of the ConditionalHideAttribute created by Brecht Lecluyse (www.brechtos.com)
-//Modified by: Sebastian Lague
 
 namespace Planet
 {
+    //Original version of the ConditionalHideAttribute created by Brecht Lecluyse (www.brechtos.com)
+    //Modified by: Sebastian Lague
     [CustomPropertyDrawer(typeof(ConditionalHideAttribute))]
     public class ConditionalHidePropertyDrawer : PropertyDrawer
     {

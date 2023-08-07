@@ -2,66 +2,70 @@ using SolarSystem;
 using UnityEngine;
 
 // Straight copy pasta from Sebastian Lague's Solar System series.
-// Only use: to adjust the orbit simulation and save a lot of time to set it up.
+// To adjust the orbit simulation and save a lot of time to set it up.
 [ExecuteInEditMode]
-public class OrbitDebugDisplay : MonoBehaviour {
+public class OrbitDebugDisplay : MonoBehaviour
+{
+    [SerializeField] private bool _drawOrbits = true;
+    [SerializeField] private int _numSteps = 1000;
+    [SerializeField] private float _timeStep = 0.1f;
+    [SerializeField] private bool _usePhysicsTimeStep;
 
-    public int _numSteps = 1000;
-    public float _timeStep = 0.1f;
-    public bool _usePhysicsTimeStep;
+    [SerializeField] private bool _relativeToBody;
+    [SerializeField] private CelestialObject _centralBody;
+    [SerializeField] private float _width = 100;
+    [SerializeField] private bool _useThickLines;
 
-    public bool _relativeToBody;
-    public CelestialObject _centralBody;
-    public float _width = 100;
-    public bool _useThickLines;
-
-    private void Start () {
-        if (Application.isPlaying) {
-            HideOrbits ();
-        }
+    private void Update()
+    {
+        if (_drawOrbits) DrawOrbits();
+        else HideOrbits();
     }
 
-    private void Update () {
-
-        if (!Application.isPlaying) {
-            DrawOrbits ();
-        }
-    }
-
-    private void DrawOrbits () {
-        CelestialObject[] bodies = FindObjectsOfType<CelestialObject> ();
+    private void DrawOrbits()
+    {
+        var bodies = FindObjectsOfType<CelestialObject>();
         var virtualBodies = new VirtualBody[bodies.Length];
         var drawPoints = new Vector3[bodies.Length][];
-        int referenceFrameIndex = 0;
-        Vector3 referenceBodyInitialPosition = Vector3.zero;
+        var referenceFrameIndex = 0;
+        var referenceBodyInitialPosition = Vector3.zero;
 
         // Initialize virtual bodies (don't want to move the actual bodies)
-        for (int i = 0; i < virtualBodies.Length; i++) {
-            virtualBodies[i] = new VirtualBody (bodies[i]);
+        for (int i = 0; i < virtualBodies.Length; i++)
+        {
+            virtualBodies[i] = new VirtualBody(bodies[i]);
             drawPoints[i] = new Vector3[_numSteps];
 
-            if (bodies[i] == _centralBody && _relativeToBody) {
+            if (bodies[i] == _centralBody && _relativeToBody)
+            {
                 referenceFrameIndex = i;
-                referenceBodyInitialPosition = virtualBodies[i].position;
+                referenceBodyInitialPosition = virtualBodies[i].Position;
             }
         }
 
         // Simulate
-        for (int step = 0; step < _numSteps; step++) {
-            Vector3 referenceBodyPosition = (_relativeToBody) ? virtualBodies[referenceFrameIndex].position : Vector3.zero;
+        for (int step = 0; step < _numSteps; step++)
+        {
+            var referenceBodyPosition = (_relativeToBody) ? virtualBodies[referenceFrameIndex].Position : Vector3.zero;
             // Update velocities
-            for (int i = 0; i < virtualBodies.Length; i++) {
-                virtualBodies[i].velocity += CalculateAcceleration (i, virtualBodies) * _timeStep;
+            for (int i = 0; i < virtualBodies.Length; i++)
+            {
+                virtualBodies[i].Velocity += CalculateAcceleration(i, virtualBodies) * _timeStep;
             }
+
             // Update positions
-            for (int i = 0; i < virtualBodies.Length; i++) {
-                Vector3 newPos = virtualBodies[i].position + virtualBodies[i].velocity * _timeStep;
-                virtualBodies[i].position = newPos;
-                if (_relativeToBody) {
+            for (int i = 0; i < virtualBodies.Length; i++)
+            {
+                var newPos = virtualBodies[i].Position + virtualBodies[i].Velocity * _timeStep;
+                virtualBodies[i].Position = newPos;
+                if (_relativeToBody)
+                {
                     var referenceFrameOffset = referenceBodyPosition - referenceBodyInitialPosition;
                     newPos -= referenceFrameOffset;
                 }
-                if (_relativeToBody && i == referenceFrameIndex) {
+
+                if (_relativeToBody && i == referenceFrameIndex)
+                {
                     newPos = referenceBodyInitialPosition;
                 }
 
@@ -70,70 +74,67 @@ public class OrbitDebugDisplay : MonoBehaviour {
         }
 
         // Draw paths
-        for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++) {
-            var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer> ().sharedMaterial.color; //
+        for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++)
+        {
+            var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color;
 
-            if (_useThickLines) {
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer> ();
+            if (_useThickLines)
+            {
+                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
                 lineRenderer.enabled = true;
                 lineRenderer.positionCount = drawPoints[bodyIndex].Length;
-                lineRenderer.SetPositions (drawPoints[bodyIndex]);
+                lineRenderer.SetPositions(drawPoints[bodyIndex]);
                 lineRenderer.startColor = pathColour;
                 lineRenderer.endColor = pathColour;
                 lineRenderer.widthMultiplier = _width;
-            } else {
-                for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++) {
-                    Debug.DrawLine (drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
+            }
+            else
+            {
+                for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++)
+                {
+                    Debug.DrawLine(drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
                 }
 
                 // Hide renderer
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer> ();
-                if (lineRenderer) {
+                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
+                if (lineRenderer)
+                {
                     lineRenderer.enabled = false;
                 }
             }
-
         }
     }
 
-    private static Vector3 CalculateAcceleration (int i, VirtualBody[] virtualBodies) {
-        Vector3 acceleration = Vector3.zero;
-        for (int j = 0; j < virtualBodies.Length; j++) {
-            if (i == j) {
-                continue;
-            }
-            Vector3 forceDir = (virtualBodies[j].position - virtualBodies[i].position).normalized;
-            float sqrDst = (virtualBodies[j].position - virtualBodies[i].position).sqrMagnitude;
-            acceleration += forceDir * (Universe.GravitationalConstant * virtualBodies[j].mass) / sqrDst;
+    private static Vector3 CalculateAcceleration(int i, VirtualBody[] virtualBodies)
+    {
+        var acceleration = Vector3.zero;
+        for (int j = 0; j < virtualBodies.Length; j++)
+        {
+            if (i == j) continue;
+
+            var forceDir = (virtualBodies[j].Position - virtualBodies[i].Position).normalized;
+            var sqrDst = (virtualBodies[j].Position - virtualBodies[i].Position).sqrMagnitude;
+            acceleration += forceDir * (Universe.GravitationalConstant * virtualBodies[j].Mass) / sqrDst;
         }
+
         return acceleration;
     }
 
-    private static void HideOrbits () {
-        CelestialObject[] bodies = FindObjectsOfType<CelestialObject> ();
+    private static void HideOrbits()
+    {
+        var bodies = FindObjectsOfType<CelestialObject>();
 
         // Draw paths
-        for (int bodyIndex = 0; bodyIndex < bodies.Length; bodyIndex++) {
-            var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer> ();
+        foreach (var t in bodies)
+        {
+            var lineRenderer = t.gameObject.GetComponentInChildren<LineRenderer>();
             lineRenderer.positionCount = 0;
         }
     }
 
-    private void OnValidate () {
-        if (_usePhysicsTimeStep) {
+    private void OnValidate()
+    {
+        if (_usePhysicsTimeStep)
             _timeStep = Universe.PhysicsTimeStep;
-        }
-    }
-
-    private class VirtualBody {
-        public Vector3 position;
-        public Vector3 velocity;
-        public float mass;
-
-        public VirtualBody (CelestialObject body) {
-            position = body.transform.position;
-            velocity = body.InitialVelocity;
-            mass = body.Mass;
-        }
     }
 }

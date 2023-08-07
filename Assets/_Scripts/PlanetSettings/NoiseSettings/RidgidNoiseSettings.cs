@@ -1,8 +1,11 @@
-﻿namespace PlanetSettings.NoiseSettings
+﻿using UnityEngine;
+
+namespace PlanetSettings.NoiseSettings
 {
     [System.Serializable]
     public class RidgidNoiseSettings : SimpleNoiseSettings
     {
-        public float WeightMultiplier = .8f; // with the weight multiplier we can control how much the grooves are highlighted
+        [Tooltip("The weight multiplier is used to control the weight of the grooves.")]
+        public float WeightMultiplier = 0.8f;
     }
 }

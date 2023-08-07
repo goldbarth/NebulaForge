@@ -37,7 +37,10 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawPropertyFields()
         {
+            EditorGUI.BeginDisabledGroup(true);
             EditorGUILayout.PropertyField(_layout.MaterialProperty);
+            EditorGUI.EndDisabledGroup();
+            EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(_layout.ResolutionProperty);
             EditorGUILayout.PropertyField(_layout.RadiusProperty);
             if (_layout.ObjectSettings.ObjectType == ObjectType.TerrestrialBody)

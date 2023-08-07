@@ -11,7 +11,6 @@ namespace HelpersAndExtensions
         // Whereas compiler uses default == / != operators by default when using ?. / ?? operators.
         // Source: https://blogs.unity3d.com/ru/2014/05/16/custom-operator-should-we-keep-it/
         // The unity implemented method didn`t worked in my case.
-
         public static T GetOrAddComponent2<T>(this UnityObject uo) where T : Component
         {
             var temp = uo.GetComponent<T>();

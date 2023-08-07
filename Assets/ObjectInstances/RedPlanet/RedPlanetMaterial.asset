@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fffafbd38e019e447909ccd67c75d7b7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Planet_Texture:
         m_Texture: {fileID: 2800000, guid: fffafbd38e019e447909ccd67c75d7b7, type: 3}
         m_Scale: {x: 1, y: 1}
