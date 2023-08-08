@@ -1,7 +1,7 @@
 using SolarSystem;
 using UnityEngine;
 
-public class VirtualBody 
+public struct VirtualBody 
 {
     public readonly float Mass;
         

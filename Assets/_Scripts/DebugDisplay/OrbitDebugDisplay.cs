@@ -105,15 +105,15 @@ public class OrbitDebugDisplay : MonoBehaviour
         }
     }
 
-    private static Vector3 CalculateAcceleration(int i, VirtualBody[] virtualBodies)
+    private static Vector3 CalculateAcceleration(int bodyIndex, VirtualBody[] virtualBodies)
     {
         var acceleration = Vector3.zero;
         for (int j = 0; j < virtualBodies.Length; j++)
         {
-            if (i == j) continue;
+            if (bodyIndex == j) continue;
 
-            var forceDir = (virtualBodies[j].Position - virtualBodies[i].Position).normalized;
-            var sqrDst = (virtualBodies[j].Position - virtualBodies[i].Position).sqrMagnitude;
+            var forceDir = (virtualBodies[j].Position - virtualBodies[bodyIndex].Position).normalized;
+            var sqrDst = (virtualBodies[j].Position - virtualBodies[bodyIndex].Position).sqrMagnitude;
             acceleration += forceDir * (Universe.GravitationalConstant * virtualBodies[j].Mass) / sqrDst;
         }
 
