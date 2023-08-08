@@ -1,32 +1,30 @@
 using SolarSystem;
 using UnityEngine;
 
-// Straight copy pasta from Sebastian Lague's Solar System series.
-// To adjust the orbit simulation and save a lot of time to set it up.
-[ExecuteInEditMode]
+// Original from Sebastian Lague's Solar System series. To draw the orbits with foresight.
+// I have changed it so that it is as close as possible to the job script logic.
+[ExecuteAlways]
 public class OrbitDebugDisplay : MonoBehaviour
 {
     [SerializeField] private bool _drawOrbits = true;
     [SerializeField] private int _numSteps = 1000;
     [SerializeField] private float _timeStep = 0.1f;
-    [SerializeField] private bool _usePhysicsTimeStep;
 
     [SerializeField] private bool _relativeToBody;
     [SerializeField] private CelestialObject _centralBody;
-    [SerializeField] private float _width = 100;
-    [SerializeField] private bool _useThickLines;
 
     private void Update()
     {
-        if (_drawOrbits) DrawOrbits();
-        else HideOrbits();
+        if (_drawOrbits) 
+            DrawOrbits();
     }
 
     private void DrawOrbits()
     {
         var bodies = FindObjectsOfType<CelestialObject>();
+        var drawPoints = new Vector3[bodies.Length * _numSteps];
         var virtualBodies = new VirtualBody[bodies.Length];
-        var drawPoints = new Vector3[bodies.Length][];
+        
         var referenceFrameIndex = 0;
         var referenceBodyInitialPosition = Vector3.zero;
 
@@ -34,7 +32,6 @@ public class OrbitDebugDisplay : MonoBehaviour
         for (int i = 0; i < virtualBodies.Length; i++)
         {
             virtualBodies[i] = new VirtualBody(bodies[i]);
-            drawPoints[i] = new Vector3[_numSteps];
 
             if (bodies[i] == _centralBody && _relativeToBody)
             {
@@ -58,6 +55,7 @@ public class OrbitDebugDisplay : MonoBehaviour
             {
                 var newPos = virtualBodies[i].Position + virtualBodies[i].Velocity * _timeStep;
                 virtualBodies[i].Position = newPos;
+                
                 if (_relativeToBody)
                 {
                     var referenceFrameOffset = referenceBodyPosition - referenceBodyInitialPosition;
@@ -68,39 +66,22 @@ public class OrbitDebugDisplay : MonoBehaviour
                 {
                     newPos = referenceBodyInitialPosition;
                 }
-
-                drawPoints[i][step] = newPos;
+                
+                drawPoints[i * _numSteps + step] = newPos;
             }
         }
 
         // Draw paths
         for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++)
         {
+            var startIndex = bodyIndex * _numSteps;
             var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color;
 
-            if (_useThickLines)
+            for (int steps = 0; steps < _numSteps - 1; steps++)
             {
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
-                lineRenderer.enabled = true;
-                lineRenderer.positionCount = drawPoints[bodyIndex].Length;
-                lineRenderer.SetPositions(drawPoints[bodyIndex]);
-                lineRenderer.startColor = pathColour;
-                lineRenderer.endColor = pathColour;
-                lineRenderer.widthMultiplier = _width;
-            }
-            else
-            {
-                for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++)
-                {
-                    Debug.DrawLine(drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
-                }
-
-                // Hide renderer
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
-                if (lineRenderer)
-                {
-                    lineRenderer.enabled = false;
-                }
+                var startPoint = drawPoints[startIndex + steps];
+                var endPoint = drawPoints[startIndex + steps + 1];
+                Debug.DrawLine(startPoint, endPoint, pathColour);
             }
         }
     }
@@ -118,23 +99,5 @@ public class OrbitDebugDisplay : MonoBehaviour
         }
 
         return acceleration;
-    }
-
-    private static void HideOrbits()
-    {
-        var bodies = FindObjectsOfType<CelestialObject>();
-
-        // Draw paths
-        foreach (var t in bodies)
-        {
-            var lineRenderer = t.gameObject.GetComponentInChildren<LineRenderer>();
-            lineRenderer.positionCount = 0;
-        }
-    }
-
-    private void OnValidate()
-    {
-        if (_usePhysicsTimeStep)
-            _timeStep = Universe.PhysicsTimeStep;
     }
 }

@@ -13,33 +13,28 @@ public class OrbitDebugDisplayJob : MonoBehaviour
 
     [SerializeField] private bool _relativeToBody;
     [SerializeField] private CelestialObject _centralBody;
-    [SerializeField] private float _width = 100;
-    [SerializeField] private bool _useThickLines;
 
     private void Update()
     {
         if (_drawOrbits)
-            CalculateOrbits();
+            DrawOrbits();
     }
-    
-     #region Jobs and Native Containers
 
-    // TESTING JOBS
-
-    private void CalculateOrbits()
+    private void DrawOrbits()
     {
         var bodies = FindObjectsOfType<CelestialObject>();
-        var virtualBodies = new NativeArray<VirtualBody>(bodies.Length, Allocator.TempJob);
         var drawPoints = new NativeArray<Vector3>(bodies.Length * _numSteps, Allocator.TempJob);
-        
-        var referenceBodyInitialPosition = Vector3.zero;
-        var useThickLines = _useThickLines;
+        var virtualBodies = new NativeArray<VirtualBody>(bodies.Length, Allocator.TempJob);
+        var pathColors = new NativeArray<Color>(bodies.Length, Allocator.TempJob);
+
         var referenceFrameIndex = 0;
+        var referenceBodyInitialPosition = Vector3.zero;
 
         // Initialize virtual bodies (don't want to move the actual bodies).
         for (int i = 0; i < virtualBodies.Length; i++)
         {
             virtualBodies[i] = new VirtualBody(bodies[i]);
+            pathColors[i] = bodies[i].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color;
 
             if (bodies[i] == _centralBody && _relativeToBody)
             {
@@ -51,10 +46,11 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         // Create the job.
         var job = new CalculateOrbitsJob
         {
-            VirtualBodies = virtualBodies,
-            DrawPoints = drawPoints,
             NumSteps = _numSteps,
             TimeStep = _timeStep,
+            PathColors = pathColors,
+            DrawPoints = drawPoints,
+            VirtualBodies = virtualBodies,
             RelativeToBody = _relativeToBody,
             ReferenceFrameIndex = referenceFrameIndex,
             ReferenceBodyInitialPosition = referenceBodyInitialPosition
@@ -63,56 +59,25 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         // Schedule and execute the job in parallel (with the separated logic).
         job.Schedule(virtualBodies.Length, 64).Complete();
 
-        // Draw paths
-        for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++)
-        {
-            var startIndex = bodyIndex * _numSteps;
-            var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color;
-
-            if (useThickLines)
-            {
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
-                lineRenderer.enabled = true;
-                lineRenderer.positionCount = _numSteps;
-                lineRenderer.SetPositions(drawPoints.GetSubArray(startIndex, _numSteps));
-                lineRenderer.startColor = pathColour;
-                lineRenderer.endColor = pathColour;
-                lineRenderer.widthMultiplier = _width;
-            }
-            else
-            {
-                for (int steps = 0; steps < _numSteps - 1; steps++)
-                {
-                    var startPoint = drawPoints[startIndex + steps];
-                    var endPoint = drawPoints[startIndex + steps + 1];
-                    Debug.DrawLine(startPoint, endPoint, pathColour);
-                }
-
-                // Hide renderer
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
-                if (lineRenderer)
-                {
-                    lineRenderer.enabled = false;
-                }
-            }
-        }
-
         virtualBodies.Dispose();
+        pathColors.Dispose();
         drawPoints.Dispose();
     }
 
+    //TODO: Extract later, when debugging is done.
     [BurstCompile]
     private struct CalculateOrbitsJob : IJobParallelFor
     {
         [NativeDisableParallelForRestriction] public NativeArray<Vector3> DrawPoints;
         public NativeArray<VirtualBody> VirtualBodies;
+        [ReadOnly] public NativeArray<Color> PathColors;
 
-        public float Width;
-        public int NumSteps;
-        public float TimeStep;
-        public bool RelativeToBody;
-        public int ReferenceFrameIndex;
-        public Vector3 ReferenceBodyInitialPosition;
+        [ReadOnly] public Vector3 ReferenceBodyInitialPosition;
+        [ReadOnly] public int ReferenceFrameIndex;
+        [ReadOnly] public bool RelativeToBody;
+        [ReadOnly] public float TimeStep;
+        [ReadOnly] public int NumSteps;
+        [ReadOnly] public float Width;
 
         public void Execute(int index)
         {
@@ -126,38 +91,39 @@ public class OrbitDebugDisplayJob : MonoBehaviour
                     (RelativeToBody) ? VirtualBodies[ReferenceFrameIndex].Position : Vector3.zero;
 
                 // Update velocities
-                for (int virtualBodyIndex = 0; virtualBodyIndex < VirtualBodies.Length; virtualBodyIndex++)
-                {
-                    virtualBody.Velocity += CalculateAcceleration(virtualBodyIndex, VirtualBodies) * TimeStep;
-                }
+                virtualBody.Velocity += CalculateAcceleration(index, VirtualBodies) * TimeStep;
 
                 // Update positions
-                for (int virtualBodyIndex = 0; virtualBodyIndex < VirtualBodies.Length; virtualBodyIndex++)
-                {
-                    var newPosition = VirtualBodies[virtualBodyIndex].Position + VirtualBodies[virtualBodyIndex].Velocity * TimeStep;
-                    
-                    // ------------------------------
-                    var body = VirtualBodies[virtualBodyIndex];
-                    body.Position = newPosition;
-                    VirtualBodies[virtualBodyIndex] = body;
-                    // ------------------------------
-                    
-                    if (RelativeToBody)
-                    {
-                        var referenceFrameOffset = referenceBodyPosition - ReferenceBodyInitialPosition;
-                        newPosition -= referenceFrameOffset;
-                    }
+                var newPosition = VirtualBodies[index].Position + VirtualBodies[index].Velocity * TimeStep;
+                
+                var body = VirtualBodies[index];
+                body.Position = newPosition;
+                VirtualBodies[index] = body;
 
-                    if (RelativeToBody && virtualBodyIndex == ReferenceFrameIndex)
-                    {
-                        newPosition = ReferenceBodyInitialPosition;
-                    }
-                    
-                    DrawPoints[startIndex + step] = newPosition;
+                if (RelativeToBody)
+                {
+                    var referenceFrameOffset = referenceBodyPosition - ReferenceBodyInitialPosition;
+                    newPosition -= referenceFrameOffset;
                 }
+
+                if (RelativeToBody && index == ReferenceFrameIndex)
+                {
+                    newPosition = ReferenceBodyInitialPosition;
+                }
+
+                // TODO: Can´t use: DrawPoints[startIndex * NumSteps + step] = newPosition;
+                // like in the non-job version, because of the NativeArray restrictions. I guess.
+                DrawPoints[startIndex + step] = newPosition;
             }
 
-            VirtualBodies[index] = virtualBody;
+            // Draw the path
+            for (int steps = 0; steps < NumSteps - 1; steps++)
+            {
+                var numSteps = index * NumSteps;
+                var startPoint = DrawPoints[numSteps + steps];
+                var endPoint = DrawPoints[numSteps + steps + 1];
+                Debug.DrawLine(startPoint, endPoint, PathColors[index]);
+            }
         }
     }
 
@@ -175,6 +141,4 @@ public class OrbitDebugDisplayJob : MonoBehaviour
 
         return acceleration;
     }
-
-    #endregion
 }

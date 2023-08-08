@@ -63,6 +63,7 @@ sysinfo.txt
 
 # JetbrainsRider idea
 */.idea/workspace.xml
+*workspace.xml
 
 # Crashlytics generated file
 crashlytics-build.properties
