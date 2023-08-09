@@ -3,6 +3,7 @@ using UnityEngine;
 using SolarSystem;
 using Unity.Burst;
 using Unity.Jobs;
+using Jobs;
 
 [ExecuteAlways]
 public class OrbitDebugDisplayJob : MonoBehaviour
@@ -23,7 +24,7 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         if (_drawOrbits)
             DrawOrbits();
     }
-
+    
     //TODO: Refactor later, when debugging is done.
     private void DrawOrbits()
     {
@@ -85,7 +86,7 @@ public class OrbitDebugDisplayJob : MonoBehaviour
             ReferenceFrameIndex = referenceFrameIndex,
             ReferenceBodyInitialPosition = referenceBodyInitialPosition
         };
-
+        
         var handle = new JobHandle();
         
         if (_useJob)
@@ -112,74 +113,7 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         drawPoints.Dispose();
     }
 
-    //TODO: Extract later, when debugging is done.
-    [BurstCompile]
-    private struct CalculateOrbitsJob : IJob
-    {
-        [NativeDisableParallelForRestriction] public NativeArray<Vector3> DrawPoints;
-        [ReadOnly] public NativeArray<Color> PathColors;
-        public NativeArray<VirtualBody> VirtualBodies;
-
-        [ReadOnly] public Vector3 ReferenceBodyInitialPosition;
-        [ReadOnly] public int ReferenceFrameIndex;
-        [ReadOnly] public bool RelativeToBody;
-        [ReadOnly] public float TimeStep;
-        [ReadOnly] public int NumSteps;
-        [ReadOnly] public float Width;
-
-        public void Execute()
-        {
-            // Simulate
-            for (int step = 0; step < NumSteps; step++)
-            {
-                var referenceBodyPosition =
-                    (RelativeToBody) ? VirtualBodies[ReferenceFrameIndex].Position : Vector3.zero;
-                // Update velocities
-                for (int i = 0; i < VirtualBodies.Length; i++)
-                {
-                    var body = VirtualBodies[i];
-                    body.Velocity += CalculateAcceleration(i, VirtualBodies) * TimeStep;
-                    VirtualBodies[i] = body;
-                }
-
-                // Update positions
-                for (int i = 0; i < VirtualBodies.Length; i++)
-                {
-                    var newPos = VirtualBodies[i].Position + VirtualBodies[i].Velocity * TimeStep;
-                    var body = VirtualBodies[i];
-                    body.Position = newPos;
-                    VirtualBodies[i] = body;
-
-                    if (RelativeToBody)
-                    {
-                        var referenceFrameOffset = referenceBodyPosition - ReferenceBodyInitialPosition;
-                        newPos -= referenceFrameOffset;
-                    }
-
-                    if (RelativeToBody && i == ReferenceFrameIndex)
-                    {
-                        newPos = ReferenceBodyInitialPosition;
-                    }
-
-                    DrawPoints[i * NumSteps + step] = newPos;
-                }
-            }
-
-            // Draw paths
-            for (int bodyIndex = 0; bodyIndex < VirtualBodies.Length; bodyIndex++)
-            {
-                var startIndex = bodyIndex * NumSteps;
-                for (int steps = 0; steps < NumSteps - 1; steps++)
-                {
-                    var startPoint = DrawPoints[startIndex + steps];
-                    var endPoint = DrawPoints[startIndex + steps + 1];
-                    Debug.DrawLine(startPoint, endPoint, PathColors[bodyIndex]);
-                }
-            }
-        }
-    }
-
-    //TODO: Extract later, when debugging is done.
+    //TODO: Delete later, when debugging is done.
     [BurstCompile]
     private struct CalculateOrbitsJobFor : IJobFor
     {
@@ -192,7 +126,6 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         [ReadOnly] public bool RelativeToBody;
         [ReadOnly] public float TimeStep;
         [ReadOnly] public int NumSteps;
-        [ReadOnly] public float Width;
 
         public void Execute(int index)
         {
@@ -243,7 +176,7 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         }
     }
     
-    //TODO: Extract later, when debugging is done.
+    //TODO: Delete later, when debugging is done.
     [BurstCompile]
     private struct CalculateOrbitsJobParallel : IJobParallelFor
     {
@@ -256,7 +189,6 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         [ReadOnly] public bool RelativeToBody;
         [ReadOnly] public float TimeStep;
         [ReadOnly] public int NumSteps;
-        [ReadOnly] public float Width;
 
         public void Execute(int index)
         {
@@ -325,3 +257,4 @@ public class OrbitDebugDisplayJob : MonoBehaviour
         return acceleration;
     }
 }
+

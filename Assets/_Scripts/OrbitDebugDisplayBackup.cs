@@ -26,8 +26,7 @@ public class OrbitDebugDisplayBackup : MonoBehaviour
     {
         var bodies = FindObjectsOfType<CelestialObject>();
         var virtualBodies = new VirtualBody[bodies.Length];
-        //var drawPoints = new Vector3[bodies.Length][];
-        var drawPoints = new Vector3[bodies.Length * _numSteps];
+        var drawPoints = new Vector3[bodies.Length][];
         
         var referenceFrameIndex = 0;
         var referenceBodyInitialPosition = Vector3.zero;
@@ -36,7 +35,7 @@ public class OrbitDebugDisplayBackup : MonoBehaviour
         for (int i = 0; i < virtualBodies.Length; i++)
         {
             virtualBodies[i] = new VirtualBody(bodies[i]);
-            //drawPoints[i] = new Vector3[_numSteps];
+            drawPoints[i] = new Vector3[_numSteps];
 
             if (bodies[i] == _centralBody && _relativeToBody)
             {
@@ -71,48 +70,32 @@ public class OrbitDebugDisplayBackup : MonoBehaviour
                     newPos = referenceBodyInitialPosition;
                 }
 
-                // drawPoints[i][step] = newPos;
-                drawPoints[i * _numSteps + step] = newPos;
+                drawPoints[i][step] = newPos;
+
             }
         }
 
         // Draw paths
         for (int bodyIndex = 0; bodyIndex < virtualBodies.Length; bodyIndex++)
         {
-            var startIndex = bodyIndex * _numSteps;
             var pathColour = bodies[bodyIndex].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color;
-
-            for (int steps = 0; steps < _numSteps - 1; steps++)
-            {
-                var startPoint = drawPoints[startIndex + steps];
-                var endPoint = drawPoints[startIndex + steps + 1];
-                Debug.DrawLine(startPoint, endPoint, pathColour);
-            }
             
             if (_useThickLines)
             {
                 var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
                 lineRenderer.enabled = true;
-                lineRenderer.positionCount = _numSteps;
-                lineRenderer.SetPositions(drawPoints[startIndex..(startIndex + _numSteps)]);
-                // lineRenderer.positionCount = drawPoints[bodyIndex].Length;
-                // lineRenderer.SetPositions(drawPoints[bodyIndex]);
+                lineRenderer.positionCount = drawPoints[bodyIndex].Length;
+                lineRenderer.SetPositions(drawPoints[bodyIndex]);
                 lineRenderer.startColor = pathColour;
                 lineRenderer.endColor = pathColour;
                 lineRenderer.widthMultiplier = _width;
             }
             else
             {
-                for (int steps = 0; steps < _numSteps - 1; steps++)
+                for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++)
                 {
-                    var startPoint = drawPoints[startIndex + steps];
-                    var endPoint = drawPoints[startIndex + steps + 1];
-                    Debug.DrawLine(startPoint, endPoint, pathColour);
+                    Debug.DrawLine(drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
                 }
-                // for (int i = 0; i < drawPoints[bodyIndex].Length - 1; i++)
-                // {
-                //     Debug.DrawLine(drawPoints[bodyIndex][i], drawPoints[bodyIndex][i + 1], pathColour);
-                // }
             
                 // Hide renderer
                 var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
