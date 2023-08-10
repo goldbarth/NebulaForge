@@ -10,15 +10,19 @@ namespace UserUI
     {
         [SerializeField] private GameObject _planetValueInputPanel;
         
-        [SerializeField] private TMP_InputField _magnitudeInputField;
-        [SerializeField] private TMP_InputField _gravityInputField;
-        [SerializeField] private TMP_InputField _massInputField;
+        [SerializeField] private Slider _magnitudeSlider;
+        [SerializeField] private Slider _gravitySlider;
+        [SerializeField] private Slider _massSlider;
         
         [SerializeField] private Slider _timeScaleSlider;
         [SerializeField] private Toggle _manualTimeScaleToggle;
 
         private SelectionManager _selectionManager;
         private OrbitSimulation _orbitSimulation;
+
+        private bool _isMagnitudeInitialized;
+        private bool _isGravityInitialized;
+        private bool _isMassInitialized;
 
         private void Awake()
         {
@@ -28,9 +32,9 @@ namespace UserUI
         
         private void Start()
         {
-            _magnitudeInputField.onEndEdit.AddListener(ReadMagnitudeInput);
-            _gravityInputField.onEndEdit.AddListener(ReadGravityInput);
-            _massInputField.onEndEdit.AddListener(ReadMassInput);
+            _magnitudeSlider.onValueChanged.AddListener(ReadMagnitudeInput);
+            _gravitySlider.onValueChanged.AddListener(ReadGravityInput);
+            _massSlider.onValueChanged.AddListener(ReadMassInput);
             
             _timeScaleSlider.onValueChanged.AddListener(SetTimeScale);
             _manualTimeScaleToggle.onValueChanged.AddListener(SetManualTimeScale);
@@ -48,38 +52,46 @@ namespace UserUI
             _selectionManager.OnObjectDeselectedReady -= SetPanelActive;
         }
 
-        private void ReadMagnitudeInput(string input)
+        private void ReadMagnitudeInput(float value)
         {
-            if (float.TryParse(input, out var magnitude))
+            if (SelectionManager.Instance.SelectedObject() == null)
+                _isMagnitudeInitialized = false;
+            
+            if (!_isMagnitudeInitialized)
             {
-                if(magnitude <= 0f) return;
-                SelectionManager.Instance.SelectedObject().Velocity = 
-                    SelectionManager.Instance.SelectedObject().Velocity.normalized * magnitude;
-            }
-
-            _magnitudeInputField.Clear();
-        }
-
-        private void ReadGravityInput(string input)
-        {
-            if (float.TryParse(input, out var gravity))
-            {
-                if(gravity <= 0f) return;
-                SelectionManager.Instance.SelectedObject().SurfaceGravity = gravity;
+                value = SelectionManager.Instance.SelectedObject().Velocity.magnitude;
+                _isMagnitudeInitialized = true;
             }
             
-            _gravityInputField.Clear();
+            SelectionManager.Instance.SelectedObject().Velocity = 
+                SelectionManager.Instance.SelectedObject().Velocity.normalized * value;
         }
 
-        private void ReadMassInput(string input)
+        private void ReadGravityInput(float value)
         {
-            if (float.TryParse(input, out var mass))
+            if (SelectionManager.Instance.SelectedObject() == null)
+                _isGravityInitialized = false;
+            
+            if (!_isGravityInitialized)
             {
-                if(mass <= 0f) return;
-                SelectionManager.Instance.SelectedObject().ObjectMass = mass;
+                value = SelectionManager.Instance.SelectedObject().SurfaceGravity;
+                _isGravityInitialized = true;
+            }
+            SelectionManager.Instance.SelectedObject().SurfaceGravity = value;
+        }
+
+        private void ReadMassInput(float value)
+        {
+            if (SelectionManager.Instance.SelectedObject() == null)
+                _isMassInitialized = false;
+            
+            if (!_isMassInitialized)
+            {
+                value = SelectionManager.Instance.SelectedObject().ObjectMass;
+                _isMassInitialized = true;
             }
             
-            _massInputField.Clear();
+            SelectionManager.Instance.SelectedObject().ObjectMass = value;
         }
         
         private void SetManualTimeScale(bool value)

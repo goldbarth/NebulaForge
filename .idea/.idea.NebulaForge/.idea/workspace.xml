@@ -9,9 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayJob.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayBackup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayBackup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BluePlanet/BluePlanetMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanetMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanetMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Earth2/Earth2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Earth2/Earth2Material.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/VirtualBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/VirtualBody.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayBackup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayReference.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayBackup.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/OrbitDebugDisplayReference.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UserUI/UserInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UserUI/UserInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,33 +95,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32896653&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.32896653",
+    "git-widget-placeholder": "GoldbarthMobile",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\Felix Wahl\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\GitFork\NebulaForge -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -121,7 +129,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\GitFork\NebulaForge -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -209,6 +217,7 @@
       <workItem from="1691528645170" duration="31000" />
       <workItem from="1691528689002" duration="9014000" />
       <workItem from="1691570215178" duration="5652000" />
+      <workItem from="1691577532597" duration="6448000" />
     </task>
     <servers />
   </component>

@@ -4,7 +4,7 @@ using UnityEngine;
 // Straight copy pasta from Sebastian Lague's Solar System series.
 // To adjust the orbit simulation and save a lot of time to set it up.
 [ExecuteAlways]
-public class OrbitDebugDisplayBackup : MonoBehaviour
+public class OrbitDebugDisplayReference : MonoBehaviour
 {
     [SerializeField] private bool _drawOrbits = true;
     [SerializeField] private int _numSteps = 1000;
@@ -71,7 +71,6 @@ public class OrbitDebugDisplayBackup : MonoBehaviour
                 }
 
                 drawPoints[i][step] = newPos;
-
             }
         }
 

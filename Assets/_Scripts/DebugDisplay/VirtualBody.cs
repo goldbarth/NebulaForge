@@ -1,6 +1,8 @@
 using SolarSystem;
 using UnityEngine;
 
+// With the VirtualBody we copy the necessary data
+// from the CelestialObject as a reference
 public struct VirtualBody 
 {
     public readonly float Mass;
