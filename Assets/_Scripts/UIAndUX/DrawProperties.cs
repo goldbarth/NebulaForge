@@ -1,9 +1,8 @@
-using System;
 using SolarSystem;
 using UnityEngine;
 using TMPro;
 
-namespace UserUI
+namespace UIAndUX
 {
     public class DrawProperties : MonoBehaviour
     {
@@ -59,7 +58,7 @@ namespace UserUI
             _magnitudeText.text = "0.0";
             _gravityText.text = "0.0";
             _massText.text = "0.0";
-            _positionText.text = "0.0";
+            _positionText.text = "(0.0, 0.0, 0.0)";
         }
 
         private void SetSelectedPlanet()

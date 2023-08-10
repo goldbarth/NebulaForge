@@ -1,13 +1,12 @@
+using HelpersAndExtensions;
 using SolarSystem;
 using UnityEngine;
-using Extensions;
-using Planet;
 using System;
-using HelpersAndExtensions;
+using Planet;
 
 // Source: @ Infallible Code https://www.youtube.com/watch?v=_yf5vzZ2sYE&t=35s
-// Modified by me. TODO: Refactor GameObjectSelectionHandler()
-namespace UserUI
+// Modified and expanded by me.
+namespace UIAndUX
 {
     public class SelectionManager : GenericSingleton<SelectionManager>
     {
@@ -36,13 +35,10 @@ namespace UserUI
 
         private void GameObjectSelectionHandler()
         {
-            if (_selection != null && !_isObjectSelected)
-            {
-                var highlightMaterial = SetHighlightMaterial(_selection);
-                highlightMaterial.mainTexture = _objectTexture;
-            }
+            if (IsObjectNotSelectedYet())
+                SetHighlightMaterialToObjectTexture();
             
-            if(_selection != null && _isObjectSelected)
+            if(IsObjectSelected())
                 return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -51,17 +47,44 @@ namespace UserUI
                 var selection = hitInfo.transform;
 
                 var highlightMaterial = SetHighlightMaterial(selection);
-                _objectTexture = highlightMaterial.mainTexture;
+                SetHighlightMaterialToObjectTexture(highlightMaterial);
 
                 if (highlightMaterial != null)
                 {
-                    highlightMaterial.mainTexture = _selectedTexture;
+                    SetSelectionTextureToHighlightMaterial(highlightMaterial);
+
                     if (Input.GetMouseButtonDown(0))
                         ActivateUserInterface();
                 }
 
                 _selection = selection;
             }
+        }
+
+        private void SetSelectionTextureToHighlightMaterial(Material highlightMaterial)
+        {
+            highlightMaterial.mainTexture = _selectedTexture;
+        }
+
+        private void SetHighlightMaterialToObjectTexture(Material highlightMaterial)
+        {
+            _objectTexture = highlightMaterial.mainTexture;
+        }
+
+        private void SetHighlightMaterialToObjectTexture()
+        {
+            var highlightMaterial = SetHighlightMaterial(_selection);
+            highlightMaterial.mainTexture = _objectTexture;
+        }
+
+        private bool IsObjectSelected()
+        {
+            return _selection != null && _isObjectSelected;
+        }
+
+        private bool IsObjectNotSelectedYet()
+        {
+            return _selection != null && !_isObjectSelected;
         }
 
         private static Material SetHighlightMaterial(Transform selection)

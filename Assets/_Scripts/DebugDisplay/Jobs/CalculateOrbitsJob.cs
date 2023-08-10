@@ -15,50 +15,38 @@ namespace Jobs
         public NativeArray<VirtualBody> VirtualBodies;
 
         [ReadOnly] public Vector3 ReferenceBodyInitialPosition;
+        [ReadOnly] public bool RelativeToCenterBody;
         [ReadOnly] public int ReferenceFrameIndex;
-        [ReadOnly] public bool RelativeToBody;
         [ReadOnly] public float TimeStep;
         [ReadOnly] public int NumSteps;
 
         public void Execute()
         {
-            // Simulate
+            // Simulate.
             for (int step = 0; step < NumSteps; step++)
             {
-                var referenceBodyPosition =
-                    (RelativeToBody) ? VirtualBodies[ReferenceFrameIndex].Position : Vector3.zero;
+                var referenceBodyPosition = SetReferenceBodyPosition();
                 
-                // Update velocities
+                // Update velocities.
                 for (int bodyIndex = 0; bodyIndex < VirtualBodies.Length; bodyIndex++)
-                {
-                    var body = VirtualBodies[bodyIndex];
-                    body.Velocity += CalculateAcceleration(bodyIndex, VirtualBodies) * TimeStep;
-                    VirtualBodies[bodyIndex] = body;
-                }
+                    AddAccelerationToBodyVelocity(bodyIndex);
+                
 
-                // Update positions
+                // Update positions. Separate the position update from the velocity seems to be better for performance.
                 for (int bodyIndex = 0; bodyIndex < VirtualBodies.Length; bodyIndex++)
                 {
                     var startIndex = bodyIndex * NumSteps;
                     
-                    var newPos = VirtualBodies[bodyIndex].Position + VirtualBodies[bodyIndex].Velocity * TimeStep;
-                    
-                    var body = VirtualBodies[bodyIndex];
-                    body.Position = newPos;
-                    VirtualBodies[bodyIndex] = body;
+                    var newPosition = SetNewPosition(bodyIndex);
+                    SetNewPositionToBody(bodyIndex, newPosition);
 
-                    if (RelativeToBody)
-                    {
-                        var referenceFrameOffset = referenceBodyPosition - ReferenceBodyInitialPosition;
-                        newPos -= referenceFrameOffset;
-                    }
+                    if (RelativeToCenterBody)
+                        newPosition = SubtractNewPosWithCenterToBodyOldPosDirection(referenceBodyPosition, newPosition);
 
-                    if (RelativeToBody && bodyIndex == ReferenceFrameIndex)
-                    {
-                        newPos = ReferenceBodyInitialPosition;
-                    }
+                    if (IsThisBodyCenterAndOthersRelativeTo(bodyIndex))
+                        newPosition = ReferenceBodyInitialPosition;
 
-                    DrawPoints[startIndex + step] = newPos;
+                    DrawPoints[startIndex + step] = newPosition;
                 }
             }
 
@@ -67,14 +55,56 @@ namespace Jobs
             {
                 var startIndex = bodyIndex * NumSteps;
                 for (int steps = 0; steps < NumSteps - 1; steps++)
-                {
-                    var startPoint = DrawPoints[startIndex + steps];
-                    var endPoint = DrawPoints[startIndex + steps + 1];
-                    Debug.DrawLine(startPoint, endPoint, PathColors[bodyIndex]);
-                }
+                    DrawPaths(startIndex, steps, bodyIndex);
             }
         }
-        
+
+        private bool IsThisBodyCenterAndOthersRelativeTo(int bodyIndex)
+        {
+            return RelativeToCenterBody && bodyIndex == ReferenceFrameIndex;
+        }
+
+        private void DrawPaths(int startIndex, int steps, int bodyIndex)
+        {
+            var startPoint = DrawPoints[startIndex + steps];
+            var endPoint = DrawPoints[startIndex + steps + 1];
+            Debug.DrawLine(startPoint, endPoint, PathColors[bodyIndex]);
+        }
+
+        private Vector3 SetReferenceBodyPosition()
+        {
+            var referenceBodyPosition =
+                (RelativeToCenterBody) ? VirtualBodies[ReferenceFrameIndex].Position : Vector3.zero;
+            return referenceBodyPosition;
+        }
+
+        private Vector3 SubtractNewPosWithCenterToBodyOldPosDirection(Vector3 referenceBodyPosition, Vector3 newPos)
+        {
+            var referenceFrameOffset = referenceBodyPosition - ReferenceBodyInitialPosition;
+            newPos -= referenceFrameOffset;
+            return newPos;
+        }
+
+        private Vector3 SetNewPosition(int bodyIndex)
+        {
+            var newPos = VirtualBodies[bodyIndex].Position + VirtualBodies[bodyIndex].Velocity * TimeStep;
+            return newPos;
+        }
+
+        private void SetNewPositionToBody(int bodyIndex, Vector3 newPos)
+        {
+            var virtualBody = VirtualBodies[bodyIndex];
+            virtualBody.Position = newPos;
+            VirtualBodies[bodyIndex] = virtualBody;
+        }
+
+        private void AddAccelerationToBodyVelocity(int bodyIndex)
+        {
+            var virtualBody = VirtualBodies[bodyIndex];
+            virtualBody.Velocity += CalculateAcceleration(bodyIndex, VirtualBodies) * TimeStep;
+            VirtualBodies[bodyIndex] = virtualBody;
+        }
+
         private static Vector3 CalculateAcceleration(int bodyIndex, NativeArray<VirtualBody> virtualBodies)
         {
             var acceleration = Vector3.zero;
@@ -82,12 +112,10 @@ namespace Jobs
             {
                 if (bodyIndex == virtualBodyIndex) continue;
 
-                var forceDir = (virtualBodies[virtualBodyIndex].Position - virtualBodies[bodyIndex].Position)
-                    .normalized;
-                var sqrDst = (virtualBodies[virtualBodyIndex].Position - virtualBodies[bodyIndex].Position)
-                    .sqrMagnitude;
-                acceleration += forceDir * (Universe.GravitationalConstant * virtualBodies[virtualBodyIndex].Mass) /
-                                sqrDst;
+                var forceDir = (virtualBodies[virtualBodyIndex].Position - virtualBodies[bodyIndex].Position).normalized;
+                var sqrDst = (virtualBodies[virtualBodyIndex].Position - virtualBodies[bodyIndex].Position).sqrMagnitude;
+                
+                acceleration += forceDir * (Universe.GravitationalConstant * virtualBodies[virtualBodyIndex].Mass) / sqrDst;
             }
 
             return acceleration;

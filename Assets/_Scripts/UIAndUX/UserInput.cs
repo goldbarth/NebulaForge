@@ -1,10 +1,8 @@
-using HelpersAndExtensions;
 using UnityEngine.UI;
 using SolarSystem;
 using UnityEngine;
-using TMPro;
 
-namespace UserUI
+namespace UIAndUX
 {
     public class UserInput : MonoBehaviour
     {
@@ -14,8 +12,8 @@ namespace UserUI
         [SerializeField] private Slider _gravitySlider;
         [SerializeField] private Slider _massSlider;
         
-        [SerializeField] private Slider _timeScaleSlider;
         [SerializeField] private Toggle _manualTimeScaleToggle;
+        [SerializeField] private Slider _timeScaleSlider;
 
         private SelectionManager _selectionManager;
         private OrbitSimulation _orbitSimulation;
@@ -36,8 +34,8 @@ namespace UserUI
             _gravitySlider.onValueChanged.AddListener(ReadGravityInput);
             _massSlider.onValueChanged.AddListener(ReadMassInput);
             
-            _timeScaleSlider.onValueChanged.AddListener(SetTimeScale);
             _manualTimeScaleToggle.onValueChanged.AddListener(SetManualTimeScale);
+            _timeScaleSlider.onValueChanged.AddListener(SetTimeScale);
         }
 
         private void OnEnable()
