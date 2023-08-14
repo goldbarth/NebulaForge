@@ -9,10 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSmall.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/OrbitSimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/OrbitSimulation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/DrawProperties.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/DrawProperties.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +94,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "XThreadsFramesViewSplitterKey": "0.32896653",
-    "git-widget-placeholder": "Dev",
+    "git-widget-placeholder": "Goldbarth",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

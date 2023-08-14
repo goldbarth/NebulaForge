@@ -35,6 +35,7 @@ namespace SolarSystem
             {
                 Mass = value;
                 _rigidbody.mass = Mass;
+                GravityCalculation();
             }
         }
 
@@ -62,6 +63,11 @@ namespace SolarSystem
         {
             Mass = _surfaceGravity * _radius * _radius / Universe.GravitationalConstant;
             _rigidbody.mass = Mass;
+        }
+        
+        private void GravityCalculation()
+        {
+            _surfaceGravity = Universe.GravitationalConstant * Mass / (_radius * _radius);
         }
 
         public void UpdateVelocity(Vector3 acceleration, float timeStep)
