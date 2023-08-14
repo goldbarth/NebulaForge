@@ -15,6 +15,8 @@ namespace UIAndUX
         private CelestialObject _celestialObject;
         private OrbitSimulation _orbitSimulation;
 
+        private const string FixedTimeScale = "10"; 
+
         private void Awake()
         {
             _orbitSimulation = OrbitSimulation.Instance;
@@ -30,7 +32,7 @@ namespace UIAndUX
         private void DrawTimeScaleValue()
         {
             if (!_orbitSimulation.ManualTimeScale)
-                _timeScaleText.text = "1";
+                _timeScaleText.text = FixedTimeScale;
             
             _timeScaleText.text = $"{_orbitSimulation.TimeScale}";
         }
@@ -38,7 +40,6 @@ namespace UIAndUX
         private void DrawPlanetValues()
         {
             SetPlanetStats();
-            ResetPlanetStats();
         }
         
         private void SetPlanetStats()
@@ -49,16 +50,6 @@ namespace UIAndUX
             _gravityText.text = $"{_celestialObject.SurfaceGravity}";
             _massText.text = $"{_celestialObject.ObjectMass}";
             _positionText.text = $"{_celestialObject.Position}";
-        }
-        
-        private void ResetPlanetStats()
-        {
-            if(_celestialObject != null) return;
-            
-            _magnitudeText.text = "0.0";
-            _gravityText.text = "0.0";
-            _massText.text = "0.0";
-            _positionText.text = "(0.0, 0.0, 0.0)";
         }
 
         private void SetSelectedPlanet()

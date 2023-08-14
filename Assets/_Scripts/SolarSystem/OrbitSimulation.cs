@@ -17,18 +17,19 @@ namespace SolarSystem
     public class OrbitSimulation : GenericSingleton<OrbitSimulation>
     {
         [field: SerializeField] public bool ManualTimeScale { get; set; }
-        [field: SerializeField] public float TimeScale { get; set; } = 1f;
+        [field: SerializeField] public float TimeScale { get; set; }
     
         [SerializeField] private CelestialObject[] _objects;
 
         private void Awake()
         {
             Time.fixedDeltaTime = Universe.PhysicsTimeStep;
+            TimeScale = 10f;
         }
 
         private void FixedUpdate()
         {
-            Time.timeScale = ManualTimeScale ? TimeScale : 1f;
+            Time.timeScale = ManualTimeScale ? TimeScale : 10f;
             UpdateAllObjects();
         }
 
