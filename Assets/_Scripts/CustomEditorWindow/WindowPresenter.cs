@@ -4,6 +4,7 @@ using PlanetSettings;
 using System;
 using Planet;
 
+
 namespace CustomEditorWindow
 {
     /// <summary>
@@ -12,8 +13,9 @@ namespace CustomEditorWindow
     /// </summary>
     public class WindowPresenter
     {
+        private readonly ObjectGenerator _objectGenerator;
         private readonly WindowLayout _view;
-    
+        
         private ObjectSettings _model;
 
         public event Action OnDrawUI;
@@ -23,12 +25,16 @@ namespace CustomEditorWindow
 
         public WindowPresenter(WindowLayout view, ObjectGenerator objectGenerator)
         {
-            if(!view.IsEditorEnabled) return;
-            _model = objectGenerator.ObjectSettings;
+            if (objectGenerator == null) return;
+            
+            _objectGenerator = objectGenerator;
+            _model = _objectGenerator.ObjectSettings; 
             _view = view;
+            
+            SubscribeEvents();
         }
 
-        public void SubscribeEvents()
+        private void SubscribeEvents()
         {
             _model.OnSettingsChangedReady += SettingsChanged;
             _view.OnSettingsUpdated += UpdateModelSettings;
@@ -38,6 +44,8 @@ namespace CustomEditorWindow
     
         public void UnsubscribeEvents()
         {
+            if (_objectGenerator == null) return;
+            
             _model.OnSettingsChangedReady -= SettingsChanged;
             _view.OnSettingsUpdated -= UpdateModelSettings;
             _view.OnSettingsInstanceChanged -= UpdateModelInstance;
@@ -45,7 +53,6 @@ namespace CustomEditorWindow
         }
     
         // Model dependency:
-
         private void UpdateModelInstance(ObjectSettings objectSettings)
         {
             _model = objectSettings;
@@ -67,7 +74,6 @@ namespace CustomEditorWindow
         }
     
         // View dependency:
-
         public void DrawUI()
         {
             OnDrawUI?.Invoke();

@@ -1,3 +1,4 @@
 *Assets/Scenes/SampleScene.unity filter=lfs diff=lfs merge=lfs -text
 *Assets/Scenes/SolarSystem.unity filter=lfs diff=lfs merge=lfs -text
 *Assets/Scenes/SolarSystemSmall.unity filter=lfs diff=lfs merge=lfs -text
+*Assets/Scenes/SolarSystemSim.unity filter=lfs diff=lfs merge=lfs -text

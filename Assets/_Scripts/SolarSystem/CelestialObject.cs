@@ -3,8 +3,7 @@ using Planet;
 
 namespace SolarSystem
 {
-    [ExecuteInEditMode]
-    [RequireComponent(typeof(Rigidbody))]
+    [ExecuteAlways, RequireComponent(typeof(Rigidbody))]
     public class CelestialObject : MonoBehaviour
     {
         [Space, SerializeField] private float _surfaceGravity;

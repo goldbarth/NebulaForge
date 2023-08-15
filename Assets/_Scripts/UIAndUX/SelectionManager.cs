@@ -5,11 +5,13 @@ using System;
 using Planet;
 
 // Source: @ Infallible Code https://www.youtube.com/watch?v=_yf5vzZ2sYE&t=35s
-// Modified and expanded by me.
+// Modified the basics and expanded by me.
 namespace UIAndUX
 {
     public class SelectionManager : GenericSingleton<SelectionManager>
     {
+        [Tooltip("If true, the user can only select objects by looking at them.")]
+        [SerializeField] private bool _usingCenterDotInteraction;
         [SerializeField] private Texture _selectedTexture;
         [SerializeField] private LayerMask _layerMask;
 
@@ -17,7 +19,7 @@ namespace UIAndUX
         private Transform _selection;
         private Camera _camera;
         
-        private bool _isObjectSelected = false;
+        private bool _isObjectSelected;
         
         public event Action OnObjectSelected;
         public event Action OnObjectDeselectedReady;
@@ -42,24 +44,43 @@ namespace UIAndUX
             if(IsObjectSelected())
                 return;
 
+            
+            if (_usingCenterDotInteraction)
+                CenterDotInteraction();
+            else
+                MouseInteraction();
+        }
+
+        private void MouseInteraction()
+        {
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, _layerMask))
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
+                Selection(hit);
+        }
+        
+        private void CenterDotInteraction()
+        {
+            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, 
+                    out var hit, Mathf.Infinity, _layerMask))
+                Selection(hit);
+        }
+
+        private void Selection(RaycastHit hit)
+        {
+            var selection = hit.transform;
+
+            var highlightMaterial = SetHighlightMaterial(selection);
+            SetHighlightMaterialToObjectTexture(highlightMaterial);
+
+            if (highlightMaterial != null)
             {
-                var selection = hitInfo.transform;
+                SetSelectionTextureToHighlightMaterial(highlightMaterial);
 
-                var highlightMaterial = SetHighlightMaterial(selection);
-                SetHighlightMaterialToObjectTexture(highlightMaterial);
-
-                if (highlightMaterial != null)
-                {
-                    SetSelectionTextureToHighlightMaterial(highlightMaterial);
-
-                    if (Input.GetMouseButtonDown(0))
-                        ActivateUserInterface();
-                }
-
-                _selection = selection;
+                if (Input.GetMouseButtonDown(0))
+                    ActivateUserInterface();
             }
+
+            _selection = selection;
         }
 
         private void SetSelectionTextureToHighlightMaterial(Material highlightMaterial)

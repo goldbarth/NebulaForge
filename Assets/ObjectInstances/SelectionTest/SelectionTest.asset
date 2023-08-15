@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
   m_Name: SelectionTest
   m_EditorClassIdentifier: 
-  ObjectType: 1
+  ObjectType: 0
   Material: {fileID: 2100000, guid: 219cb5a43cb8daf4191dd768b464162c, type: 2}
   Resolution: 128
   Radius: 100

@@ -1,3 +1,6 @@
+// Source: Kelvin van Hoorn
+// https://kelvinvanhoorn.com/2021/04/20/supermassive-black-hole-tutorial/
+
 Shader "Custom/BlackHole2_S"
 {
     Properties
@@ -11,6 +14,10 @@ Shader "Custom/BlackHole2_S"
         _DopplerBeamingFactor ("Doppler beaming effect factor", float) = 66
         _HueRadius ("Hue shift start radius", Range(0,1)) = 0.75
         _HueShiftFactor ("Hue shifting factor", float) = -0.03
+        _Steps ("Amount of steps", int) = 256
+        _StepSize ("Step size", Range(0.001, 1)) = 0.1
+        _SSRadius ("Object relative Schwarzschild radius", Range(0,1)) = 0.2
+        _GConst ("Gravitational constant", float) = 0.15
     }
 
     SubShader
@@ -76,6 +83,10 @@ Shader "Custom/BlackHole2_S"
             float _DiscSpeed;
             float _DiscOuterRadius;
             float _DiscInnerRadius;
+            int _Steps;
+            float _StepSize;
+            float _SSRadius;
+            float _GConst;
 
             // Based upon https://viclw17.github.io/2018/07/16/raytracing-ray-sphere-intersection/#:~:text=When%20the%20ray%20and%20sphere,equations%20and%20solving%20for%20t.
             // Returns dstToSphere, dstThroughSphere
@@ -345,16 +356,45 @@ Shader "Custom/BlackHole2_S"
 
                 // Raymarching information
                 float transmittance = 0;
+                float blackHoleMask = 0;
                 float3 samplePos = float3(maxFloat, 0, 0);
+                float3 currentRayPos = rayOrigin + rayDir * outerSphereIntersection.x;
+                float3 currentRayDir = rayDir;
 
                 // Ray intersects with the outer sphere
                 if (outerSphereIntersection.x < maxFloat)
                 {
-                    float discDst = intersectDisc(rayOrigin, rayDir, p1, p2, discDir, discRadius, innerRadius);
-                    if (discDst < maxFloat)
+                    for (int i = 0; i < _Steps; i++)
                     {
-                        transmittance = 1;
-                        samplePos = rayOrigin + rayDir * discDst;
+                        float3 dirToCentre = IN.centre-currentRayPos;
+                        float dstToCentre = length(dirToCentre);
+                        dirToCentre /= dstToCentre;
+                    
+                        if(dstToCentre > sphereRadius + _StepSize)
+                        {
+                            break;
+                        }
+                    
+                        float force = _GConst/(dstToCentre*dstToCentre);
+                        currentRayDir = normalize(currentRayDir + dirToCentre * force * _StepSize);
+                        
+                        // Move ray forward
+                        currentRayPos += currentRayDir * _StepSize;
+
+                        float blackHoleDistance = intersectSphere(currentRayPos, currentRayDir, IN.centre, _SSRadius * sphereRadius).x;
+                        if(blackHoleDistance <= _StepSize)
+                        {
+                            blackHoleMask = 1;
+                            break;
+                        }
+                        
+                        // Check for disc intersection nearby
+                        float discDst = intersectDisc(currentRayPos, currentRayDir, p1, p2, discDir, discRadius, innerRadius);
+                        if(transmittance < 1 && discDst < _StepSize)
+                        {
+                            transmittance = 1;
+                            samplePos = currentRayPos + currentRayDir * discDst;
+                        }
                     }
                 }
 
@@ -370,7 +410,19 @@ Shader "Custom/BlackHole2_S"
                 float texCol = _DiscTex.SampleLevel(sampler_DiscTex, uv * _DiscTex_ST.xy, 0).r;
 
                 float2 screenUV = IN.posCS.xy / _ScreenParams.xy;
-                float3 backgroundCol = SampleSceneColor(screenUV);
+                // Ray direction projection
+                float3 distortedRayDir = normalize(currentRayPos - rayOrigin);
+                float4 rayCameraSpace = mul(unity_WorldToCamera, float4(distortedRayDir,0));
+                float4 rayUVProjection = mul(unity_CameraProjection, float4(rayCameraSpace));
+                float2 distortedScreenUV = rayUVProjection.xy + 1 * 0.5;
+                    
+                // Screen and object edge transitions
+                float edgeFadex = smoothstep(0, 0.25, 1 - abs(remap(screenUV.x, 0, 1, -1, 1)));
+                float edgeFadey = smoothstep(0, 0.25, 1 - abs(remap(screenUV.y, 0, 1, -1, 1)));
+                float t = saturate(remap(outerSphereIntersection.y, sphereRadius, 2 * sphereRadius, 0, 1)) * edgeFadex * edgeFadey;
+                distortedScreenUV = lerp(screenUV, distortedScreenUV, t);
+                    
+                float3 backgroundCol = SampleSceneColor(distortedScreenUV) * (1 - blackHoleMask);
 
                 float3 discCol = discColor(_DiscColor.rgb, planarDiscPos, discDir, _WorldSpaceCameraPos, uv.x, discRadius);
 

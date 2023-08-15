@@ -40,7 +40,6 @@ namespace CustomEditorWindow
     
         public (string name, string path)[] AssetsInFolder;
         public float SidebarFrameWidth;
-        public bool IsEditorEnabled = true;
         public bool IsAutoUpdate;
         
         private readonly float _updateInterval = 2f;
@@ -57,8 +56,7 @@ namespace CustomEditorWindow
             _sidebarSection = new SidebarSection(this);
             _settingsSection = new SettingsSection(this);
             _presenter = new WindowPresenter(this, ObjectGenerator);
-        
-            _presenter.SubscribeEvents();
+            
             _presenter.OnDrawUI += DrawLayout;
             _presenter.OnGUIChanged += UpdateSettings;
             _presenter.OnApplyModified += ApplyModifiedProperties;
@@ -66,11 +64,6 @@ namespace CustomEditorWindow
         
             ObjectSelectionEventManager.OnObjectSelected += InitializeProperties;
             ObjectSelectionEventManager.OnNoObjectSelected += SetObjectSettingNull;
-            
-            StateChangeEventManager.OnPlayModeStateChanged += OnPlayModeStateChanged;
-            //StateChangeEventManager.OnEditorState += OnEditorStateChanged;
-        
-            //EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
         
             SetObjectSettings();
             InitializeProperties();
@@ -89,8 +82,6 @@ namespace CustomEditorWindow
         
             ObjectSelectionEventManager.OnObjectSelected -= InitializeProperties;
             ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
-        
-            //EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
             
             EditorApplication.update -= OnEditorUpdate;
         }
@@ -103,7 +94,7 @@ namespace CustomEditorWindow
 
         private void OnGUI()
         {
-            if (!IsEditorEnabled)
+            if (EditorApplication.isPlaying)
             {
                 PlaymodeMessageBox();
                 return;
@@ -124,7 +115,9 @@ namespace CustomEditorWindow
             FindAndSetObjectSettings();
             SetSerializedProperties();
         }
-        
+
+        #region Editor Update Loop
+
         private void OnEditorUpdate()
         {
             // Check if the specified update interval has passed
@@ -144,6 +137,8 @@ namespace CustomEditorWindow
         {
             return Time.realtimeSinceStartup - _lastUpdateTime >= _updateInterval;
         }
+
+        #endregion
 
         #region Presenter Dependencies
 
@@ -358,25 +353,6 @@ namespace CustomEditorWindow
             }
         
             return assetNamesAndPaths;
-        }
-    
-        private void OnPlayModeStateChanged()
-        {
-            IsEditorEnabled = !EditorApplication.isPlaying;
-            // Debug.Log($"Play mode state changed: {stateChange}");
-            // switch (stateChange)
-            // {
-            //     case PlayModeStateChange.EnteredPlayMode:
-            //         // Disable the editor window script when entering play mode
-            //         IsEditorEnabled = false;
-            //         Debug.Log("Entered Play Mode");
-            //         break;
-            //     case PlayModeStateChange.ExitingPlayMode:
-            //         // Enable the editor window script when exiting play mode
-            //         IsEditorEnabled = true;
-            //         Debug.Log("Exiting Play Mode");
-            //         break;
-            // }
         }
     }
 }
