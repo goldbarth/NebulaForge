@@ -1,7 +1,6 @@
 ﻿using PlanetSettings.NoiseSettings;
-using UnityEngine;
-using Extensions;
 using HelpersAndExtensions;
+using UnityEngine;
 
 namespace Planet.SurfaceGeneration
 {

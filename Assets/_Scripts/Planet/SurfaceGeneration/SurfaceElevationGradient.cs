@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using Extensions;
-using HelpersAndExtensions;
+﻿using HelpersAndExtensions;
+using UnityEngine;
 
 namespace Planet.SurfaceGeneration
 {

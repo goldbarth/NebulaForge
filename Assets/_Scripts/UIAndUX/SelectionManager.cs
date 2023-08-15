@@ -21,12 +21,13 @@ namespace UIAndUX
         
         public event Action OnObjectSelected;
         public event Action OnObjectDeselectedReady;
+        public event Action OnHoverOverObject;
 
         private void Awake()
         {
             _camera = Camera.main;
         }
-
+        
         private void Update()
         {
             GameObjectSelectionHandler();
@@ -68,6 +69,7 @@ namespace UIAndUX
 
         private void SetHighlightMaterialToObjectTexture(Material highlightMaterial)
         {
+            OnHoverOverObject?.Invoke();
             _objectTexture = highlightMaterial.mainTexture;
         }
 
