@@ -6,7 +6,6 @@ using Unity.Jobs;
 
 namespace Jobs
 {
-    //TODO: Refactor later, when debugging is done.
     [BurstCompile]
     public struct CalculateOrbitsJob : IJob
     {

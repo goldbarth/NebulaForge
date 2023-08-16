@@ -13,6 +13,7 @@ namespace Planet.SurfaceGeneration
 
         public void UpdateSettings(ObjectGenerator objectGenerator)
         {
+            if(objectGenerator == null) return;
             _noiseFilters = new INoiseFilter[objectGenerator.NoiseLayers.Length];
             ElevationMinMax = new MinMax();
             _object = objectGenerator;

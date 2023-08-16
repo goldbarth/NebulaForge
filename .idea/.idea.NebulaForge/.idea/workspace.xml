@@ -9,10 +9,39 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultSGTerrainMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultSGTerrainMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTest.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTest.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestMaterial.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestMaterial.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Texture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Texture.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/FpsCameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/FpsCameraController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/NormalMaps/Rock3.tif.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/NormalMaps/Rock3.tif.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/Jobs/CalculateOrbitsJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/Jobs/CalculateOrbitsJob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayReference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayReference.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Particles/StarParticlesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Particles/StarParticlesManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +95,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/SolarSystem/Universe.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.10/Runtime/Camera/CameraSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.10/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.10/Runtime/Data/PostProcessData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.10/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Generation/Targets/BuiltIn/Editor/AssetPostProcessors/MaterialPostprocessor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -97,7 +127,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32900432&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Goldbarth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Dev&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -215,7 +245,9 @@
       <workItem from="1691577532597" duration="6448000" />
       <workItem from="1691657965755" duration="3212000" />
       <workItem from="1692092267744" duration="28338000" />
-      <workItem from="1692185003525" duration="1766000" />
+      <workItem from="1692185003525" duration="2357000" />
+      <workItem from="1692207819711" duration="3415000" />
+      <workItem from="1692212113277" duration="4247000" />
     </task>
     <servers />
   </component>

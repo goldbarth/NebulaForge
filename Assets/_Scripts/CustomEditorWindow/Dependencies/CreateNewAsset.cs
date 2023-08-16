@@ -109,8 +109,8 @@ namespace CustomEditorWindow.Dependencies
             if (_currentSettings == null) return newObjectSettings;
 
             // Make a copy of the current settings and material and assign it to the object.
-            newObjectSettings = UnityEngine.Object.Instantiate(_currentSettings);
-            var newMaterial = UnityEngine.Object.Instantiate(originMaterial);
+            newObjectSettings = Object.Instantiate(_currentSettings);
+            var newMaterial = Object.Instantiate(originMaterial);
             newObjectSettings.Material = newMaterial;
 
             return newObjectSettings;

@@ -5,7 +5,7 @@ using System;
 using Planet;
 
 // Source: @ Infallible Code https://www.youtube.com/watch?v=_yf5vzZ2sYE&t=35s
-// Modified the basics and expanded by me.
+// Modified the basics and expanded a lot.
 namespace UIAndUX
 {
     public class SelectionManager : GenericSingleton<SelectionManager>

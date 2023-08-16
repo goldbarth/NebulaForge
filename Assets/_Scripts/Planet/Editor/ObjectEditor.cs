@@ -13,6 +13,12 @@ namespace Planet
         private const float ButtonBorderWidth = 15f;
     
         private ObjectGenerator _object;
+        
+        private readonly string _generatorOptionsLabel = "Generator Options";
+        private readonly string _generateObjectButton = "Generate Object";
+        private readonly string _removeObjectButton = "Remove Object";
+        private readonly string _editorWindowLabel = "Editor Window";
+        private readonly string _openButton = "Open";
 
         private void OnEnable()
         {
@@ -42,7 +48,7 @@ namespace Planet
             GUILayout.Space(7);
             EditorGUILayout.BeginVertical();
         
-            EditorGUILayout.LabelField("Generator Options", LabelStyle.SetCenteredBoldLabel());
+            EditorGUILayout.LabelField(_generatorOptionsLabel, LabelStyle.SetCenteredBoldLabel());
             GUILayout.Space(5);
 
             EditorGUILayout.BeginHorizontal();
@@ -58,7 +64,7 @@ namespace Planet
             GUILayout.Space(5);
             EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
             GUILayout.Space(5);
-            EditorGUILayout.LabelField("Editor Window", LabelStyle.SetCenteredBoldLabel());
+            EditorGUILayout.LabelField(_editorWindowLabel, LabelStyle.SetCenteredBoldLabel());
             GUILayout.Space(5);
         
             EditorGUILayout.BeginHorizontal();
@@ -72,30 +78,29 @@ namespace Planet
 
         private void DrawOpenEditorWindowButton()
         {
-            var buttonName = "Open";
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(buttonName,
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+            if (GUILayout.Button(_openButton,
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(_openButton), ButtonBorderWidth)))
                 WindowLayout.ShowWindow();
             GUILayout.FlexibleSpace();
         }
 
         private void DrawRemovePlanetButton()
         {
-            var buttonName = "Remove Object";
+            
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(buttonName,
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+            if (GUILayout.Button(_removeObjectButton,
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(_removeObjectButton), ButtonBorderWidth)))
                 _object.RemovePlanet();
             GUILayout.FlexibleSpace();
         }
 
         private void DrawGeneratePlanetButton()
         {
-            var buttonName = "Generate Object";
+            
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(buttonName,
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+            if (GUILayout.Button(_generateObjectButton,
+                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(_generateObjectButton), ButtonBorderWidth)))
             {
                 _object.GenerateObject();
                 _object.UpdateGradientSettings();

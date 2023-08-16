@@ -9,7 +9,7 @@ namespace Particles
         private void Start()
         {
             var particleRenderer = GetComponent<ParticleSystemRenderer>();
-            particleRenderer.material.renderQueue = (int) UnityEngine.Rendering.RenderQueue.Background;
+            particleRenderer.material.renderQueue = (int) UnityEngine.Rendering.RenderQueue.Transparent;
         }
 
         private void Update()

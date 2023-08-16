@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e9dd1e42a046538ee7c47fdbf7fdb2, type: 3}
-  m_Name: Test2
+  m_Name: Asteroid
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: bb4a776d3ffc0de4ab16d6d4259fe1d8, type: 2}
+  Material: {fileID: 2100000, guid: a1883d515e5e27d47871b87b51c9d412, type: 2}
   Resolution: 128
-  Radius: 100
+  Radius: 0.3
   Gradient:
     serializedVersion: 2
-    key0: {r: 0.5471698, g: 0.4967545, b: 0.2446778, a: 1}
-    key1: {r: 0.9056604, g: 0.825483, b: 0.41352794, a: 1}
-    key2: {r: 0.27493772, g: 0.735849, b: 0.23186183, a: 0}
-    key3: {r: 0.49056602, g: 0.4194108, b: 0.3767177, a: 0}
-    key4: {r: 0.3490566, g: 0.31164065, b: 0.28451407, a: 0}
-    key5: {r: 1, g: 1, b: 1, a: 0}
+    key0: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+    key1: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+    key2: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 16307
-    ctime1: 23789
-    ctime2: 32998
-    ctime3: 40863
-    ctime4: 53717
-    ctime5: 65535
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 6
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   NoiseLayers:
   - Enabled: 1
@@ -51,67 +51,67 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 157
-        NoiseStrength: 1
+        Seed: 0
+        NoiseStrength: 0.12
         NumberOfLayers: 2
-        BaseRoughness: 1.3
-        Roughness: 2.66
-        Persistence: 0.5
+        BaseRoughness: 0.6
+        Roughness: 1.06
+        Persistence: 0.69
         Center: {x: 0, y: 0, z: 0}
-        GroundLevel: 0.95
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
-        NumberOfLayers: 1
-        BaseRoughness: 1
-        Roughness: 2
-        Persistence: 0.5
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 0.8
+        WeightMultiplier: 0
   - Enabled: 1
     UseFirstLayerAsMask: 1
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 45
-        NoiseStrength: 0.44
+        Seed: 24
+        NoiseStrength: 0.3
         NumberOfLayers: 4
-        BaseRoughness: 1.78
-        Roughness: 0.77
-        Persistence: 0.76
+        BaseRoughness: 2.63
+        Roughness: 7.32
+        Persistence: 0.74
         Center: {x: 0, y: 0, z: 0}
-        GroundLevel: 0.4
+        GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
         NoiseStrength: 0
-        NumberOfLayers: 1
-        BaseRoughness: 1
-        Roughness: 2
-        Persistence: 0.5
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
-        WeightMultiplier: 0.8
+        WeightMultiplier: 0
   - Enabled: 1
-    UseFirstLayerAsMask: 0
+    UseFirstLayerAsMask: 1
     NoiseSettings:
-      Filter: 0
+      Filter: 1
       SimpleNoiseSettings:
-        Seed: 21
-        NoiseStrength: 0.1
-        NumberOfLayers: 4
-        BaseRoughness: 1
-        Roughness: 1
-        Persistence: 0.41
+        Seed: 0
+        NoiseStrength: 0
+        NumberOfLayers: 0
+        BaseRoughness: 0
+        Roughness: 0
+        Persistence: 0
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 0
-        NoiseStrength: 0
-        NumberOfLayers: 1
-        BaseRoughness: 1
-        Roughness: 2
-        Persistence: 0.5
+        NoiseStrength: 3.57
+        NumberOfLayers: 2
+        BaseRoughness: 1.14
+        Roughness: 5.6
+        Persistence: 0.45
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
         WeightMultiplier: 0.8

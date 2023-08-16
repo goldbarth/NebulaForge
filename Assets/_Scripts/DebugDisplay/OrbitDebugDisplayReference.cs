@@ -3,6 +3,7 @@ using UnityEngine;
 
 // Straight copy from Sebastian Lague's Solar System series. Adjusted to work with my code.
 // To adjust the orbit simulation and save a lot of time to set it up.
+// I dont use it anymore, but I keep it here for reference.
 [ExecuteInEditMode]
 public class OrbitDebugDisplayReference : MonoBehaviour
 {

@@ -3,6 +3,9 @@ using Planet;
 
 namespace SolarSystem
 {
+    // Source: Sebastian Lague's "Coding Adventure: Solar System"
+    // I have modified the basics, simplified it and expanded it with properties
+    // and calculations.
     [ExecuteAlways, RequireComponent(typeof(Rigidbody))]
     public class CelestialObject : MonoBehaviour
     {
