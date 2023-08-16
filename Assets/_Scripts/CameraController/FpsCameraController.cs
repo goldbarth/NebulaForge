@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace CameraController
 {
-    public class CameraController: MonoBehaviour
+    public class FpsCameraController: MonoBehaviour
     {
         [SerializeField] private float _speed = 400f;
         [SerializeField] private float _sensitivity = 2f;
-    
+        
         private void Update()
         {
             MouseMovement();
@@ -15,7 +15,6 @@ namespace CameraController
 
         private void KeyboardMovement()
         {
-            var transform = this.transform;
             transform.position += transform.forward * (Input.GetAxis("Vertical") * _speed * Time.deltaTime);
             transform.position += transform.right * (Input.GetAxis("Horizontal") * _speed * Time.deltaTime);
         }
