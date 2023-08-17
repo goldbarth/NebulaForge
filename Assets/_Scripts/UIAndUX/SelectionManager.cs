@@ -43,7 +43,6 @@ namespace UIAndUX
             
             if(IsObjectSelected())
                 return;
-
             
             if (_usingCenterDotInteraction)
                 CenterDotInteraction();

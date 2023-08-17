@@ -9,39 +9,23 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultSGTerrainMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultSGTerrainMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedMaterials/StylizedExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedMaterials/StylizedExplosion.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BrownPlanet/BrownPlanet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/MoonSurface.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/PopcornMoon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/RedPlanet/RedPlanet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTest.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestMaterial.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestMaterial.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/SelectionTest/SelectionTestTexture.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Material.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Texture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Test2/Test2Texture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CloudAtmosphere/CloudAtmosphereMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CloudAtmosphere/CloudAtmosphereMaterial.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleStars.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleStars.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/d95fd2a42afc62040b1ea4c12ad99f91.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/d95fd2a42afc62040b1ea4c12ad99f91.userdata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/NormalMaps/Rock3.tif.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/NormalMaps/Rock3.tif.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraController/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CustomEditorWindow/Dependencies/CreateNewAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/Jobs/CalculateOrbitsJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/Jobs/CalculateOrbitsJob.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayReference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/DebugDisplay/OrbitDebugDisplayReference.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Particles/StarParticlesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Particles/StarParticlesManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/Editor/ObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceShape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SolarSystem/CelestialObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim/Global Volume Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/CloudAtmosphere/CloudAtmosphere_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/CloudAtmosphere/CloudAtmosphere_SG.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion_SG.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +81,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.10/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.10/Runtime/Data/PostProcessData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.10/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.10/Editor/Generation/Targets/BuiltIn/Editor/AssetPostProcessors/MaterialPostprocessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/MaterialReferenceManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -247,7 +232,7 @@
       <workItem from="1692092267744" duration="28338000" />
       <workItem from="1692185003525" duration="2357000" />
       <workItem from="1692207819711" duration="3415000" />
-      <workItem from="1692212113277" duration="4247000" />
+      <workItem from="1692212113277" duration="11047000" />
     </task>
     <servers />
   </component>

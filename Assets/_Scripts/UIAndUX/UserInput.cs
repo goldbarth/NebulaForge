@@ -29,6 +29,8 @@ namespace UIAndUX
         
         private void Start()
         {
+            _planetValueInputPanel.SetActive(false);
+            
             _magnitudeSlider.onValueChanged.AddListener(ReadMagnitudeInput);
             _gravitySlider.onValueChanged.AddListener(ReadGravityInput);
             _massSlider.onValueChanged.AddListener(ReadMassInput);

@@ -42,15 +42,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CloudBump: 0.03
-    - _CloudScale: 2.99
+    - _CloudBump: 0.05
+    - _CloudScale: 3.11
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.05
     m_Colors:
-    - _CloudContrast: {r: 0.34, g: 1, b: 0, a: 0}
+    - _CloudContrast: {r: 0.68, g: 1, b: 0, a: 0}
     - _CloudSpeed: {r: 0.05, g: 0, b: 0, a: 0}
     - _Elevation_Min_Max: {r: 101.362114, g: 170.27396, b: 0, a: 0}
-    - _Tiling: {r: 0.51, g: 2.27, b: 0, a: 0}
+    - _Tiling: {r: 1.36, g: 2.91, b: 0, a: 0}
   m_BuildTextureStacks: []
