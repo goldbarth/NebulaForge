@@ -9,23 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="586f471a-3fe9-48b5-80ef-d027b064e726" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NebulaForge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedMaterials/StylizedExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/StylizedMaterials/StylizedExplosion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHole.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials &amp; Shaders/DefaultLitMaterial.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/BlackHole/BlackHoleMaterial.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CloudAtmosphere/CloudAtmosphereMaterial.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CloudAtmosphere/CloudAtmosphereMaterial.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleStars.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleStars.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/d95fd2a42afc62040b1ea4c12ad99f91.userdata" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map/d95fd2a42afc62040b1ea4c12ad99f91.userdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/CandyPlanet2/CandyPlanet2Material.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ObjectInstances/Twin1/Twin1Material.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Particles/StarParticlesMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Particles/StarParticlesMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Effects/BlackHoleSG.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/BlackHoleSG.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Effects/ParticleStars.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/ParticleStars.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SolarSystemSim/Global Volume Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/BlackHolePhotonRing_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/BlackHole/HeatDistortion_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/CloudAtmosphere/CloudAtmosphere_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/CloudAtmosphere/CloudAtmosphere_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion_SG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader Graphs/StylizedExplosion/StylizedExplosion_SG.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Planet/SurfaceGeneration/SurfaceElevationGradient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/SelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UIAndUX/UserInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Particles/RotateBelt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Particles/RotateBelt.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,26 +106,26 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32900432&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GoldbarthMobile&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
-      &quot;C:\\Users\\felix\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Felix Wahl\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\GitFork\NebulaForge -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -139,7 +133,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programme\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\Editor\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\GitFork\NebulaForge -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\GitFork\NebulaForge" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -233,6 +227,9 @@
       <workItem from="1692185003525" duration="2357000" />
       <workItem from="1692207819711" duration="3415000" />
       <workItem from="1692212113277" duration="11047000" />
+      <workItem from="1692273979361" duration="207000" />
+      <workItem from="1692274204963" duration="374000" />
+      <workItem from="1692274595699" duration="2112000" />
     </task>
     <servers />
   </component>
