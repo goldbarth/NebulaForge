@@ -24,12 +24,12 @@ namespace SolarSystem
         private void Awake()
         {
             Time.fixedDeltaTime = Universe.PhysicsTimeStep;
-            TimeScale = 10f;
+            TimeScale = 1f;
         }
 
         private void FixedUpdate()
         {
-            Time.timeScale = ManualTimeScale ? TimeScale : 10f;
+            Time.timeScale = ManualTimeScale ? TimeScale : 1f;
             UpdateAllObjects();
         }
 
