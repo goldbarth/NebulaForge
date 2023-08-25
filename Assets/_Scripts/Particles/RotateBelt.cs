@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class RotateBelt : MonoBehaviour
+namespace Particles
 {
-    private void Update()
+    public class RotateBelt : MonoBehaviour
     {
-        transform.Rotate(Vector3.forward * 0.1f);
+        private void Update()
+        {
+            transform.Rotate(Vector3.forward * 0.1f);
+        }
     }
 }
