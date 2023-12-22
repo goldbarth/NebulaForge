@@ -2,7 +2,7 @@ namespace CustomEditorWindow.Dependencies
 {
     public struct TextHolder
     {
-        public const string WindowTitle = "Planet Generator";
+        public const string WindowTitle = "Celestial Body Generator";
         public const string ObjectTypeLabel = "Surface Shape";
         public const string CurrentAssetLabel = "Asset";
         public const string UpdateAssetButtonText = "Update Asset";

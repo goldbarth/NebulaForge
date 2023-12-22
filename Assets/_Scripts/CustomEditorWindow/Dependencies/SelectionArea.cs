@@ -1,4 +1,3 @@
-using System.Linq;
 using SolarSystem;
 using UnityEditor;
 using UnityEngine;
@@ -7,36 +6,49 @@ namespace CustomEditorWindow.Dependencies
 {
     public class SelectionArea
     {
-        private readonly WindowLayout _layout;
+        private readonly CelestialObjectManager _celestialObjectManager = CelestialObjectManager.Instance;
+        
         private string[] _planetNamesArray;
+        private int _selectedPlanetIndex;
         private int _currentPlanetIndex;
 
-        public SelectionArea(WindowLayout layout)
-        {
-            _layout = layout;
-        }
-        
         public void DrawSelectionArea()
         {
+            SynchronizeDropdownWithSelection();
             DrawSelectionField();
+            UpdateSelectedGameObject();
         }
         
         private void DrawSelectionField()
         {
-            var celestialObjectManager = CelestialObjectManager.Instance;
-            _planetNamesArray = celestialObjectManager.GetCelestialBodyNames();
+            _planetNamesArray = _celestialObjectManager.GetCelestialBodyNames();
+            _selectedPlanetIndex = EditorGUILayout.Popup(TextHolder.SelectionHeader, _currentPlanetIndex, _planetNamesArray);
+        }
 
-            GUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(TextHolder.SelectionHeader);
-            var selectedPlanetIndex = EditorGUILayout.Popup(_currentPlanetIndex, _planetNamesArray);
-            GUILayout.EndHorizontal();
-            GUILayout.Space(5);
-    
-            if (selectedPlanetIndex != _currentPlanetIndex)
+        private void UpdateSelectedGameObject()
+        {
+            if (_selectedPlanetIndex != _currentPlanetIndex)
             {
-                _currentPlanetIndex = selectedPlanetIndex;
-                var selectedBody = celestialObjectManager.GetCelestialObject(_currentPlanetIndex);
+                _currentPlanetIndex = _selectedPlanetIndex;
+                var selectedBody = _celestialObjectManager.GetCelestialObject(_currentPlanetIndex);
                 Selection.activeGameObject = selectedBody.gameObject;
+            }
+        }
+        
+        private void SynchronizeDropdownWithSelection()
+        {
+            var currentSelection = Selection.activeGameObject;
+            if (currentSelection != null)
+            {
+                var currentCelestialObject = currentSelection.GetComponent<CelestialObject>();
+                if (currentCelestialObject != null)
+                {
+                    var newIndex = _celestialObjectManager.GetCelestialObjectIndex(currentCelestialObject);
+                    if (newIndex != -1 && newIndex != _currentPlanetIndex)
+                    {
+                        _currentPlanetIndex = newIndex;
+                    }
+                }
             }
         }
     }

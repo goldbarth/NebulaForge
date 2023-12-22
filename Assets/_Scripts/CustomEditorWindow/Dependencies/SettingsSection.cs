@@ -22,9 +22,9 @@ namespace CustomEditorWindow.Dependencies
         public SettingsSection(WindowLayout layout)
         {
             _layout = layout;
+            _selectionArea = new SelectionArea();
             _generalTab = new GeneralTab(_layout);
             _surfaceTab = new SurfaceTab(_layout);
-            _selectionArea = new SelectionArea(_layout);
             _tabHeaders = new[] { TextHolder.GeneralSettingsHeader, TextHolder.SurfaceSettingsHeader };
         }
 
@@ -40,6 +40,7 @@ namespace CustomEditorWindow.Dependencies
         
             DrawSettingsHeader();
             DrawSelectionArea();
+            GUILayout.Space(5);
             DrawTabsAndCurrentTab();
         
             GUILayout.FlexibleSpace();

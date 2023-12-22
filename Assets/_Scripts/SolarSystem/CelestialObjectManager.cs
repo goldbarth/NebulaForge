@@ -24,6 +24,11 @@ namespace SolarSystem
             return _celestialObjects[index];
         }
         
+        public int GetCelestialObjectIndex(CelestialObject celestialObject)
+        {
+            return _celestialObjects.IndexOf(celestialObject);
+        }
+        
         public CelestialObject SetCelestialObject(int index, CelestialObject celestialObject)
         {
             return _celestialObjects[index] = celestialObject;
