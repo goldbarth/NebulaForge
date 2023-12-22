@@ -18,6 +18,7 @@ namespace CustomEditorWindow.Dependencies
         public void DrawGeneralSettingsTab()
         {
             DrawGeneralSettingsHeader();
+            GUILayout.Space(5);
             DrawObjectSettingsField();
             DrawPropertyFields();
         }

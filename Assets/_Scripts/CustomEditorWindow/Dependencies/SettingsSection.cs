@@ -9,6 +9,7 @@ namespace CustomEditorWindow.Dependencies
 {
     public class SettingsSection
     {
+        private readonly SelectionArea _selectionArea;
         private readonly GeneralTab _generalTab;
         private readonly SurfaceTab _surfaceTab;
         private readonly WindowLayout _layout;
@@ -23,6 +24,7 @@ namespace CustomEditorWindow.Dependencies
             _layout = layout;
             _generalTab = new GeneralTab(_layout);
             _surfaceTab = new SurfaceTab(_layout);
+            _selectionArea = new SelectionArea(_layout);
             _tabHeaders = new[] { TextHolder.GeneralSettingsHeader, TextHolder.SurfaceSettingsHeader };
         }
 
@@ -37,6 +39,7 @@ namespace CustomEditorWindow.Dependencies
             GUILayout.BeginArea(areaRect);
         
             DrawSettingsHeader();
+            DrawSelectionArea();
             DrawTabsAndCurrentTab();
         
             GUILayout.FlexibleSpace();
@@ -58,6 +61,11 @@ namespace CustomEditorWindow.Dependencies
             EditorGUILayout.Space(3);
             GUILayout.Label(_layout.SettingsHeader, LabelStyle.SetCenteredBoldLabel());
             EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
+        }
+        
+        private void DrawSelectionArea()
+        {
+            _selectionArea.DrawSelectionArea();
         }
 
         private void DrawTabsAndCurrentTab()
