@@ -40,3 +40,6 @@ Im Großen und Ganzen bin ich sehr zufrieden, sehe aber auch Verbesserungs- und 
 
 ### Nicholas Veselov:
 - [FPS Counter and Graph](https://nvjob.github.io/unity/nvjob-fps-counter-and-graph) - nvjob.github.io - MIT License
+
+### DK:
+- [DK2go](https://github.com/DK2go) Who was involved in the beginning, but had to pull out due to a job offer.
