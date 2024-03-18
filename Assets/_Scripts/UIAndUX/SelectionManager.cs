@@ -25,7 +25,7 @@ namespace UIAndUX
         public event Action OnObjectDeselectedReady;
         public event Action OnHoverOverObject;
 
-        private void Awake()
+        private void Start()
         {
             _camera = Camera.main;
         }

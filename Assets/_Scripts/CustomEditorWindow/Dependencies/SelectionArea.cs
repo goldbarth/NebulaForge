@@ -1,6 +1,5 @@
 using SolarSystem;
 using UnityEditor;
-using UnityEngine;
 
 namespace CustomEditorWindow.Dependencies
 {
@@ -11,7 +10,7 @@ namespace CustomEditorWindow.Dependencies
         private string[] _planetNamesArray;
         private int _selectedPlanetIndex;
         private int _currentPlanetIndex;
-
+        
         public void DrawSelectionArea()
         {
             SynchronizeDropdownWithSelection();

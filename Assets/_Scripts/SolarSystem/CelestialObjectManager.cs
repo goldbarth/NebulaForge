@@ -7,8 +7,7 @@ namespace SolarSystem
     public class CelestialObjectManager : GenericSingleton<CelestialObjectManager>
     {
         [SerializeField] private List<CelestialObject> _celestialObjects = new();
-    
-    
+        
         public void AddCelestialObject(CelestialObject celestialObject)
         {
             _celestialObjects.Add(celestialObject);
@@ -41,6 +40,7 @@ namespace SolarSystem
             {
                 names[i] = _celestialObjects[i].name;
             }
+            
             return names;
         }
     }

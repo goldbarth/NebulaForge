@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace HelpersAndExtensions
 {
+    [ExecuteAlways]
     public class GenericSingleton<T> : MonoBehaviour where T : Component
     {
         private static T _instance;
@@ -25,8 +26,13 @@ namespace HelpersAndExtensions
             }
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
+            if (!Application.isPlaying)
+            {
+                _instance = this as T;
+                return;
+            }
             if (_instance == null)
             {
                 _instance = this as T;

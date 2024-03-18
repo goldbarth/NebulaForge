@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8d6e38ba323a8b5419fe7a112ddfaae6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Planet_Texture:
         m_Texture: {fileID: 2800000, guid: c0753e3e4510b2540aec84aad3821d53, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -43,5 +47,5 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.05
     m_Colors:
-    - _Elevation_Min_Max: {r: 32.052895, g: 80.739174, b: 0, a: 0}
+    - _Elevation_Min_Max: {r: 31, g: 31, b: 0, a: 0}
   m_BuildTextureStacks: []

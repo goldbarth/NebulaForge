@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 using Planet;
+using SolarSystem;
 
 namespace CustomEditorWindow
 {
@@ -17,6 +18,7 @@ namespace CustomEditorWindow
     /// </summary>
     public class WindowLayout : View
     {
+        private readonly CelestialObjectManager _celestialObjectManager = CelestialObjectManager.Instance;
         public ObjectGenerator ObjectGenerator{ get; private set; }
         public ObjectSettings ObjectSettings { get; set; }
         public string SettingsHeader { get; private set; }
@@ -70,6 +72,7 @@ namespace CustomEditorWindow
             
             _lastUpdateTime = Time.realtimeSinceStartup;
             EditorApplication.update += OnEditorUpdate;
+            EditorApplication.hierarchyChanged += HierarchyChanged;
         }
 
         private void OnDisable()
@@ -84,6 +87,7 @@ namespace CustomEditorWindow
             ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
             
             EditorApplication.update -= OnEditorUpdate;
+            EditorApplication.hierarchyChanged -= HierarchyChanged;
         }
 
         [MenuItem("Tools/Planet Generator")]
@@ -114,6 +118,29 @@ namespace CustomEditorWindow
         {
             FindAndSetObjectSettings();
             SetSerializedProperties();
+        }
+        
+        private void HierarchyChanged()
+        {
+            // if a new game object with with a CelestialObject component is added to the scene
+            // add it to the CelestialObjectManager list
+            // if a game object with a CelestialObject component is deleted from the scene
+            // remove it from the CelestialObjectManager list
+
+            var selectedGameObject = Selection.activeGameObject;
+            if (selectedGameObject == null) return;
+            
+            var celestialObject = selectedGameObject.GetComponent<CelestialObject>();
+            if (celestialObject == null) return;
+            
+            if (_celestialObjectManager.GetCelestialObjectIndex(celestialObject) == -1)
+            {
+                _celestialObjectManager.AddCelestialObject(celestialObject);
+            }
+            else
+            {
+                _celestialObjectManager.RemoveCelestialObject(celestialObject);
+            }
         }
 
         #region Editor Update Loop
