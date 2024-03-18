@@ -126,6 +126,7 @@ namespace CustomEditorWindow
             // add it to the CelestialObjectManager list
             // if a game object with a CelestialObject component is deleted from the scene
             // remove it from the CelestialObjectManager list
+            UpdateCelestialObjectListFromScene();
 
             var selectedGameObject = Selection.activeGameObject;
             if (selectedGameObject == null) return;
@@ -140,6 +141,16 @@ namespace CustomEditorWindow
             else
             {
                 _celestialObjectManager.RemoveCelestialObject(celestialObject);
+            }
+        }
+        
+        private void UpdateCelestialObjectListFromScene()
+        {
+            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
+            _celestialObjectManager.ClearCelestialObjects();
+            foreach (var obj in currentSceneObjects)
+            {
+                _celestialObjectManager.AddCelestialObject(obj);
             }
         }
 

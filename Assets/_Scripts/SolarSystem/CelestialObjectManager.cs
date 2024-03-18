@@ -17,6 +17,11 @@ namespace SolarSystem
         {
             _celestialObjects.Remove(celestialObject);
         }
+        
+        public void ClearCelestialObjects()
+        {
+            _celestialObjects.Clear();
+        }
     
         public CelestialObject GetCelestialObject(int index)
         {

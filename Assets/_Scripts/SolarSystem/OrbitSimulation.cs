@@ -21,8 +21,9 @@ namespace SolarSystem
     
         [SerializeField] private CelestialObject[] _objects;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             Time.fixedDeltaTime = Universe.PhysicsTimeStep;
             TimeScale = 1f;
         }
