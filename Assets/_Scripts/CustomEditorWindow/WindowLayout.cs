@@ -7,6 +7,7 @@ using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Planet;
 using SolarSystem;
 
@@ -18,7 +19,7 @@ namespace CustomEditorWindow
     /// </summary>
     public class WindowLayout : View
     {
-        private readonly CelestialObjectManager _celestialObjectManager = CelestialObjectManager.Instance;
+        private CelestialObjectManager _celestialObjectManager;
         public ObjectGenerator ObjectGenerator{ get; private set; }
         public ObjectSettings ObjectSettings { get; set; }
         public string SettingsHeader { get; private set; }
@@ -53,6 +54,7 @@ namespace CustomEditorWindow
 
         private void OnEnable()
         {
+            _celestialObjectManager = CelestialObjectManager.Instance;
             FindAndSetObjectSettings();
         
             _sidebarSection = new SidebarSection(this);
@@ -69,6 +71,7 @@ namespace CustomEditorWindow
         
             SetObjectSettings();
             InitializeProperties();
+
             
             _lastUpdateTime = Time.realtimeSinceStartup;
             EditorApplication.update += OnEditorUpdate;
@@ -126,29 +129,33 @@ namespace CustomEditorWindow
             // add it to the CelestialObjectManager list
             // if a game object with a CelestialObject component is deleted from the scene
             // remove it from the CelestialObjectManager list
-            UpdateCelestialObjectListFromScene();
+            
+            // using a hash set to check if the objects are still in the scene. prevents duplicates and is faster
+            var sceneObjects = new HashSet<CelestialObject>(FindObjectsOfType<CelestialObject>());
+            var objectsToRemove = new List<CelestialObject>();
 
-            var selectedGameObject = Selection.activeGameObject;
-            if (selectedGameObject == null) return;
-            
-            var celestialObject = selectedGameObject.GetComponent<CelestialObject>();
-            if (celestialObject == null) return;
-            
-            if (_celestialObjectManager.GetCelestialObjectIndex(celestialObject) == -1)
+            // Check if the objects in the scene are still in the list
+            foreach (var obj in _celestialObjectManager.CelestialObjects)
             {
-                _celestialObjectManager.AddCelestialObject(celestialObject);
+                if (!sceneObjects.Contains(obj))
+                {
+                    objectsToRemove.Add(obj);
+                }
+                else
+                {
+                    // Remove the object from the sceneObjects list
+                    sceneObjects.Remove(obj);
+                }
             }
-            else
+
+            // Remove objects that are not in the scene anymore
+            foreach (var obj in objectsToRemove)
             {
-                _celestialObjectManager.RemoveCelestialObject(celestialObject);
+                _celestialObjectManager.RemoveCelestialObject(obj);
             }
-        }
-        
-        private void UpdateCelestialObjectListFromScene()
-        {
-            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
-            _celestialObjectManager.ClearCelestialObjects();
-            foreach (var obj in currentSceneObjects)
+
+            // Add new objects to the list
+            foreach (var obj in sceneObjects)
             {
                 _celestialObjectManager.AddCelestialObject(obj);
             }

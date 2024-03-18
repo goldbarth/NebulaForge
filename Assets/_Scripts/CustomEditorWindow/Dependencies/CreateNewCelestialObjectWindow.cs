@@ -1,55 +1,52 @@
-# if UNITY_EDITOR
-
 using UnityEditor;
 using UnityEngine;
 using Planet;
 
 namespace CustomEditorWindow.Dependencies
 {
-    public class CreateNewAssetWindow : View
+    public class CreateNewCelestialObjectWindow : View
     {
-        private readonly CreateNewAsset _createNewAsset = new();
-    
+        private string _objectName = string.Empty;
+        
         private ObjectGenerator _objectGenerator;
         private WindowLayout _layout;
-    
-
-        private string _assetName = string.Empty;
-
+        
+        private readonly CreateNewCelestialObject _createNewCelestialObject = new();
+        
         private void OnEnable()
         {
             _layout = CreateInstance<WindowLayout>();
             _objectGenerator = _layout.ObjectGenerator;
         }
-
+        
         public static void ShowWindow()
         {
-            var window = GetWindow<CreateNewAssetWindow>(TextHolder.CreateAssetWindowHeader);
-            window.minSize = new Vector2(300, 400);
-            window.maxSize = new Vector2(300, 400);
+            var window = GetWindow<CreateNewCelestialObjectWindow>(TextHolder.CreateAssetWindowHeader);
+            window.minSize = new Vector2(400, 450);
+            window.maxSize = new Vector2(400, 450);
         }
-
+        
         private void OnGUI()
         {
             const float buttonBorderWidth = 15f;
-            EditorGUILayout.LabelField("Enter a name for the new asset:");
+            EditorGUILayout.LabelField("Enter a name for the new celestial object:");
             EditorGUILayout.Space(10);
-            _assetName = EditorGUILayout.TextField("Asset Name", _assetName);
+            _objectName = EditorGUILayout.TextField("Celestial Object Name", _objectName);
             EditorGUILayout.Space(7);
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(TextHolder.CreateButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.CreateButtonName), buttonBorderWidth)))
-                _createNewAsset.CreateAsset(_objectGenerator, _layout, _assetName);
+                _createNewCelestialObject.CreateObject(_objectName);
             GUILayout.EndHorizontal();
         
-            if (_createNewAsset.IsAssetNameEmpty)
-                EditorGUILayout.HelpBox("Asset name can´t be empty! " +
-                                        "You need to enter a name for the asset.", MessageType.Warning);
+            if (_createNewCelestialObject.IsAssetNameEmpty)
+                EditorGUILayout.HelpBox("The name can´t be empty! " +
+                                        "You need to enter a name for the celestial object.", MessageType.Warning);
         
         
-            if (!_createNewAsset.IsAssetNameValid)
-                EditorGUILayout.HelpBox("An asset with the same name already exists. " +
-                                        "Please enter a new name.", MessageType.Warning);
+            // if (!_createNewCelestialObject.IsAssetNameValid)
+            //     EditorGUILayout.HelpBox("An asset with the same name already exists. " +
+            //                             "Please enter a new name.", MessageType.Warning);
 
             GUILayout.FlexibleSpace();
         
@@ -65,6 +62,3 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
-
-#endif
-

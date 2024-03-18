@@ -51,7 +51,7 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawCreateNewAssetPopOut()
         {
-            var buttonName = "New Asset";
+            const string buttonName = "New Asset";
             if (GUILayout.Button(buttonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
                 CreateNewAssetWindow.ShowWindow();
         }

@@ -7,6 +7,8 @@ namespace SolarSystem
     public class CelestialObjectManager : GenericSingleton<CelestialObjectManager>
     {
         [SerializeField] private List<CelestialObject> _celestialObjects = new();
+
+        public List<CelestialObject> CelestialObjects => _celestialObjects;
         
         public void AddCelestialObject(CelestialObject celestialObject)
         {

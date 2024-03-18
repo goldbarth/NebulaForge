@@ -39,7 +39,11 @@ namespace CustomEditorWindow.Dependencies
             GUILayout.BeginArea(areaRect);
         
             DrawSettingsHeader();
+            GUILayout.BeginHorizontal();
             DrawSelectionArea();
+            GUILayout.FlexibleSpace();
+            DrawCreateNewCelestialObjectPopOut();
+            GUILayout.EndHorizontal();
             GUILayout.Space(5);
             DrawTabsAndCurrentTab();
         
@@ -94,8 +98,8 @@ namespace CustomEditorWindow.Dependencies
         
         private void DrawAutoUpdateToggle()
         {
-            var tooltip = "Auto-Update is performance intensive and can cause lags when enabled. " +
-                          "It should only be used when necessary. For example, when adjusting settings to see immediate results.";
+            const string tooltip = "Auto-Update is performance intensive and can cause lags when enabled. " +
+                                   "It should only be used when necessary. For example, when adjusting settings to see immediate results.";
             _layout.IsAutoUpdate = GUILayout.Toggle(_layout.IsAutoUpdate, new GUIContent(TextHolder.AutoUpdateToggleText, tooltip));
         }
 
@@ -133,6 +137,17 @@ namespace CustomEditorWindow.Dependencies
                 _layout.AttachDataToAsset(selectedAsset);
                 _layout.ObjectGenerator.GenerateObject();
             }
+        }
+        
+        private void DrawCreateNewCelestialObjectPopOut()
+        {
+            const string labelName = "Create Celestial Object";
+            const string buttonName = TextHolder.NewObjectButtonName;
+            GUILayout.BeginHorizontal();
+            GUILayout.Label(labelName);
+            if (GUILayout.Button(buttonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
+                CreateNewCelestialObjectWindow.ShowWindow();
+            GUILayout.EndHorizontal();
         }
     }
 }

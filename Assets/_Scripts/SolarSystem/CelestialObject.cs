@@ -48,7 +48,9 @@ namespace SolarSystem
 
         private void Awake()
         {
-            _radius = GetComponentInChildren<ObjectGenerator>().Radius;
+            if (GetComponentInChildren<ObjectGenerator>() != null)
+                _radius = GetComponentInChildren<ObjectGenerator>().Radius;
+            
             _rigidbody = GetComponent<Rigidbody>();
             CurrentVelocity = InitialVelocity;
         

@@ -2,7 +2,7 @@ namespace CustomEditorWindow.Dependencies
 {
     public struct TextHolder
     {
-        public const string WindowTitle = "Celestial Body Generator";
+        public const string WindowTitle = "Celestial Object Generator";
         public const string ObjectTypeLabel = "Surface Shape";
         public const string CurrentAssetLabel = "Asset";
         public const string UpdateAssetButtonText = "Update Asset";
@@ -16,7 +16,11 @@ namespace CustomEditorWindow.Dependencies
         public const string SidebarSubHeader2= "Sphere Bodies";
         public const string GeneralSettingsHeader = "General";
         public const string SurfaceSettingsHeader = "Surface";
-        public const string SelectionHeader = "Select Celestial Body";
+        public const string SelectionHeader = "Select Celestial Object";
         public const string ElevationLayerSettingsHeader = "Elevation Layer Settings";
+        public const string CreateAssetWindowHeader = "Create Celestial Object";
+        public const string CreateButtonName = "Create";
+        public const string CloseButtonName = "Close";
+        public const string NewObjectButtonName = "New";
     }
 }
