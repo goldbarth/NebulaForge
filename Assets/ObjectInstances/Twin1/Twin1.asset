@@ -13,29 +13,29 @@ MonoBehaviour:
   m_Name: Twin1
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 2100000, guid: 8957d5a6d5260de45a18b584eda2b281, type: 2}
+  Material: {fileID: 2100000, guid: 73f3b7f2d78be01459b3967c74791b96, type: 2}
   Resolution: 128
   Radius: 50
   Gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.42787078, b: 0.21960783, a: 1}
-    key1: {r: 1, g: 0.49223223, b: 0.17358488, a: 1}
-    key2: {r: 1, g: 0.6043369, b: 0.35283017, a: 1}
-    key3: {r: 0.21960783, g: 0.43909425, b: 1, a: 0}
-    key4: {r: 0.21960783, g: 0.47312275, b: 1, a: 0}
-    key5: {r: 1, g: 0.47033423, b: 0.35294116, a: 0}
+    key0: {r: 0.2830189, g: 0.12534387, b: 0.012014948, a: 1}
+    key1: {r: 0.41900003, g: 0.24759091, b: 0.12515585, a: 1}
+    key2: {r: 0.6039216, g: 0.35943398, b: 0.1848, a: 1}
+    key3: {r: 0.9056604, g: 0.825483, b: 0.41352794, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
     key6: {r: 0.21960783, g: 0.5804781, b: 1, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 18993
-    ctime2: 29161
-    ctime3: 34532
-    ctime4: 42405
-    ctime5: 51223
+    ctime0: 18993
+    ctime1: 30120
+    ctime2: 39904
+    ctime3: 52566
+    ctime4: 65535
+    ctime5: 65535
     ctime6: 65535
     ctime7: 0
     atime0: 0
-    atime1: 31655
+    atime1: 58322
     atime2: 65535
     atime3: 0
     atime4: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 7
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 3
   NoiseLayers:
   - Enabled: 1
@@ -51,11 +51,11 @@ MonoBehaviour:
     NoiseSettings:
       Filter: 0
       SimpleNoiseSettings:
-        Seed: 363
+        Seed: 365
         NoiseStrength: 0.08
         NumberOfLayers: 2
         BaseRoughness: 0.71
-        Roughness: 4.08
+        Roughness: 2.66
         Persistence: 0.87
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0
