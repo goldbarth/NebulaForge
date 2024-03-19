@@ -18,7 +18,7 @@ namespace CustomEditorWindow.Dependencies
     
         private readonly string[] _tabHeaders;
         private int _tabIndex;
-
+        
         public SettingsSection(ObjectGeneratorWindow layout)
         {
             _layout = layout;
@@ -39,7 +39,7 @@ namespace CustomEditorWindow.Dependencies
             GUILayout.BeginArea(areaRect);
         
             DrawSettingsHeader();
-            DrawSelectionArea();
+            DrawCelestialObjectSelection();
             GUILayout.Space(5);
             DrawTabsAndCurrentTab();
         
@@ -59,12 +59,13 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawSettingsHeader()
         {
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(3);
             GUILayout.Label(_layout.SettingsHeader, LabelStyle.SetCenteredBoldLabel());
             EditorGUILayout.LabelField(string.Empty, GUI.skin.horizontalSlider);
         }
         
-        private void DrawSelectionArea()
+        private void DrawCelestialObjectSelection()
         {
             _selectionArea.DrawSelectionArea();
         }

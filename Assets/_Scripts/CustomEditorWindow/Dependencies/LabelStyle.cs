@@ -54,6 +54,24 @@ namespace CustomEditorWindow.Dependencies
         {
             return GUI.skin.button.CalcSize(new GUIContent(buttonName)).x;
         }
+        
+        /// <summary>
+        /// If no color is provided, the default color is a dark gray.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns>Separation Line Style</returns>
+        public static GUIStyle SeparationLineColor(Color color = default)
+        {
+            
+            if (color == default)
+                color = new Color(0.3f, 0.3f, 0.3f, 1f);
+            
+            var separationLine = new Texture2D(1, 1);
+            separationLine.SetPixel(0,0, color);
+            separationLine.Apply();
+            var style = new GUIStyle { normal = { background = separationLine } };
+            return style;
+        }
     }
 }
 

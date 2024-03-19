@@ -9,67 +9,52 @@ namespace CustomEditorWindow.Dependencies
         private string _objectName = string.Empty;
         private int _resolution = 128;
         private float _radius = 60f;
-        private Gradient _gradient = new();
-        private ObjectType _objectType;
         
-        private ObjectGenerator _objectGenerator;
-        private ObjectGeneratorWindow _layout;
+        private Gradient _gradient = new();
+        private Texture2D _separationLine;
+        private ObjectType _objectType;
 
         private readonly CreateNewCelestialObject _createNewCelestialObject = new();
-        private readonly Color _separationLineColor = new(0.3f, 0.3f, 0.3f, 1f);
-        private readonly GUIStyle _separationLineStyle = new();
-        
-        private Texture2D _separationLine;
-        
-        private void OnEnable()
-        {
-            _layout = CreateInstance<ObjectGeneratorWindow>();
-            _objectGenerator = _layout.ObjectGenerator;
-            
-            _separationLine = new Texture2D(1, 1);
-            _separationLine.SetPixel(0,0, _separationLineColor);
-            _separationLine.Apply();
-            
-            _separationLineStyle.normal.background = _separationLine;
-        }
         
         public static void ShowWindow()
         {
             var window = GetWindow<CreateNewCelestialObjectWindow>(TextHolder.CreateObjectWindowHeader);
-            window.minSize = new Vector2(400, 450);
-            window.maxSize = new Vector2(400, 450);
+            window.minSize = new Vector2(280, 350);
+            window.maxSize = new Vector2(280, 350);
         }
         
         private void OnGUI()
         {
             const float buttonBorderWidth = 15f;
             
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
-            EditorGUILayout.Space(7);
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
+            EditorGUILayout.Space(4);
             _objectName = EditorGUILayout.TextField("Name:", _objectName);
             EditorGUILayout.Space(2);
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(4);
             _objectType = (ObjectType) EditorGUILayout.EnumPopup("Type:", _objectType);
             EditorGUILayout.Space(2);
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
-            EditorGUILayout.Space(4);
-            _gradient = EditorGUILayout.GradientField("Gradient:", _gradient);EditorGUILayout.Space(2);
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(4);
             _resolution = EditorGUILayout.IntField("Resolution:", _resolution);
             EditorGUILayout.Space(2);
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(4);
             _radius = EditorGUILayout.FloatField("Radius:", _radius);
             EditorGUILayout.Space(2);
-            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
-            
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _gradient = EditorGUILayout.GradientField("Gradient:", _gradient);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
+            EditorGUILayout.Space(4);
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(TextHolder.CreateButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.CreateButtonName), buttonBorderWidth)))
                 _createNewCelestialObject.CreateObject(_objectType, _gradient, _radius, _resolution, _objectName);
             GUILayout.EndHorizontal();
+            EditorGUILayout.Space(4);
             
             if (_objectType == ObjectType.TerrestrialBody)
                 EditorGUILayout.HelpBox("The Terrestrial Body is good for eg. a planets with elevation (and habitat)." + 

@@ -22,7 +22,11 @@ namespace CustomEditorWindow.Dependencies
         private void DrawSelectionField()
         {
             _planetNamesArray = _celestialObjectManager.GetCelestialBodyNames();
-            _selectedPlanetIndex = EditorGUILayout.Popup(TextHolder.SelectionHeader, _currentPlanetIndex, _planetNamesArray, GUILayout.Width(300));
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            _selectedPlanetIndex = EditorGUILayout.Popup(TextHolder.SelectionHeader, 
+                                                            _currentPlanetIndex, _planetNamesArray, GUILayout.Width(300));
+            GUILayout.EndHorizontal();
         }
 
         private void UpdateSelectedGameObject()

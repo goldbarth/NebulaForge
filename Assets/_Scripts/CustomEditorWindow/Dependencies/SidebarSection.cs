@@ -105,6 +105,7 @@ namespace CustomEditorWindow.Dependencies
 
         private static void DrawSidebarHeader()
         {
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(3);
             GUILayout.Label(TextHolder.SidebarHeader, LabelStyle.SetCenteredBoldLabel());
             EditorGUILayout.Space(3);
