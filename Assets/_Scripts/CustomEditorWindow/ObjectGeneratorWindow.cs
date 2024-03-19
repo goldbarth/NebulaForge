@@ -75,7 +75,7 @@ namespace CustomEditorWindow
             
             _lastUpdateTime = Time.realtimeSinceStartup;
             EditorApplication.update += OnEditorUpdate;
-            EditorApplication.hierarchyChanged += HierarchyChanged;
+            EditorApplication.hierarchyChanged += OnHierarchyChanged;
         }
 
         private void OnDisable()
@@ -90,7 +90,7 @@ namespace CustomEditorWindow
             ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
             
             EditorApplication.update -= OnEditorUpdate;
-            EditorApplication.hierarchyChanged -= HierarchyChanged;
+            EditorApplication.hierarchyChanged -= OnHierarchyChanged;
         }
 
         [MenuItem("Tools/Planet Generator")]
@@ -123,18 +123,12 @@ namespace CustomEditorWindow
             SetSerializedProperties();
         }
         
-        private void HierarchyChanged()
+        private void OnHierarchyChanged()
         {
-            // if a new game object with with a CelestialObject component is added to the scene
-            // add it to the CelestialObjectManager list
-            // if a game object with a CelestialObject component is deleted from the scene
-            // remove it from the CelestialObjectManager list
-            
-            // using a hash set to check if the objects are still in the scene. prevents duplicates and is faster
+            // using a hash set to check if the objects are still in the scene. prevents duplicates and is faster.
             var sceneObjects = new HashSet<CelestialObject>(FindObjectsOfType<CelestialObject>());
             var objectsToRemove = new List<CelestialObject>();
-
-            // Check if the objects in the scene are still in the list
+            
             foreach (var obj in _celestialObjectManager.CelestialObjects)
             {
                 if (!sceneObjects.Contains(obj))
@@ -143,19 +137,26 @@ namespace CustomEditorWindow
                 }
                 else
                 {
-                    // Remove the object from the sceneObjects list
                     sceneObjects.Remove(obj);
                 }
             }
-
-            // Remove objects that are not in the scene anymore
+            
             foreach (var obj in objectsToRemove)
             {
                 _celestialObjectManager.RemoveCelestialObject(obj);
             }
-
-            // Add new objects to the list
+            
             foreach (var obj in sceneObjects)
+            {
+                _celestialObjectManager.AddCelestialObject(obj);
+            }
+        }
+        
+        private void UpdateCelestialObjectListFromScene()
+        {
+            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
+            _celestialObjectManager.ClearCelestialObjects();
+            foreach (var obj in currentSceneObjects)
             {
                 _celestialObjectManager.AddCelestialObject(obj);
             }
@@ -317,6 +318,7 @@ namespace CustomEditorWindow
         
         private void SetSerializedProperties()
         {
+            if (ObjectSettings == null) return;
             _serializedObject = new SerializedObject(ObjectSettings);
             ObjectTypeProperty = _serializedObject.FindProperty("ObjectType");
             MaterialProperty = _serializedObject.FindProperty("Material");

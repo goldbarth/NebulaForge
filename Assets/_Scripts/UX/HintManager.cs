@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-namespace UIAndUX
+namespace UX
 {
     public class HintManager : MonoBehaviour
     {

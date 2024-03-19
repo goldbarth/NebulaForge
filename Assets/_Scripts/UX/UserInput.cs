@@ -3,7 +3,7 @@ using SolarSystem;
 using UnityEngine;
 using System;
 
-namespace UIAndUX
+namespace UX
 {
     public class UserInput : MonoBehaviour
     {
