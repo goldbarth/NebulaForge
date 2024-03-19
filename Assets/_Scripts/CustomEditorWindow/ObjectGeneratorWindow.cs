@@ -149,6 +149,7 @@ namespace CustomEditorWindow
             foreach (var obj in sceneObjects)
             {
                 _celestialObjectManager.AddCelestialObject(obj);
+                _celestialObjectManager.AddAssetPathToCelestialObject(obj, FolderPath.GetAssetFolder(obj.name));
             }
         }
         

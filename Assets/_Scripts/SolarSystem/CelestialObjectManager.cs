@@ -1,5 +1,8 @@
+#if UNITY_EDITOR
+
 using System.Collections.Generic;
 using HelpersAndExtensions;
+using UnityEditor;
 using UnityEngine;
 
 namespace SolarSystem
@@ -7,17 +10,45 @@ namespace SolarSystem
     public class CelestialObjectManager : GenericSingleton<CelestialObjectManager>
     {
         [SerializeField] private List<CelestialObject> _celestialObjects = new();
-
+        
+        private readonly Dictionary<CelestialObject, List<string>> _celestialObjectAssets = new();
         public List<CelestialObject> CelestialObjects => _celestialObjects;
+        
         
         public void AddCelestialObject(CelestialObject celestialObject)
         {
-            _celestialObjects.Add(celestialObject);
+            if (!_celestialObjects.Contains(celestialObject))
+            {
+                _celestialObjects.Add(celestialObject);
+                _celestialObjectAssets[celestialObject] = new List<string>();
+            }
         }
     
         public void RemoveCelestialObject(CelestialObject celestialObject)
         {
-            _celestialObjects.Remove(celestialObject);
+            if (_celestialObjects.Remove(celestialObject))
+            {
+                if (_celestialObjectAssets.TryGetValue(celestialObject, out var assetPaths))
+                {
+                    foreach (var path in assetPaths)
+                    {
+                        AssetDatabase.DeleteAsset(path);
+                    }
+                    _celestialObjectAssets.Remove(celestialObject);
+                }
+            }
+        }
+
+        public void AddAssetPathToCelestialObject(CelestialObject celestialObject, string assetPath)
+        {
+            if (_celestialObjectAssets.TryGetValue(celestialObject, out var asset))
+            {
+                asset.Add(assetPath);
+            }
+            else
+            {
+                Debug.LogError("CelestialObjectManager: CelestialObject not found");
+            }
         }
         
         public void ClearCelestialObjects()
@@ -35,10 +66,6 @@ namespace SolarSystem
             return _celestialObjects.IndexOf(celestialObject);
         }
         
-        public CelestialObject SetCelestialObject(int index, CelestialObject celestialObject)
-        {
-            return _celestialObjects[index] = celestialObject;
-        }
     
         public string[] GetCelestialBodyNames()
         {
@@ -52,3 +79,5 @@ namespace SolarSystem
         }
     }
 }
+
+#endif
