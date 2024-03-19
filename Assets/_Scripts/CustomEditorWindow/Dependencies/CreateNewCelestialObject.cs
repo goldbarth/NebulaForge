@@ -1,62 +1,65 @@
+using PlanetSettings.NoiseSettings;
 using HelpersAndExtensions;
+using PlanetSettings;
 using SolarSystem;
 using UnityEngine;
 using Planet;
-using PlanetSettings;
-using PlanetSettings.NoiseSettings;
 
 namespace CustomEditorWindow.Dependencies
 {
     public class CreateNewCelestialObject
     {
-        public bool IsAssetNameEmpty;
-
-        private string _objectName = string.Empty;
+        private readonly CreateNewAsset _createNewAsset = new();
         
-        private float _radius = 60f;
-        private Gradient _lineRendererGradient;
+        public bool IsObjectNameEmpty;
+        public bool IsObjectNameValid = true;
 
-        public void CreateObject(string objectName = "")
+        public void CreateObject(ObjectType objectType, Gradient gradient, float radius, int resolution, string objectName = "")
         {
-            _objectName = objectName;
-            if (!string.IsNullOrEmpty(_objectName))
+            if (!string.IsNullOrEmpty(objectName))
             {
-                IsAssetNameEmpty = false;
-                if (GameObject.Find(_objectName) != null)
+                IsObjectNameEmpty = false;
+                if (GameObject.Find(objectName) != null)
                 {
                     Debug.LogError("An object with the same name already exists.");
                     return;
                 }
                 
-                if (GameObject.Find(_objectName) == null)
+                if (GameObject.Find(objectName) == null)
                 {
-                    // create new object in the scene and attach the celestial object script to it.
-                    Debug.Log("Creating new celestial object with the name: " + _objectName);
-                    var newObject = new GameObject(_objectName);
+                    IsObjectNameValid = true;
+
+                    // create the new object
+                    var newObject = new GameObject(objectName);
+                    newObject.transform.parent = OrbitSimulation.Instance.transform;
                     newObject.GetOrAddComponent2<Rigidbody>();
                     newObject.GetOrAddComponent2<CelestialObject>();
                     
+                    // add a child object with the collider holder script attached to it.
                     var newColliderHolder = new GameObject("ColliderHolder");
                     newColliderHolder.transform.parent = newObject.transform;
-                    newColliderHolder.GetOrAddComponent2<SphereCollider>().radius = _radius + 10f;
+                    newColliderHolder.GetOrAddComponent2<SphereCollider>().radius = radius + 10f;
                     
                     var newMeshHolder = new GameObject("MeshHolder");
                     newMeshHolder.transform.parent = newObject.transform;
                     
-                    // add the mesh renderer to the mesh holder.
+                    // add a child object with the mesh script attached to it.
                     var newMesh = new GameObject("Mesh");
                     newMesh.transform.parent = newMeshHolder.transform;
-                    newMesh.GetOrAddComponent2<MeshRenderer>().material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                     
                     // add a child object with the object generator script attached to it.
                     var newObjectGenerator = new GameObject("Surface");
                     newObjectGenerator.transform.parent = newObject.transform;
+                    
+                    // attach the object settings
                     var newObjectSettings = ScriptableObject.CreateInstance<ObjectSettings>();
-                    newObjectSettings.Radius = _radius;
-                    newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().ObjectSettings = newObjectSettings;
-                    newObjectSettings.ObjectType = ObjectType.TerrestrialBody;
-                    newObjectSettings.Resolution = 128;
-                    newObjectSettings.Gradient = new Gradient { colorKeys = new[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.green, 1.0f) } };
+                    newObjectSettings.Resolution = resolution;
+                    newObjectSettings.ObjectType = objectType;
+                    newObjectSettings.Gradient = gradient;
+                    newObjectSettings.Radius = radius;
+                    
+                    // add default noise layer. it is necessary to have at least one noise layer
+                    // to avoid null reference exceptions and generate the object.
                     newObjectSettings.NoiseLayers = new[]
                     {
                         new NoiseLayer
@@ -67,30 +70,34 @@ namespace CustomEditorWindow.Dependencies
                                 SimpleNoiseSettings = new SimpleNoiseSettings
                                 {
                                     Seed = 0,
-                                    NoiseStrength = 0.5f,
-                                    NumberOfLayers = 2,
-                                    BaseRoughness = 0.5f,
-                                    Roughness = 0.5f,
-                                    Persistence = 0.5f
+                                    NoiseStrength = 0f,
+                                    NumberOfLayers = 1,
+                                    BaseRoughness = 0f,
+                                    Roughness = 0f,
+                                    Persistence = 0f
                                 }
                             }
                         }
                     };
-                    newObjectSettings.Material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                    
+                    // create the asset, add the material and the object settings
+                    var newAsset = _createNewAsset.CreateAsset(newObjectSettings, objectType, objectName);
+                    
+                    newMesh.GetOrAddComponent2<MeshRenderer>().material = newAsset.Material;
+                    
                     newObjectGenerator.GetOrAddComponent2<ObjectGenerator>();
-                    newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().ObjectSettings = newObjectSettings;
+                    newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().ObjectSettings = newAsset;
                     newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().GenerateObject();
                     
-                    // add a child object with a LineRenderer component attached to it.
-                    _lineRendererGradient = new Gradient { colorKeys = new[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.green, 1.0f) } };
                     var newLineRenderer = new GameObject("Line");
                     newLineRenderer.transform.parent = newObject.transform;
-                    newLineRenderer.GetOrAddComponent2<LineRenderer>().colorGradient = _lineRendererGradient;
+                    newLineRenderer.GetOrAddComponent2<LineRenderer>().colorGradient = gradient;
                 }
             }
             else
             {
-                IsAssetNameEmpty = true;
+                Debug.LogError("Object name cannot be empty.");
+                IsObjectNameEmpty = true;
             }
         }
     }

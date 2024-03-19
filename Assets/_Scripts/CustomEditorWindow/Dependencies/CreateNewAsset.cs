@@ -14,68 +14,59 @@ namespace CustomEditorWindow.Dependencies
     
         private static readonly int MainTex = Shader.PropertyToID("_MainTex");
         
-        public bool IsAssetNameEmpty;
-        public bool IsAssetNameValid = true;
+        private Material _material;
+        
+        // Celestial object creation related method
+        public ObjectSettings CreateAsset(ObjectSettings newSettings ,ObjectType objectType, string assetName = "")
+        {
+            if (string.IsNullOrEmpty(assetName))
+            {
+                Debug.LogError("Asset name cannot be empty.");
+                return null;
+            }
     
-        private string _assetName = string.Empty;
-
-        public void CreateAsset(ObjectGenerator objectGenerator, WindowLayout layout, string assetName = "")
-        {
-            _currentSettings = objectGenerator.ObjectSettings;
-            _assetName = assetName;
-            var newAssetFolder = FolderPath.NewAssetFolder(_assetName);
-            if (!string.IsNullOrEmpty(_assetName))
+            var newAssetFolder = FolderPath.NewAssetFolder(assetName);
+            if (AssetDatabase.IsValidFolder(newAssetFolder))
             {
-                IsAssetNameEmpty = false;
-                if (AssetDatabase.IsValidFolder(newAssetFolder))
-                {
-                    IsAssetNameValid = false;
-                    Debug.LogError("An asset with the same name already exists.");
-                    return;
-                }
-            
-                IsAssetNameValid = true;
-
-                if (!System.IO.Directory.Exists(newAssetFolder))
-                    System.IO.Directory.CreateDirectory(newAssetFolder);
-
-                var newObjectSettings = CreateNewInstance();
-                CreateAndSaveAsset(objectGenerator, newObjectSettings, newAssetFolder);
-                SaveTexture(newObjectSettings, newAssetFolder);
-            
-                // Update the asset list in the window.
-                layout.SetAllAssetsInFolder();
-            
-                ResetAssetData();
+                Debug.LogError("An asset with the same name already exists.");
+                return null;
             }
-            else
+
+            if (!System.IO.Directory.Exists(newAssetFolder))
+                System.IO.Directory.CreateDirectory(newAssetFolder);
+            
+            SetMaterial(newSettings, objectType);
+            CreateAndSaveAssets(newSettings, assetName, newAssetFolder);
+
+            return newSettings;
+        }
+
+        private void SetMaterial(ObjectSettings newSettings, ObjectType objectType)
+        {
+            switch (objectType)
             {
-                IsAssetNameEmpty = true;
+                case ObjectType.SolidSphere:
+                    _material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                    break;
+                case ObjectType.TerrestrialBody:
+                    _material = new Material(Shader.Find("Shader Graphs/TerrainGradient_SG"));
+                    break;
             }
+
+            newSettings.Material = _material;
         }
 
-        private void ResetAssetData()
+        private void CreateAndSaveAssets(ObjectSettings newSettings, string assetName, string newAssetFolder)
         {
-            _assetName = string.Empty;
-            _currentSettings = null;
+            AssetDatabase.CreateAsset(newSettings, $"{newAssetFolder}/{assetName}.asset");
+            AssetDatabase.CreateAsset(newSettings.Material, $"{newAssetFolder}/{assetName}Material.asset");
+            SaveTexture(newSettings, newAssetFolder, assetName);
         }
 
-        private void CreateAndSaveAsset(ObjectGenerator objectGenerator, ObjectSettings newObjectSettings, string newAssetFolder)
-        {
-            AssetDatabase.CreateAsset(newObjectSettings, $"{newAssetFolder}/{_assetName}.asset");
-            AssetDatabase.CreateAsset(newObjectSettings.Material, $"{newAssetFolder}/{_assetName}Material.asset");
-
-            objectGenerator.ObjectSettings = newObjectSettings;
-            EditorUtility.SetDirty(objectGenerator);
-            AssetDatabase.SaveAssets();
-
-            Debug.Log($"Created new asset at: {newAssetFolder}");
-        }
-
-        private void SaveTexture(ObjectSettings newObjectSettings, string newAssetFolder)
+        private void SaveTexture(ObjectSettings newObjectSettings, string newAssetFolder, string assetName)
         {
             var originTexture = newObjectSettings.Material.GetTexture(MainTex) as Texture2D;
-            var savePath = $"{newAssetFolder}/{_assetName}Texture.png";
+            var savePath = $"{newAssetFolder}/{assetName}Texture.png";
             var activeRenderTexture = RenderTexture.active;
 
             // Because the texture is readonly and it is not possible to change every new created texture in the editor,
@@ -99,21 +90,6 @@ namespace CustomEditorWindow.Dependencies
             }
 
             AssetDatabase.Refresh();
-        }
-
-        private ObjectSettings CreateNewInstance()
-        {
-            var newObjectSettings = ScriptableObject.CreateInstance<ObjectSettings>();
-            var originMaterial = _currentSettings.Material;
-
-            if (_currentSettings == null) return newObjectSettings;
-
-            // Make a copy of the current settings and material and assign it to the object.
-            newObjectSettings = Object.Instantiate(_currentSettings);
-            var newMaterial = Object.Instantiate(originMaterial);
-            newObjectSettings.Material = newMaterial;
-
-            return newObjectSettings;
         }
     }
 }

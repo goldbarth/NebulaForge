@@ -8,14 +8,14 @@ namespace CustomEditorWindow.Dependencies
 {
     public class SidebarSection
     {
-        private readonly WindowLayout _layout;
+        private readonly ObjectGeneratorWindow _layout;
 
         private readonly ObjectType[] _objectTypes;
         private Vector2 _leftScrollPosition;
 
         private const float ButtonBorderWidth = 10f;
 
-        public SidebarSection(WindowLayout layout)
+        public SidebarSection(ObjectGeneratorWindow layout)
         {
             _layout = layout;
             _objectTypes = new[] { ObjectType.TerrestrialBody, ObjectType.SolidSphere };
@@ -36,24 +36,10 @@ namespace CustomEditorWindow.Dependencies
             DrawAssetButtonsInOrder(_layout.AssetsInFolder);
         
             GUILayout.FlexibleSpace();
-        
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            DrawCreateNewAssetPopOut();
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-            GUILayout.Space(5);
 
             GUILayout.EndArea();
             GUILayout.EndScrollView();
             GUILayout.EndVertical();
-        }
-
-        private void DrawCreateNewAssetPopOut()
-        {
-            const string buttonName = "New Asset";
-            if (GUILayout.Button(buttonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))
-                CreateNewAssetWindow.ShowWindow();
         }
 
         private void DrawAssetButtonsInOrder((string name, string path)[] assetsInFolder)

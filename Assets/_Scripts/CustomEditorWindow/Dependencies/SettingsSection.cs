@@ -12,14 +12,14 @@ namespace CustomEditorWindow.Dependencies
         private readonly SelectionArea _selectionArea;
         private readonly GeneralTab _generalTab;
         private readonly SurfaceTab _surfaceTab;
-        private readonly WindowLayout _layout;
+        private readonly ObjectGeneratorWindow _layout;
     
         private const float ButtonBorderWidth = 15f;
     
         private readonly string[] _tabHeaders;
         private int _tabIndex;
 
-        public SettingsSection(WindowLayout layout)
+        public SettingsSection(ObjectGeneratorWindow layout)
         {
             _layout = layout;
             _selectionArea = new SelectionArea();
@@ -39,11 +39,7 @@ namespace CustomEditorWindow.Dependencies
             GUILayout.BeginArea(areaRect);
         
             DrawSettingsHeader();
-            GUILayout.BeginHorizontal();
             DrawSelectionArea();
-            GUILayout.FlexibleSpace();
-            DrawCreateNewCelestialObjectPopOut();
-            GUILayout.EndHorizontal();
             GUILayout.Space(5);
             DrawTabsAndCurrentTab();
         
@@ -53,7 +49,7 @@ namespace CustomEditorWindow.Dependencies
             DrawUpdateButton();
             DrawAutoUpdateToggle();
             GUILayout.FlexibleSpace();
-            DrawDeleteButton();
+            DrawCreateNewCelestialObjectPopOut();
             GUILayout.EndHorizontal();
             GUILayout.Space(5);
         
@@ -91,8 +87,8 @@ namespace CustomEditorWindow.Dependencies
 
         private void DrawUpdateButton()
         {
-            if (GUILayout.Button(TextHolder.UpdateAssetButtonText, 
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), ButtonBorderWidth)))
+            const string tooltip = "Updates the modified object.";
+            if (GUILayout.Button(new GUIContent(TextHolder.UpdateAssetButtonText, tooltip), LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.UpdateAssetButtonText), ButtonBorderWidth)))
                 UpdateAssetSettings();
         }
         
@@ -102,13 +98,6 @@ namespace CustomEditorWindow.Dependencies
                                    "It should only be used when necessary. For example, when adjusting settings to see immediate results.";
             _layout.IsAutoUpdate = GUILayout.Toggle(_layout.IsAutoUpdate, new GUIContent(TextHolder.AutoUpdateToggleText, tooltip));
         }
-
-        private void DrawDeleteButton()
-        {
-            if (GUILayout.Button(TextHolder.DeleteAssetButtonText,
-                    LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.DeleteAssetButtonText), ButtonBorderWidth)))
-                DeleteSelectedAsset();
-        }
     
         private void UpdateAssetSettings()
         {
@@ -116,33 +105,11 @@ namespace CustomEditorWindow.Dependencies
             AssetDatabase.SaveAssets();
             _layout.ObjectGenerator.GenerateObject();
         }
-
-        private void DeleteSelectedAsset()
-        {
-            var currentAsset = _layout.ObjectSettings;
-            var assetPath = currentAsset != null ? AssetDatabase.GetAssetPath(currentAsset) : string.Empty;
-            var folderPath = assetPath.Substring(0, assetPath.LastIndexOf('/'));
-        
-            if (EditorUtility.DisplayDialog("Delete Asset", $"Are you sure you want to delete {currentAsset}?", "Yes", "No"))
-            {
-                // delete asset folder
-                AssetDatabase.DeleteAsset(folderPath);
-                Debug.Log($"Deleted asset with folder at: {folderPath}");
-                AssetDatabase.Refresh();
-            
-                // load first asset in folder
-                var firstAsset = AssetDatabase.FindAssets("t:ObjectSettings", new[] { FolderPath.RootInstances });
-                var selectedAsset = AssetDatabase.LoadAssetAtPath<ObjectSettings>(AssetDatabase.GUIDToAssetPath(firstAsset[0]));
-                _layout.SetAllAssetsInFolder();
-                _layout.AttachDataToAsset(selectedAsset);
-                _layout.ObjectGenerator.GenerateObject();
-            }
-        }
         
         private void DrawCreateNewCelestialObjectPopOut()
         {
-            const string labelName = "Create Celestial Object";
-            const string buttonName = TextHolder.NewObjectButtonName;
+            const string labelName = "New Celestial Object";
+            const string buttonName = TextHolder.CreateButtonName;
             GUILayout.BeginHorizontal();
             GUILayout.Label(labelName);
             if (GUILayout.Button(buttonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), ButtonBorderWidth)))

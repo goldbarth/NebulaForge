@@ -18,7 +18,8 @@ namespace CustomEditorWindow.Dependencies
         public const string SurfaceSettingsHeader = "Surface";
         public const string SelectionHeader = "Select Celestial Object";
         public const string ElevationLayerSettingsHeader = "Elevation Layer Settings";
-        public const string CreateAssetWindowHeader = "Create Celestial Object";
+        public const string CreateAssetWindowHeader = "Create Asset";
+        public const string CreateObjectWindowHeader = "Create Celestial Object";
         public const string CreateButtonName = "Create";
         public const string CloseButtonName = "Close";
         public const string NewObjectButtonName = "New";

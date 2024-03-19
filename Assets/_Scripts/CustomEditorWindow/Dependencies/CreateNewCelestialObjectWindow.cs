@@ -7,21 +7,35 @@ namespace CustomEditorWindow.Dependencies
     public class CreateNewCelestialObjectWindow : View
     {
         private string _objectName = string.Empty;
+        private int _resolution = 128;
+        private float _radius = 60f;
+        private Gradient _gradient = new();
+        private ObjectType _objectType;
         
         private ObjectGenerator _objectGenerator;
-        private WindowLayout _layout;
-        
+        private ObjectGeneratorWindow _layout;
+
         private readonly CreateNewCelestialObject _createNewCelestialObject = new();
+        private readonly Color _separationLineColor = new(0.3f, 0.3f, 0.3f, 1f);
+        private readonly GUIStyle _separationLineStyle = new();
+        
+        private Texture2D _separationLine;
         
         private void OnEnable()
         {
-            _layout = CreateInstance<WindowLayout>();
+            _layout = CreateInstance<ObjectGeneratorWindow>();
             _objectGenerator = _layout.ObjectGenerator;
+            
+            _separationLine = new Texture2D(1, 1);
+            _separationLine.SetPixel(0,0, _separationLineColor);
+            _separationLine.Apply();
+            
+            _separationLineStyle.normal.background = _separationLine;
         }
         
         public static void ShowWindow()
         {
-            var window = GetWindow<CreateNewCelestialObjectWindow>(TextHolder.CreateAssetWindowHeader);
+            var window = GetWindow<CreateNewCelestialObjectWindow>(TextHolder.CreateObjectWindowHeader);
             window.minSize = new Vector2(400, 450);
             window.maxSize = new Vector2(400, 450);
         }
@@ -29,28 +43,53 @@ namespace CustomEditorWindow.Dependencies
         private void OnGUI()
         {
             const float buttonBorderWidth = 15f;
-            EditorGUILayout.LabelField("Enter a name for the new celestial object:");
-            EditorGUILayout.Space(10);
-            _objectName = EditorGUILayout.TextField("Celestial Object Name", _objectName);
+            
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
             EditorGUILayout.Space(7);
+            _objectName = EditorGUILayout.TextField("Name:", _objectName);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _objectType = (ObjectType) EditorGUILayout.EnumPopup("Type:", _objectType);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _gradient = EditorGUILayout.GradientField("Gradient:", _gradient);EditorGUILayout.Space(2);
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _resolution = EditorGUILayout.IntField("Resolution:", _resolution);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _radius = EditorGUILayout.FloatField("Radius:", _radius);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", _separationLineStyle, GUILayout.Height(1));
+            
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(TextHolder.CreateButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.CreateButtonName), buttonBorderWidth)))
-                _createNewCelestialObject.CreateObject(_objectName);
+                _createNewCelestialObject.CreateObject(_objectType, _gradient, _radius, _resolution, _objectName);
             GUILayout.EndHorizontal();
+            
+            if (_objectType == ObjectType.TerrestrialBody)
+                EditorGUILayout.HelpBox("The Terrestrial Body is good for eg. a planets with elevation (and habitat)." + 
+                                        "The surface can be modified and adjusted at the 'Surface' tab in the editor.", MessageType.Info);
+            
+            if (_objectType == ObjectType.SolidSphere)
+                EditorGUILayout.HelpBox("The Solid Sphere is good for eg. plain surfaces (and using shaders for water and clouds for example)." + 
+                                        "There is no elevation to modify. The gradient choice converts into the surface color.", MessageType.Info);
         
-            if (_createNewCelestialObject.IsAssetNameEmpty)
+            if (_createNewCelestialObject.IsObjectNameEmpty)
                 EditorGUILayout.HelpBox("The name can´t be empty! " +
                                         "You need to enter a name for the celestial object.", MessageType.Warning);
         
-        
-            // if (!_createNewCelestialObject.IsAssetNameValid)
-            //     EditorGUILayout.HelpBox("An asset with the same name already exists. " +
-            //                             "Please enter a new name.", MessageType.Warning);
+            if (!_createNewCelestialObject.IsObjectNameValid)
+                EditorGUILayout.HelpBox("An asset with the same name already exists. " +
+                                        "Please enter a new name.", MessageType.Warning);
 
             GUILayout.FlexibleSpace();
         
-            EditorGUILayout.HelpBox("For now, the new created asset is a copy of the current selected asset. " +
+            EditorGUILayout.HelpBox("For now, the celestial object creation is in development. It is possible to run into bugs. " +
                                     "In the future it will be possible to define properties. Stay tuned. (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧", MessageType.Info, true);
         
             EditorGUILayout.BeginHorizontal();
