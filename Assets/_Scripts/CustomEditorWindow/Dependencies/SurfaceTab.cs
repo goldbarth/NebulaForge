@@ -9,11 +9,11 @@ namespace CustomEditorWindow.Dependencies
     {
         private readonly DrawNoiseLayerOptions _drawNoiseLayerOptions;
         private readonly DrawNoiseLayers _drawNoiseLayers;
-        private readonly WindowLayout _layout;
+        private readonly ObjectGeneratorWindow _layout;
 
         private Vector2 _rightScrollPosition;
 
-        public SurfaceTab(WindowLayout layout)
+        public SurfaceTab(ObjectGeneratorWindow layout)
         {
             _layout = layout;
             _drawNoiseLayers = new DrawNoiseLayers(_layout);

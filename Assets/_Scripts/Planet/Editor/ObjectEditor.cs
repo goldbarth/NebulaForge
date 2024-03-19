@@ -81,7 +81,7 @@ namespace Planet
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(_openButton,
                     LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(_openButton), ButtonBorderWidth)))
-                WindowLayout.ShowWindow();
+                ObjectGeneratorWindow.ShowWindow();
             GUILayout.FlexibleSpace();
         }
 

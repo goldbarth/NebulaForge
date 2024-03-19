@@ -51,7 +51,7 @@ namespace SolarSystem
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(buttonName,
                     LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(buttonName), buttonBorderWidth)))
-                WindowLayout.ShowWindow();
+                ObjectGeneratorWindow.ShowWindow();
             GUILayout.FlexibleSpace();
         }
     }

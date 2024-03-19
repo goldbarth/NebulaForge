@@ -2,14 +2,14 @@
 
 using CustomEditorWindow.Dependencies;
 using PlanetSettings.NoiseSettings;
+using System.Collections.Generic;
 using HelpersAndExtensions;
 using PlanetSettings;
+using SolarSystem;
 using UnityEditor;
 using UnityEngine;
 using System;
-using System.Collections.Generic;
 using Planet;
-using SolarSystem;
 
 namespace CustomEditorWindow
 {
@@ -17,7 +17,7 @@ namespace CustomEditorWindow
     /// The WindowLayout is responsible for the layout and GUI of the EditorWindow.
     /// It represents the View in the MVP pattern.
     /// </summary>
-    public class WindowLayout : View
+    public class ObjectGeneratorWindow : View
     {
         private CelestialObjectManager _celestialObjectManager;
         public ObjectGenerator ObjectGenerator{ get; private set; }
@@ -96,14 +96,14 @@ namespace CustomEditorWindow
         [MenuItem("Tools/Planet Generator")]
         public static void ShowWindow()
         {
-            GetWindow<WindowLayout>(TextHolder.WindowTitle);
+            GetWindow<ObjectGeneratorWindow>(TextHolder.WindowTitle);
         }
 
         private void OnGUI()
         {
             if (EditorApplication.isPlaying)
             {
-                PlaymodeMessageBox();
+                PlayModeMessageBox();
                 return;
             }
             if (ObjectSettings == null)
@@ -152,15 +152,15 @@ namespace CustomEditorWindow
             }
         }
         
-        private void UpdateCelestialObjectListFromScene()
-        {
-            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
-            _celestialObjectManager.ClearCelestialObjects();
-            foreach (var obj in currentSceneObjects)
-            {
-                _celestialObjectManager.AddCelestialObject(obj);
-            }
-        }
+        // private void UpdateCelestialObjectListFromScene()
+        // {
+        //     var currentSceneObjects = FindObjectsOfType<CelestialObject>();
+        //     _celestialObjectManager.ClearCelestialObjects();
+        //     foreach (var obj in currentSceneObjects)
+        //     {
+        //         _celestialObjectManager.AddCelestialObject(obj);
+        //     }
+        // }
 
         #region Editor Update Loop
 
@@ -347,7 +347,7 @@ namespace CustomEditorWindow
                                     "Please select a GameObject to access the settings.", MessageType.Info);
         }
         
-        private void PlaymodeMessageBox()
+        private void PlayModeMessageBox()
         {
             EditorGUILayout.HelpBox("The game is in play mode. " +
                                     "In play mode the editor is disabled. You can only change the settings in editor mode." +
@@ -371,8 +371,6 @@ namespace CustomEditorWindow
             else
             {
                 ObjectGenerator = null;
-                Debug.LogWarningFormat("No GameObject selected in the Hierarchy. " +
-                                       "Please select a GameObject first. This happened at: {0:f}. Isn´t it cool?", DateTime.Now);
             }
         
             return null;

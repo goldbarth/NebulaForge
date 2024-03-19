@@ -2,7 +2,7 @@ using SolarSystem;
 using UnityEngine;
 using TMPro;
 
-namespace UIAndUX
+namespace UX
 {
     public class DrawProperties : MonoBehaviour
     {

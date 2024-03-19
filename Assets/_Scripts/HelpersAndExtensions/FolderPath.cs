@@ -9,6 +9,7 @@ namespace HelpersAndExtensions
         public const string Origin = "Assets/_Scripts/ObjectSettings/";
     
         public static string NewAssetFolder(string name) => $"{RootInstances}{name}";
+        public static string GetAssetFolder(string name) => $"{RootInstances}{name}";
         public static string OriginAssetPath => $"{Origin}ObjectSettings.asset";
     }
 }

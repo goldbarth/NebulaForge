@@ -14,7 +14,7 @@ namespace CustomEditorWindow
     public class WindowPresenter
     {
         private readonly ObjectGenerator _objectGenerator;
-        private readonly WindowLayout _view;
+        private readonly ObjectGeneratorWindow _view;
         
         private ObjectSettings _model;
 
@@ -23,7 +23,7 @@ namespace CustomEditorWindow
         public event Action OnApplyModified;
         public event Action OnAssetNamesAndPathsReady;
 
-        public WindowPresenter(WindowLayout view, ObjectGenerator objectGenerator)
+        public WindowPresenter(ObjectGeneratorWindow view, ObjectGenerator objectGenerator)
         {
             if (objectGenerator == null) return;
             

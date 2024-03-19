@@ -8,9 +8,9 @@ namespace CustomEditorWindow.Dependencies
 {
     public class GeneralTab
     {
-        private readonly WindowLayout _layout;
+        private readonly ObjectGeneratorWindow _layout;
 
-        public GeneralTab(WindowLayout layout)
+        public GeneralTab(ObjectGeneratorWindow layout)
         {
             _layout = layout;
         }

@@ -7,9 +7,9 @@ namespace CustomEditorWindow.Dependencies
 {
     public class DrawNoiseLayers
     {
-        private readonly WindowLayout _layout;
+        private readonly ObjectGeneratorWindow _layout;
 
-        public DrawNoiseLayers(WindowLayout layout)
+        public DrawNoiseLayers(ObjectGeneratorWindow layout)
         {
             _layout = layout;
         }
