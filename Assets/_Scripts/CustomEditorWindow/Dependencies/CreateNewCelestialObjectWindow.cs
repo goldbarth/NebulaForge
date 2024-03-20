@@ -7,8 +7,10 @@ namespace CustomEditorWindow.Dependencies
     public class CreateNewCelestialObjectWindow : View
     {
         private string _objectName = string.Empty;
+        private Vector3 _initialVelocity = new(5f, 0.0f, 0f);
         private int _resolution = 128;
         private float _radius = 60f;
+        private float _mass = 1000f;
         
         private Gradient _gradient = new();
         private Texture2D _separationLine;
@@ -19,8 +21,8 @@ namespace CustomEditorWindow.Dependencies
         public static void ShowWindow()
         {
             var window = GetWindow<CreateNewCelestialObjectWindow>(TextHolder.CreateObjectWindowHeader);
-            window.minSize = new Vector2(280, 350);
-            window.maxSize = new Vector2(280, 350);
+            window.minSize = new Vector2(280, 450);
+            window.maxSize = new Vector2(280, 450);
         }
         
         private void OnGUI()
@@ -49,10 +51,16 @@ namespace CustomEditorWindow.Dependencies
             EditorGUILayout.Space(2);
             GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
             EditorGUILayout.Space(4);
+            _mass = EditorGUILayout.FloatField("Mass:", _mass);
+            EditorGUILayout.Space(2);
+            GUILayout.Label("", LabelStyle.SeparationLineColor(), GUILayout.Height(1));
+            EditorGUILayout.Space(4);
+            _initialVelocity = EditorGUILayout.Vector3Field("Initial Velocity:", _initialVelocity);
+            EditorGUILayout.Space(2);
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button(TextHolder.CreateButtonName, LabelStyle.SetDefaultButtonStyle(LabelStyle.MaxButtonWidth(TextHolder.CreateButtonName), buttonBorderWidth)))
-                _createNewCelestialObject.CreateObject(_objectType, _gradient, _radius, _resolution, _objectName);
+                _createNewCelestialObject.CreateObject(_objectType, _gradient, _radius, _resolution, _mass, _initialVelocity, _objectName);
             GUILayout.EndHorizontal();
             EditorGUILayout.Space(4);
             

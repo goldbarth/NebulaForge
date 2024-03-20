@@ -14,7 +14,7 @@ namespace CustomEditorWindow.Dependencies
         public bool IsObjectNameEmpty;
         public bool IsObjectNameValid = true;
 
-        public void CreateObject(ObjectType objectType, Gradient gradient, float radius, int resolution, string objectName = "")
+        public void CreateObject(ObjectType objectType, Gradient gradient, float radius, int resolution, float mass, Vector3 initialVelocity, string objectName = "")
         {
             if (!string.IsNullOrEmpty(objectName))
             {
@@ -32,8 +32,10 @@ namespace CustomEditorWindow.Dependencies
                     // create the new object
                     var newObject = new GameObject(objectName);
                     newObject.transform.parent = OrbitSimulation.Instance.transform;
-                    newObject.GetOrAddComponent2<Rigidbody>();
+                    newObject.GetOrAddComponent2<Rigidbody>().useGravity = false;
                     newObject.GetOrAddComponent2<CelestialObject>();
+                    newObject.GetOrAddComponent2<CelestialObject>().Mass = mass;
+                    newObject.GetOrAddComponent2<CelestialObject>().InitialVelocity = initialVelocity;
                     
                     // add a child object with the collider holder script attached to it.
                     var newColliderHolder = new GameObject("ColliderHolder");
