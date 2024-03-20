@@ -83,6 +83,9 @@ namespace UX
         
         private void SetTimeScale(float value)
         {
+            if(!_orbitSimulation.ManualTimeScale)
+                _timeScaleSlider.value = _orbitSimulation.TimeScale;
+                
             _orbitSimulation.TimeScale = _timeScaleSlider.value;
         }
 
