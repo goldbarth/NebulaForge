@@ -23,6 +23,7 @@ namespace SolarSystem
 
         protected override void Awake()
         {
+            base.Awake();
             Time.fixedDeltaTime = Universe.PhysicsTimeStep;
             TimeScale = 1f;
         }

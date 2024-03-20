@@ -28,17 +28,15 @@ namespace HelpersAndExtensions
 
         protected virtual void Awake()
         {
-            if (!Application.isPlaying)
-            {
-                _instance = this as T;
-                return;
-            }
             if (_instance == null)
             {
                 _instance = this as T;
-                DontDestroyOnLoad(gameObject);
+                if (Application.isPlaying)
+                {
+                    DontDestroyOnLoad(gameObject);
+                }
             }
-            else
+            else if (_instance != this)
             {
                 Destroy(gameObject);
             }

@@ -13,7 +13,7 @@ namespace UX
         [Tooltip("If true, the user can only select objects by looking at them.")]
         [SerializeField] private bool _usingCenterDotInteraction;
         [SerializeField] private Texture _selectedTexture;
-        [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _layerMask = 1 << 8;
 
         private Texture _objectTexture;
         private Transform _selection;
@@ -25,11 +25,12 @@ namespace UX
         public event Action OnObjectDeselectedReady;
         public event Action OnHoverOverObject;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             _camera = Camera.main;
         }
-        
+
         private void Update()
         {
             GameObjectSelectionHandler();
@@ -40,8 +41,8 @@ namespace UX
         {
             if (IsObjectNotSelectedYet())
                 SetHighlightMaterialToObjectTexture();
-            
-            if(IsObjectSelected())
+
+            if (IsObjectSelected())
                 return;
             
             if (_usingCenterDotInteraction)
@@ -59,6 +60,7 @@ namespace UX
         
         private void CenterDotInteraction()
         {
+            var ray = new Ray(_camera.transform.position, _camera.transform.forward);
             if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, 
                     out var hit, Mathf.Infinity, _layerMask))
                 Selection(hit);
