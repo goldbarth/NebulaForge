@@ -6,11 +6,27 @@ namespace CameraController
     {
         [SerializeField] private float _speed = 400f;
         [SerializeField] private float _sensitivity = 2f;
+
+        private const int ScrollSpeedMultiplier = 100;
+        private const int MinSpeed = 400;
+        private const int MaxSpeed = 1400;
+        
+
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         
         private void Update()
         {
             MouseMovement();
             KeyboardMovement();
+            MouseScroll();
+        }
+
+        private void MouseScroll()
+        {
+            _speed = Mathf.Clamp(_speed + Input.mouseScrollDelta.y * ScrollSpeedMultiplier, MinSpeed, MaxSpeed);
         }
 
         private void KeyboardMovement()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 510527115332147905}
   - component: {fileID: 510527115332147907}
   - component: {fileID: 510527115332147906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticleStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
