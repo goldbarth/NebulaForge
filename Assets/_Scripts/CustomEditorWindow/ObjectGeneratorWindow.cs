@@ -153,15 +153,15 @@ namespace CustomEditorWindow
             }
         }
         
-        // private void UpdateCelestialObjectListFromScene()
-        // {
-        //     var currentSceneObjects = FindObjectsOfType<CelestialObject>();
-        //     _celestialObjectManager.ClearCelestialObjects();
-        //     foreach (var obj in currentSceneObjects)
-        //     {
-        //         _celestialObjectManager.AddCelestialObject(obj);
-        //     }
-        // }
+        private void UpdateCelestialObjectListFromScene()
+        {
+            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
+            _celestialObjectManager.ClearCelestialObjects();
+            foreach (var obj in currentSceneObjects)
+            {
+                _celestialObjectManager.AddCelestialObject(obj);
+            }
+        }
 
         #region Editor Update Loop
 
@@ -178,6 +178,9 @@ namespace CustomEditorWindow
                 
                 _lastUpdateTime = Time.realtimeSinceStartup;
             }
+            
+            // Ensure the celestial object list is up to date
+            UpdateCelestialObjectListFromScene();
         }
 
         private bool IsTimeToUpdate()
