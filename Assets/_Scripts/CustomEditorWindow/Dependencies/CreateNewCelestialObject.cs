@@ -4,6 +4,7 @@ using PlanetSettings;
 using SolarSystem;
 using UnityEngine;
 using Planet;
+using UnityEditor;
 
 namespace CustomEditorWindow.Dependencies
 {
@@ -11,10 +12,16 @@ namespace CustomEditorWindow.Dependencies
     {
         private readonly CreateNewAsset _createNewAsset = new();
         
+        private const string Line = "LineRenderer";
+        private const string Collider = "ColliderHolder";
+        private const string MeshHolder = "MeshHolder";
+        private const string Mesh = "Mesh";
+        private const string ObjectGenerator = "Surface";
+        
         public bool IsObjectNameEmpty;
         public bool IsObjectNameValid = true;
 
-        public void CreateObject(ObjectType objectType, Gradient gradient, float radius, int resolution, float mass, Vector3 initialVelocity, string objectName = "")
+        public void CreateObject(ObjectType objectType, Gradient gradient, float radius, int resolution, float mass, float surfaceGravity, Vector3 initialVelocity, string objectName = "")
         {
             if (!string.IsNullOrEmpty(objectName))
             {
@@ -30,29 +37,26 @@ namespace CustomEditorWindow.Dependencies
                     IsObjectNameValid = true;
 
                     // create the new object
-                    var newObject = new GameObject(objectName);
-                    newObject.transform.parent = OrbitSimulation.Instance.transform;
+                    var newObject = new GameObject(objectName) { transform = {parent = OrbitSimulation.Instance.transform } };
                     newObject.GetOrAddComponent2<Rigidbody>().useGravity = false;
                     newObject.GetOrAddComponent2<CelestialObject>();
                     newObject.GetOrAddComponent2<CelestialObject>().Mass = mass;
+                    newObject.GetOrAddComponent2<CelestialObject>().SurfaceGravity = surfaceGravity;
                     newObject.GetOrAddComponent2<CelestialObject>().InitialVelocity = initialVelocity;
                     
                     // add a child object with the collider holder script attached to it.
-                    var newColliderHolder = new GameObject("ColliderHolder");
-                    newColliderHolder.transform.parent = newObject.transform;
-                    newColliderHolder.GetOrAddComponent2<SphereCollider>().radius = radius + 10f;
+                    var newColliderHolder = new GameObject(Collider) { transform = { parent = newObject.transform } };
+                    newColliderHolder.GetOrAddComponent2<SphereCollider>().radius = radius;
                     
-                    var newMeshHolder = new GameObject("MeshHolder");
-                    newMeshHolder.transform.parent = newObject.transform;
-                    
-                    // add a child object with the mesh script attached to it.
-                    var newMesh = new GameObject("Mesh");
-                    newMesh.transform.parent = newMeshHolder.transform;
-                    
+                    // add a child object with the name mesh holder.
+                    var newMeshHolder = new GameObject(MeshHolder) { transform = { parent = newObject.transform } };
+
+                    // add a child object to the mesh holder with the mesh script attached to it.
+                    var newMesh = new GameObject(Mesh) { transform = { parent = newMeshHolder.transform} };
+
                     // add a child object with the object generator script attached to it.
-                    var newObjectGenerator = new GameObject("Surface");
-                    newObjectGenerator.transform.parent = newObject.transform;
-                    
+                    var newObjectGenerator = new GameObject(ObjectGenerator) { transform = { parent = newObject.transform } };
+
                     // attach the object settings
                     var newObjectSettings = ScriptableObject.CreateInstance<ObjectSettings>();
                     newObjectSettings.Resolution = resolution;
@@ -91,8 +95,7 @@ namespace CustomEditorWindow.Dependencies
                     newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().ObjectSettings = newAsset;
                     newObjectGenerator.GetOrAddComponent2<ObjectGenerator>().GenerateObject();
                     
-                    var newLineRenderer = new GameObject("Line");
-                    newLineRenderer.transform.parent = newObject.transform;
+                    var newLineRenderer = new GameObject(Line) { transform = { parent = newObject.transform } };
                     newLineRenderer.GetOrAddComponent2<LineRenderer>().colorGradient = gradient;
                 }
             }
