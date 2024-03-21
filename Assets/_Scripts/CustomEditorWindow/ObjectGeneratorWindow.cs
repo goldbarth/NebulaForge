@@ -2,10 +2,8 @@
 
 using CustomEditorWindow.Dependencies;
 using PlanetSettings.NoiseSettings;
-using System.Collections.Generic;
 using HelpersAndExtensions;
 using PlanetSettings;
-using SolarSystem;
 using UnityEditor;
 using UnityEngine;
 using System;
@@ -19,7 +17,6 @@ namespace CustomEditorWindow
     /// </summary>
     public class ObjectGeneratorWindow : View
     {
-        private CelestialObjectManager _celestialObjectManager;
         public ObjectGenerator ObjectGenerator{ get; private set; }
         public ObjectSettings ObjectSettings { get; set; }
         public string SettingsHeader { get; private set; }
@@ -44,8 +41,8 @@ namespace CustomEditorWindow
         public (string name, string path)[] AssetsInFolder;
         public float SidebarFrameWidth;
         public bool IsAutoUpdate;
-        
-        private readonly float _updateInterval = 2f;
+
+        private const float UpdateInterval = 2f;
         private float _lastUpdateTime;
         
         public event Action<ObjectSettings> OnSettingsUpdated;
@@ -54,7 +51,6 @@ namespace CustomEditorWindow
 
         private void OnEnable()
         {
-            _celestialObjectManager = CelestialObjectManager.Instance;
             FindAndSetObjectSettings();
         
             _sidebarSection = new SidebarSection(this);
@@ -75,7 +71,6 @@ namespace CustomEditorWindow
             
             _lastUpdateTime = Time.realtimeSinceStartup;
             EditorApplication.update += OnEditorUpdate;
-            EditorApplication.hierarchyChanged += OnHierarchyChanged;
         }
 
         private void OnDisable()
@@ -90,10 +85,9 @@ namespace CustomEditorWindow
             ObjectSelectionEventManager.OnNoObjectSelected -= SetObjectSettingNull;
             
             EditorApplication.update -= OnEditorUpdate;
-            EditorApplication.hierarchyChanged -= OnHierarchyChanged;
         }
 
-        [MenuItem("Tools/Planet Generator")]
+        [MenuItem("Tools/Celestial Object Generator")]
         public static void ShowWindow()
         {
             GetWindow<ObjectGeneratorWindow>(TextHolder.WindowTitle);
@@ -122,46 +116,6 @@ namespace CustomEditorWindow
             FindAndSetObjectSettings();
             SetSerializedProperties();
         }
-        
-        private void OnHierarchyChanged()
-        {
-            // using a hash set to check if the objects are still in the scene. prevents duplicates and is faster.
-            var sceneObjects = new HashSet<CelestialObject>(FindObjectsOfType<CelestialObject>());
-            var objectsToRemove = new List<CelestialObject>();
-            
-            foreach (var obj in _celestialObjectManager.CelestialObjects)
-            {
-                if (!sceneObjects.Contains(obj))
-                {
-                    objectsToRemove.Add(obj);
-                }
-                else
-                {
-                    sceneObjects.Remove(obj);
-                }
-            }
-            
-            foreach (var obj in objectsToRemove)
-            {
-                _celestialObjectManager.RemoveCelestialObject(obj);
-            }
-            
-            foreach (var obj in sceneObjects)
-            {
-                _celestialObjectManager.AddCelestialObject(obj);
-                _celestialObjectManager.AddAssetPathToCelestialObject(obj, FolderPath.GetAssetFolder(obj.name));
-            }
-        }
-        
-        private void UpdateCelestialObjectListFromScene()
-        {
-            var currentSceneObjects = FindObjectsOfType<CelestialObject>();
-            _celestialObjectManager.ClearCelestialObjects();
-            foreach (var obj in currentSceneObjects)
-            {
-                _celestialObjectManager.AddCelestialObject(obj);
-            }
-        }
 
         #region Editor Update Loop
 
@@ -178,14 +132,11 @@ namespace CustomEditorWindow
                 
                 _lastUpdateTime = Time.realtimeSinceStartup;
             }
-            
-            // Ensure the celestial object list is up to date
-            UpdateCelestialObjectListFromScene();
         }
 
         private bool IsTimeToUpdate()
         {
-            return Time.realtimeSinceStartup - _lastUpdateTime >= _updateInterval;
+            return Time.realtimeSinceStartup - _lastUpdateTime >= UpdateInterval;
         }
 
         #endregion
@@ -210,7 +161,7 @@ namespace CustomEditorWindow
             _presenter.ApplyAndModify();
         }
 
-        public void SetAllAssetsInFolder()
+        private void SetAllAssetsInFolder()
         {
             _presenter.SetAllAssetsInFolder();
         }

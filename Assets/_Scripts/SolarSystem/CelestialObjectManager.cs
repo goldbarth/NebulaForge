@@ -7,10 +7,11 @@ using UnityEngine;
 
 namespace SolarSystem
 {
+    [ExecuteInEditMode]
     public class CelestialObjectManager : GenericSingleton<CelestialObjectManager>
     {
         [SerializeField] private List<CelestialObject> _celestialObjects = new();
-        
+
         private readonly Dictionary<CelestialObject, List<string>> _celestialObjectAssets = new();
         public List<CelestialObject> CelestialObjects => _celestialObjects;
         
@@ -34,6 +35,7 @@ namespace SolarSystem
                     {
                         AssetDatabase.DeleteAsset(path);
                     }
+                    
                     _celestialObjectAssets.Remove(celestialObject);
                 }
             }

@@ -17,7 +17,7 @@ namespace Planet
     /// The ObjectGenerator is a class to generate planets and other objects.
     /// It is the main class of the project and communicates tightly with the ObjectSettings.
     /// </summary>
-    [ExecuteAlways, ImageEffectAllowedInSceneView]
+    [ExecuteInEditMode, ImageEffectAllowedInSceneView]
     public class ObjectGenerator : MonoBehaviour
     {
         [field: SerializeField, Space] public ObjectSettings ObjectSettings { get; set; }

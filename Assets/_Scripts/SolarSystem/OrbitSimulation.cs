@@ -14,16 +14,18 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------------
 namespace SolarSystem
 {
+    [ExecuteAlways, RequireComponent(typeof(CelestialObjectManager))]
     public class OrbitSimulation : GenericSingleton<OrbitSimulation>
     {
         [field: SerializeField] public bool ManualTimeScale { get; set; }
         [field: SerializeField] public float TimeScale { get; set; }
-    
-        [SerializeField] private CelestialObject[] _objects;
+
+        private CelestialObjectManager _celestialObjects;
 
         protected override void Awake()
         {
             base.Awake();
+            _celestialObjects = GetComponent<CelestialObjectManager>();
             Time.fixedDeltaTime = Universe.PhysicsTimeStep;
             TimeScale = 10f;
         }
@@ -42,13 +44,13 @@ namespace SolarSystem
 
         private void UpdateAllPositions()
         {
-            foreach (var obj in _objects)
+            foreach (var obj in _celestialObjects.CelestialObjects)
                 obj.UpdatePosition(Universe.PhysicsTimeStep);
         }
 
         private void UpdateAllVelocities()
         {
-            foreach (var obj in _objects)
+            foreach (var obj in _celestialObjects.CelestialObjects)
             {
                 var acceleration = GravitationalAcceleration(obj.Position, obj);
                 obj.UpdateVelocity(acceleration, Universe.PhysicsTimeStep);
@@ -62,7 +64,7 @@ namespace SolarSystem
         
             var acceleration = Vector3.zero;
         
-            foreach (var obj in _objects)
+            foreach (var obj in _celestialObjects.CelestialObjects)
             {
                 if (obj == @object) continue;
             
