@@ -1,5 +1,3 @@
-#if UNITY_EDITOR
-
 using System.Collections.Generic;
 using HelpersAndExtensions;
 using UnityEditor;
@@ -24,6 +22,8 @@ namespace SolarSystem
                 _celestialObjectAssets[celestialObject] = new List<string>();
             }
         }
+        
+#if UNITY_EDITOR
     
         public void RemoveCelestialObject(CelestialObject celestialObject)
         {
@@ -40,6 +40,8 @@ namespace SolarSystem
                 }
             }
         }
+        
+#endif
 
         public void AddAssetPathToCelestialObject(CelestialObject celestialObject, string assetPath)
         {
@@ -81,5 +83,3 @@ namespace SolarSystem
         }
     }
 }
-
-#endif

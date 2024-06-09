@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -117,3 +119,5 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
+
+#endif

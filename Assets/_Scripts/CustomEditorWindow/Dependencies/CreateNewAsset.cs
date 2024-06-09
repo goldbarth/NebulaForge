@@ -4,7 +4,6 @@ using PlanetSettings;
 using UnityEditor;
 using UnityEngine;
 using HelpersAndExtensions;
-using Planet;
 
 namespace CustomEditorWindow.Dependencies
 {

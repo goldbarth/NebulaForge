@@ -31,13 +31,11 @@ namespace CustomEditorWindow
         private static void RaiseSuccessEvent()
         {
             ObjectSelectionEventManager.RaiseObjectSelectedEvent();
-            Debug.Log("Selected GameObject in Hierarchy has the generator script attached.");
         }
 
         private static void RaiseNoSuccessEvent()
         {
             ObjectSelectionEventManager.RaiseNoObjectSelectedEvent();
-            Debug.Log("There is no GameObject in the Hierarchy selected or the GameObject has no generator script attached.");
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace CollisionHandler
@@ -8,7 +9,13 @@ namespace CollisionHandler
         {
             if(other.gameObject.CompareTag("Planet") 
                || other.gameObject.CompareTag("BrownPlanet"))
-                other.gameObject.SetActive(false);
+                StartCoroutine(WaitTillEventHorizon(other));
+        }
+
+        private IEnumerator WaitTillEventHorizon(Collision other)
+        {
+            yield return new WaitForSeconds(.5f);
+            other.gameObject.SetActive(false);
         }
     }
 }

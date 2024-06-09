@@ -21,6 +21,8 @@ namespace UX
         
         private bool _isObjectSelected;
         
+        public bool IsGamePaused;
+        
         public event Action OnObjectSelected;
         public event Action OnObjectDeselectedReady;
         public event Action OnHoverOverObject;
@@ -33,8 +35,9 @@ namespace UX
 
         private void Update()
         {
+            if (IsGamePaused) return;
             GameObjectSelectionHandler();
-            HandleEscapeInput();
+            HandleTabInput();
         }
 
         private void GameObjectSelectionHandler()
@@ -61,8 +64,7 @@ namespace UX
         private void CenterDotInteraction()
         {
             var ray = new Ray(_camera.transform.position, _camera.transform.forward);
-            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, 
-                    out var hit, Mathf.Infinity, _layerMask))
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
                 Selection(hit);
         }
 
@@ -116,9 +118,9 @@ namespace UX
             return selection.GetComponentInChildren<ObjectGenerator>().ObjectSettings.Material;
         }
 
-        private void HandleEscapeInput()
+        private void HandleTabInput()
         {
-            if (_isObjectSelected && Input.GetKeyDown(KeyCode.Escape))
+            if (_isObjectSelected && Input.GetKeyDown(KeyCode.Tab))
                 DeselectObject();
         }
         

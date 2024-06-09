@@ -10,14 +10,14 @@ namespace Jobs
     public struct CalculateOrbitsJob : IJob
     {
         [NativeDisableParallelForRestriction] public NativeArray<Vector3> DrawPoints;
-        [ReadOnly] public NativeArray<Color> PathColors;
+        [HelpersAndExtensions.ReadOnly] public NativeArray<Color> PathColors;
         public NativeArray<VirtualBody> VirtualBodies;
 
-        [ReadOnly] public Vector3 ReferenceBodyInitialPosition;
-        [ReadOnly] public bool RelativeToCenterBody;
-        [ReadOnly] public int ReferenceFrameIndex;
-        [ReadOnly] public float TimeStep;
-        [ReadOnly] public int NumSteps;
+        [HelpersAndExtensions.ReadOnly] public Vector3 ReferenceBodyInitialPosition;
+        [HelpersAndExtensions.ReadOnly] public bool RelativeToCenterBody;
+        [HelpersAndExtensions.ReadOnly] public int ReferenceFrameIndex;
+        [HelpersAndExtensions.ReadOnly] public float TimeStep;
+        [HelpersAndExtensions.ReadOnly] public int NumSteps;
 
         public void Execute()
         {

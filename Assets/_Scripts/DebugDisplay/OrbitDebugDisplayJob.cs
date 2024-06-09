@@ -57,9 +57,7 @@ public class OrbitDebugDisplayJob : MonoBehaviour
             ReferenceBodyInitialPosition = referenceBodyInitialPosition
         };
 
-        var handle = job.Schedule();
-
-        handle.Complete();
+        job.Schedule().Complete();
 
         virtualBodies.Dispose();
         pathColors.Dispose();

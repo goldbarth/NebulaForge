@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HelpersAndExtensions;
+using UnityEngine;
 using Planet;
 
 namespace SolarSystem
@@ -12,7 +13,7 @@ namespace SolarSystem
         [Space, SerializeField] private float _surfaceGravity;
         [Space(5), SerializeField] public float Mass;
         [Space(5), SerializeField] public Vector3 InitialVelocity = new(0f, 0.5f, 0f);
-        [Space(5), SerializeField] public Vector3 CurrentVelocity;
+        [Space(5), SerializeField, ReadOnly] private Vector3 _currentVelocity;
 
         public float SurfaceGravity
         {
@@ -26,8 +27,9 @@ namespace SolarSystem
 
         public Vector3 Velocity
         {
-            get => CurrentVelocity;
-            set => CurrentVelocity = value;
+            
+            get => _currentVelocity;
+            set => _currentVelocity = value;
         }
 
         public float ObjectMass
@@ -52,7 +54,7 @@ namespace SolarSystem
                 _radius = GetComponentInChildren<ObjectGenerator>().Radius;
             
             _rigidbody = GetComponent<Rigidbody>();
-            CurrentVelocity = InitialVelocity;
+            _currentVelocity = InitialVelocity;
         
             MassCalculation();
         }
@@ -76,12 +78,16 @@ namespace SolarSystem
 
         public void UpdateVelocity(Vector3 acceleration, float timeStep)
         {
-            CurrentVelocity += acceleration * timeStep;
+            _currentVelocity += acceleration * timeStep;
         }
 
         public void UpdatePosition(float timeStep)
         {
-            _rigidbody.MovePosition(_rigidbody.position + CurrentVelocity * timeStep);
+            
+            if (gameObject.CompareTag("BlackHole"))
+                _currentVelocity = Vector3.zero;
+             
+            _rigidbody.MovePosition(_rigidbody.position + _currentVelocity * timeStep);
         }
     }
 }

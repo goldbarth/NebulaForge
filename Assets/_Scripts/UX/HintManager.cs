@@ -10,11 +10,11 @@ namespace UX
         [SerializeField] private string _startHintText = "Hover over a planet to see its stats.";
         [SerializeField] private string _selectObjectHintText = "Click to select a planet.";
         [SerializeField] private string _adjustSettingsHintText = "In the left upper corner. Use the sliders to change the planet's properties.";
-        [SerializeField] private string _deselectHintText = "Press ESC to deselect the planet and hide the planet settings.";
+        [SerializeField] private string _deselectHintText = "Press TAB to deselect the planet and hide the planet settings.";
         
         private UserInput _userInput;
         
-        private bool _hasTutorialEnded = false;
+        private bool _hasTutorialEnded;
 
         private void Awake()
         {

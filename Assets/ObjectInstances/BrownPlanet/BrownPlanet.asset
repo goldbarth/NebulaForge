@@ -20,22 +20,22 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.2830189, g: 0.12534387, b: 0.012014948, a: 1}
     key1: {r: 0.41900003, g: 0.24759091, b: 0.12515585, a: 1}
-    key2: {r: 0.6039216, g: 0.35943398, b: 0.1848, a: 1}
+    key2: {r: 0.5377358, g: 0.28000137, b: 0.09841577, a: 1}
     key3: {r: 0.9056604, g: 0.825483, b: 0.41352794, a: 0}
     key4: {r: 1, g: 1, b: 1, a: 0}
     key5: {r: 1, g: 1, b: 1, a: 0}
     key6: {r: 0.21960783, g: 0.5804781, b: 1, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 18993
-    ctime1: 30120
-    ctime2: 39904
-    ctime3: 52566
+    ctime0: 26283
+    ctime1: 46043
+    ctime2: 65535
+    ctime3: 52950
     ctime4: 65535
     ctime5: 65535
     ctime6: 65535
     ctime7: 0
     atime0: 0
-    atime1: 58322
+    atime1: 65535
     atime2: 65535
     atime3: 0
     atime4: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 3
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   NoiseLayers:
   - Enabled: 1
     UseFirstLayerAsMask: 0
@@ -107,10 +107,10 @@ MonoBehaviour:
         GroundLevel: 0
       RidgidNoiseSettings:
         Seed: 237
-        NoiseStrength: 0.05
+        NoiseStrength: 0.17
         NumberOfLayers: 2
-        BaseRoughness: 1.36
-        Roughness: 1.97
+        BaseRoughness: 1.39
+        Roughness: 4.99
         Persistence: 0.62
         Center: {x: 0, y: 0, z: 0}
         GroundLevel: 0

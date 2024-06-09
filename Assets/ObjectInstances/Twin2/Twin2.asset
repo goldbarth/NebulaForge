@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Twin2
   m_EditorClassIdentifier: 
   ObjectType: 1
-  Material: {fileID: 0}
+  Material: {fileID: 2100000, guid: f4bd04738f7c4c947a4bedfef4125fe5, type: 2}
   Resolution: 128
   Radius: 50
   Gradient:

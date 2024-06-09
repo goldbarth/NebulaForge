@@ -18,6 +18,8 @@ Shader "Custom/BlackHole2_S"
         _StepSize ("Step size", Range(0.001, 1)) = 0.1
         _SSRadius ("Object relative Schwarzschild radius", Range(0,1)) = 0.2
         _GConst ("Gravitational constant", float) = 0.15
+        // Yellow dwarf star color
+        _Color ("Color", Color) = (1,1,0,1)
     }
 
     SubShader

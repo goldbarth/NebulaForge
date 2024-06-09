@@ -33,6 +33,9 @@ namespace CameraController
                 
                 _topdownCanvas.SetActive(!_topdownCanvas.activeSelf);
                 _freeViewCanvas.SetActive(!_freeViewCanvas.activeSelf);
+                
+                Cursor.visible = !_freeViewCamera.activeSelf;
+                Cursor.lockState = _freeViewCamera.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
             }
         }
     }

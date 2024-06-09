@@ -1,10 +1,11 @@
+#if UNITY_EDITOR
+
 using PlanetSettings.NoiseSettings;
 using HelpersAndExtensions;
 using PlanetSettings;
 using SolarSystem;
 using UnityEngine;
 using Planet;
-using UnityEditor;
 
 namespace CustomEditorWindow.Dependencies
 {
@@ -107,3 +108,5 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
+
+#endif

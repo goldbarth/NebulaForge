@@ -37,8 +37,10 @@ namespace Planet.SurfaceGeneration
             _texture.SetPixels(colors);
             _texture.Apply();
         
+#if UNITY_EDITOR
             _texture.SaveTextureToFile(_object.ObjectSettings);
             _object.Material.AddTexture(_object.ObjectSettings);
+#endif
         }
     }
 }

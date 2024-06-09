@@ -15,7 +15,11 @@ namespace UX
         
         [SerializeField] private Toggle _manualTimeScaleToggle;
         [SerializeField] private Slider _timeScaleSlider;
-
+        
+        [SerializeField] private GameObject _quitPanel;
+        [SerializeField] private Button _confirmButton;
+        [SerializeField] private Button _cancelButton;
+        
         private SelectionManager _selectionManager;
         private OrbitSimulation _orbitSimulation;
         
@@ -30,6 +34,7 @@ namespace UX
         private void Start()
         {
             _planetValueInputPanel.SetActive(false);
+            _quitPanel.SetActive(false);
             
             _magnitudeSlider.onValueChanged.AddListener(ReadMagnitudeInput);
             _gravitySlider.onValueChanged.AddListener(ReadGravityInput);
@@ -37,6 +42,20 @@ namespace UX
             
             _manualTimeScaleToggle.onValueChanged.AddListener(SetManualTimeScale);
             _timeScaleSlider.onValueChanged.AddListener(SetTimeScale);
+            
+            _confirmButton.onClick.AddListener(QuitSimulation);
+            _cancelButton.onClick.AddListener(CancelQuit);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                _quitPanel.SetActive(!_quitPanel.activeSelf);
+            }
+            
+            _selectionManager.IsGamePaused = _quitPanel.activeSelf;
+            Time.timeScale = _selectionManager.IsGamePaused ? 0 : 1;
         }
 
         private void OnEnable()
@@ -99,6 +118,16 @@ namespace UX
             }
             
             _planetValueInputPanel.SetActive(!_planetValueInputPanel.activeSelf);
+        }
+        
+        private void QuitSimulation()
+        {
+            Application.Quit();
+        }
+        
+        private void CancelQuit()
+        {
+            _quitPanel.SetActive(false);
         }
     }
 }

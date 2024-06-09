@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using SolarSystem;
 using UnityEditor;
 using UnityEngine;
@@ -57,3 +59,5 @@ namespace CustomEditorWindow.Dependencies
         }
     }
 }
+
+#endif
