@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CameraController
@@ -9,6 +10,8 @@ namespace CameraController
         
         [SerializeField] private GameObject _topdownCanvas;
         [SerializeField] private GameObject _freeViewCanvas;
+        
+        public event Action OnActivateFreeView;
 
         private void Start()
         {
@@ -17,6 +20,8 @@ namespace CameraController
             
             _topdownCanvas.SetActive(true);
             _freeViewCanvas.SetActive(false);
+            
+            enabled = false;
         }
 
         private void Update()
@@ -36,6 +41,8 @@ namespace CameraController
                 
                 Cursor.visible = !_freeViewCamera.activeSelf;
                 Cursor.lockState = _freeViewCamera.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+                
+                OnActivateFreeView?.Invoke();
             }
         }
     }

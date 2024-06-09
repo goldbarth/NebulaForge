@@ -26,6 +26,7 @@ namespace UX
         public event Action OnObjectSelected;
         public event Action OnObjectDeselectedReady;
         public event Action OnHoverOverObject;
+        
 
         protected override void Awake()
         {

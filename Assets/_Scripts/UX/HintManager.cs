@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CameraController;
+using UnityEngine;
 using TMPro;
 
 namespace UX
@@ -11,13 +12,16 @@ namespace UX
         [SerializeField] private string _selectObjectHintText = "Click to select a planet.";
         [SerializeField] private string _adjustSettingsHintText = "In the left upper corner. Use the sliders to change the planet's properties.";
         [SerializeField] private string _deselectHintText = "Press TAB to deselect the planet and hide the planet settings.";
+        [SerializeField] private string _freeViewHintText = "Press F to switch to free view mode and back.";
         
+        private CameraManager _cameraManager;
         private UserInput _userInput;
         
         private bool _hasTutorialEnded;
 
         private void Awake()
         {
+            _cameraManager = FindObjectOfType<CameraManager>();
             _userInput = FindObjectOfType<UserInput>();
         }
 
@@ -30,16 +34,18 @@ namespace UX
         {
             SelectionManager.Instance.OnHoverOverObject += HoverOverObject;
             SelectionManager.Instance.OnObjectSelected += ActiveObjectSelected;
-            SelectionManager.Instance.OnObjectDeselectedReady += HideHintText;
+            SelectionManager.Instance.OnObjectDeselectedReady += ActiveFreeViewText;
             _userInput.OnSliderChanged += ActiveUserInterface;
+            _cameraManager.OnActivateFreeView += HideHintText;
         }
 
         private void OnDisable()
         {
             SelectionManager.Instance.OnHoverOverObject -= HoverOverObject;
             SelectionManager.Instance.OnObjectSelected -= ActiveObjectSelected;
-            SelectionManager.Instance.OnObjectDeselectedReady -= HideHintText;
+            SelectionManager.Instance.OnObjectDeselectedReady -= ActiveFreeViewText;
             _userInput.OnSliderChanged -= ActiveUserInterface;
+            _cameraManager.OnActivateFreeView -= HideHintText;
         }
 
         private void HoverOverObject()
@@ -58,6 +64,13 @@ namespace UX
         {
             if (_hasTutorialEnded) return;
             SetHintText(_deselectHintText);
+        }
+        
+        private void ActiveFreeViewText()
+        {
+            if (_hasTutorialEnded) return;
+            _cameraManager.enabled = true;
+            SetHintText(_freeViewHintText);
         }
         
         private void HideHintText()
