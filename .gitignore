@@ -63,8 +63,20 @@ sysinfo.txt
 *.app
 
 # JetbrainsRider idea
-*/.idea/workspace.xml
+.idea/
+**/.idea/
 *workspace.xml
+
+# Nested/stray git repositories (mirrors, clones)
+*.git/
+!.git/
+
+# Runtime FPS logs
+/fpslog/
+
+# Rider per-project settings (belong to gitignored .csproj files)
+*.DotSettings
+*.DotSettings.user
 
 # Crashlytics generated file
 crashlytics-build.properties
